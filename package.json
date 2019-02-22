@@ -11,12 +11,17 @@
     "gatsby-plugin-offline": "^2.0.24",
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-sharp": "^2.0.21",
+    "gatsby-plugin-typography": "^2.2.7",
     "gatsby-source-filesystem": "^2.0.21",
     "gatsby-transformer-sharp": "^2.1.14",
     "prop-types": "^15.7.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-typography": "^0.16.18",
+    "typeface-lato": "^0.0.54",
+    "typeface-montserrat": "^0.0.54",
+    "typography": "^0.16.18"
   },
   "keywords": [
     "gatsby"
