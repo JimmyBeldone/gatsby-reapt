@@ -27,7 +27,8 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "stylint": "stylint"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "devDependencies": {
-    "gatsby-plugin-stylus-resources": "^1.0.0"
+    "gatsby-plugin-stylus-resources": "^1.0.0",
+    "stylint": "^1.5.9"
   }
 }
