@@ -2,21 +2,32 @@ import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
+import { injectIntl, intlShape } from "react-intl";
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({
+    description,
+    meta,
+    keywords,
+    title,
+    intl: { formatMessage, locale }
+}) {
     return (
         <StaticQuery
             query={detailsQuery}
             render={data => {
-                const metaDescription =
-                    description || data.site.siteMetadata.description;
+                const metaDescription = formatMessage({
+                    id: description || data.site.siteMetadata.description
+                });
+                const formattedTitle = formatMessage({ id: title });
                 return (
                     <Helmet
                         htmlAttributes={{
-                            lang
+                            locale
                         }}
-                        title={title}
-                        titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+                        title={formattedTitle}
+                        titleTemplate={`%s | ${formatMessage({
+                            id: data.site.siteMetadata.title
+                        })}`}
                         meta={[
                             {
                                 name: `description`,
@@ -24,7 +35,7 @@ function SEO({ description, lang, meta, keywords, title }) {
                             },
                             {
                                 property: `og:title`,
-                                content: title
+                                content: formattedTitle
                             },
                             {
                                 property: `og:description`,
@@ -40,11 +51,13 @@ function SEO({ description, lang, meta, keywords, title }) {
                             },
                             {
                                 name: `twitter:creator`,
-                                content: data.site.siteMetadata.author
+                                content: formatMessage({
+                                    id: data.site.siteMetadata.author
+                                })
                             },
                             {
                                 name: `twitter:title`,
-                                content: title
+                                content: formattedTitle
                             },
                             {
                                 name: `twitter:description`,
@@ -68,20 +81,19 @@ function SEO({ description, lang, meta, keywords, title }) {
 }
 
 SEO.defaultProps = {
-    lang: `en`,
     meta: [],
     keywords: []
 };
 
 SEO.propTypes = {
     description: PropTypes.string,
-    lang: PropTypes.string,
     meta: PropTypes.array,
     keywords: PropTypes.arrayOf(PropTypes.string),
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    intl: intlShape.isRequired
 };
 
-export default SEO;
+export default injectIntl(SEO);
 
 const detailsQuery = graphql`
     query DefaultSEOQuery {

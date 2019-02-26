@@ -1,12 +1,11 @@
 const styleResources = require("./src/styles/styleConfig");
-
-console.log(styleResources);
+// const languages = require("./src/lang");
 
 module.exports = {
     siteMetadata: {
-        title: `Gatsby Default Starter`,
-        description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-        author: `@gatsbyjs`
+        title: `demo.meta.title`,
+        description: `demo.meta.description`,
+        author: `demo.meta.author`
     },
     plugins: [
         `gatsby-plugin-react-helmet`,

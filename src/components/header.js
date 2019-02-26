@@ -1,8 +1,12 @@
+/* eslint-disable security/detect-object-injection */
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
+import { injectIntl, FormattedMessage } from "react-intl";
 
-const Header = ({ siteTitle }) => (
+import LocalizedLink from "./LocalizedLink";
+
+const Header = ({ siteTitle, langs }) => (
     <header
         style={{
             background: `rebeccapurple`,
@@ -17,26 +21,39 @@ const Header = ({ siteTitle }) => (
             }}
         >
             <h1 style={{ margin: 0 }}>
-                <Link
-                    to="/"
-                    style={{
-                        color: `white`,
-                        textDecoration: `none`
-                    }}
-                >
-                    {siteTitle}
-                </Link>
+                <LocalizedLink to="/">
+                    <div
+                        style={{
+                            color: `white`,
+                            textDecoration: `none`
+                        }}
+                    >
+                        <FormattedMessage id={siteTitle} />
+                    </div>
+                </LocalizedLink>
             </h1>
+            <nav>
+                {langs.map(lang => (
+                    <Link
+                        className={lang.selected ? "active" : ""}
+                        key={lang.langKey}
+                        to={lang.link}
+                    >
+                        {lang.langValue}
+                    </Link>
+                ))}
+            </nav>
         </div>
     </header>
 );
 
 Header.propTypes = {
-    siteTitle: PropTypes.string
+    siteTitle: PropTypes.string,
+    langs: PropTypes.array.isRequired
 };
 
 Header.defaultProps = {
     siteTitle: ``
 };
 
-export default Header;
+export default injectIntl(Header);
