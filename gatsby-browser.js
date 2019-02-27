@@ -1,11 +1,6 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
-
-// You can delete this file if you're not using it
 import "typeface-montserrat";
 import "typeface-lato";
 
 import "./src/styles/global.styl";
+
+export { ReduxWrapper as wrapRootElement } from "./src/providers/ReduxWrapper";
