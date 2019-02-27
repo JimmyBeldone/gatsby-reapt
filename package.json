@@ -1,27 +1,41 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-starter-reapt",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "A Gatsby version of Reapt with Redux, i18n, Stylus and more",
+  "version": "1.0.0",
+  "author": "Jimmy Beldone <dev.jimmy.beldone@gmail.com>",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "react",
+    "boilerplate",
+    "starterkit",
+    "starter kit",
+    "webpack",
+    "stylus",
+    "redux",
+    "i18n",
+    "code formatter",
+    "mk-react-comp",
+    "pwa",
+    "progressive web app"
   ],
   "license": "MIT",
   "scripts": {
+    "setup": "node setup/setupMessage.js && yarn && node setup/setup.js",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "stylint": "stylint"
+    "stylint": "stylint",
+    "lint": "eslint src --fix"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/JimmyBeldone/gatsby-reapt"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/JimmyBeldone/gatsby-reapt/issues"
   },
   "dependencies": {
     "gatsby": "^2.1.18",
@@ -48,6 +62,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
+    "chalk": "^2.4.2",
     "eslint": "^5.14.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
@@ -62,6 +77,9 @@
     "gatsby-plugin-eslint": "^2.0.4",
     "gatsby-plugin-stylus-resources": "^1.0.4",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.0.0",
+    "prompt": "^1.0.0",
+    "replace": "^1.0.1",
+    "rimraf": "^2.6.3",
     "stylint": "^1.5.9"
   }
 }
