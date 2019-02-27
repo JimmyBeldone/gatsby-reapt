@@ -61,6 +61,7 @@
     "eslint-plugin-security": "^1.4.0",
     "gatsby-plugin-eslint": "^2.0.4",
     "gatsby-plugin-stylus-resources": "^1.0.4",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.0.0",
     "stylint": "^1.5.9"
   }
 }
