@@ -4887,10 +4887,10 @@ gatsby-plugin-sharp@^2.0.22:
     sharp "^0.21.3"
     svgo "^0.7.2"
 
-gatsby-plugin-stylus-resources@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.4.tgz#5646e34a9243feabc70f50cc0c06e40a4eb79a7b"
-  integrity sha512-KYr4IOVMZAb2LBBXTgIW9t41W30gzrieuYy3k8VI5JddmsvIGXgbIAv6MgaZIIKamjR1OazGKMDTokPzTaxtOA==
+gatsby-plugin-stylus-resources@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.5.tgz#99a43048594cf799a1a4c5ea0e502734ba6564c8"
+  integrity sha512-0SkfQtBXu7tuWsLz7F2cUk6SmbLa5Y9nzy2Chq6zm6QypzTOfa0QHIw2vw1BVYVcaX6Viwty4/1B29OWguIHPg==
   dependencies:
     "@babel/runtime" "^7.0.0"
     sass-resources-loader "^2.0.0"
@@ -4904,10 +4904,10 @@ gatsby-plugin-typography@^2.2.7:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-webpack-bundle-analyser-v2@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-webpack-bundle-analyser-v2/-/gatsby-plugin-webpack-bundle-analyser-v2-1.0.0.tgz#efc76e43d549084bf632afe68761bdc0f58f8a86"
-  integrity sha512-ABhEbBQtg81jPuhDyPL6dxqRgEtCnlaczIncEQpLbAoawc+w5zyQKn/VX+8OWyltCqSrtMwYQw7Tt0/vHaq8qA==
+gatsby-plugin-webpack-bundle-analyser-v2@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-webpack-bundle-analyser-v2/-/gatsby-plugin-webpack-bundle-analyser-v2-1.0.1.tgz#de2e97790e2223f982b04dd9361a294da106887a"
+  integrity sha512-wb0m/g1w30p6aF7g1XLowYBdzoo133ouNe4W2B/oji4vg8UeO2yJKieJQHv08yPQn1aEHJi5slGTm1YbbWWyHg==
   dependencies:
     "@babel/runtime" "^7.0.0"
     webpack-bundle-analyzer "^3.0.4"
