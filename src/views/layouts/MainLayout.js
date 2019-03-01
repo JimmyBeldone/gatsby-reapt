@@ -1,31 +1,24 @@
-/* eslint-disable security/detect-object-injection */
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { IntlProvider, addLocaleData, FormattedMessage } from "react-intl";
 import { StaticQuery, graphql } from "gatsby";
-// Locale data
-import frData from "react-intl/locale-data/fr";
-import enData from "react-intl/locale-data/en";
 
-import "./layout.css";
-import "./global.styl";
+// import "../../styles/layout.styl";
+// import "../../styles/global.styl";
 
-import en from "../lang/en/";
-import fr from "../lang/fr/";
-import { flattenMessages, getLangs } from "../utils/lang";
+import I18nProvider from "../../providers/I18nProvider";
+import { getLangs } from "../../utils/lang";
 
-import Header from "./header";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 
-const messages = { en, fr };
-
-addLocaleData([...enData, ...frData]);
-
-const Layout = ({ locale, children, location, is404 }) => {
+const MainLayout = ({ locale, children, location, is404 }) => {
     if (typeof window !== `undefined`) {
         sessionStorage.setItem("lang", locale);
     }
+
     const { pathname: url } = location;
     const langsMenu = getLangs(locale, url, is404);
+
     return (
         <StaticQuery
             query={graphql`
@@ -39,16 +32,12 @@ const Layout = ({ locale, children, location, is404 }) => {
             `}
             render={data => (
                 // eslint-disable-next-line security/detect-object-injection
-                <IntlProvider
-                    locale={locale}
-                    // eslint-disable-next-line security/detect-object-injection
-                    messages={flattenMessages(messages[locale])}
-                    textComponent={Fragment}
-                >
+                <I18nProvider locale={locale}>
                     <>
                         <Header
                             siteTitle={data.site.siteMetadata.title}
                             langs={langsMenu}
+                            locale={locale}
                         />
                         <div
                             style={{
@@ -59,29 +48,24 @@ const Layout = ({ locale, children, location, is404 }) => {
                             }}
                         >
                             <main>{children}</main>
-                            <footer>
-                                © {new Date().getFullYear()},{" "}
-                                <FormattedMessage id="demo.footer.built" />
-                                {` `}
-                                <a href="https://www.gatsbyjs.org">Gatsby</a>
-                            </footer>
+                            <Footer />
                         </div>
                     </>
-                </IntlProvider>
+                </I18nProvider>
             )}
         />
     );
 };
 
-Layout.DefaultProps = {
+MainLayout.DefaultProps = {
     is404: false
 };
 
-Layout.propTypes = {
+MainLayout.propTypes = {
     children: PropTypes.node.isRequired,
     locale: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
     is404: PropTypes.bool
 };
 
-export default Layout;
+export default MainLayout;

@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import { injectIntl, intlShape } from "react-intl";
 
-import locales from "../../constants/locales";
+import locales from "../../../constants/locales";
 
 const LocalizedLink = ({ to, intl: { locale }, ...props }) => {
     // eslint-disable-next-line security/detect-object-injection

@@ -21,6 +21,11 @@ module.exports = {
             welcome: "Welcome to page 2",
             link: "Go back to the homepage"
         },
+        about: {
+            headerTitle: "About",
+            welcome: "Welcome to page About",
+            link: "Go back to the homepage"
+        },
         p404: {
             headerTitle: "404: Not found",
             title: "NOT FOUND",
@@ -33,10 +38,10 @@ module.exports = {
     },
     nav: {
         home: "Home",
+        page2: "Page 2",
         login: "Log In",
         register: "Sign Up",
         about: "About",
-        carterie: "Cards",
         logout: "Log out"
     },
     home: {

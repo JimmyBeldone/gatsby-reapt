@@ -21,6 +21,11 @@ module.exports = {
             welcome: "Bienvenue sur la page 2",
             link: "Retourner à l'acceuil"
         },
+        about: {
+            headerTitle: "À propos",
+            welcome: "Bienvenue dans la page à propos",
+            link: "Retourner à l'acceuil"
+        },
         p404: {
             headerTitle: "404: Not found",
             title: "404: Not found",
@@ -32,11 +37,11 @@ module.exports = {
     },
     nav: {
         home: "Accueil",
+        page2: "Page 2",
         login: "Connexion",
         register: "Inscription",
         about: "À Propos",
-        logout: "Deconnexion",
-        carterie: "Carterie"
+        logout: "Deconnexion"
     },
     home: {
         hello: "bonjour",

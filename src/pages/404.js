@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FormattedMessage } from "react-intl";
 
-import Layout from "../components/layout";
-import LocalizedLink from "../components/LocalizedLink";
-import SEO from "../components/seo";
+import MainLayout from "../views/layouts/MainLayout";
+import LocalizedLink from "../views/components/LocalizedLink";
+import SEO from "../views/components/SEO";
 
 const NotFoundPage = ({ pageContext: { locale }, location }) => {
     if (locale === undefined) {
@@ -18,7 +18,7 @@ const NotFoundPage = ({ pageContext: { locale }, location }) => {
         }
     }
     return (
-        <Layout locale={locale} location={location} is404>
+        <MainLayout locale={locale} location={location} is404>
             <SEO title="demo.p404.headerTitle" />
             <h1>
                 <FormattedMessage id="demo.p404.title" />
@@ -29,7 +29,7 @@ const NotFoundPage = ({ pageContext: { locale }, location }) => {
             <LocalizedLink to="/">
                 <FormattedMessage id="demo.page2.link" />
             </LocalizedLink>
-        </Layout>
+        </MainLayout>
     );
 };
 
