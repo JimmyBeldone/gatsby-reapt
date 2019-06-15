@@ -87,7 +87,7 @@
     "eslint-plugin-react-hooks": "1.6.0",
     "eslint-plugin-security": "1.4.0",
     "gatsby-plugin-eslint": "2.0.5",
-    "gatsby-plugin-stylus-resources": "1.0.12",
+    "gatsby-plugin-stylus-resources": "1.0.13",
     "gatsby-plugin-webpack-bundle-analyser-v2": "1.1.0",
     "prompt": "1.0.0",
     "replace": "1.1.0",
