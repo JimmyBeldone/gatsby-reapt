@@ -4,16 +4,14 @@ import { IntlProvider, addLocaleData } from "react-intl";
 // Locale data
 import frData from "react-intl/locale-data/fr";
 import enData from "react-intl/locale-data/en";
-import nlData from "react-intl/locale-data/nl";
 
 import en from "../lang/en/";
 import fr from "../lang/fr/";
-import nl from "../lang/fr/";
 import { flattenMessages } from "../utils/lang";
 
-const messages = { en, fr, nl };
+const messages = { en, fr };
 
-addLocaleData([...enData, ...frData, ...nlData]);
+addLocaleData([...enData, ...frData]);
 
 const I18nProvider = ({ locale, children }) => {
     return (
