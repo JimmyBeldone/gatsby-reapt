@@ -12,13 +12,15 @@ module.exports = {
     siteMetadata: {
         title: `demo.meta.title`,
         description: `demo.meta.description`,
-        author: `demo.meta.author`,
+        author: `Jimmy Beldone`,
         siteUrl: process.env.SITE_URL,
-        apiUrl: process.env.API_URL
+        apiUrl: process.env.API_URL,
+        social: {
+            twitter: `kylemathews`
+        }
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
-        // `gatsby-plugin-typography`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -53,6 +55,7 @@ module.exports = {
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         `gatsby-plugin-advanced-sitemap`,
+        `gatsby-plugin-feed`,
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
