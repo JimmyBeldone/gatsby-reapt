@@ -22,7 +22,7 @@ module.exports = {
             link: "Retourner à l'acceuil"
         },
         about: {
-            headerTitle: "À propos",
+            headerTitle: "a propos",
             welcome: "Bienvenue dans la page à propos",
             link: "Retourner à l'acceuil"
         },

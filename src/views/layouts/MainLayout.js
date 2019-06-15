@@ -1,12 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StaticQuery, graphql } from "gatsby";
-
-// import "../../styles/layout.styl";
-// import "../../styles/global.styl";
+import { useStaticQuery, graphql } from "gatsby";
 
 import I18nProvider from "../../providers/I18nProvider";
 import { getLangs } from "../../utils/lang";
+import { WebpProvider } from "../components/WebpDetect";
 
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
@@ -18,24 +16,25 @@ const MainLayout = ({ locale, children, location, is404 }) => {
 
     const { pathname: url } = location;
     const langsMenu = getLangs(locale, url, is404);
-
-    return (
-        <StaticQuery
-            query={graphql`
-                query SiteTitleQuery {
-                    site {
-                        siteMetadata {
-                            title
-                        }
+    const { site } = useStaticQuery(
+        graphql`
+            query LayoutQuery {
+                site {
+                    siteMetadata {
+                        title
                     }
                 }
-            `}
-            render={data => (
-                // eslint-disable-next-line security/detect-object-injection
-                <I18nProvider locale={locale}>
+            }
+        `
+    );
+
+    return (
+        <I18nProvider locale={locale}>
+            <div id="app">
+                <WebpProvider>
                     <>
                         <Header
-                            siteTitle={data.site.siteMetadata.title}
+                            siteTitle={site.siteMetadata.title}
                             langs={langsMenu}
                             locale={locale}
                         />
@@ -51,13 +50,13 @@ const MainLayout = ({ locale, children, location, is404 }) => {
                             <Footer />
                         </div>
                     </>
-                </I18nProvider>
-            )}
-        />
+                </WebpProvider>
+            </div>
+        </I18nProvider>
     );
 };
 
-MainLayout.DefaultProps = {
+MainLayout.defaultProps = {
     is404: false
 };
 
