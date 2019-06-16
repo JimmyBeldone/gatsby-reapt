@@ -22,10 +22,10 @@
   "license": "MIT",
   "scripts": {
     "setup": "node setup/setupMessage.js && yarn && node setup/setup.js",
-    "build": "gatsby build",
     "develop": "cross-env NODE_ENV=development MODE=development gatsby develop -o",
-    "staging": "cross-env NODE_ENV=production MODE=staging gatsby build",
     "start": "yarn develop",
+    "build": "cross-env NODE_ENV=production MODE=production gatsby build",
+    "build:staging": "cross-env NODE_ENV=production MODE=staging gatsby build",
     "start:mobile": "yarn develop -H 0.0.0.0",
     "serve": "gatsby serve -o",
     "serveMobile": "gatsby serve -o -H 0.0.0.0",
@@ -34,6 +34,7 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "stylint": "stylint",
     "lint": "eslint src --fix",
+    "pretty": "prettier --write 'src/**/*.js'",
     "mrc": "node ./node_modules/mk-react-comp/lib/index.js"
   },
   "repository": {
@@ -75,7 +76,9 @@
   "devDependencies": {
     "babel-eslint": "10.0.1",
     "chalk": "2.4.2",
+    "commitizen": "^3.1.1",
     "cross-env": "5.2.0",
+    "cz-conventional-changelog": "^2.1.0",
     "eslint": "5.16.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "4.3.0",
@@ -92,10 +95,34 @@
     "gatsby-plugin-eslint": "2.0.5",
     "gatsby-plugin-stylus-resources": "1.0.12",
     "gatsby-plugin-webpack-bundle-analyser-v2": "1.1.0",
+    "husky": "^2.4.1",
+    "lint-staged": "^8.2.1",
     "mk-react-comp": "^1.1.7",
+    "prettier": "^1.18.2",
     "prompt": "1.0.0",
     "replace": "1.1.0",
     "rimraf": "2.6.3",
     "stylint": "1.5.9"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src}/**/*.(js|jsx)": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.(styl|css)": [
+      "stylint",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
