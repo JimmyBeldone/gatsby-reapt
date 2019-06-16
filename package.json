@@ -2,7 +2,7 @@
   "name": "gatsby-starter-reapt",
   "private": true,
   "description": "A Gatsby version of Reapt with Redux, i18n, Stylus and more",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "author": "Jimmy Beldone <dev.jimmy.beldone@gmail.com>",
   "keywords": [
     "gatsby",
@@ -35,7 +35,8 @@
     "stylint": "stylint",
     "lint": "eslint src --fix",
     "pretty": "prettier --write 'src/**/*.js'",
-    "mrc": "node ./node_modules/mk-react-comp/lib/index.js"
+    "mrc": "node ./node_modules/mk-react-comp/lib/index.js",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -102,7 +103,8 @@
     "prompt": "1.0.0",
     "replace": "1.1.0",
     "rimraf": "2.6.3",
-    "stylint": "1.5.9"
+    "stylint": "1.5.9",
+    "semantic-release": "^15.13.16"
   },
   "husky": {
     "hooks": {
