@@ -23,9 +23,10 @@
   "scripts": {
     "setup": "node setup/setupMessage.js && yarn && node setup/setup.js",
     "build": "gatsby build",
-    "develop": "cross-env NODE_ENV=development MODE=development gatsby develop -H 0.0.0.0 -o",
+    "develop": "cross-env NODE_ENV=development MODE=development gatsby develop -o",
     "staging": "cross-env NODE_ENV=production MODE=staging gatsby build",
     "start": "yarn develop",
+    "start:mobile": "yarn develop -H 0.0.0.0",
     "serve": "gatsby serve -o",
     "serveMobile": "gatsby serve -o -H 0.0.0.0",
     "optim-img": "node scripts/optimize.js",
