@@ -32,7 +32,8 @@
     "https": "http-server public -o -g --ssl --cert ~/.localhost-ssl/test.crt --key ~/.localhost-ssl/test.key",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "stylint": "stylint",
-    "lint": "eslint src --fix"
+    "lint": "eslint src --fix",
+    "mrc": "node ./node_modules/mk-react-comp/lib/index.js"
   },
   "repository": {
     "type": "git",
@@ -90,6 +91,7 @@
     "gatsby-plugin-eslint": "2.0.5",
     "gatsby-plugin-stylus-resources": "1.0.12",
     "gatsby-plugin-webpack-bundle-analyser-v2": "1.1.0",
+    "mk-react-comp": "^1.1.7",
     "prompt": "1.0.0",
     "replace": "1.1.0",
     "rimraf": "2.6.3",
