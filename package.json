@@ -21,6 +21,7 @@
   ],
   "license": "MIT",
   "scripts": {
+    "commit": "git-cz",
     "setup": "node setup/setupMessage.js && yarn && node setup/setup.js",
     "develop": "cross-env NODE_ENV=development MODE=development gatsby develop -o",
     "start": "yarn develop",
