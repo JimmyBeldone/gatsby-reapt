@@ -1,20 +1,20 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
-import MainLayout from "../views/layouts/MainLayout";
-import LocalizedLink from "../views/components/LocalizedLink";
-import SEO from "../views/components/SEO";
+import MainLayout from '../views/layouts/MainLayout';
+import LocalizedLink from '../views/components/LocalizedLink';
+import SEO from '../views/components/SEO';
 
 const NotFoundPage = ({ pageContext: { locale }, location }) => {
     if (locale === undefined) {
         if (typeof window !== `undefined`) {
             locale =
-                sessionStorage.getItem("lang") !== null
-                    ? sessionStorage.getItem("lang")
-                    : "fr";
+                sessionStorage.getItem('lang') !== null
+                    ? sessionStorage.getItem('lang')
+                    : 'fr';
         } else {
-            locale = "fr";
+            locale = 'fr';
         }
     }
     return (
@@ -35,9 +35,9 @@ const NotFoundPage = ({ pageContext: { locale }, location }) => {
 
 NotFoundPage.propTypes = {
     pageContext: PropTypes.shape({
-        locale: PropTypes.string
+        locale: PropTypes.string,
     }).isRequired,
-    location: PropTypes.object.isRequired
+    location: PropTypes.object.isRequired,
 };
 
 export default NotFoundPage;

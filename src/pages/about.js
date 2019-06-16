@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from "react";
-import PropTypes from "prop-types";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
-import LocalizedLink from "../views/components/LocalizedLink";
-import MainLayout from "../views/layouts/MainLayout";
-import SEO from "../views/components/SEO";
+import LocalizedLink from '../views/components/LocalizedLink';
+import MainLayout from '../views/layouts/MainLayout';
+import SEO from '../views/components/SEO';
 
 const About = ({ pageContext: { locale }, location }) => {
     return (
@@ -23,9 +23,9 @@ const About = ({ pageContext: { locale }, location }) => {
 
 About.propTypes = {
     pageContext: PropTypes.shape({
-        locale: PropTypes.string.isRequired
+        locale: PropTypes.string.isRequired,
     }).isRequired,
-    location: PropTypes.object.isRequired
+    location: PropTypes.object.isRequired,
 };
 
 export default About;

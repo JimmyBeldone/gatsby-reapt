@@ -1,12 +1,12 @@
 /* eslint-disable security/detect-object-injection */
-import locales from "../constants/locales";
+import locales from '../constants/locales';
 
-export const flattenMessages = (nestedMessages, prefix = "") =>
+export const flattenMessages = (nestedMessages, prefix = '') =>
     Object.keys(nestedMessages).reduce((messages, key) => {
         const value = nestedMessages[key];
         const prefixedKey = prefix ? `${prefix}.${key}` : key;
 
-        if (typeof value === "string") {
+        if (typeof value === 'string') {
             messages[prefixedKey] = value;
         } else {
             Object.assign(messages, flattenMessages(value, prefixedKey));
@@ -16,7 +16,7 @@ export const flattenMessages = (nestedMessages, prefix = "") =>
     }, {});
 
 const getHomeLink = langKey => {
-    return locales[langKey].default ? "/" : `/${locales[langKey].path}/`;
+    return locales[langKey].default ? '/' : `/${locales[langKey].path}/`;
 };
 
 const getUrlForLang = (url, langKey, currentLangKey, homeLink, is404) => {
@@ -24,7 +24,7 @@ const getUrlForLang = (url, langKey, currentLangKey, homeLink, is404) => {
     if (is404) {
         return isDefault
             ? langKey !== currentLangKey
-                ? "/404/"
+                ? '/404/'
                 : url
             : `/${langKey}/404/`;
     } else {
@@ -45,7 +45,7 @@ export const getLangs = (currentLangKey, url, is404) => {
             langKey,
             langValue: locales[langKey].locale,
             selected: currentLangKey === langKey,
-            link: getUrlForLang(url, langKey, currentLangKey, homeLink, is404)
+            link: getUrlForLang(url, langKey, currentLangKey, homeLink, is404),
         };
     });
 };

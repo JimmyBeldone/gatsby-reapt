@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Helmet from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
-import { injectIntl, intlShape } from "react-intl";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
+import { injectIntl, intlShape } from 'react-intl';
 
 function SEO({
     description,
     meta,
     keywords,
     title,
-    intl: { formatMessage, locale }
+    intl: { formatMessage, locale },
 }) {
     const { site } = useStaticQuery(
         graphql`
@@ -22,11 +22,11 @@ function SEO({
                     }
                 }
             }
-        `
+        `,
     );
 
     const metaDescription = formatMessage({
-        id: description || site.siteMetadata.description
+        id: description || site.siteMetadata.description,
     });
 
     const formattedTitle = formatMessage({ id: title });
@@ -34,55 +34,55 @@ function SEO({
     return (
         <Helmet
             htmlAttributes={{
-                lang: locale
+                lang: locale,
             }}
             title={formattedTitle}
             titleTemplate={`%s | ${formatMessage({
-                id: site.siteMetadata.title
+                id: site.siteMetadata.title,
             })}`}
             meta={[
                 {
                     name: `description`,
-                    content: metaDescription
+                    content: metaDescription,
                 },
                 {
                     property: `og:title`,
-                    content: formattedTitle
+                    content: formattedTitle,
                 },
                 {
                     property: `og:description`,
-                    content: metaDescription
+                    content: metaDescription,
                 },
                 {
                     property: `og:type`,
-                    content: `website`
+                    content: `website`,
                 },
                 {
                     name: `twitter:card`,
-                    content: `summary`
+                    content: `summary`,
                 },
                 {
                     name: `twitter:creator`,
                     content: formatMessage({
-                        id: site.siteMetadata.author
-                    })
+                        id: site.siteMetadata.author,
+                    }),
                 },
                 {
                     name: `twitter:title`,
-                    content: formattedTitle
+                    content: formattedTitle,
                 },
                 {
                     name: `twitter:description`,
-                    content: metaDescription
-                }
+                    content: metaDescription,
+                },
             ]
                 .concat(
                     keywords.length > 0
                         ? {
                               name: `keywords`,
-                              content: keywords.join(`, `)
+                              content: keywords.join(`, `),
                           }
-                        : []
+                        : [],
                 )
                 .concat(meta)}
         />
@@ -91,7 +91,7 @@ function SEO({
 
 SEO.defaultProps = {
     meta: [],
-    keywords: []
+    keywords: [],
 };
 
 SEO.propTypes = {
@@ -99,7 +99,7 @@ SEO.propTypes = {
     meta: PropTypes.array,
     keywords: PropTypes.arrayOf(PropTypes.string),
     title: PropTypes.string.isRequired,
-    intl: intlShape.isRequired
+    intl: intlShape.isRequired,
 };
 
 export default injectIntl(SEO);

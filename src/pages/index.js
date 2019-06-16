@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
-import MainLayout from "../views/layouts/MainLayout";
-import Image from "../views/components/Images";
-import SEO from "../views/components/SEO";
-import LocalizedLink from "../views/components/LocalizedLink";
+import MainLayout from '../views/layouts/MainLayout';
+import Image from '../views/components/Images';
+import SEO from '../views/components/SEO';
+import LocalizedLink from '../views/components/LocalizedLink';
 
 const IndexPage = ({ pageContext: { locale }, location }) => (
     <MainLayout locale={locale} location={location}>
@@ -33,9 +33,9 @@ const IndexPage = ({ pageContext: { locale }, location }) => (
 
 IndexPage.propTypes = {
     pageContext: PropTypes.shape({
-        locale: PropTypes.string.isRequired
+        locale: PropTypes.string.isRequired,
     }).isRequired,
-    location: PropTypes.object.isRequired
+    location: PropTypes.object.isRequired,
 };
 
 export default IndexPage;

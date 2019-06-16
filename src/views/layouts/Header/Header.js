@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
-import "./Header.styl";
-import Nav from "../Nav";
-import SwitchLangBtn from "../../components/SwitchLangBtn";
-import LocalizedLink from "../../components/LocalizedLink";
+import './Header.styl';
+import Nav from '../Nav';
+import SwitchLangBtn from '../../components/SwitchLangBtn';
+import LocalizedLink from '../../components/LocalizedLink';
 
 // const logo = require("../../../assets/img/logo_white.svg");
 
@@ -27,13 +27,13 @@ const Header = ({ langs, locale, siteTitle }) => (
 );
 
 Header.defaultProps = {
-    siteTitle: ``
+    siteTitle: ``,
 };
 
 Header.propTypes = {
     siteTitle: PropTypes.string,
     langs: PropTypes.array.isRequired,
-    locale: PropTypes.string.isRequired
+    locale: PropTypes.string.isRequired,
 };
 
 export default Header;

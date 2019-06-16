@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/no-onchange */
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 // import { Link } from "gatsby";
-import { navigate } from "gatsby";
-import { FormattedMessage } from "react-intl";
+import { navigate } from 'gatsby';
+import { FormattedMessage } from 'react-intl';
 // import flag_FR from "svg-country-flags/svg/fr.svg";
 // import flag_GB from "svg-country-flags/svg/gb.svg";
 // import flag_BE from "svg-country-flags/svg/be.svg";
 
-import "./SwitchLangBtn.styl";
+import './SwitchLangBtn.styl';
 
 // const flags = {
 //     fr: flag_FR,
@@ -65,7 +65,7 @@ const SwitchLangBtn = ({ langs, locale }) => {
 
 SwitchLangBtn.propTypes = {
     langs: PropTypes.array.isRequired,
-    locale: PropTypes.string.isRequired
+    locale: PropTypes.string.isRequired,
 };
 
 export default SwitchLangBtn;
