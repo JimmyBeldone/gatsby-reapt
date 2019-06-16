@@ -1,32 +1,30 @@
-const styleResources = require('./src/styles/styleConfig');
+const styleResources = require(`./src/styles/styleConfig`);
+const metaConfig = require(`./gatsby-meta-config`);
 
-let activeEnv = process.env.MODE || process.env.NODE_ENV || 'development';
+let activeEnv = process.env.MODE || process.env.NODE_ENV || `development`;
 console.log(`Using environment config: '${activeEnv}'`);
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-require('dotenv').config({
+require(`dotenv`).config({
     path: `.env.${activeEnv}`,
 });
 
 module.exports = {
-    siteMetadata: {
-        title: `demo.meta.title`,
-        description: `demo.meta.description`,
-        author: `Jimmy Beldone`,
-        siteUrl: process.env.SITE_URL || 'http://localhost:8000',
-        apiUrl: process.env.API_URL || 'http://localhost.api',
-        social: {
-            twitter: `dev.jimmy`,
-        },
-    },
+    siteMetadata: metaConfig,
     plugins: [
         `gatsby-plugin-react-helmet`,
         {
-            resolve: 'gatsby-plugin-eslint',
+            resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+            options: {
+                siteUrl: metaConfig.siteUrl,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-eslint`,
             options: {
                 test: /\.js$|\.jsx$/,
                 exclude: /(node_modules|.cache|public)/,
-                stages: ['develop'],
+                stages: [`develop`],
                 options: {
                     emitWarning: true,
                     failOnError: false,
@@ -34,9 +32,9 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-typography',
+            resolve: `gatsby-plugin-typography`,
             options: {
-                pathToConfigModule: 'config/typography.js',
+                pathToConfigModule: `config/typography.js`,
             },
         },
         {
@@ -47,7 +45,7 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-stylus-resources',
+            resolve: `gatsby-plugin-stylus-resources`,
             options: {
                 resources: styleResources,
             },
@@ -66,7 +64,7 @@ module.exports = {
                 background_color: `#663399`,
                 theme_color: `#663399`,
                 display: `minimal-ui`,
-                icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+                icon: metaConfig.icon,
                 icons: [
                     {
                         src: `/favicons/icon-48x48.png`,
@@ -112,23 +110,23 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-robots-txt',
+            resolve: `gatsby-plugin-robots-txt`,
             options: {
                 resolveEnv: () => activeEnv,
                 env: {
                     development: {
-                        policy: [{ userAgent: '*', disallow: ['/'] }],
+                        policy: [{ userAgent: `*`, disallow: [`/`] }],
                     },
                     staging: {
-                        policy: [{ userAgent: '*', allow: '/' }],
+                        policy: [{ userAgent: `*`, allow: `/` }],
                     },
                     production: {
-                        policy: [{ userAgent: '*', allow: '/' }],
+                        policy: [{ userAgent: `*`, allow: `/` }],
                     },
                 },
             },
         },
-        'gatsby-plugin-offline',
-        'gatsby-plugin-webpack-bundle-analyser-v2',
+        `gatsby-plugin-offline`,
+        `gatsby-plugin-webpack-bundle-analyser-v2`,
     ],
 };

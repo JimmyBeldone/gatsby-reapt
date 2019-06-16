@@ -10,24 +10,24 @@ const NotFoundPage = ({ pageContext: { locale }, location }) => {
     if (locale === undefined) {
         if (typeof window !== `undefined`) {
             locale =
-                sessionStorage.getItem('lang') !== null
-                    ? sessionStorage.getItem('lang')
-                    : 'fr';
+                sessionStorage.getItem(`lang`) !== null
+                    ? sessionStorage.getItem(`lang`)
+                    : `fr`;
         } else {
-            locale = 'fr';
+            locale = `fr`;
         }
     }
     return (
         <MainLayout locale={locale} location={location} is404>
-            <SEO title="demo.p404.headerTitle" />
+            <SEO title='demo.p404.headerTitle' location={location} />
             <h1>
-                <FormattedMessage id="demo.p404.title" />
+                <FormattedMessage id='demo.p404.title' />
             </h1>
             <p>
-                <FormattedMessage id="demo.p404.description" />
+                <FormattedMessage id='demo.p404.description' />
             </p>
-            <LocalizedLink to="/">
-                <FormattedMessage id="demo.page2.link" />
+            <LocalizedLink to='/'>
+                <FormattedMessage id='demo.page2.link' />
             </LocalizedLink>
         </MainLayout>
     );

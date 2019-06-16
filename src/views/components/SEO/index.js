@@ -4,11 +4,15 @@ import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { injectIntl, intlShape } from 'react-intl';
 
+import icon from '../../../images/gatsby-icon.png';
+
 function SEO({
+    location,
+    title,
     description,
     meta,
+    metaIcon,
     keywords,
-    title,
     intl: { formatMessage, locale },
 }) {
     const { site } = useStaticQuery(
@@ -19,6 +23,8 @@ function SEO({
                         title
                         description
                         author
+                        siteUrl
+                        icon
                     }
                 }
             }
@@ -54,8 +60,20 @@ function SEO({
                     content: metaDescription,
                 },
                 {
+                    property: `og:image`,
+                    content: metaIcon,
+                },
+                {
                     property: `og:type`,
                     content: `website`,
+                },
+                {
+                    property: `og:url`,
+                    content: `${location.origin}${location.pathname}`,
+                },
+                {
+                    property: `og:site_name`,
+                    content: site.siteMetadata.siteUrl,
                 },
                 {
                     name: `twitter:card`,
@@ -63,9 +81,7 @@ function SEO({
                 },
                 {
                     name: `twitter:creator`,
-                    content: formatMessage({
-                        id: site.siteMetadata.author,
-                    }),
+                    content: site.siteMetadata.author,
                 },
                 {
                     name: `twitter:title`,
@@ -74,6 +90,10 @@ function SEO({
                 {
                     name: `twitter:description`,
                     content: metaDescription,
+                },
+                {
+                    name: `twitter:site`,
+                    content: site.siteMetadata.siteUrl,
                 },
             ]
                 .concat(
@@ -92,14 +112,17 @@ function SEO({
 SEO.defaultProps = {
     meta: [],
     keywords: [],
+    metaIcon: icon,
 };
 
 SEO.propTypes = {
     description: PropTypes.string,
     meta: PropTypes.array,
+    metaIcon: PropTypes.string,
     keywords: PropTypes.arrayOf(PropTypes.string),
     title: PropTypes.string.isRequired,
     intl: intlShape.isRequired,
+    location: PropTypes.object.isRequired,
 };
 
 export default injectIntl(SEO);

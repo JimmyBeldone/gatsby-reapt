@@ -2,8 +2,6 @@
 const locales = require('./src/constants/locales');
 
 exports.onCreatePage = ({ page, actions }) => {
-    console.log(page);
-    // console.log(actions)
     const { createPage, deletePage } = actions;
 
     // eslint-disable-next-line no-undef

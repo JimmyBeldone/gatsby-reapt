@@ -7,24 +7,20 @@ import LocalizedLink from '../views/components/LocalizedLink';
 import MainLayout from '../views/layouts/MainLayout';
 import SEO from '../views/components/SEO';
 
-const SecondPage = ({ pageContext: { locale }, location, ...props }) => {
-    console.log(location);
-    console.log(props);
-    return (
-        <MainLayout locale={locale} location={location}>
-            <SEO title="demo.page2.headerTitle" />
-            <h1>
-                <FormattedMessage id="demo.page2.hello" />
-            </h1>
-            <p>
-                <FormattedMessage id="demo.page2.welcome" />
-            </p>
-            <LocalizedLink to="/">
-                <FormattedMessage id="demo.page2.link" />
-            </LocalizedLink>
-        </MainLayout>
-    );
-};
+const SecondPage = ({ pageContext: { locale }, location }) => (
+    <MainLayout locale={locale} location={location}>
+        <SEO title='demo.page2.headerTitle' location={location} />
+        <h1>
+            <FormattedMessage id='demo.page2.hello' />
+        </h1>
+        <p>
+            <FormattedMessage id='demo.page2.welcome' />
+        </p>
+        <LocalizedLink to='/'>
+            <FormattedMessage id='demo.page2.link' />
+        </LocalizedLink>
+    </MainLayout>
+);
 
 SecondPage.propTypes = {
     pageContext: PropTypes.shape({
