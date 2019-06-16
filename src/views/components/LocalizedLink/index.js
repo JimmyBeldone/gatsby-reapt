@@ -14,7 +14,7 @@ const LocalizedLink = ({ to, intl: { locale }, ...props }) => {
         <Link
             {...props}
             to={path}
-            activeClassName={'active-link'}
+            activeClassName={`active-link`}
             partiallyActive={to !== PAGE_HOME}
         />
     );

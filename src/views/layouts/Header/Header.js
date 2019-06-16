@@ -11,10 +11,10 @@ import LocalizedLink from '../../components/LocalizedLink';
 
 const Header = ({ langs, locale, siteTitle }) => (
     <header>
-        <div className="container">
-            <div className="content">
-                <LocalizedLink to="/">
-                    <div className="logo">
+        <div className='container'>
+            <div className='content'>
+                <LocalizedLink to='/'>
+                    <div className='logo'>
                         {/* <img src={logo} alt="" /> */}
                         <FormattedMessage id={siteTitle} />
                     </div>

@@ -11,7 +11,7 @@ import Footer from './Footer/Footer';
 
 const MainLayout = ({ locale, children, location, is404 }) => {
     if (typeof window !== `undefined`) {
-        sessionStorage.setItem('lang', locale);
+        sessionStorage.setItem(`lang`, locale);
     }
 
     const { pathname: url } = location;
@@ -30,7 +30,7 @@ const MainLayout = ({ locale, children, location, is404 }) => {
 
     return (
         <I18nProvider locale={locale}>
-            <div id="app">
+            <div id='app'>
                 <WebpProvider>
                     <>
                         <Header

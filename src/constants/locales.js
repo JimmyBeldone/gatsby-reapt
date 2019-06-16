@@ -1,11 +1,11 @@
 module.exports = {
     fr: {
-        path: 'fr',
-        locale: 'Fr',
+        path: `fr`,
+        locale: `Fr`,
         default: true,
     },
     en: {
-        path: 'en',
-        locale: 'En',
+        path: `en`,
+        locale: `En`,
     },
 };

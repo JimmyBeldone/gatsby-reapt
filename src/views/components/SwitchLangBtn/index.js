@@ -28,12 +28,12 @@ const SwitchLangBtn = ({ langs, locale }) => {
     };
 
     return (
-        <div className="swith-lang-bloc">
-            <label htmlFor="lang-select">
-                <FormattedMessage id="general.lang" />
+        <div className='swith-lang-bloc'>
+            <label htmlFor='lang-select'>
+                <FormattedMessage id='general.lang' />
             </label>
             <select
-                id="lang-select"
+                id='lang-select'
                 onChange={e => nav(e)}
                 defaultValue={locale}
             >

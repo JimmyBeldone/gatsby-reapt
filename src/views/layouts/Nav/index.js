@@ -7,7 +7,7 @@ import LocalizedLink from '../../components/LocalizedLink';
 import { routes } from '../../../constants/router';
 
 const Nav = () => (
-    <div id="main-nav">
+    <div id='main-nav'>
         {routes.map((route, i) => (
             <LocalizedLink key={route.name + i} to={route.path}>
                 <FormattedMessage id={route.name} />
