@@ -1,7 +1,7 @@
 const styleResources = require(`./src/styles/styleConfig`);
 const metaConfig = require(`./gatsby-meta-config`);
 
-let activeEnv = process.env.MODE || process.env.NODE_ENV || `development`;
+const activeEnv = process.env.MODE || process.env.NODE_ENV || `development`;
 console.log(`Using environment config: '${activeEnv}'`);
 
 // eslint-disable-next-line import/no-extraneous-dependencies
