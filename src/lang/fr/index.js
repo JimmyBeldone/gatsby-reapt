@@ -22,9 +22,14 @@ module.exports = {
             link: `Retourner à l'acceuil`,
         },
         about: {
-            headerTitle: `a propos`,
+            headerTitle: `A propos`,
+            title: `A propos`,
             welcome: `Bienvenue dans la page à propos`,
             link: `Retourner à l'acceuil`,
+        },
+        ml: {
+            headerTitle: `Mentions Légales`,
+            title: `Mentions Légales`,
         },
         p404: {
             headerTitle: `404: Not found`,
@@ -42,6 +47,7 @@ module.exports = {
         register: `Inscription`,
         about: `À Propos`,
         logout: `Deconnexion`,
+        ml: `Mentions Légales`,
     },
     home: {
         hello: `bonjour`,
@@ -91,8 +97,7 @@ module.exports = {
         },
         forgottenPassword: {
             title: `Réinitialiser votre mot de passe`,
-            infos:
-                `Nous vous enverrons les informations dont vous avez besoin.`,
+            infos: `Nous vous enverrons les informations dont vous avez besoin.`,
             button: `Envoyer un email de réinitialisation de mot de passe`,
             success: `Un email vient de vous être envoyé`,
         },
@@ -115,7 +120,6 @@ module.exports = {
         wrongCredentials: `Vos identifiants sont incorrects`,
         tokenNotFound: `Clef d'inscription introuvable`,
         passwordNotFound: `Mot de passe non renseigné`,
-        userNotFoundWithToken:
-            `Utilisateur introuvable avec cette clef d'inscription`,
+        userNotFoundWithToken: `Utilisateur introuvable avec cette clef d'inscription`,
     },
 };
