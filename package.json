@@ -79,8 +79,8 @@
     "typography": "0.16.19"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^3.0.4",
-    "@semantic-release/git": "^7.0.12",
+    "@semantic-release/changelog": "3.0.4",
+    "@semantic-release/git": "7.0.12",
     "babel-eslint": "10.0.2",
     "chalk": "2.4.2",
     "commitizen": "3.1.1",
