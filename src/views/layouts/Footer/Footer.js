@@ -5,10 +5,12 @@ import './Footer.styl';
 
 const Footer = () => (
     <footer>
-        <h1>Footer</h1>© {new Date().getFullYear()},{` `}
-        <FormattedMessage id='demo.footer.built' />
-        {` `}
-        <a href='https://www.gatsbyjs.org'>Gatsby</a>
+        <div className='container'>
+            <h1>Footer</h1>© {new Date().getFullYear()},{` `}
+            <FormattedMessage id='demo.footer.built' />
+            {` `}
+            <a href='https://www.gatsbyjs.org'>Gatsby</a>
+        </div>
     </footer>
 );
 

@@ -11,12 +11,17 @@ const About = ({ pageContext: { locale }, location }) => {
     return (
         <MainLayout locale={locale} location={location}>
             <SEO title='demo.about.headerTitle' location={location} />
-            <p>
-                <FormattedMessage id='demo.about.welcome' />
-            </p>
-            <LocalizedLink to='/'>
-                <FormattedMessage id='demo.about.link' />
-            </LocalizedLink>
+            <div className='container'>
+                <h1>
+                    <FormattedMessage id='demo.about.title' />
+                </h1>
+                <p>
+                    <FormattedMessage id='demo.about.welcome' />
+                </p>
+                <LocalizedLink to='/'>
+                    <FormattedMessage id='demo.about.link' />
+                </LocalizedLink>
+            </div>
         </MainLayout>
     );
 };

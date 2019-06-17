@@ -10,15 +10,17 @@ import SEO from '../views/components/SEO';
 const SecondPage = ({ pageContext: { locale }, location }) => (
     <MainLayout locale={locale} location={location}>
         <SEO title='demo.page2.headerTitle' location={location} />
-        <h1>
-            <FormattedMessage id='demo.page2.hello' />
-        </h1>
-        <p>
-            <FormattedMessage id='demo.page2.welcome' />
-        </p>
-        <LocalizedLink to='/'>
-            <FormattedMessage id='demo.page2.link' />
-        </LocalizedLink>
+        <div className='container'>
+            <h1>
+                <FormattedMessage id='demo.page2.hello' />
+            </h1>
+            <p>
+                <FormattedMessage id='demo.page2.welcome' />
+            </p>
+            <LocalizedLink to='/'>
+                <FormattedMessage id='demo.page2.link' />
+            </LocalizedLink>
+        </div>
     </MainLayout>
 );
 
