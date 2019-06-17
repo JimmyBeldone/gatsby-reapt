@@ -1,9 +1,9 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-import errorReducer from "./errorReducer";
+import errorReducer from './errorReducer';
 
 const rootReducer = {
-    errors: errorReducer
+    errors: errorReducer,
 };
 
 export default combineReducers(rootReducer);

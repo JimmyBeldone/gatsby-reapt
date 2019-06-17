@@ -1,13 +1,13 @@
-import React, { Fragment } from "react";
-import PropTypes from "prop-types";
-import { IntlProvider, addLocaleData } from "react-intl";
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { IntlProvider, addLocaleData } from 'react-intl';
 // Locale data
-import frData from "react-intl/locale-data/fr";
-import enData from "react-intl/locale-data/en";
+import frData from 'react-intl/locale-data/fr';
+import enData from 'react-intl/locale-data/en';
 
-import en from "../lang/en/";
-import fr from "../lang/fr/";
-import { flattenMessages } from "../utils/lang";
+import en from '../lang/en/';
+import fr from '../lang/fr/';
+import { flattenMessages } from '../utils/lang';
 
 const messages = { en, fr };
 
@@ -28,7 +28,7 @@ const I18nProvider = ({ locale, children }) => {
 
 I18nProvider.propTypes = {
     children: PropTypes.node.isRequired,
-    locale: PropTypes.string.isRequired
+    locale: PropTypes.string.isRequired,
 };
 
 export default I18nProvider;

@@ -1,14 +1,14 @@
-import React from "react";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
-import "./Footer.styl";
+import './Footer.styl';
 
 const Footer = () => (
     <footer>
-        <h1>Footer</h1>© {new Date().getFullYear()},{" "}
-        <FormattedMessage id="demo.footer.built" />
+        <h1>Footer</h1>© {new Date().getFullYear()},{` `}
+        <FormattedMessage id='demo.footer.built' />
         {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <a href='https://www.gatsbyjs.org'>Gatsby</a>
     </footer>
 );
 

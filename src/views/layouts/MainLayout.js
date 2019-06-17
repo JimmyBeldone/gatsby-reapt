@@ -1,17 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import I18nProvider from "../../providers/I18nProvider";
-import { getLangs } from "../../utils/lang";
-import { WebpProvider } from "../components/WebpDetect";
+import I18nProvider from '../../providers/I18nProvider';
+import { getLangs } from '../../utils/lang';
+import { WebpProvider } from '../components/WebpDetect';
 
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
 
 const MainLayout = ({ locale, children, location, is404 }) => {
     if (typeof window !== `undefined`) {
-        sessionStorage.setItem("lang", locale);
+        sessionStorage.setItem(`lang`, locale);
     }
 
     const { pathname: url } = location;
@@ -25,12 +25,12 @@ const MainLayout = ({ locale, children, location, is404 }) => {
                     }
                 }
             }
-        `
+        `,
     );
 
     return (
         <I18nProvider locale={locale}>
-            <div id="app">
+            <div id='app'>
                 <WebpProvider>
                     <>
                         <Header
@@ -43,7 +43,7 @@ const MainLayout = ({ locale, children, location, is404 }) => {
                                 margin: `0 auto`,
                                 maxWidth: 960,
                                 padding: `0px 1.0875rem 1.45rem`,
-                                paddingTop: 0
+                                paddingTop: 0,
                             }}
                         >
                             <main>{children}</main>
@@ -57,14 +57,14 @@ const MainLayout = ({ locale, children, location, is404 }) => {
 };
 
 MainLayout.defaultProps = {
-    is404: false
+    is404: false,
 };
 
 MainLayout.propTypes = {
     children: PropTypes.node.isRequired,
     locale: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
-    is404: PropTypes.bool
+    is404: PropTypes.bool,
 };
 
 export default MainLayout;
