@@ -2,13 +2,6 @@ import React from 'react';
 
 import { PAGE_ML } from './src/constants/router';
 
-const activeEnv = process.env.MODE || process.env.NODE_ENV || `development`;
-
-// eslint-disable-next-line import/no-extraneous-dependencies
-require(`dotenv`).config({
-    path: `.env.${activeEnv}`,
-});
-
 export const onRenderBody = (
     { setPostBodyComponents, pathname },
     pluginOptions,
@@ -44,7 +37,7 @@ export const onRenderBody = (
             <script
                 key={`tarteaucitron-google-analytics`}
                 dangerouslySetInnerHTML={{
-                    __html: `tarteaucitron.user.gtagUa = '${process.env.GTAG}';
+                    __html: `tarteaucitron.user.gtagUa = '${process.env.GATSBY_GTAG}';
                         tarteaucitron.user.gtagMore = function () {
                             /* add here your optionnal _ga.push() */
                         };
