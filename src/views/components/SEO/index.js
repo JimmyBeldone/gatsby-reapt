@@ -48,6 +48,10 @@ function SEO({
             })}`}
             meta={[
                 {
+                    name: `google-site-verification`,
+                    content: process.env.GOOGLE_SITE_VERIFICATION,
+                },
+                {
                     name: `description`,
                     content: metaDescription,
                 },
