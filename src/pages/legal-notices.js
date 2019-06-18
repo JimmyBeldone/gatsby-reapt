@@ -3,34 +3,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import LocalizedLink from '../views/components/LocalizedLink';
 import MainLayout from '../views/layouts/MainLayout';
 import SEO from '../views/components/SEO';
 
-const About = ({ pageContext: { locale }, location }) => {
+const MLPage = ({ pageContext: { locale }, location }) => {
+    // const cnilLink = (
+    //     <a
+    //         href='http://www.cnil.fr/vos-droits/vos-traces/les-cookies/'
+    //         target='_blank'
+    //         rel='noreferrer noopener'
+    //     >
+    //         http://www.cnil.fr/vos-droits/vos-traces/les-cookies/
+    //     </a>
+    // );
     return (
         <MainLayout locale={locale} location={location}>
-            <SEO title='demo.about.headerTitle' location={location} />
+            <SEO title='demo.ml.headerTitle' location={location} />
             <div className='container'>
                 <h1>
-                    <FormattedMessage id='demo.about.title' />
+                    <FormattedMessage id='demo.ml.title' />
                 </h1>
-                <p>
-                    <FormattedMessage id='demo.about.welcome' />
-                </p>
-                <LocalizedLink to='/'>
-                    <FormattedMessage id='demo.about.link' />
-                </LocalizedLink>
             </div>
         </MainLayout>
     );
 };
 
-About.propTypes = {
+MLPage.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
 };
 
-export default About;
+export default MLPage;

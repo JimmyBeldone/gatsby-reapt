@@ -10,6 +10,7 @@ export const PAGE_REGISTER = `/register/`;
 export const PAGE_LOGIN = `/login/`;
 export const PAGE_FORGOTTEN_PASSWORD = `/forgotten-password/`;
 export const PAGE_RESETTING_PASSWORD = `/resetting-password/`;
+export const PAGE_ML = `/legal-notices/`;
 
 export const PAGE_DASHBOARD = `/dashbord/`;
 
@@ -25,5 +26,10 @@ export const routes = [
     {
         path: PAGE_ABOUT,
         name: `nav.about`,
+    },
+    {
+        path: PAGE_ML,
+        name: `nav.ml`,
+        nav: false,
     },
 ];

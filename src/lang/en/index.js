@@ -23,14 +23,18 @@ module.exports = {
         },
         about: {
             headerTitle: `About`,
+            title: `About`,
             welcome: `Welcome to page About`,
             link: `Go back to the homepage`,
+        },
+        ml: {
+            headerTitle: `Legal notices`,
+            title: `Legal notices`,
         },
         p404: {
             headerTitle: `404: Not found`,
             title: `NOT FOUND`,
-            description:
-                `You just hit a route that doesn't exist... the sadness.`,
+            description: `You just hit a route that doesn't exist... the sadness.`,
         },
         footer: {
             built: `Built with`,
@@ -43,6 +47,7 @@ module.exports = {
         register: `Sign Up`,
         about: `About`,
         logout: `Log out`,
+        ml: `Legal Notices`,
     },
     home: {
         hello: `hello`,
@@ -76,8 +81,7 @@ module.exports = {
         },
         forgottenPassword: {
             title: `Reset your password`,
-            infos:
-                `You will receive en email with a link to set your new password`,
+            infos: `You will receive en email with a link to set your new password`,
             button: `Send me an email`,
             success: `You just received an email`,
         },

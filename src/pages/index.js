@@ -17,21 +17,23 @@ const IndexPage = ({ pageContext: { locale }, location }) => (
             metaIcon={test}
             location={location}
         />
-        <h1>
-            <FormattedMessage id='demo.home.hello' />
-        </h1>
-        <p>
-            <FormattedMessage id='demo.home.welcome' />
-        </p>
-        <p>
-            <FormattedMessage id='demo.home.now' />
-        </p>
-        <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-            <Image />
+        <div className='container'>
+            <h1>
+                <FormattedMessage id='demo.home.hello' />
+            </h1>
+            <p>
+                <FormattedMessage id='demo.home.welcome' />
+            </p>
+            <p>
+                <FormattedMessage id='demo.home.now' />
+            </p>
+            <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+                <Image />
+            </div>
+            <LocalizedLink to='/page-2/'>
+                <FormattedMessage id='demo.home.link' />
+            </LocalizedLink>
         </div>
-        <LocalizedLink to='/page-2/'>
-            <FormattedMessage id='demo.home.link' />
-        </LocalizedLink>
     </MainLayout>
 );
 
