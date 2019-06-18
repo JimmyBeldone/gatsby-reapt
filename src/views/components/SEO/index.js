@@ -105,7 +105,9 @@ function SEO({
                         : [],
                 )
                 .concat(meta)}
-        />
+        >
+            <script>{`var tarteaucitronForceLanguage = '${locale}';`}</script>
+        </Helmet>
     );
 }
 

@@ -1,5 +1,5 @@
 /* eslint-disable security/detect-object-injection */
-const locales = require('./src/constants/locales');
+const locales = require(`./src/constants/locales`);
 
 exports.onCreatePage = ({ page, actions }) => {
     const { createPage, deletePage } = actions;
@@ -8,7 +8,7 @@ exports.onCreatePage = ({ page, actions }) => {
     return new Promise(resolve => {
         deletePage(page);
 
-        if (page.path === '/404.html') {
+        if (page.path === `/404.html`) {
             createPage({
                 ...page,
                 path: `/404.html`,
