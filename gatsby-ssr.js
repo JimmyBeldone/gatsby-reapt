@@ -8,6 +8,7 @@ export const onRenderBody = (
 ) => {
     if (process.env.NODE_ENV === `production`) {
         setPostBodyComponents([
+            <script key={`pacejs-init`} src='/pacejs/pace.js' />,
             <script
                 key={`tarteaucitron-init`}
                 src='/tarteaucitron/tarteaucitron.js'
