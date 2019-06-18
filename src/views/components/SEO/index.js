@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { injectIntl, intlShape } from 'react-intl';
 
+import { getLangs } from '../../../utils/lang';
 import icon from '../../../images/gatsby-icon.png';
 
 function SEO({
@@ -13,6 +14,8 @@ function SEO({
     meta,
     metaIcon,
     keywords,
+    translaled,
+    is404,
     intl: { formatMessage, locale },
 }) {
     const { site } = useStaticQuery(
@@ -36,6 +39,12 @@ function SEO({
     });
 
     const formattedTitle = formatMessage({ id: title });
+
+    const langPathnames = getLangs(locale, location.pathname, is404);
+    const defaultPathname = langPathnames.filter(
+        langPath => langPath.default,
+    )[0].link;
+    const defaultUrl = location.origin + defaultPathname;
 
     return (
         <Helmet
@@ -110,6 +119,26 @@ function SEO({
                 )
                 .concat(meta)}
         >
+            {translaled
+                ? [
+                      langPathnames.map(langPath => {
+                          return (
+                              <link
+                                  key={`alternate-${langPath.langKey}`}
+                                  rel='alternate'
+                                  href={location.origin + langPath.link}
+                                  hreflang={langPath.langKey}
+                              />
+                          );
+                      }),
+                      <link
+                          key={`alternate-default`}
+                          rel='alternate'
+                          hreflang='x-default'
+                          href={defaultUrl}
+                      />,
+                  ]
+                : null}
             <script>{`var tarteaucitronForceLanguage = '${locale}';`}</script>
         </Helmet>
     );
@@ -119,6 +148,8 @@ SEO.defaultProps = {
     meta: [],
     keywords: [],
     metaIcon: icon,
+    translaled: true,
+    is404: false,
 };
 
 SEO.propTypes = {
@@ -129,6 +160,8 @@ SEO.propTypes = {
     title: PropTypes.string.isRequired,
     intl: intlShape.isRequired,
     location: PropTypes.object.isRequired,
+    translaled: PropTypes.bool,
+    is404: PropTypes.bool,
 };
 
 export default injectIntl(SEO);

@@ -16,6 +16,7 @@ const MainLayout = ({ locale, children, location, is404 }) => {
 
     const { pathname: url } = location;
     const langsMenu = getLangs(locale, url, is404);
+
     const { site } = useStaticQuery(
         graphql`
             query LayoutQuery {
