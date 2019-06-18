@@ -49,7 +49,7 @@ function SEO({
             meta={[
                 {
                     name: `google-site-verification`,
-                    content: process.env.GOOGLE_SITE_VERIFICATION,
+                    content: process.env.GATSBY_GOOGLE_SITE_VERIFICATION,
                 },
                 {
                     name: `description`,
