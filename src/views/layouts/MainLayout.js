@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
+import Headroom from 'react-headroom';
 
 import I18nProvider from '../../providers/I18nProvider';
 import { getLangs } from '../../utils/lang';
@@ -34,11 +35,13 @@ const MainLayout = ({ locale, children, location, is404 }) => {
             <div id='app'>
                 <WebpProvider>
                     <>
-                        <Header
-                            siteTitle={site.siteMetadata.title}
-                            langs={langsMenu}
-                            locale={locale}
-                        />
+                        <Headroom>
+                            <Header
+                                siteTitle={site.siteMetadata.title}
+                                langs={langsMenu}
+                                locale={locale}
+                            />
+                        </Headroom>
                         <main>{children}</main>
                         <Footer />
                     </>

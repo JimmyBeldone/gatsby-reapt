@@ -67,6 +67,7 @@
     "prop-types": "15.7.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
+    "react-headroom": "^2.2.8",
     "react-helmet": "5.2.1",
     "react-intl": "2.9.0",
     "react-redux": "7.1.0",
