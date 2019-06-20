@@ -7,16 +7,9 @@ import Image from '../views/components/Images';
 import SEO from '../views/components/SEO';
 import LocalizedLink from '../views/components/LocalizedLink';
 
-import test from '../images/gatsby-astronaut.png';
-
 const IndexPage = ({ pageContext: { locale }, location }) => (
     <MainLayout locale={locale} location={location}>
-        <SEO
-            title='demo.home.headerTitle'
-            keywords={[`gatsby`, `application`, `react`]}
-            metaIcon={test}
-            location={location}
-        />
+        <SEO title='demo.home.headerTitle' location={location} />
         <div className='container'>
             <h1>
                 <FormattedMessage id='demo.home.hello' />
