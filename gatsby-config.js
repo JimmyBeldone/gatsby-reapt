@@ -1,5 +1,5 @@
 const styleResources = require(`./src/styles/styleConfig`);
-const config = require(`./gatsby-site-config`);
+const config = require(`./config/siteConfig`);
 
 const activeEnv = process.env.MODE || process.env.NODE_ENV || `development`;
 console.log(`Using environment config: '${activeEnv}'`);
@@ -64,11 +64,11 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `gatsby-starter-default`,
-                short_name: `starter`,
-                start_url: `/`,
-                background_color: `#e0e0e0`,
-                theme_color: `#663399`,
+                name: config.name,
+                short_name: config.short_name,
+                start_url: config.pathPrefix,
+                background_color: config.backgroundColor,
+                theme_color: config.theme_color,
                 display: `minimal-ui`,
                 icon: config.icon,
                 icons: [
