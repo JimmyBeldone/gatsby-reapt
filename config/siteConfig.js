@@ -30,16 +30,12 @@ module.exports = {
         twitter: ``,
     },
     // Author
-    author: {
-        name: `Jimmy Beldone`,
-        email: `dev.jimmy.beldone@gmail.com`,
-        location: `Lyon, France`,
-        avatar: ``,
-        description: ``,
-        social: {
-            twitter: ``,
-            github: `https://github.com/JimmyBeldone/`,
-        },
-    },
+    authorName: `Jimmy Beldone`,
+    authorEmail: `dev.jimmy.beldone@gmail.com`,
+    authorLocation: `Lyon, France`,
+    authorAvatar: ``,
+    authorDescription: ``,
+    authorTwitter: ``,
+    authorGithub: `https://github.com/JimmyBeldone/`,
     copyright: `Copyright © ${new Date().getFullYear()} - Gatsby Reapt - Jimmy Beldone`,
 };

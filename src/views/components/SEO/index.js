@@ -25,7 +25,7 @@ function SEO({
                     siteMetadata {
                         title
                         description
-                        author
+                        authorName
                         siteUrl
                         icon
                     }
