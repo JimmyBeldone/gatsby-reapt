@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
 import { injectIntl, intlShape } from 'react-intl';
-import siteConfig from 'Config';
 
+import siteConfig from '../../../../config/siteConfig';
 import { getLangs } from '../../../utils/lang';
 import icon from '../../../images/gatsby-icon.png';
 
@@ -19,24 +18,8 @@ function SEO({
     is404,
     intl: { formatMessage, locale },
 }) {
-    const { site } = useStaticQuery(
-        graphql`
-            query DefaultSEOQuery {
-                site {
-                    siteMetadata {
-                        title
-                        description
-                        authorName
-                        siteUrl
-                        icon
-                    }
-                }
-            }
-        `,
-    );
-
     const metaDescription = formatMessage({
-        id: description || site.siteMetadata.description,
+        id: description || siteConfig.description,
     });
 
     const formattedTitle = formatMessage({ id: title });
@@ -46,7 +29,7 @@ function SEO({
 
     const langPathnames = getLangs(locale, location.pathname, is404);
     const defaultLang = langPathnames.filter(langPath => langPath.default)[0];
-    const defaultUrl = location.origin + defaultLang.link;
+    const defaultUrl = siteConfig.siteUrl + defaultLang.link;
 
     const schemaOrgJSONLD = [
         {
@@ -58,6 +41,26 @@ function SEO({
         },
     ];
 
+    const alternateLinks = [];
+    const ogLocaleAlternateMeta = [];
+
+    if (translaled) {
+        langPathnames.forEach(langPath => {
+            alternateLinks.push(
+                <link
+                    key={`alternate-${langPath.langKey}`}
+                    rel='alternate'
+                    href={siteConfig.siteUrl + langPath.link}
+                    hreflang={langPath.langKey}
+                />,
+            );
+            ogLocaleAlternateMeta.push({
+                name: `og:locale:alternate`,
+                content: langPath.territory,
+            });
+        });
+    }
+
     return (
         <Helmet
             htmlAttributes={{
@@ -65,7 +68,7 @@ function SEO({
             }}
             title={formattedTitle}
             titleTemplate={`%s | ${formatMessage({
-                id: site.siteMetadata.title,
+                id: siteConfig.title,
             })}`}
             meta={[
                 {
@@ -99,11 +102,15 @@ function SEO({
                 },
                 {
                     property: `og:url`,
-                    content: `${location.origin}${location.pathname}`,
+                    content: `${siteConfig.siteUrl}${location.pathname}`,
                 },
                 {
                     property: `og:site_name`,
                     content: siteConfig.name,
+                },
+                {
+                    property: `og:locale`,
+                    content: defaultLang.territory,
                 },
                 // Twitter Card tags
                 {
@@ -131,6 +138,7 @@ function SEO({
                     content: metaIcon,
                 },
             ]
+                .concat(ogLocaleAlternateMeta)
                 .concat(
                     keywords.length > 0
                         ? {
@@ -141,37 +149,13 @@ function SEO({
                 )
                 .concat(meta)}
         >
-            {/* Add alternate and og:locale tags if page is translated */}
-            {translaled
-                ? [
-                      langPathnames.map(langPath => {
-                          return [
-                              <link
-                                  key={`alternate-${langPath.langKey}`}
-                                  rel='alternate'
-                                  href={location.origin + langPath.link}
-                                  hreflang={langPath.langKey}
-                              />,
-                              <meta
-                                  key={`og:locale-default`}
-                                  property='og:locale:alternate'
-                                  content={langPath.territory}
-                              />,
-                          ];
-                      }),
-                      <link
-                          key={`alternate-default`}
-                          rel='alternate'
-                          hreflang='x-default'
-                          href={defaultUrl}
-                      />,
-                      <meta
-                          key={`og:locale-default`}
-                          property='og:locale'
-                          content={defaultLang.territory}
-                      />,
-                  ]
-                : null}
+            {alternateLinks.map(link => link)}
+            <link
+                key={`alternate-default`}
+                rel='alternate'
+                hreflang='x-default'
+                href={defaultUrl}
+            />
             {/* Set GDPR banner lang  */}
             <script>{`var tarteaucitronForceLanguage = '${locale}';`}</script>
             {/* Schema.org tags */}

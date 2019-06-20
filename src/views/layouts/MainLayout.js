@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Headroom from 'react-headroom';
-import siteConfig from 'Config';
 
+import siteConfig from '../../../config/siteConfig';
 import I18nProvider from '../../providers/I18nProvider';
 import { getLangs } from '../../utils/lang';
 import { WebpProvider } from '../components/WebpDetect';

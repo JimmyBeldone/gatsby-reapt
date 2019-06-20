@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import siteConfig from 'Config';
+import siteConfig from '../../../../config/siteConfig';
 
 import './Footer.styl';
 

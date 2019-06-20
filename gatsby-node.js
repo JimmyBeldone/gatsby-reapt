@@ -35,8 +35,8 @@ exports.onCreatePage = ({ page, actions }) => {
 
 exports.onCreateWebpackConfig = ({ actions }) => {
     actions.setWebpackConfig({
-        externals: {
-            Config: JSON.stringify(require(`./config/siteConfig.js`)),
+        node: {
+            fs: `empty`,
         },
     });
 };
