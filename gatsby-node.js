@@ -32,3 +32,11 @@ exports.onCreatePage = ({ page, actions }) => {
         resolve();
     });
 };
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+    actions.setWebpackConfig({
+        node: {
+            fs: `empty`,
+        },
+    });
+};

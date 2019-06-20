@@ -1,5 +1,5 @@
 const styleResources = require(`./src/styles/styleConfig`);
-const metaConfig = require(`./gatsby-meta-config`);
+const config = require(`./config/siteConfig`);
 
 const activeEnv = process.env.MODE || process.env.NODE_ENV || `development`;
 console.log(`Using environment config: '${activeEnv}'`);
@@ -10,13 +10,13 @@ require(`dotenv`).config({
 });
 
 module.exports = {
-    siteMetadata: metaConfig,
+    siteMetadata: config,
     plugins: [
         `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-plugin-react-helmet-canonical-urls`,
             options: {
-                siteUrl: metaConfig.siteUrl,
+                siteUrl: config.siteUrl,
             },
         },
         {
@@ -50,6 +50,13 @@ module.exports = {
                 resources: styleResources,
             },
         },
+        {
+            resolve: `gatsby-plugin-nprogress`,
+            options: {
+                color: `tomato`,
+                showSpinner: false,
+            },
+        },
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         `gatsby-plugin-netlify`,
@@ -57,13 +64,13 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `gatsby-starter-default`,
-                short_name: `starter`,
-                start_url: `/`,
-                background_color: `#663399`,
-                theme_color: `#663399`,
+                name: config.name,
+                short_name: config.short_name,
+                start_url: config.pathPrefix,
+                background_color: config.backgroundColor,
+                theme_color: config.theme_color,
                 display: `minimal-ui`,
-                icon: metaConfig.icon,
+                icon: config.icon,
                 icons: [
                     {
                         src: `/favicons/icon-48x48.png`,

@@ -5,6 +5,7 @@ module.exports = {
     demo: {
         meta: {
             title: `Reapt Gatsby Starter`,
+            titleAlt: `Reapt GatsbyJS Starter`,
             description: `description du site en fr`,
             author: `@JimmyBeldone`,
         },

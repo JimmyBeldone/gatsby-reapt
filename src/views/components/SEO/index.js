@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
 import { injectIntl, intlShape } from 'react-intl';
 
+import siteConfig from '../../../../config/siteConfig';
+import { getLangs } from '../../../utils/lang';
 import icon from '../../../images/gatsby-icon.png';
 
 function SEO({
@@ -13,29 +14,52 @@ function SEO({
     meta,
     metaIcon,
     keywords,
+    translaled,
+    is404,
     intl: { formatMessage, locale },
 }) {
-    const { site } = useStaticQuery(
-        graphql`
-            query DefaultSEOQuery {
-                site {
-                    siteMetadata {
-                        title
-                        description
-                        author
-                        siteUrl
-                        icon
-                    }
-                }
-            }
-        `,
-    );
-
     const metaDescription = formatMessage({
-        id: description || site.siteMetadata.description,
+        id: description || siteConfig.description,
     });
 
     const formattedTitle = formatMessage({ id: title });
+    const formattedTitleAlt = formatMessage({
+        id: siteConfig.titleAlt,
+    });
+
+    const langPathnames = getLangs(locale, location.pathname, is404);
+    const defaultLang = langPathnames.filter(langPath => langPath.default)[0];
+    const defaultUrl = siteConfig.siteUrl + defaultLang.link;
+
+    const schemaOrgJSONLD = [
+        {
+            '@context': `http://schema.org`,
+            '@type': `WebSite`,
+            url: siteConfig.siteUrl,
+            name: formattedTitle,
+            alternateName: formattedTitleAlt,
+        },
+    ];
+
+    const alternateLinks = [];
+    const ogLocaleAlternateMeta = [];
+
+    if (translaled) {
+        langPathnames.forEach(langPath => {
+            alternateLinks.push(
+                <link
+                    key={`alternate-${langPath.langKey}`}
+                    rel='alternate'
+                    href={siteConfig.siteUrl + langPath.link}
+                    hreflang={langPath.langKey}
+                />,
+            );
+            ogLocaleAlternateMeta.push({
+                name: `og:locale:alternate`,
+                content: langPath.territory,
+            });
+        });
+    }
 
     return (
         <Helmet
@@ -44,17 +68,22 @@ function SEO({
             }}
             title={formattedTitle}
             titleTemplate={`%s | ${formatMessage({
-                id: site.siteMetadata.title,
+                id: siteConfig.title,
             })}`}
             meta={[
                 {
                     name: `google-site-verification`,
-                    content: process.env.GATSBY_GOOGLE_SITE_VERIFICATION,
+                    content: siteConfig.googleSiteVerification,
                 },
                 {
                     name: `description`,
                     content: metaDescription,
                 },
+                {
+                    name: `ìmage`,
+                    content: metaIcon,
+                },
+                // Open Graph tags
                 {
                     property: `og:title`,
                     content: formattedTitle,
@@ -73,19 +102,24 @@ function SEO({
                 },
                 {
                     property: `og:url`,
-                    content: `${location.origin}${location.pathname}`,
+                    content: `${siteConfig.siteUrl}${location.pathname}`,
                 },
                 {
                     property: `og:site_name`,
-                    content: site.siteMetadata.siteUrl,
+                    content: siteConfig.name,
                 },
+                {
+                    property: `og:locale`,
+                    content: defaultLang.territory,
+                },
+                // Twitter Card tags
                 {
                     name: `twitter:card`,
                     content: `summary`,
                 },
                 {
                     name: `twitter:creator`,
-                    content: site.siteMetadata.author,
+                    content: siteConfig.authorTwitter,
                 },
                 {
                     name: `twitter:title`,
@@ -97,9 +131,14 @@ function SEO({
                 },
                 {
                     name: `twitter:site`,
-                    content: site.siteMetadata.siteUrl,
+                    content: siteConfig.social.twitter,
+                },
+                {
+                    name: `twitter:image`,
+                    content: metaIcon,
                 },
             ]
+                .concat(ogLocaleAlternateMeta)
                 .concat(
                     keywords.length > 0
                         ? {
@@ -110,7 +149,19 @@ function SEO({
                 )
                 .concat(meta)}
         >
+            {alternateLinks.map(link => link)}
+            <link
+                key={`alternate-default`}
+                rel='alternate'
+                hreflang='x-default'
+                href={defaultUrl}
+            />
+            {/* Set GDPR banner lang  */}
             <script>{`var tarteaucitronForceLanguage = '${locale}';`}</script>
+            {/* Schema.org tags */}
+            <script type='application/ld+json'>
+                {JSON.stringify(schemaOrgJSONLD)}
+            </script>
         </Helmet>
     );
 }
@@ -119,6 +170,8 @@ SEO.defaultProps = {
     meta: [],
     keywords: [],
     metaIcon: icon,
+    translaled: true,
+    is404: false,
 };
 
 SEO.propTypes = {
@@ -129,6 +182,8 @@ SEO.propTypes = {
     title: PropTypes.string.isRequired,
     intl: intlShape.isRequired,
     location: PropTypes.object.isRequired,
+    translaled: PropTypes.bool,
+    is404: PropTypes.bool,
 };
 
 export default injectIntl(SEO);

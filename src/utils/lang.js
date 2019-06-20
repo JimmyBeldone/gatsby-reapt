@@ -19,24 +19,30 @@ const getHomeLink = langKey => {
     return locales[langKey].default ? `/` : `/${locales[langKey].path}/`;
 };
 
-const getUrlForLang = (url, langKey, currentLangKey, homeLink, is404) => {
+export const getUrlForLang = (
+    pathname,
+    langKey,
+    currentLangKey,
+    homeLink,
+    is404,
+) => {
     const isDefault = locales[langKey].default ? true : false;
     if (is404) {
         return isDefault
             ? langKey !== currentLangKey
                 ? `/404/`
-                : url
+                : pathname
             : `/${langKey}/404/`;
     } else {
         return isDefault
             ? langKey !== currentLangKey
-                ? url.replace(homeLink, `/`)
-                : url
-            : url.replace(homeLink, `/${langKey}/`);
+                ? pathname.replace(homeLink, `/`)
+                : pathname
+            : pathname.replace(homeLink, `/${langKey}/`);
     }
 };
 
-export const getLangs = (currentLangKey, url, is404) => {
+export const getLangs = (currentLangKey, pathname, is404) => {
     const langs = Object.keys(locales);
     const homeLink = getHomeLink(currentLangKey);
 
@@ -45,7 +51,15 @@ export const getLangs = (currentLangKey, url, is404) => {
             langKey,
             langValue: locales[langKey].locale,
             selected: currentLangKey === langKey,
-            link: getUrlForLang(url, langKey, currentLangKey, homeLink, is404),
+            link: getUrlForLang(
+                pathname,
+                langKey,
+                currentLangKey,
+                homeLink,
+                is404,
+            ),
+            default: locales[langKey].default !== undefined,
+            territory: locales[langKey].territory,
         };
     });
 };
