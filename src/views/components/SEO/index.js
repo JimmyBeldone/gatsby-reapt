@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { injectIntl, intlShape } from 'react-intl';
+import siteConfig from 'Config';
 
 import { getLangs } from '../../../utils/lang';
 import icon from '../../../images/gatsby-icon.png';
@@ -39,12 +40,23 @@ function SEO({
     });
 
     const formattedTitle = formatMessage({ id: title });
+    const formattedTitleAlt = formatMessage({
+        id: siteConfig.titleAlt,
+    });
 
     const langPathnames = getLangs(locale, location.pathname, is404);
-    const defaultPathname = langPathnames.filter(
-        langPath => langPath.default,
-    )[0].link;
-    const defaultUrl = location.origin + defaultPathname;
+    const defaultLang = langPathnames.filter(langPath => langPath.default)[0];
+    const defaultUrl = location.origin + defaultLang.link;
+
+    const schemaOrgJSONLD = [
+        {
+            '@context': `http://schema.org`,
+            '@type': `WebSite`,
+            url: siteConfig.siteUrl,
+            name: formattedTitle,
+            alternateName: formattedTitleAlt,
+        },
+    ];
 
     return (
         <Helmet
@@ -58,12 +70,17 @@ function SEO({
             meta={[
                 {
                     name: `google-site-verification`,
-                    content: process.env.GATSBY_GOOGLE_SITE_VERIFICATION,
+                    content: siteConfig.googleSiteVerification,
                 },
                 {
                     name: `description`,
                     content: metaDescription,
                 },
+                {
+                    name: `ìmage`,
+                    content: metaIcon,
+                },
+                // Open Graph tags
                 {
                     property: `og:title`,
                     content: formattedTitle,
@@ -86,15 +103,16 @@ function SEO({
                 },
                 {
                     property: `og:site_name`,
-                    content: site.siteMetadata.siteUrl,
+                    content: siteConfig.name,
                 },
+                // Twitter Card tags
                 {
                     name: `twitter:card`,
                     content: `summary`,
                 },
                 {
                     name: `twitter:creator`,
-                    content: site.siteMetadata.author,
+                    content: siteConfig.authorTwitter,
                 },
                 {
                     name: `twitter:title`,
@@ -106,7 +124,11 @@ function SEO({
                 },
                 {
                     name: `twitter:site`,
-                    content: site.siteMetadata.siteUrl,
+                    content: siteConfig.social.twitter,
+                },
+                {
+                    name: `twitter:image`,
+                    content: metaIcon,
                 },
             ]
                 .concat(
@@ -119,17 +141,23 @@ function SEO({
                 )
                 .concat(meta)}
         >
+            {/* Add alternate and og:locale tags if page is translated */}
             {translaled
                 ? [
                       langPathnames.map(langPath => {
-                          return (
+                          return [
                               <link
                                   key={`alternate-${langPath.langKey}`}
                                   rel='alternate'
                                   href={location.origin + langPath.link}
                                   hreflang={langPath.langKey}
-                              />
-                          );
+                              />,
+                              <meta
+                                  key={`og:locale-default`}
+                                  property='og:locale:alternate'
+                                  content={langPath.territory}
+                              />,
+                          ];
                       }),
                       <link
                           key={`alternate-default`}
@@ -137,9 +165,19 @@ function SEO({
                           hreflang='x-default'
                           href={defaultUrl}
                       />,
+                      <meta
+                          key={`og:locale-default`}
+                          property='og:locale'
+                          content={defaultLang.territory}
+                      />,
                   ]
                 : null}
+            {/* Set GDPR banner lang  */}
             <script>{`var tarteaucitronForceLanguage = '${locale}';`}</script>
+            {/* Schema.org tags */}
+            <script type='application/ld+json'>
+                {JSON.stringify(schemaOrgJSONLD)}
+            </script>
         </Helmet>
     );
 }

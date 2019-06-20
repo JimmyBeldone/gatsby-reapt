@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
 import Headroom from 'react-headroom';
+import siteConfig from 'Config';
 
 import I18nProvider from '../../providers/I18nProvider';
 import { getLangs } from '../../utils/lang';
@@ -18,18 +18,6 @@ const MainLayout = ({ locale, children, location, is404 }) => {
     const { pathname: url } = location;
     const langsMenu = getLangs(locale, url, is404);
 
-    const { site } = useStaticQuery(
-        graphql`
-            query LayoutQuery {
-                site {
-                    siteMetadata {
-                        title
-                    }
-                }
-            }
-        `,
-    );
-
     return (
         <I18nProvider locale={locale}>
             <div id='app'>
@@ -37,7 +25,7 @@ const MainLayout = ({ locale, children, location, is404 }) => {
                     <>
                         <Headroom>
                             <Header
-                                siteTitle={site.siteMetadata.title}
+                                siteTitle={siteConfig.title}
                                 langs={langsMenu}
                                 locale={locale}
                             />

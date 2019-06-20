@@ -8,6 +8,7 @@ require(`dotenv`).config({
 module.exports = {
     // SEO
     title: `demo.meta.title`,
+    titleAlt: `demo.meta.titleAlt`,
     description: `demo.meta.description`,
     pathPrefix: `/`,
     siteUrl: process.env.SITE_URL || `http://localhost:8000`,
@@ -17,10 +18,13 @@ module.exports = {
         `gatsby starter`,
         `gatsby intl`,
         `gatsby seo`,
+        `gatsby gdpr`,
+        `gatsby rgpd`,
         `mk-react-comp`,
     ],
+    googleSiteVerification: process.env.GATSBY_GOOGLE_SITE_VERIFICATION || ``,
     // manifest config
-    name: `gatsby-reapt`,
+    name: `Gatsby Reapt`,
     short_name: `Gatsby Reapt`,
     backgroundColor: `#e0e0e0`,
     themeColor: `#663399`,
@@ -35,7 +39,7 @@ module.exports = {
     authorLocation: `Lyon, France`,
     authorAvatar: ``,
     authorDescription: ``,
-    authorTwitter: ``,
+    authorTwitter: `@jimmy_dev`,
     authorGithub: `https://github.com/JimmyBeldone/`,
-    copyright: `Copyright © ${new Date().getFullYear()} - Gatsby Reapt - Jimmy Beldone`,
+    copyright: `Copyright © ${new Date().getFullYear()}`,
 };

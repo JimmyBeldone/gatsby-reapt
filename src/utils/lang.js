@@ -59,6 +59,7 @@ export const getLangs = (currentLangKey, pathname, is404) => {
                 is404,
             ),
             default: locales[langKey].default !== undefined,
+            territory: locales[langKey].territory,
         };
     });
 };
