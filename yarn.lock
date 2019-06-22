@@ -6072,10 +6072,10 @@ gatsby-plugin-sharp@2.2.0:
     sharp "^0.22.1"
     svgo "^1.2.0"
 
-gatsby-plugin-stylus-resources@1.0.16:
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.16.tgz#7db4593c8a71dc542ccb426b698e1b1b8e315dae"
-  integrity sha512-pjr1fnIieeUwgiRM5P8d3Uc+D2Em5jwsyZ1ocjeKxtebA+1KlTD4cARsM9KWT1FTxTy6fjewdVidk9jzqBy6Wg==
+gatsby-plugin-stylus-resources@1.0.17:
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.17.tgz#e86104f407f387d9a2989ce1346890c9904a553b"
+  integrity sha512-6hqurIN3Tb/TxkxmuhB/hufrxLcxsEIjKSbXZzezd1rxkWcn9jjf769WHh10DkJT1dVGfGrxwELFquOIiCvn3w==
   dependencies:
     "@babel/runtime" "^7.4.5"
     sass-resources-loader "^2.0.1"
