@@ -18,7 +18,10 @@ const Image = () => (
             }
         `}
         render={data => (
-            <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+            <Img
+                fluid={data.placeholderImage.childImageSharp.fluid}
+                alt={`gatsby-astronaut`}
+            />
         )}
     />
 );
