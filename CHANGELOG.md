@@ -1,3 +1,10 @@
+## [1.4.7](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.4.6...v1.4.7) (2019-06-26)
+
+
+### Bug Fixes
+
+* seo warnings ([48e2a5a](https://github.com/JimmyBeldone/gatsby-reapt/commit/48e2a5a))
+
 ## [1.4.6](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.4.5...v1.4.6) (2019-06-25)
 
 
