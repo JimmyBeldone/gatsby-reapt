@@ -10,7 +10,11 @@ import SEO from '../views/components/SEO';
 const About = ({ pageContext: { locale }, location }) => {
     return (
         <MainLayout locale={locale} location={location}>
-            <SEO title='demo.about.headerTitle' location={location} />
+            <SEO
+                title='demo.about.headerTitle'
+                location={location}
+                description='demo.about.description'
+            />
             <div className='container'>
                 <h1>
                     <FormattedMessage id='demo.about.title' />
