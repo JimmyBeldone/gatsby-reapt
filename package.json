@@ -102,7 +102,7 @@
     "gatsby-plugin-eslint": "2.0.5",
     "gatsby-plugin-stylus-resources": "1.0.19",
     "gatsby-plugin-webpack-bundle-analyser-v2": "1.1.1",
-    "husky": "2.5.0",
+    "husky": "2.6.0",
     "lint-staged": "8.2.1",
     "mk-react-comp": "1.1.7",
     "prettier": "1.18.2",
