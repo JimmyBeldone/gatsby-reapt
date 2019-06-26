@@ -9,7 +9,11 @@ import SEO from '../views/components/SEO';
 
 const SecondPage = ({ pageContext: { locale }, location }) => (
     <MainLayout locale={locale} location={location}>
-        <SEO title='demo.page2.headerTitle' location={location} />
+        <SEO
+            title='demo.page2.headerTitle'
+            location={location}
+            description='demo.page2.description'
+        />
         <div className='container'>
             <h1>
                 <FormattedMessage id='demo.page2.hello' />

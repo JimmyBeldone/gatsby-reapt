@@ -18,7 +18,11 @@ const MLPage = ({ pageContext: { locale }, location }) => {
     // );
     return (
         <MainLayout locale={locale} location={location}>
-            <SEO title='demo.ml.headerTitle' location={location} />
+            <SEO
+                title='demo.ml.headerTitle'
+                location={location}
+                description='demo.ml.description'
+            />
             <div className='container'>
                 <h1>
                     <FormattedMessage id='demo.ml.title' />

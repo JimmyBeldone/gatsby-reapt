@@ -6,7 +6,7 @@ module.exports = {
         meta: {
             title: `Reapt Gatsby Starter`,
             titleAlt: `Reapt GatsbyJS Starter`,
-            description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+            description: `Website Description in english`,
             author: `@JimmyBeldone`,
         },
         home: {
@@ -18,18 +18,21 @@ module.exports = {
         },
         page2: {
             headerTitle: `Page 2`,
+            description: `Page 2 Description in english`,
             hello: `Hi from the second page`,
             welcome: `Welcome to page 2`,
             link: `Go back to the homepage`,
         },
         about: {
             headerTitle: `About`,
+            description: `About Page Description in english`,
             title: `About`,
             welcome: `Welcome to page About`,
             link: `Go back to the homepage`,
         },
         ml: {
             headerTitle: `Legal notices`,
+            description: `Legal Notices Page Descrition in english`,
             title: `Legal notices`,
         },
         p404: {

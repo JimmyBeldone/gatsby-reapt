@@ -6,7 +6,7 @@ module.exports = {
         meta: {
             title: `Reapt Gatsby Starter`,
             titleAlt: `Reapt GatsbyJS Starter`,
-            description: `description du site en fr`,
+            description: `Description du site en fr`,
             author: `@JimmyBeldone`,
         },
         home: {
@@ -18,18 +18,21 @@ module.exports = {
         },
         page2: {
             headerTitle: `Page 2`,
+            description: `Description de la page 2 en fr`,
             hello: `Salut depuis la seconde page`,
             welcome: `Bienvenue sur la page 2`,
             link: `Retourner à l'acceuil`,
         },
         about: {
             headerTitle: `A propos`,
+            description: `Description de la page à propos en fr`,
             title: `A propos`,
             welcome: `Bienvenue dans la page à propos`,
             link: `Retourner à l'acceuil`,
         },
         ml: {
             headerTitle: `Mentions Légales`,
+            description: `Description de la page mentions légales en fr`,
             title: `Mentions Légales`,
         },
         p404: {
