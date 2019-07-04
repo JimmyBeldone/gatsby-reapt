@@ -37,7 +37,9 @@
     "pretty": "prettier --write 'src/**/*.js'",
     "clean": "rimraf .cache public",
     "mrc": "node ./node_modules/mk-react-comp/lib/index.js",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -76,7 +78,8 @@
     "redux-thunk": "2.3.0",
     "typeface-lato": "0.0.54",
     "typeface-montserrat": "0.0.54",
-    "typography": "0.16.19"
+    "typography": "0.16.19",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "3.0.4",
@@ -121,5 +124,6 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "snyk": true
 }
