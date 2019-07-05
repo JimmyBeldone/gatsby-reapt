@@ -79,7 +79,7 @@
     "typeface-lato": "0.0.54",
     "typeface-montserrat": "0.0.54",
     "typography": "0.16.19",
-    "snyk": "^1.189.0"
+    "snyk": "^1.192.3"
   },
   "devDependencies": {
     "@semantic-release/changelog": "3.0.4",
