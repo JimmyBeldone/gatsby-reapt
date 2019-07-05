@@ -1,3 +1,10 @@
+## [1.4.12](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.4.11...v1.4.12) (2019-07-05)
+
+
+### Bug Fixes
+
+* .snyk & package.json to reduce vulnerabilities ([fb604b9](https://github.com/JimmyBeldone/gatsby-reapt/commit/fb604b9))
+
 ## [1.4.11](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.4.10...v1.4.11) (2019-07-02)
 
 
