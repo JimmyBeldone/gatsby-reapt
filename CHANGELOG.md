@@ -1,3 +1,10 @@
+## [1.4.15](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.4.14...v1.4.15) (2019-07-05)
+
+
+### Bug Fixes
+
+* **deps:** pin dependency snyk to 1.192.3 ([702301b](https://github.com/JimmyBeldone/gatsby-reapt/commit/702301b))
+
 ## [1.4.14](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.4.13...v1.4.14) (2019-07-05)
 
 
