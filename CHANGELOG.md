@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.4.15...v1.5.0) (2019-07-06)
+
+
+### Features
+
+* i18n manifest files ([9f9d8c3](https://github.com/JimmyBeldone/gatsby-reapt/commit/9f9d8c3))
+
 ## [1.4.15](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.4.14...v1.4.15) (2019-07-05)
 
 
