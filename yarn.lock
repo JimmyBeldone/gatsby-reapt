@@ -6292,13 +6292,14 @@ gatsby-plugin-sharp@2.2.2:
     sharp "^0.22.1"
     svgo "^1.2.0"
 
-gatsby-plugin-stylus-resources@1.0.19:
-  version "1.0.19"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.19.tgz#2fb1bc9448e5dbead93d179171c58620e4ce7d63"
-  integrity sha512-DIPuTqXQFc0VEyYKnf6mMXT+D/GQ6XvDmCiYXsMihmKq6jcXdsMZlDya8ZCA39fcBFR+4fUoxsEcY7rUN0HqEg==
+gatsby-plugin-stylus-resources@1.0.21:
+  version "1.0.21"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.21.tgz#c91cd42d24480d13e563872d67d5cdda7d585b9c"
+  integrity sha512-bPhAWgC+W9Bs42zxrkvLNZLSilMsT1YD9Gn858kctgRnHryZojZAhP1pU2qDdWfsiEbAkNaF33Lpp3laWLeVJQ==
   dependencies:
     "@babel/runtime" "^7.4.5"
     sass-resources-loader "^2.0.1"
+    snyk "^1.190.0"
     stylus "^0.54.5"
     stylus-loader "^3.0.1"
 
@@ -6309,12 +6310,13 @@ gatsby-plugin-typography@2.3.0:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-webpack-bundle-analyser-v2@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-webpack-bundle-analyser-v2/-/gatsby-plugin-webpack-bundle-analyser-v2-1.1.1.tgz#e2f222de4bbeb060568fa71ad67a3a0e6fc9feab"
-  integrity sha512-F6oj2naUSMgboJUHRIyvg7BrUjUOO4wTvJsBZplTjbu2oYlBMtQZl+6WE3DZCFFYccLaW9ODwpMvmiFK//nOcg==
+gatsby-plugin-webpack-bundle-analyser-v2@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-webpack-bundle-analyser-v2/-/gatsby-plugin-webpack-bundle-analyser-v2-1.1.2.tgz#b78704bfdf19f2310cb5a3fc9ce1b6fe1458b866"
+  integrity sha512-qwuMNcuhJ96PNHzYI+TVu2KYn7ucxXG70n1fSylElbQe9Nqmwz8MBo764ta8XbUUvgqDsRiQ4qMGTVpTSEBXkQ==
   dependencies:
     "@babel/runtime" "^7.4.5"
+    snyk "^1.192.0"
     webpack-bundle-analyzer "^3.3.2"
 
 gatsby-react-router-scroll@^2.1.1:
@@ -13932,7 +13934,7 @@ snyk-try-require@1.3.1, snyk-try-require@^1.1.1, snyk-try-require@^1.3.1:
     lru-cache "^4.0.0"
     then-fs "^2.0.0"
 
-snyk@1.192.3:
+snyk@1.192.3, snyk@^1.190.0, snyk@^1.192.0:
   version "1.192.3"
   resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.192.3.tgz#2aba981b3068aaaf8a3fafd6b8f8e29cb4629b3c"
   integrity sha512-Rm/qr7qxuCT324GSiKGWq/VzssG7DqeF2hQp7Odu/UPVDZ6JdBKQmL0uXe8SVSrRfbx7Pmy0GFK4ya1Fgy5Aaw==
