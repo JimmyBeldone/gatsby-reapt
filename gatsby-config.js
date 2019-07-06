@@ -52,13 +52,16 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: config.name,
-                short_name: config.short_name,
+                name: config.langs.default.name,
+                short_name: config.langs.default.short_name,
+                description: config.langs.default.description,
+                lang: config.langs.default.lang,
                 start_url: config.pathPrefix,
                 background_color: config.backgroundColor,
                 theme_color: config.theme_color,
                 display: `minimal-ui`,
                 icon: config.icon,
+                localize: config.langs.others,
                 icons: [
                     {
                         src: `/favicons/icon-48x48.png`,
