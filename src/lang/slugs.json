@@ -1,0 +1,12 @@
+{
+    "fr": {
+            "about": "a-propos",
+            "page-2": "page-2",
+            "legal-notices": "mentions-legales"
+    },
+    "en": {
+            "about": "about",
+            "page-2": "page-2",
+            "legal-notices": "legal-notices"
+    }
+}

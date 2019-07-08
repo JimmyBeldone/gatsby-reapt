@@ -1,5 +1,6 @@
 /* eslint-disable security/detect-object-injection */
 const locales = require(`./src/constants/locales`);
+const { getSlug } = require(`./src/utils/slugs`);
 
 exports.onCreatePage = ({ page, actions }) => {
     const { createPage, deletePage } = actions;
@@ -15,9 +16,7 @@ exports.onCreatePage = ({ page, actions }) => {
             });
         } else {
             Object.keys(locales).map(lang => {
-                const localizedPath = locales[lang].default
-                    ? page.path
-                    : locales[lang].path + page.path;
+                const localizedPath = getSlug(page.path, lang);
 
                 return createPage({
                     ...page,
