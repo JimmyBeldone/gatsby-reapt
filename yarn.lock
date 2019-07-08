@@ -6310,13 +6310,13 @@ gatsby-plugin-typography@2.3.0:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-webpack-bundle-analyser-v2@1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-webpack-bundle-analyser-v2/-/gatsby-plugin-webpack-bundle-analyser-v2-1.1.2.tgz#b78704bfdf19f2310cb5a3fc9ce1b6fe1458b866"
-  integrity sha512-qwuMNcuhJ96PNHzYI+TVu2KYn7ucxXG70n1fSylElbQe9Nqmwz8MBo764ta8XbUUvgqDsRiQ4qMGTVpTSEBXkQ==
+gatsby-plugin-webpack-bundle-analyser-v2@1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-webpack-bundle-analyser-v2/-/gatsby-plugin-webpack-bundle-analyser-v2-1.1.3.tgz#93a22197e935fb8f47dd4ec059751ec874b462f2"
+  integrity sha512-XGIayxQUhyZycNqYyLSUq00eIaPE88d26xs+uxBy9lx12EX7d8vYS4JpnQVplagztz8f8ttAVjnO/m8DWGRttg==
   dependencies:
     "@babel/runtime" "^7.4.5"
-    snyk "^1.192.0"
+    snyk "^1.192.3"
     webpack-bundle-analyzer "^3.3.2"
 
 gatsby-react-router-scroll@^2.1.1:
@@ -13934,7 +13934,7 @@ snyk-try-require@1.3.1, snyk-try-require@^1.1.1, snyk-try-require@^1.3.1:
     lru-cache "^4.0.0"
     then-fs "^2.0.0"
 
-snyk@1.192.3, snyk@^1.190.0, snyk@^1.192.0:
+snyk@1.192.3, snyk@^1.190.0, snyk@^1.192.3:
   version "1.192.3"
   resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.192.3.tgz#2aba981b3068aaaf8a3fafd6b8f8e29cb4629b3c"
   integrity sha512-Rm/qr7qxuCT324GSiKGWq/VzssG7DqeF2hQp7Odu/UPVDZ6JdBKQmL0uXe8SVSrRfbx7Pmy0GFK4ya1Fgy5Aaw==
