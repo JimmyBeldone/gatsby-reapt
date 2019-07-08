@@ -2,7 +2,7 @@
   "name": "gatsby-starter-reapt",
   "private": true,
   "description": "A Gatsby version of Reapt with Redux, i18n, Stylus and more",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "author": "Jimmy Beldone <dev.jimmy.beldone@gmail.com>",
   "keywords": [
     "gatsby",
@@ -76,11 +76,10 @@
     "react-typography": "0.16.19",
     "redux": "4.0.1",
     "redux-thunk": "2.3.0",
-    "snyk": "1.192.3",
+    "snyk": "^1.192.3",
     "typeface-lato": "0.0.54",
     "typeface-montserrat": "0.0.54",
-    "typography": "0.16.19",
-    "snyk": "^1.192.3"
+    "typography": "0.16.19"
   },
   "devDependencies": {
     "@semantic-release/changelog": "3.0.4",
