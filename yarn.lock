@@ -6292,14 +6292,14 @@ gatsby-plugin-sharp@2.2.3:
     sharp "^0.22.1"
     svgo "^1.2.0"
 
-gatsby-plugin-stylus-resources@1.0.21:
-  version "1.0.21"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.21.tgz#c91cd42d24480d13e563872d67d5cdda7d585b9c"
-  integrity sha512-bPhAWgC+W9Bs42zxrkvLNZLSilMsT1YD9Gn858kctgRnHryZojZAhP1pU2qDdWfsiEbAkNaF33Lpp3laWLeVJQ==
+gatsby-plugin-stylus-resources@1.0.22:
+  version "1.0.22"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.22.tgz#e30d96460fafb5ecbfefa0269840ccdd30b14479"
+  integrity sha512-nX6qOPNCpx8jIg2Pq4g4KfCaxKwuwvsmQdveMRveI8/3vFg5oMc+dduvpmtYyDfJI/qz7xin+aOF9AakEjyKcw==
   dependencies:
     "@babel/runtime" "^7.4.5"
     sass-resources-loader "^2.0.1"
-    snyk "^1.190.0"
+    snyk "^1.192.3"
     stylus "^0.54.5"
     stylus-loader "^3.0.1"
 
@@ -13933,7 +13933,7 @@ snyk-try-require@1.3.1, snyk-try-require@^1.1.1, snyk-try-require@^1.3.1:
     lru-cache "^4.0.0"
     then-fs "^2.0.0"
 
-snyk@1.192.3, snyk@^1.190.0, snyk@^1.192.3:
+snyk@1.192.3, snyk@^1.192.3:
   version "1.192.3"
   resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.192.3.tgz#2aba981b3068aaaf8a3fafd6b8f8e29cb4629b3c"
   integrity sha512-Rm/qr7qxuCT324GSiKGWq/VzssG7DqeF2hQp7Odu/UPVDZ6JdBKQmL0uXe8SVSrRfbx7Pmy0GFK4ya1Fgy5Aaw==
