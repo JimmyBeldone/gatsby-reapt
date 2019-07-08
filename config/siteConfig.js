@@ -24,8 +24,24 @@ module.exports = {
     ],
     googleSiteVerification: process.env.GATSBY_GOOGLE_SITE_VERIFICATION || ``,
     // manifest config
-    name: `Gatsby Reapt`,
-    short_name: `Gatsby Reapt`,
+    langs: {
+        default: {
+            lang: `fr`,
+            name: `Gatsby Reapt`,
+            short_name: `Gatsby Reapt`,
+            description: `Un kit de démarrage Gatsby avec i18n`,
+        },
+        others: [
+            {
+                lang: `en`,
+                name: `Gatsby Reapt`,
+                short_name: `Gatsby Reapt`,
+                description: `A Gtasby Starter with i18n`,
+                start_url: `/en/`,
+            },
+        ],
+    },
+
     backgroundColor: `#e0e0e0`,
     themeColor: `#663399`,
     // Social

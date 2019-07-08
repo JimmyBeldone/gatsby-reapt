@@ -1,3 +1,31 @@
+## [1.5.1](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.5.0...v1.5.1) (2019-07-08)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([3edb01e](https://github.com/JimmyBeldone/gatsby-reapt/commit/3edb01e))
+
+# [1.5.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.4.15...v1.5.0) (2019-07-06)
+
+
+### Features
+
+* i18n manifest files ([9f9d8c3](https://github.com/JimmyBeldone/gatsby-reapt/commit/9f9d8c3))
+
+## [1.4.15](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.4.14...v1.4.15) (2019-07-05)
+
+
+### Bug Fixes
+
+* **deps:** pin dependency snyk to 1.192.3 ([702301b](https://github.com/JimmyBeldone/gatsby-reapt/commit/702301b))
+
+## [1.4.14](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.4.13...v1.4.14) (2019-07-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-plugin-advanced-sitemap to v1.2.0 ([7d901e4](https://github.com/JimmyBeldone/gatsby-reapt/commit/7d901e4))
+
 ## [1.4.13](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.4.12...v1.4.13) (2019-07-05)
 
 
