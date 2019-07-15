@@ -1,3 +1,10 @@
+## [1.6.3](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.6.2...v1.6.3) (2019-07-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-plugin-advanced-sitemap to v1.3.0 ([377ba6e](https://github.com/JimmyBeldone/gatsby-reapt/commit/377ba6e))
+
 ## [1.6.2](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.6.1...v1.6.2) (2019-07-15)
 
 
