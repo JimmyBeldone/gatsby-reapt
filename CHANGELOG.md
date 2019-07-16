@@ -1,3 +1,12 @@
+## [1.6.5](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.6.4...v1.6.5) (2019-07-16)
+
+
+### Bug Fixes
+
+* GDPR banner read more link ([71bdb7a](https://github.com/JimmyBeldone/gatsby-reapt/commit/71bdb7a))
+* GDPR banner style ([14dfc1e](https://github.com/JimmyBeldone/gatsby-reapt/commit/14dfc1e))
+* url translate on lang change ([68a6cca](https://github.com/JimmyBeldone/gatsby-reapt/commit/68a6cca)), closes [#85](https://github.com/JimmyBeldone/gatsby-reapt/issues/85)
+
 ## [1.6.4](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.6.3...v1.6.4) (2019-07-16)
 
 
