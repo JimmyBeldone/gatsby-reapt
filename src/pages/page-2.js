@@ -7,8 +7,8 @@ import LocalizedLink from '../views/components/LocalizedLink';
 import MainLayout from '../views/layouts/MainLayout';
 import SEO from '../views/components/SEO';
 
-const SecondPage = ({ pageContext: { locale }, location }) => (
-    <MainLayout locale={locale} location={location}>
+const SecondPage = ({ pageContext: { locale, originalPath }, location }) => (
+    <MainLayout locale={locale} originalPath={originalPath}>
         <SEO
             title='demo.page2.headerTitle'
             location={location}
@@ -31,6 +31,7 @@ const SecondPage = ({ pageContext: { locale }, location }) => (
 SecondPage.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
+        originalPath: PropTypes.string.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
 };

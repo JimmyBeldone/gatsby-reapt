@@ -7,8 +7,8 @@ import Image from '../views/components/Images';
 import SEO from '../views/components/SEO';
 import LocalizedLink from '../views/components/LocalizedLink';
 
-const IndexPage = ({ pageContext: { locale }, location }) => (
-    <MainLayout locale={locale} location={location}>
+const IndexPage = ({ pageContext: { locale, originalPath }, location }) => (
+    <MainLayout locale={locale} originalPath={originalPath}>
         <SEO title='demo.home.headerTitle' location={location} />
         <div className='container'>
             <h1>
@@ -33,6 +33,7 @@ const IndexPage = ({ pageContext: { locale }, location }) => (
 IndexPage.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
+        originalPath: PropTypes.string.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
 };
