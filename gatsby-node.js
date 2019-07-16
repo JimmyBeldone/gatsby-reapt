@@ -13,6 +13,7 @@ exports.onCreatePage = ({ page, actions }) => {
             createPage({
                 ...page,
                 path: `/404.html`,
+                originalPath: `/404.html`,
             });
         } else {
             Object.keys(locales).map(lang => {
@@ -23,6 +24,7 @@ exports.onCreatePage = ({ page, actions }) => {
                     path: localizedPath,
                     context: {
                         locale: lang,
+                        originalPath: page.path,
                     },
                 });
             });

@@ -1,13 +1,13 @@
 const locales = require(`../constants/locales`);
 const slugs = require(`../lang/slugs.json`);
 
-const slugExist = (filename, lang) => {
-    if (filename === `/`) {
-        return filename;
+const slugExist = (originalPath, lang) => {
+    if (originalPath === `/`) {
+        return originalPath;
     } else {
-        return slugs[lang][filename] !== undefined
-            ? `/${slugs[lang][filename]}/`
-            : `/${filename}/`;
+        return slugs[lang][originalPath] !== undefined
+            ? `/${slugs[lang][originalPath]}/`
+            : `/${originalPath}/`;
     }
 };
 
@@ -19,11 +19,11 @@ exports.getSlug = (path, lang) => {
         return acc;
     }, []);
 
-    const fileName = explosedSlug.pop();
+    const originalPath = explosedSlug.pop();
 
     const localizedPath = locales[lang].default
-        ? slugExist(fileName, lang)
-        : `/` + locales[lang].path + slugExist(fileName, lang);
+        ? slugExist(originalPath, lang)
+        : `/` + locales[lang].path + slugExist(originalPath, lang);
 
     return localizedPath;
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { PAGE_ML } from './src/constants/router';
+import { getSlug } from './src/utils/slugs';
 
 export const onRenderBody = (
     { setPostBodyComponents, pathname },
@@ -30,7 +31,10 @@ export const onRenderBody = (
                         moreInfoLink: true /* Show more info link */,
                         useExternalCss: false /* If false, the tarteaucitron.css file will be loaded */,
                         //"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
-                        readmoreLink: ${PAGE_ML} /* Change the default readmore link */
+                        readmoreLink: ${getSlug(
+                            PAGE_ML,
+                            `fr`,
+                        )} /* Change the default readmore link */
                     })`,
                 }}
             />,

@@ -6,7 +6,7 @@ import MainLayout from '../views/layouts/MainLayout';
 import LocalizedLink from '../views/components/LocalizedLink';
 import SEO from '../views/components/SEO';
 
-const NotFoundPage = ({ pageContext: { locale }, location }) => {
+const NotFoundPage = ({ pageContext: { locale, originalPath }, location }) => {
     if (locale === undefined) {
         if (typeof window !== `undefined`) {
             locale =
@@ -18,7 +18,7 @@ const NotFoundPage = ({ pageContext: { locale }, location }) => {
         }
     }
     return (
-        <MainLayout locale={locale} location={location} is404>
+        <MainLayout locale={locale} originalPath={originalPath} is404>
             <SEO title='demo.p404.headerTitle' location={location} is404 />
             <h1>
                 <FormattedMessage id='demo.p404.title' />
@@ -36,6 +36,7 @@ const NotFoundPage = ({ pageContext: { locale }, location }) => {
 NotFoundPage.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string,
+        originalPath: PropTypes.string.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
 };

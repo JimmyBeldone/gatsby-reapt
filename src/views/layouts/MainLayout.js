@@ -10,13 +10,12 @@ import { WebpProvider } from '../components/WebpDetect';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 
-const MainLayout = ({ locale, children, location, is404 }) => {
+const MainLayout = ({ locale, children, is404, originalPath }) => {
     if (typeof window !== `undefined`) {
         sessionStorage.setItem(`lang`, locale);
     }
 
-    const { pathname: url } = location;
-    const langsMenu = getLangs(locale, url, is404);
+    const langsMenu = getLangs(locale, originalPath, is404);
 
     return (
         <I18nProvider locale={locale}>
@@ -46,8 +45,8 @@ MainLayout.defaultProps = {
 MainLayout.propTypes = {
     children: PropTypes.node.isRequired,
     locale: PropTypes.string.isRequired,
-    location: PropTypes.object.isRequired,
     is404: PropTypes.bool,
+    originalPath: PropTypes.string.isRequired,
 };
 
 export default MainLayout;
