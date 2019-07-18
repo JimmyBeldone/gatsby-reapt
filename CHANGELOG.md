@@ -1,3 +1,10 @@
+## [1.6.9](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.6.8...v1.6.9) (2019-07-18)
+
+
+### Bug Fixes
+
+* **deps:** update typefaces monorepo to v0.0.75 ([b6c7250](https://github.com/JimmyBeldone/gatsby-reapt/commit/b6c7250))
+
 ## [1.6.8](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.6.7...v1.6.8) (2019-07-18)
 
 
