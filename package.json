@@ -88,7 +88,7 @@
     "commitizen": "4.0.3",
     "cross-env": "5.2.0",
     "cz-conventional-changelog": "3.0.2",
-    "eslint": "5.16.0",
+    "eslint": "6.1.0",
     "eslint-config-react-app": "4.0.1",
     "eslint-plugin-react-hooks": "1.6.1",
     "gatsby-plugin-stylus-resources": "1.0.22",
