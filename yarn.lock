@@ -731,6 +731,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.5.5":
+  version "7.5.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.5.5.tgz#74fba56d35efbeca444091c7850ccd494fd2f132"
+  integrity sha512-28QvEGyQyNkB0/m2B4FU7IEZGK2NUrcMtT6BZEFALTguLk+AUT6ofsHtPk5QyjAdUkpMJ+/Em+quwz4HOt30AQ==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.1.0", "@babel/template@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.4.4.tgz#f4b88d1225689a08f5bc3a17483545be9e4ed237"
@@ -6337,14 +6344,14 @@ gatsby-plugin-sharp@2.2.9:
     sharp "^0.22.1"
     svgo "^1.2.0"
 
-gatsby-plugin-stylus-resources@1.0.22:
-  version "1.0.22"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.22.tgz#e30d96460fafb5ecbfefa0269840ccdd30b14479"
-  integrity sha512-nX6qOPNCpx8jIg2Pq4g4KfCaxKwuwvsmQdveMRveI8/3vFg5oMc+dduvpmtYyDfJI/qz7xin+aOF9AakEjyKcw==
+gatsby-plugin-stylus-resources@1.0.24:
+  version "1.0.24"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.24.tgz#5f3022bc07b60805ca56adcfce518107249d1485"
+  integrity sha512-oRyC/zofANU76wp5g6uYYA6DCDlzCNtld98rnTeQho9GO++OS7jTu20ysNlfeiBH69iEEQcnxDzWclHIbU8MxA==
   dependencies:
-    "@babel/runtime" "^7.4.5"
+    "@babel/runtime" "^7.5.5"
     sass-resources-loader "^2.0.1"
-    snyk "^1.192.3"
+    snyk "^1.199.2"
     stylus "^0.54.5"
     stylus-loader "^3.0.1"
 
@@ -13731,6 +13738,17 @@ snyk-go-plugin@1.10.2:
     snyk-go-parser "1.3.1"
     tmp "0.0.33"
 
+snyk-go-plugin@1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/snyk-go-plugin/-/snyk-go-plugin-1.11.0.tgz#7810242391e39588929de47b829d04938bac8f1a"
+  integrity sha512-9hsGgloioGuey5hbZfv+MkFEslxXHyzUlaAazcR0NsY7VLyG/b2g3f88f/ZwCwlWaKL9LMv/ERIiey3oWAB/qg==
+  dependencies:
+    debug "^4.1.1"
+    graphlib "^2.1.1"
+    snyk-go-parser "1.3.1"
+    tmp "0.0.33"
+    tslib "^1.10.0"
+
 snyk-gradle-plugin@2.12.5:
   version "2.12.5"
   resolved "https://registry.yarnpkg.com/snyk-gradle-plugin/-/snyk-gradle-plugin-2.12.5.tgz#6da1c9135b4cee2d6cd32653e569a1f56977d173"
@@ -13998,6 +14016,53 @@ snyk@^1.192.3:
     snyk-resolve "1.0.1"
     snyk-resolve-deps "4.0.3"
     snyk-sbt-plugin "2.5.5"
+    snyk-tree "^1.0.0"
+    snyk-try-require "1.3.1"
+    source-map-support "^0.5.11"
+    strip-ansi "^5.2.0"
+    tempfile "^2.0.0"
+    then-fs "^2.0.0"
+    update-notifier "^2.5.0"
+    uuid "^3.3.2"
+
+snyk@^1.199.2:
+  version "1.199.2"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.199.2.tgz#bb86625f85d1ab6e5d3ee34c50df53bc5c875d68"
+  integrity sha512-UdIb0N0SO+cfMbOmT0Y6bkABjk2LwKKXNBH6EXrDNSBJ1KfOqpjs7s/IUteaW/rf0xJ87/z4iIEaMhfzBP8I6A==
+  dependencies:
+    "@snyk/dep-graph" "1.10.0"
+    "@snyk/gemfile" "1.2.0"
+    "@types/agent-base" "^4.2.0"
+    abbrev "^1.1.1"
+    ansi-escapes "^4.1.0"
+    chalk "^2.4.2"
+    configstore "^3.1.2"
+    debug "^3.1.0"
+    diff "^4.0.1"
+    git-url-parse "11.1.2"
+    glob "^7.1.3"
+    inquirer "^6.2.2"
+    lodash "^4.17.14"
+    needle "^2.2.4"
+    opn "^5.5.0"
+    os-name "^3.0.0"
+    proxy-agent "^3.1.0"
+    proxy-from-env "^1.0.0"
+    semver "^6.0.0"
+    snyk-config "^2.2.1"
+    snyk-docker-plugin "1.25.1"
+    snyk-go-plugin "1.11.0"
+    snyk-gradle-plugin "2.12.5"
+    snyk-module "1.9.1"
+    snyk-mvn-plugin "2.3.1"
+    snyk-nodejs-lockfile-parser "1.15.0"
+    snyk-nuget-plugin "1.10.0"
+    snyk-php-plugin "1.6.3"
+    snyk-policy "1.13.5"
+    snyk-python-plugin "1.10.2"
+    snyk-resolve "1.0.1"
+    snyk-resolve-deps "4.0.3"
+    snyk-sbt-plugin "2.6.0"
     snyk-tree "^1.0.0"
     snyk-try-require "1.3.1"
     source-map-support "^0.5.11"
