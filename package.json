@@ -100,7 +100,7 @@
     "prompt": "1.0.0",
     "replace": "1.1.0",
     "rimraf": "2.6.3",
-    "semantic-release": "15.13.18",
+    "semantic-release": "15.13.19",
     "stylint": "2.0.0"
   },
   "husky": {
