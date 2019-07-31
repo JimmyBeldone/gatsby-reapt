@@ -21,6 +21,7 @@ const MLPage = ({ pageContext: { locale, originalPath }, location }) => {
             <SEO
                 title='demo.ml.headerTitle'
                 location={location}
+                originalPath={originalPath}
                 description='demo.ml.description'
             />
             <div className='container'>

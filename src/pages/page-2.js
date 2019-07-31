@@ -12,6 +12,7 @@ const SecondPage = ({ pageContext: { locale, originalPath }, location }) => (
         <SEO
             title='demo.page2.headerTitle'
             location={location}
+            originalPath={originalPath}
             description='demo.page2.description'
         />
         <div className='container'>

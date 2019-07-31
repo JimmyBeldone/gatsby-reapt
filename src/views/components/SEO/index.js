@@ -8,6 +8,7 @@ import { getLangs } from '../../../utils/lang';
 import icon from '../../../images/gatsby-icon.png';
 
 function SEO({
+    originalPath,
     location,
     title,
     description,
@@ -16,6 +17,7 @@ function SEO({
     keywords,
     translaled,
     is404,
+    slug,
     intl: { formatMessage, locale },
 }) {
     const metaDescription = formatMessage({
@@ -23,13 +25,28 @@ function SEO({
     });
 
     const formattedTitle = formatMessage({ id: title });
+
+    if (is404) {
+        return (
+            <Helmet
+                htmlAttributes={{
+                    lang: locale,
+                }}
+                title={formattedTitle}
+                titleTemplate={`%s | ${formatMessage({
+                    id: siteConfig.title,
+                })}`}
+            />
+        );
+    }
+
     const formattedTitleAlt = formatMessage({
         id: siteConfig.titleAlt,
     });
 
-    const langPathnames = getLangs(locale, location.pathname, is404);
+    const langPathnames = getLangs(locale, originalPath, is404);
     const defaultLang = langPathnames.filter(langPath => langPath.default)[0];
-    const defaultUrl = siteConfig.siteUrl + defaultLang.link;
+    const defaultUrl = siteConfig.siteUrl + defaultLang.link + slug;
 
     const schemaOrgJSONLD = [
         {
@@ -81,7 +98,7 @@ function SEO({
                 },
                 {
                     name: `ìmage`,
-                    content: metaIcon,
+                    content: siteConfig.siteUrl + metaIcon,
                 },
                 // Open Graph tags
                 {
@@ -94,7 +111,7 @@ function SEO({
                 },
                 {
                     property: `og:image`,
-                    content: metaIcon,
+                    content: siteConfig.siteUrl + metaIcon,
                 },
                 {
                     property: `og:type`,
@@ -102,7 +119,7 @@ function SEO({
                 },
                 {
                     property: `og:url`,
-                    content: `${siteConfig.siteUrl}${location.pathname}`,
+                    content: location.href,
                 },
                 {
                     property: `og:site_name`,
@@ -135,7 +152,7 @@ function SEO({
                 },
                 {
                     name: `twitter:image`,
-                    content: metaIcon,
+                    content: siteConfig.siteUrl + metaIcon,
                 },
             ]
                 .concat(ogLocaleAlternateMeta)
@@ -172,6 +189,7 @@ SEO.defaultProps = {
     metaIcon: icon,
     translaled: true,
     is404: false,
+    slug: ``,
 };
 
 SEO.propTypes = {
@@ -181,9 +199,11 @@ SEO.propTypes = {
     keywords: PropTypes.arrayOf(PropTypes.string),
     title: PropTypes.string.isRequired,
     intl: intlShape.isRequired,
+    originalPath: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
     translaled: PropTypes.bool,
     is404: PropTypes.bool,
+    slug: PropTypes.string,
 };
 
 export default injectIntl(SEO);

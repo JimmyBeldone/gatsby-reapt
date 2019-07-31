@@ -36,7 +36,7 @@ module.exports = {
                 lang: `en`,
                 name: `Gatsby Reapt`,
                 short_name: `Gatsby Reapt`,
-                description: `A Gtasby Starter with i18n`,
+                description: `A Gatsby Starter with i18n`,
                 start_url: `/en/`,
             },
         ],
