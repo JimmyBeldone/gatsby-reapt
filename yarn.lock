@@ -13746,6 +13746,18 @@ snyk-nodejs-lockfile-parser@1.15.0:
     tslib "^1.9.3"
     uuid "^3.3.2"
 
+snyk-nodejs-lockfile-parser@1.16.0:
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/snyk-nodejs-lockfile-parser/-/snyk-nodejs-lockfile-parser-1.16.0.tgz#1c1d0aba4643830901ef999415816e7a92b0974d"
+  integrity sha512-cf3uozRXEG88nsjOQlo+SfOJPpcLs45qpnuk2vhBBZ577IMnV+fTOJQsP2YRiikLUbdgkVlduviwUO6OVn1PhA==
+  dependencies:
+    "@yarnpkg/lockfile" "^1.0.2"
+    graphlib "^2.1.5"
+    lodash "^4.17.14"
+    source-map-support "^0.5.7"
+    tslib "^1.9.3"
+    uuid "^3.3.2"
+
 snyk-nuget-plugin@1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/snyk-nuget-plugin/-/snyk-nuget-plugin-1.10.0.tgz#58aba49e37ca4ac99afcecb3d3c3917188daad84"
@@ -13867,10 +13879,10 @@ snyk-try-require@1.3.1, snyk-try-require@^1.1.1, snyk-try-require@^1.3.1:
     lru-cache "^4.0.0"
     then-fs "^2.0.0"
 
-snyk@1.206.0:
-  version "1.206.0"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.206.0.tgz#1cb1463bd249fc56da80dc81873096916b9b4485"
-  integrity sha512-E//hjRxeHJ3oqOHcJ9tbONOo6UFdWei36KQZh8IW29m4go3GjZb3A3fd3dT/vGF58HHBTa0FQXY8aqdRQ0J4/g==
+snyk@1.207.1:
+  version "1.207.1"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.207.1.tgz#56400420cbd4435095f87dc5a0d80840db4738f4"
+  integrity sha512-HUYuGhEKZqCjjaJKAKtdEa4drVVw1bcr1m6SNzBHFukyRo0g5sNmyPxL57qN9iUnQqmhF14IJI258nSLRN1Y1Q==
   dependencies:
     "@snyk/dep-graph" "1.10.0"
     "@snyk/gemfile" "1.2.0"
@@ -13897,7 +13909,7 @@ snyk@1.206.0:
     snyk-gradle-plugin "2.12.5"
     snyk-module "1.9.1"
     snyk-mvn-plugin "2.3.1"
-    snyk-nodejs-lockfile-parser "1.15.0"
+    snyk-nodejs-lockfile-parser "1.16.0"
     snyk-nuget-plugin "1.10.0"
     snyk-php-plugin "1.6.4"
     snyk-policy "1.13.5"
