@@ -1,3 +1,15 @@
+# [1.7.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.6.26...v1.7.0) (2019-07-31)
+
+
+### Bug Fixes
+
+* **SEOComponent:** baseUrl ([c577cc3](https://github.com/JimmyBeldone/gatsby-reapt/commit/c577cc3))
+
+
+### Features
+
+* add images GraphQL Fragment ([b0de40c](https://github.com/JimmyBeldone/gatsby-reapt/commit/b0de40c))
+
 ## [1.6.26](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.6.25...v1.6.26) (2019-07-31)
 
 
