@@ -19,7 +19,12 @@ const NotFoundPage = ({ pageContext: { locale, originalPath }, location }) => {
     }
     return (
         <MainLayout locale={locale} originalPath={originalPath} is404>
-            <SEO title='demo.p404.headerTitle' location={location} is404 />
+            <SEO
+                title='demo.p404.headerTitle'
+                location={location}
+                originalPath={originalPath}
+                is404
+            />
             <h1>
                 <FormattedMessage id='demo.p404.title' />
             </h1>

@@ -9,7 +9,11 @@ import LocalizedLink from '../views/components/LocalizedLink';
 
 const IndexPage = ({ pageContext: { locale, originalPath }, location }) => (
     <MainLayout locale={locale} originalPath={originalPath}>
-        <SEO title='demo.home.headerTitle' location={location} />
+        <SEO
+            title='demo.home.headerTitle'
+            location={location}
+            originalPath={originalPath}
+        />
         <div className='container'>
             <h1>
                 <FormattedMessage id='demo.home.hello' />

@@ -13,6 +13,7 @@ const About = ({ pageContext: { locale, originalPath }, location }) => {
             <SEO
                 title='demo.about.headerTitle'
                 location={location}
+                originalPath={originalPath}
                 description='demo.about.description'
             />
             <div className='container'>
