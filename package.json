@@ -89,7 +89,7 @@
     "cross-env": "5.2.0",
     "cz-conventional-changelog": "3.0.2",
     "eslint": "5.16.0",
-    "eslint-config-react-app": "4.0.1",
+    "eslint-config-react-app": "5.0.0",
     "eslint-plugin-react-hooks": "1.7.0",
     "gatsby-plugin-stylus-resources": "1.0.24",
     "gatsby-plugin-webpack-bundle-analyser-v2": "1.1.5",
