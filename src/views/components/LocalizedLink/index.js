@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl } from 'react-intl';
 
 import { getSlug } from '../../../utils/slugs';
 import { PAGE_HOME } from '../../../constants/router';
@@ -17,7 +17,6 @@ const LocalizedLink = ({ to, intl: { locale }, ...props }) => (
 
 LocalizedLink.propTypes = {
     to: PropTypes.string.isRequired,
-    intl: intlShape.isRequired,
 };
 
 export default injectIntl(LocalizedLink);

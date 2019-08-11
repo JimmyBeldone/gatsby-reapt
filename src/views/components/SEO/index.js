@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl } from 'react-intl';
 
 import siteConfig from '../../../../config/siteConfig';
 import { getLangs } from '../../../utils/lang';
@@ -198,7 +198,6 @@ SEO.propTypes = {
     metaIcon: PropTypes.string,
     keywords: PropTypes.arrayOf(PropTypes.string),
     title: PropTypes.string.isRequired,
-    intl: intlShape.isRequired,
     originalPath: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
     translaled: PropTypes.bool,
