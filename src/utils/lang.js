@@ -1,4 +1,3 @@
-/* eslint-disable security/detect-object-injection */
 import locales from '../constants/locales';
 import { getSlug } from './slugs';
 

@@ -1,4 +1,3 @@
-/* eslint-disable security/detect-object-injection */
 const locales = require(`./src/constants/locales`);
 const { getSlug } = require(`./src/utils/slugs`);
 
