@@ -1,3 +1,10 @@
+## [1.7.25](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.24...v1.7.25) (2019-08-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-intl to v3.1.11 ([3390fe4](https://github.com/JimmyBeldone/gatsby-reapt/commit/3390fe4))
+
 ## [1.7.24](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.23...v1.7.24) (2019-08-26)
 
 
