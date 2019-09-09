@@ -1,3 +1,10 @@
+## [1.7.38](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.37...v1.7.38) (2019-09-09)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([5c25b19](https://github.com/JimmyBeldone/gatsby-reapt/commit/5c25b19))
+
 ## [1.7.37](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.36...v1.7.37) (2019-08-30)
 
 
