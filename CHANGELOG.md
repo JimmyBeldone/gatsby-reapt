@@ -1,3 +1,10 @@
+## [1.7.39](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.38...v1.7.39) (2019-09-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-plugin-offline to v3 ([30b38d0](https://github.com/JimmyBeldone/gatsby-reapt/commit/30b38d0))
+
 ## [1.7.38](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.37...v1.7.38) (2019-09-09)
 
 
