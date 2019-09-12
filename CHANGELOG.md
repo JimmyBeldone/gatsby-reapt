@@ -1,3 +1,10 @@
+## [1.7.45](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.44...v1.7.45) (2019-09-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency snyk to v1.226.2 ([e5533f4](https://github.com/JimmyBeldone/gatsby-reapt/commit/e5533f4))
+
 ## [1.7.44](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.43...v1.7.44) (2019-09-12)
 
 
