@@ -888,13 +888,6 @@
   dependencies:
     "@formatjs/intl-utils" "^1.1.0"
 
-"@formatjs/intl-relativetimeformat@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-relativetimeformat/-/intl-relativetimeformat-4.0.1.tgz#c9e5797dc43dc0bc26efd225b380f2de0c4ebe25"
-  integrity sha512-/3RPP/VSiLd9li9t1Q9FiMVQadl1kJOlVYw4xj5jUAzGO24Vj+0ssM+O/ukGfFvfqF4SuT7SPD0/UxlYos3jPw==
-  dependencies:
-    "@formatjs/intl-utils" "^1.1.1"
-
 "@formatjs/intl-unified-numberformat@^0.5.0":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@formatjs/intl-unified-numberformat/-/intl-unified-numberformat-0.5.2.tgz#c530d312f14d6c08ca4eb38bdcd25d73520cc29f"
@@ -12835,10 +12828,10 @@ react-hot-loader@^4.12.13:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
-react-intl@3.2.2:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-3.2.2.tgz#f870ee84bdfb1f1adec79bb942f5d32db5f8b9d6"
-  integrity sha512-AMQQASzzAdy2y3c/5evb0Fihn890U8uqywz/gWArzg0N31lZD4a4VVP22X1slWYsk6LOMbdj27TEGCRFi+jVrw==
+react-intl@3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-3.2.3.tgz#9736dd4728a21cce4844c0d02bc5c9a9d26456ae"
+  integrity sha512-IwtHN01fyjpSjxH+qGchc5qLPbZTg3XxrUtw1vuqBli5Ct6T45f3iiGU6X6uR1Z9ZPQbChQxmKPe99ySPT/SpQ==
   dependencies:
     "@formatjs/intl-relativetimeformat" "^3.1.0"
     "@formatjs/intl-unified-numberformat" "^0.5.0"
