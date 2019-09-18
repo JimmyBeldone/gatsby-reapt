@@ -1,3 +1,12 @@
+## [1.7.50](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.49...v1.7.50) (2019-09-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-intl to v3.2.2 ([6b5d5ee](https://github.com/JimmyBeldone/gatsby-reapt/commit/6b5d5ee))
+* react-intl conflict ([a1481c8](https://github.com/JimmyBeldone/gatsby-reapt/commit/a1481c8))
+* remove intl polyfill ([ebd0de2](https://github.com/JimmyBeldone/gatsby-reapt/commit/ebd0de2))
+
 ## [1.7.49](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.48...v1.7.49) (2019-09-18)
 
 
