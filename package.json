@@ -49,6 +49,7 @@
     "url": "https://github.com/JimmyBeldone/gatsby-reapt/issues"
   },
   "dependencies": {
+    "@formatjs/intl-relativetimeformat": "^4.0.1",
     "clsx": "1.0.4",
     "date-fns": "2.2.1",
     "gatsby": "2.15.17",
@@ -71,7 +72,7 @@
     "react-dom": "16.9.0",
     "react-headroom": "2.2.8",
     "react-helmet": "5.2.1",
-    "react-intl": "3.2.1",
+    "react-intl": "3.2.2",
     "react-redux": "7.1.1",
     "react-typography": "0.16.19",
     "redux-thunk": "2.3.0",
