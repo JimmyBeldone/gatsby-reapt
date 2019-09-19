@@ -12828,10 +12828,10 @@ react-hot-loader@^4.12.13:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
-react-intl@3.2.3:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-3.2.3.tgz#9736dd4728a21cce4844c0d02bc5c9a9d26456ae"
-  integrity sha512-IwtHN01fyjpSjxH+qGchc5qLPbZTg3XxrUtw1vuqBli5Ct6T45f3iiGU6X6uR1Z9ZPQbChQxmKPe99ySPT/SpQ==
+react-intl@3.2.4:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-3.2.4.tgz#fdeb1e208b37b441f5dbf58e4a28338cb559b06f"
+  integrity sha512-LKQRsXFO4K35DB9pl8vUreLXd7rf/Cpr4tYFtv17TFzIaiFHIAUF+xZIRW2laXUawADX7QZfxXgsL8McwAJfBQ==
   dependencies:
     "@formatjs/intl-relativetimeformat" "^3.1.0"
     "@formatjs/intl-unified-numberformat" "^0.5.0"
