@@ -1,3 +1,10 @@
+## [1.7.64](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.63...v1.7.64) (2019-09-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.4.1 ([865c5e8](https://github.com/JimmyBeldone/gatsby-reapt/commit/865c5e8))
+
 ## [1.7.63](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.62...v1.7.63) (2019-09-30)
 
 
