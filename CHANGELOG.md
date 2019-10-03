@@ -1,3 +1,10 @@
+## [1.7.71](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.70...v1.7.71) (2019-10-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-plugin-react-helmet-canonical-urls to v1.3.0 ([46e1b59](https://github.com/JimmyBeldone/gatsby-reapt/commit/46e1b59))
+
 ## [1.7.70](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.69...v1.7.70) (2019-10-03)
 
 
