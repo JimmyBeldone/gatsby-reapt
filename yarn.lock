@@ -6836,14 +6836,13 @@ gatsby-plugin-typography@2.3.10:
   dependencies:
     "@babel/runtime" "^7.6.2"
 
-gatsby-plugin-webpack-bundle-analyser-v2@1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-webpack-bundle-analyser-v2/-/gatsby-plugin-webpack-bundle-analyser-v2-1.1.5.tgz#ad276b4413765273c1b8d3fe85ba25733e212718"
-  integrity sha512-DhYhvUkyCVbOauYYSSqe9u2FkX4z5xZOryiXWZay1u6/qbZi0NqkWTvSqdL5NXRKBdC0uSrrsPXlKH8OPoAETw==
+gatsby-plugin-webpack-bundle-analyser-v2@1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-webpack-bundle-analyser-v2/-/gatsby-plugin-webpack-bundle-analyser-v2-1.1.7.tgz#19f26f92eca2054067595c1283598e40850a7a69"
+  integrity sha512-irEK2HvGqK/f9gtlxMTdecjKFn8tX5wp3SHMvOh6IBi3MmFwfnp6LvPAWnP2ChrCUx5cMtqsw1sESlgMPHOzsg==
   dependencies:
     "@babel/runtime" "^7.5.5"
-    snyk "^1.199.2"
-    webpack-bundle-analyzer "^3.3.2"
+    webpack-bundle-analyzer "^3.5.2"
 
 gatsby-react-router-scroll@^2.1.11:
   version "2.1.11"
@@ -16442,10 +16441,10 @@ webpack-assets-manifest@^3.1.1:
     tapable "^1.0.0"
     webpack-sources "^1.0.0"
 
-webpack-bundle-analyzer@^3.3.2:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.4.1.tgz#430544c7ba1631baccf673475ca8300cb74a3c47"
-  integrity sha512-Bs8D/1zF+17lhqj2OYmzi7HEVYqEVxu7lCO9Ff8BwajenOU0vAwEoV8e4ICCPNZAcqR1PCR/7o2SkW+cnCmF0A==
+webpack-bundle-analyzer@^3.5.2:
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.5.2.tgz#ac02834f4b31de8e27d71e6c7a612301ebddb79f"
+  integrity sha512-g9spCNe25QYUVqHRDkwG414GTok2m7pTTP0wr6l0J50Z3YLS04+BGodTqqoVBL7QfU/U/9p/oiI5XFOyfZ7S/A==
   dependencies:
     acorn "^6.0.7"
     acorn-walk "^6.1.1"
