@@ -1,3 +1,10 @@
+## [1.7.77](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.76...v1.7.77) (2019-10-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-headroom to v3 ([ca97c54](https://github.com/JimmyBeldone/gatsby-reapt/commit/ca97c54))
+
 ## [1.7.76](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.75...v1.7.76) (2019-10-16)
 
 
