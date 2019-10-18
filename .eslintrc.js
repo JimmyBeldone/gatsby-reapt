@@ -3,7 +3,5 @@ module.exports = {
         __PATH_PREFIX__: true,
     },
     extends: `react-app`,
-    rules: {
-        quotes: ['error', 'backtick'],
-    },
+    rules: {},
 };
