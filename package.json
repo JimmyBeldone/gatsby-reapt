@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "clsx": "1.0.4",
-    "date-fns": "2.5.1",
+    "date-fns": "2.6.0",
     "gatsby": "2.17.1",
     "gatsby-image": "2.2.29",
     "gatsby-plugin-advanced-sitemap": "1.4.5",
