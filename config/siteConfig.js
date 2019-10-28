@@ -25,6 +25,7 @@ module.exports = {
     googleSiteVerification: process.env.GATSBY_GOOGLE_SITE_VERIFICATION || ``,
     // manifest config
     langs: {
+        all: ['fr', 'en'],
         default: {
             lang: `fr`,
             name: `Gatsby Reapt`,
