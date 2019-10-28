@@ -1,3 +1,31 @@
+## [1.7.95](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.94...v1.7.95) (2019-10-28)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([b989a50](https://github.com/JimmyBeldone/gatsby-reapt/commit/b989a50))
+
+## [1.7.94](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.93...v1.7.94) (2019-10-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency snyk to v1.239.3 ([32adac6](https://github.com/JimmyBeldone/gatsby-reapt/commit/32adac6))
+
+## [1.7.93](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.92...v1.7.93) (2019-10-28)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([84d4a03](https://github.com/JimmyBeldone/gatsby-reapt/commit/84d4a03))
+
+## [1.7.92](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.91...v1.7.92) (2019-10-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency snyk to v1.239.2 ([25930f2](https://github.com/JimmyBeldone/gatsby-reapt/commit/25930f2))
+
 ## [1.7.91](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.90...v1.7.91) (2019-10-25)
 
 
