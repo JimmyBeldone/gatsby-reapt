@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.8.0...v1.8.1) (2019-10-28)
+
+
+### Bug Fixes
+
+* **deps:** pin dependency gatsby-plugin-sitemap to 2.2.19 ([5b1d8cc](https://github.com/JimmyBeldone/gatsby-reapt/commit/5b1d8cc))
+
 # [1.8.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.95...v1.8.0) (2019-10-28)
 
 
