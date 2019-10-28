@@ -1,5 +1,6 @@
 const styleResources = require(`./src/styles/styleConfig`);
 const config = require(`./config/siteConfig`);
+const { getSlug } = require(`./src/utils/slugs`);
 
 const activeEnv = process.env.MODE || process.env.NODE_ENV || `development`;
 console.log(`Using environment config: '${activeEnv}'`);
@@ -48,7 +49,51 @@ module.exports = {
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         `gatsby-plugin-netlify`,
-        `gatsby-plugin-advanced-sitemap`,
+        {
+            resolve: `gatsby-plugin-sitemap`,
+            options: {
+                query: `{
+                    site {
+                        siteMetadata {
+                            siteUrl
+                        }
+                    }
+                    allSitePage {
+                        edges {
+                            node {
+                                path
+                                context {
+                                    originalPath
+                                }
+                            }
+                        }
+                    }
+                }`,
+                serialize: ({ site, allSitePage }) =>
+                    allSitePage.edges.map(edge => {
+                        const linksLangs = config.langs.all.map(lang => ({
+                            lang,
+                            url: `${site.siteMetadata.siteUrl}${getSlug(
+                                edge.node.context.originalPath,
+                                lang,
+                            )}`,
+                        }));
+                        const defaultLink = {
+                            lang: 'x-default',
+                            url: `${site.siteMetadata.siteUrl}${getSlug(
+                                edge.node.context.originalPath,
+                                config.langs.default.lang,
+                            )}`,
+                        };
+                        return {
+                            url: `${site.siteMetadata.siteUrl}${edge.node.path}`,
+                            changefreq: 'daily',
+                            priority: 0.7,
+                            links: [...linksLangs, defaultLink],
+                        };
+                    }),
+            },
+        },
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
