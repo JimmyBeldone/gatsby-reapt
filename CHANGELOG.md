@@ -1,3 +1,16 @@
+# [1.8.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.95...v1.8.0) (2019-10-28)
+
+
+### Bug Fixes
+
+* add missing dependency ([c28fa55](https://github.com/JimmyBeldone/gatsby-reapt/commit/c28fa55))
+* resolve conflict ([4169389](https://github.com/JimmyBeldone/gatsby-reapt/commit/4169389))
+
+
+### Features
+
+* multi-language sitemap ([30ad7ba](https://github.com/JimmyBeldone/gatsby-reapt/commit/30ad7ba)), closes [#267](https://github.com/JimmyBeldone/gatsby-reapt/issues/267)
+
 ## [1.7.95](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.94...v1.7.95) (2019-10-28)
 
 
