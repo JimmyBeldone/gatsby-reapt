@@ -1,3 +1,30 @@
+## [1.8.2](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.8.1...v1.8.2) (2019-10-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency snyk to v1.239.5 ([1cc3135](https://github.com/JimmyBeldone/gatsby-reapt/commit/1cc3135))
+
+## [1.8.1](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.8.0...v1.8.1) (2019-10-28)
+
+
+### Bug Fixes
+
+* **deps:** pin dependency gatsby-plugin-sitemap to 2.2.19 ([5b1d8cc](https://github.com/JimmyBeldone/gatsby-reapt/commit/5b1d8cc))
+
+# [1.8.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.95...v1.8.0) (2019-10-28)
+
+
+### Bug Fixes
+
+* add missing dependency ([c28fa55](https://github.com/JimmyBeldone/gatsby-reapt/commit/c28fa55))
+* resolve conflict ([4169389](https://github.com/JimmyBeldone/gatsby-reapt/commit/4169389))
+
+
+### Features
+
+* multi-language sitemap ([30ad7ba](https://github.com/JimmyBeldone/gatsby-reapt/commit/30ad7ba)), closes [#267](https://github.com/JimmyBeldone/gatsby-reapt/issues/267)
+
 ## [1.7.95](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.7.94...v1.7.95) (2019-10-28)
 
 
