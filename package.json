@@ -75,7 +75,7 @@
     "react-redux": "7.1.1",
     "react-typography": "0.16.19",
     "redux-thunk": "2.3.0",
-    "snyk": "1.239.5",
+    "snyk": "1.240.0",
     "typeface-lato": "0.0.75",
     "typeface-montserrat": "0.0.75",
     "typography": "0.16.19"
