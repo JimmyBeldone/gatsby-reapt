@@ -1,3 +1,18 @@
+# [1.9.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.8.4...v1.9.0) (2019-10-30)
+
+
+### Bug Fixes
+
+* merge ([bf80850](https://github.com/JimmyBeldone/gatsby-reapt/commit/bf80850))
+* **blog-post:** missing css class ([593aba7](https://github.com/JimmyBeldone/gatsby-reapt/commit/593aba7))
+* sitemap config with new blog system ([fce674a](https://github.com/JimmyBeldone/gatsby-reapt/commit/fce674a))
+
+
+### Features
+
+* Add blog with i18n ([7461fd0](https://github.com/JimmyBeldone/gatsby-reapt/commit/7461fd0)), closes [#277](https://github.com/JimmyBeldone/gatsby-reapt/issues/277)
+* Add I18n date format component ([b4e8164](https://github.com/JimmyBeldone/gatsby-reapt/commit/b4e8164)), closes [#276](https://github.com/JimmyBeldone/gatsby-reapt/issues/276)
+
 ## [1.8.4](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.8.3...v1.8.4) (2019-10-30)
 
 
