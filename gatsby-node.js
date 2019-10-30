@@ -1,5 +1,9 @@
+const path = require(`path`);
+const Config = require('./config/siteConfig');
+
 const locales = require(`./src/constants/locales`);
 const { getSlug } = require(`./src/utils/slugs`);
+const utils = require('./src/utils/posts');
 
 exports.onCreatePage = ({ page, actions }) => {
     const { createPage, deletePage } = actions;
@@ -30,6 +34,51 @@ exports.onCreatePage = ({ page, actions }) => {
         }
 
         resolve();
+    });
+};
+
+exports.createPages = async ({ graphql, actions }) => {
+    const { createPage } = actions;
+    const result = await graphql(`
+        {
+            allMarkdownRemark(
+                sort: { order: DESC, fields: [frontmatter___date] }
+            ) {
+                edges {
+                    node {
+                        frontmatter {
+                            lang
+                            path
+                        }
+                        fileAbsolutePath
+                    }
+                }
+            }
+        }
+    `);
+
+    const { allMarkdownRemark } = result.data;
+    allMarkdownRemark.edges.forEach(({ node }) => {
+        if (node.frontmatter.path.indexOf('/blog') !== 0) {
+            throw new Error(`Invalid path prefix: ${node.frontmatter.path}`);
+        }
+        const lang = node.frontmatter.lang;
+        const defaultLang = Config.langs.default.lang;
+        createPage({
+            path:
+                lang === defaultLang
+                    ? node.frontmatter.path
+                    : `/${lang}${node.frontmatter.path}`,
+            component: path.resolve(`./src/templates/blog-post.js`),
+            context: {
+                locale: lang,
+                postPath: node.frontmatter.path,
+                translations: utils.getRelatedTranslations(
+                    node,
+                    allMarkdownRemark.edges,
+                ),
+            },
+        });
     });
 };
 

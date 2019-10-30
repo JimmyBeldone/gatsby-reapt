@@ -23,6 +23,12 @@ module.exports = {
             welcome: `Bienvenue sur la page 2`,
             link: `Retourner à l'acceuil`,
         },
+        blog: {
+            headerTitle: `Blog`,
+            description: `Description page blog`,
+            title: `Liste des articles`,
+            count: '{count} Articles',
+        },
         about: {
             headerTitle: `A propos`,
             description: `Description de la page à propos en fr`,
@@ -41,12 +47,13 @@ module.exports = {
             description: `Cette page n'existe pas... Désolé`,
         },
         footer: {
-            built: `Construit avec`,
+            built: `Développé avec`,
         },
     },
     nav: {
         home: `Accueil`,
         page2: `Page 2`,
+        blog: 'blog',
         login: `Connexion`,
         register: `Inscription`,
         about: `À Propos`,
@@ -116,7 +123,7 @@ module.exports = {
         },
     },
     errors: {
-        emptyField: `Veillez remplir le champ {{field}}`,
+        emptyField: `Veillez remplir le champ {field}`,
         invalidEmail: `Le format d'email est invalide`,
         identical: `L'ancien mot de passe est identique au nouveau`,
         notIdentical: `Les mots de passe ne sont pas identiques`,

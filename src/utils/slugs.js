@@ -11,7 +11,7 @@ const slugExist = (originalPath, lang) => {
     }
 };
 
-exports.getSlug = (path, lang) => {
+const getSlug = (path, lang) => {
     const pathItems = path !== `/` ? path.split(`/`) : [`/`];
 
     const explosedSlug = pathItems.reduce((acc, curr) => {
@@ -27,3 +27,16 @@ exports.getSlug = (path, lang) => {
 
     return localizedPath;
 };
+
+const selectSlug = (baseUrl, context, lang) => {
+    let slug;
+    if (context.originalPath === null) {
+        slug = context.translations.filter(item => item.langKey === lang)[0]
+            .link;
+    } else {
+        slug = getSlug(context.originalPath, lang);
+    }
+    return baseUrl + slug;
+};
+
+module.exports = { selectSlug, getSlug };

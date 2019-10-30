@@ -1,6 +1,6 @@
 const styleResources = require(`./src/styles/styleConfig`);
 const config = require(`./config/siteConfig`);
-const { getSlug } = require(`./src/utils/slugs`);
+const { selectSlug } = require(`./src/utils/slugs`);
 
 const activeEnv = process.env.MODE || process.env.NODE_ENV || `development`;
 console.log(`Using environment config: '${activeEnv}'`);
@@ -34,6 +34,13 @@ module.exports = {
             },
         },
         {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/src/blog`,
+                name: `blog`,
+            },
+        },
+        {
             resolve: `gatsby-plugin-stylus-resources`,
             options: {
                 resources: styleResources,
@@ -47,6 +54,7 @@ module.exports = {
             },
         },
         `gatsby-transformer-sharp`,
+        `gatsby-transformer-remark`,
         `gatsby-plugin-sharp`,
         `gatsby-plugin-netlify`,
         {
@@ -64,6 +72,10 @@ module.exports = {
                                 path
                                 context {
                                     originalPath
+                                    translations {
+                                        link
+                                        langKey
+                                    }
                                 }
                             }
                         }
@@ -71,22 +83,30 @@ module.exports = {
                 }`,
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map(edge => {
+                        const { context } = edge.node;
+                        const baseUrl = site.siteMetadata.siteUrl;
                         const linksLangs = config.langs.all.map(lang => ({
                             lang,
-                            url: `${site.siteMetadata.siteUrl}${getSlug(
-                                edge.node.context.originalPath,
-                                lang,
-                            )}`,
+                            // url: `${baseUrl}${getSlug(
+                            //     context.originalPath,
+                            //     lang,
+                            // )}`,
+                            url: selectSlug(baseUrl, context, lang),
                         }));
                         const defaultLink = {
                             lang: 'x-default',
-                            url: `${site.siteMetadata.siteUrl}${getSlug(
-                                edge.node.context.originalPath,
+                            // url: `${baseUrl}${getSlug(
+                            //     context.originalPath,
+                            //     config.langs.default.lang,
+                            // )}`,
+                            url: selectSlug(
+                                baseUrl,
+                                context,
                                 config.langs.default.lang,
-                            )}`,
+                            ),
                         };
                         return {
-                            url: `${site.siteMetadata.siteUrl}${edge.node.path}`,
+                            url: `${baseUrl}${edge.node.path}`,
                             changefreq: 'daily',
                             priority: 0.7,
                             links: [...linksLangs, defaultLink],

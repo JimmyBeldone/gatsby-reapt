@@ -1,5 +1,6 @@
 export const PAGE_HOME = `/`;
 export const PAGE_2 = `/page-2/`;
+export const BLOG = '/blog/';
 export const PAGE_2_ID = `${PAGE_2}/:id/`;
 export const PAGE_ABOUT = `/about/`;
 
@@ -15,6 +16,10 @@ export const routes = [
     {
         path: PAGE_2,
         name: `nav.page2`,
+    },
+    {
+        path: BLOG,
+        name: `nav.blog`,
     },
     {
         path: PAGE_ABOUT,
