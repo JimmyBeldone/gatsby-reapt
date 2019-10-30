@@ -23,6 +23,12 @@ module.exports = {
             welcome: `Welcome to page 2`,
             link: `Go back to the homepage`,
         },
+        blog: {
+            headerTitle: `Blog`,
+            description: `Blog description`,
+            title: `Posts List`,
+            count: '{count} Posts',
+        },
         about: {
             headerTitle: `About`,
             description: `About Page Description in english`,
@@ -47,6 +53,7 @@ module.exports = {
     nav: {
         home: `Home`,
         page2: `Page 2`,
+        blog: 'blog',
         login: `Log In`,
         register: `Sign Up`,
         about: `About`,
@@ -100,7 +107,7 @@ module.exports = {
         },
     },
     errors: {
-        emptyField: `Field {{field}} is empty`,
+        emptyField: `Field {field} is empty`,
         invalidEmail: `Invalid mail format`,
         identical: `Old password equals new password`,
         notIdentical: `Password are not equals`,

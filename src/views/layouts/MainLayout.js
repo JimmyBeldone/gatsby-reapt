@@ -10,12 +10,21 @@ import { WebpProvider } from '../components/WebpDetect';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 
-const MainLayout = ({ locale, children, is404, originalPath }) => {
+const MainLayout = ({
+    locale,
+    children,
+    is404,
+    originalPath,
+    blogPostTranslation,
+    isBlogPost,
+}) => {
     if (typeof window !== `undefined`) {
         sessionStorage.setItem(`lang`, locale);
     }
 
-    const langsMenu = getLangs(locale, originalPath, is404);
+    const langsMenu = isBlogPost
+        ? blogPostTranslation
+        : getLangs(locale, originalPath, is404);
 
     return (
         <I18nProvider locale={locale}>
@@ -40,6 +49,8 @@ const MainLayout = ({ locale, children, is404, originalPath }) => {
 
 MainLayout.defaultProps = {
     is404: false,
+    isBlogPost: false,
+    blogPostTranslation: [],
 };
 
 MainLayout.propTypes = {
@@ -47,6 +58,8 @@ MainLayout.propTypes = {
     locale: PropTypes.string.isRequired,
     is404: PropTypes.bool,
     originalPath: PropTypes.string.isRequired,
+    blogPostTranslation: PropTypes.array,
+    isBlogPost: PropTypes.bool,
 };
 
 export default MainLayout;
