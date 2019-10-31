@@ -1,0 +1,36 @@
+.search-box
+    flexbox()
+    align()
+    position: relative
+
+    input
+        padding 5px 10px
+        height 42px
+        border 0
+
+    .search-result
+        position: absolute
+        width: 100%
+        left 0
+        right 0
+        top: 42px
+        margin 0
+        background-color $white
+        shadowDepth(2, rgba($blueyGrey, .05))
+
+        a
+            color $text
+
+        li
+            padding 10px
+            margin 0
+            list-style: none
+            border-top .5px solid rgba($main, .5)
+            &:hover
+                background-color: rgba($borderLight, .1)
+
+            .title
+                fs(14px)
+            .description
+                fs(12px)
+                color $textGrey

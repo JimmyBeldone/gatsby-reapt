@@ -6,6 +6,7 @@ import './Header.styl';
 import Nav from '../Nav';
 import SwitchLangBtn from '../../components/SwitchLangBtn';
 import LocalizedLink from '../../components/LocalizedLink';
+import Search from '../../components/Search';
 
 // const logo = require("../../../assets/img/logo_white.svg");
 
@@ -20,6 +21,7 @@ const Header = ({ langs, locale, siteTitle }) => (
                     </div>
                 </LocalizedLink>
                 <Nav />
+                <Search locale={locale} />
                 <SwitchLangBtn langs={langs} locale={locale} />
             </div>
         </div>

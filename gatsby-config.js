@@ -188,6 +188,42 @@ module.exports = {
                 },
             },
         },
+        {
+            resolve: 'gatsby-plugin-lunr',
+            options: {
+                languages: [
+                    {
+                        name: 'fr',
+                        filterNodes: node =>
+                            node.frontmatter !== null &&
+                            node.frontmatter !== undefined &&
+                            node.frontmatter.lang === 'fr',
+                    },
+                    {
+                        name: 'en',
+                        filterNodes: node =>
+                            node.frontmatter !== null &&
+                            node.frontmatter !== undefined &&
+                            node.frontmatter.lang === 'en',
+                    },
+                ],
+                fields: [
+                    { name: 'title', store: true, attributes: { boost: 20 } },
+                    { name: 'description', store: true },
+                    { name: 'content', store: true },
+                    { name: 'url', store: true },
+                ],
+                resolvers: {
+                    MarkdownRemark: {
+                        title: node => node.frontmatter.title,
+                        description: node => node.frontmatter.description,
+                        content: node => node.rawMarkdownBody,
+                        url: node => node.frontmatter.path,
+                    },
+                },
+                filename: 'search_index.json',
+            },
+        },
         `gatsby-plugin-offline`,
         `gatsby-plugin-webpack-bundle-analyser-v2`,
     ],
