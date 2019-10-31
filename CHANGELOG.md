@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.9.2...v1.10.0) (2019-10-31)
+
+
+### Features
+
+* Add search feature ([940de2a](https://github.com/JimmyBeldone/gatsby-reapt/commit/940de2a)), closes [#283](https://github.com/JimmyBeldone/gatsby-reapt/issues/283)
+
 ## [1.9.2](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.9.1...v1.9.2) (2019-10-31)
 
 
