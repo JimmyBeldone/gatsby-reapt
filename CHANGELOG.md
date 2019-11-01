@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.10.0...v1.10.1) (2019-11-01)
+
+
+### Bug Fixes
+
+* **deps:** pin dependency gatsby-plugin-lunr to 1.5.2 ([e51ef27](https://github.com/JimmyBeldone/gatsby-reapt/commit/e51ef27))
+
 # [1.10.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.9.2...v1.10.0) (2019-10-31)
 
 
