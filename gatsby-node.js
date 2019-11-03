@@ -5,6 +5,18 @@ const locales = require(`./src/constants/locales`);
 const { getSlug } = require(`./src/utils/slugs`);
 const utils = require('./src/utils/posts');
 
+exports.createSchemaCustomization = ({ actions }) => {
+    const { createTypes } = actions;
+    createTypes(`
+        type Frontmatter @infer {
+            featuredImage: File @fileByAbsolutePath(path: "src")
+        }
+        type MarkdownRemark implements Node @infer {
+            frontmatter: Frontmatter
+        }
+    `);
+};
+
 exports.onCreatePage = ({ page, actions }) => {
     const { createPage, deletePage } = actions;
 
@@ -69,7 +81,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 lang === defaultLang
                     ? node.frontmatter.path
                     : `/${lang}${node.frontmatter.path}`,
-            component: path.resolve(`./src/templates/blog-post.js`),
+            component: path.resolve(`./src/templates/BlogPost.js`),
             context: {
                 locale: lang,
                 postPath: node.frontmatter.path,

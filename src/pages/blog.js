@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from 'react';
-import { graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
+import { graphql, Link } from 'gatsby';
+import Img from 'gatsby-image/withIEPolyfill';
 import { FormattedMessage } from 'react-intl';
 
 import MainLayout from '../views/layouts/MainLayout';
@@ -44,7 +45,18 @@ const BlogPage = ({
                                         : `/${locale}${node.frontmatter.path}`
                                 }
                             >
-                                <h3>
+                                {node.frontmatter.featuredImage !== null && (
+                                    <Img
+                                        fixed={
+                                            node.frontmatter.featuredImage
+                                                .childImageSharp.fixed
+                                        }
+                                        objectFit='cover'
+                                        objectPosition='50% 50%'
+                                        alt=''
+                                    />
+                                )}
+                                <h2>
                                     {node.frontmatter.title}{' '}
                                     <span>
                                         —{' '}
@@ -52,7 +64,7 @@ const BlogPage = ({
                                             date={node.frontmatter.date}
                                         />{' '}
                                     </span>
-                                </h3>
+                                </h2>
                             </Link>
                             <p>{node.excerpt}</p>
                         </li>
@@ -90,6 +102,13 @@ export const query = graphql`
                         title
                         date
                         path
+                        featuredImage {
+                            childImageSharp {
+                                fixed(height: 150) {
+                                    ...GatsbyImageSharpFixed_withWebp
+                                }
+                            }
+                        }
                     }
                     excerpt
                 }

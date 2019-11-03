@@ -55,6 +55,17 @@ module.exports = {
         },
         `gatsby-transformer-sharp`,
         `gatsby-transformer-remark`,
+        // {
+        //     resolve: 'gatsby-schema-field-absolute-path',
+        //     options: {
+        //         // or c. object with named field extension
+        //         dirs: {
+        //             'content/assets': 'fileByAssetPath',
+        //             'src/images': 'fileByImagePath',
+        //         },
+        //     },
+        // },
+        'gatsby-schema-field-absolute-path',
         `gatsby-plugin-sharp`,
         `gatsby-plugin-netlify`,
         {

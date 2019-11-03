@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import Img from 'gatsby-image/withIEPolyfill';
 
 import MainLayout from '../views/layouts/MainLayout';
 import SEO from '../views/components/SEO';
@@ -19,12 +20,23 @@ const BlogPost = ({
             isBlogPost
         >
             <SEO
-                title='demo.blog.headerTitle'
+                title={post.frontmatter.title}
                 location={location}
                 originalPath={postPath}
-                description='demo.blog.description'
+                description={post.frontmatter.description}
+                isPost
             />
             <div className='container'>
+                {post.frontmatter.featuredImage !== null && (
+                    <Img
+                        fluid={
+                            post.frontmatter.featuredImage.childImageSharp.fluid
+                        }
+                        // objectFit='cover'
+                        // objectPosition='50% 50%'
+                        // alt=''
+                    />
+                )}
                 <h1>{post.frontmatter.title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: post.html }} />
             </div>
@@ -49,6 +61,16 @@ export const query = graphql`
             frontmatter {
                 title
                 path
+                description
+                date
+                tags
+                featuredImage {
+                    childImageSharp {
+                        fluid(maxWidth: 1200) {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
             }
         }
     }
