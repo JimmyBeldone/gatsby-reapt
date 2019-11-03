@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.11.0...v1.11.1) (2019-11-03)
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([75cf7cc](https://github.com/JimmyBeldone/gatsby-reapt/commit/75cf7cc))
+
 # [1.11.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.10.2...v1.11.0) (2019-11-03)
 
 
