@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.10.2...v1.11.0) (2019-11-03)
+
+
+### Features
+
+* Support images in markdown ([53a9544](https://github.com/JimmyBeldone/gatsby-reapt/commit/53a9544)), closes [#289](https://github.com/JimmyBeldone/gatsby-reapt/issues/289)
+
 ## [1.10.2](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.10.1...v1.10.2) (2019-11-01)
 
 
