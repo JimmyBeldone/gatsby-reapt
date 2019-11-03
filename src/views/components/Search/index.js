@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 
 import './index.styl';
-import { description } from '../../../../config/siteConfig';
 
 const Search = ({ locale }) => {
     const [query, setQuery] = useState(``);
     const [results, setResults] = useState([]);
-    console.log('TCL: Search -> results', results);
 
     useEffect(() => {
         if (!query || !window.__LUNR__) {
@@ -16,7 +14,7 @@ const Search = ({ locale }) => {
         }
         const lunrIndex = window.__LUNR__[locale];
         const searchResults = lunrIndex.index.search(query + '*');
-        console.log('TCL: Search -> searchResults', searchResults);
+
         setResults(
             searchResults.map(({ ref }) => {
                 return lunrIndex.store[ref];
