@@ -10,7 +10,7 @@ const LocalizedLink = ({ to, intl: { locale }, ...props }) => (
     <Link
         {...props}
         to={getSlug(to, locale)}
-        activeClassName={`active-link`}
+        activeClassName='active-link'
         partiallyActive={to !== PAGE_HOME}
     />
 );

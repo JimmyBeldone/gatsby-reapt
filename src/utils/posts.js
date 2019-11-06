@@ -1,6 +1,6 @@
+const kebabCase = require('lodash.kebabcase');
 const Config = require('../../config/siteConfig');
 const locales = require('../constants/locales');
-const kebabCase = require('lodash.kebabcase');
 
 const Utils = {
     /**
@@ -98,11 +98,9 @@ const Utils = {
                 );
             })
             .map(({ node }) => {
-                console.log('TCL: node', node);
                 const lang = node.frontmatter.lang;
                 const tags = node.frontmatter.tags;
                 const defaultLang = Config.langs.default.lang;
-                console.log('TCL: tagIndex', tagIndex);
                 const path =
                     lang === defaultLang
                         ? `/tags/${kebabCase(tags[tagIndex])}/`

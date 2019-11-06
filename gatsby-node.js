@@ -54,7 +54,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const { createPage } = actions;
 
     const PostItem = path.resolve('./src/templates/PostItem.js');
-    const ProductItem = path.resolve('./src/templates/ProductItem.js');
+    // const ProductItem = path.resolve('./src/templates/ProductItem.js');
     const TagItem = path.resolve('./src/templates/TagItem.js');
 
     const defaultLang = Config.langs.default.lang;

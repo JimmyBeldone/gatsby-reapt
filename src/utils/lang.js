@@ -20,7 +20,7 @@ const getHomeLink = langKey => {
 };
 
 const getUrlForLang = (url, langKey, currentLangKey, homeLink, is404) => {
-    const isDefault = locales[langKey].default ? true : false;
+    const isDefault = !!locales[langKey].default;
     if (is404) {
         return isDefault
             ? langKey !== currentLangKey

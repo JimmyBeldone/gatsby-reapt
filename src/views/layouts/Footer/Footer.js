@@ -18,7 +18,7 @@ const Footer = () => (
                 >
                     {siteConfig.name}
                 </a>
-                , by{` `}
+                , by
                 <a
                     href={siteConfig.authorGithub}
                     target='_blank'
@@ -29,7 +29,7 @@ const Footer = () => (
             </div>
             <div>
                 <FormattedMessage id='demo.footer.built' />
-                {` `}
+
                 <a
                     href='https://www.gatsbyjs.org'
                     target='_blank'
