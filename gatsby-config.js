@@ -13,6 +13,7 @@ require(`dotenv`).config({
 module.exports = {
     siteMetadata: config,
     plugins: [
+        'gatsby-plugin-eslint',
         `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-plugin-react-helmet-canonical-urls`,
