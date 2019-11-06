@@ -36,8 +36,15 @@ module.exports = {
         {
             resolve: `gatsby-source-filesystem`,
             options: {
-                path: `${__dirname}/src/blog`,
-                name: `blog`,
+                path: `${__dirname}/content/blog`,
+                name: `posts`,
+            },
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/content/products`,
+                name: `products`,
             },
         },
         {
@@ -220,9 +227,14 @@ module.exports = {
                 ],
                 fields: [
                     { name: 'title', store: true, attributes: { boost: 20 } },
-                    { name: 'description', store: true },
-                    { name: 'content', store: true },
+                    {
+                        name: 'description',
+                        store: true,
+                        attributes: { boost: 10 },
+                    },
+                    { name: 'content', store: true, attributes: { boost: 10 } },
                     { name: 'url', store: true },
+                    { name: 'tags', store: true, attributes: { boost: 5 } },
                 ],
                 resolvers: {
                     MarkdownRemark: {
@@ -230,6 +242,7 @@ module.exports = {
                         description: node => node.frontmatter.description,
                         content: node => node.rawMarkdownBody,
                         url: node => node.frontmatter.path,
+                        tags: node => node.frontmatter.tags,
                     },
                 },
                 filename: 'search_index.json',

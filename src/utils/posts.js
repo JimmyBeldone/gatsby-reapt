@@ -1,5 +1,6 @@
 const Config = require('../../config/siteConfig');
 const locales = require('../constants/locales');
+const kebabCase = require('lodash.kebabcase');
 
 const Utils = {
     /**
@@ -86,6 +87,35 @@ const Utils = {
      * @return {string} string with first letter to uppercase
      */
     capitalize: str => str[0].toUpperCase() + str.slice(1),
+
+    getTagtranslation: (post, postList, tagIndex) => {
+        return postList
+            .filter(({ node }) => {
+                // Get posts in the same folder of provided post
+                return (
+                    node.fileAbsolutePath.split('/').slice(-2, -1)[0] ===
+                    post.fileAbsolutePath.split('/').slice(-2, -1)[0]
+                );
+            })
+            .map(({ node }) => {
+                console.log('TCL: node', node);
+                const lang = node.frontmatter.lang;
+                const tags = node.frontmatter.tags;
+                const defaultLang = Config.langs.default.lang;
+                console.log('TCL: tagIndex', tagIndex);
+                const path =
+                    lang === defaultLang
+                        ? `/tags/${kebabCase(tags[tagIndex])}/`
+                        : `/${lang}/tags/${kebabCase(tags[tagIndex])}/`;
+                return {
+                    langKey: lang,
+                    langValue: locales[lang].locale,
+                    link: path,
+                    default: locales[lang].default !== undefined,
+                    territory: locales[lang].territory,
+                };
+            });
+    },
 };
 
 module.exports = Utils;

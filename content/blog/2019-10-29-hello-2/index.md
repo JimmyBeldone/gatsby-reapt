@@ -4,7 +4,7 @@ title: Deuxième article
 featuredImage: images/gatsby-astronaut.png
 date: "2017-08-21"
 lang: fr
-tags: [test]
+tags: [français, article]
 description: >
   Second article
 ---
