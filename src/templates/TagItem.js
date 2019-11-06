@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image/withIEPolyfill';
 
 import MainLayout from '../views/layouts/MainLayout';
 import SEO from '../views/components/SEO';
+
+import Config from '../../config/siteConfig';
+import FormattedDate from '../views/components/FormattedDate';
 
 const TagItem = ({
     pageContext: { locale, tag, translations, tagPath },
     data,
     location,
 }) => {
-    const post = data.allMarkdownRemark;
     return (
         <MainLayout
             locale={locale}
@@ -29,6 +31,42 @@ const TagItem = ({
             <div className='container'>
                 <h1>Tag : {tag}</h1>
                 {/* <div dangerouslySetInnerHTML={{ __html: post.html }} /> */}
+                <ul>
+                    {data.allMarkdownRemark.edges.map(({ node }) => (
+                        <li key={node.id}>
+                            {/* <Link to={Utils.resolvePageUrl(node.frontmatter.path)}> */}
+                            <Link
+                                to={
+                                    Config.langs.default.lang === locale
+                                        ? node.frontmatter.path
+                                        : `/${locale}${node.frontmatter.path}`
+                                }
+                            >
+                                {node.frontmatter.featuredImage !== null && (
+                                    <Img
+                                        fixed={
+                                            node.frontmatter.featuredImage
+                                                .childImageSharp.fixed
+                                        }
+                                        objectFit='cover'
+                                        objectPosition='50% 50%'
+                                        alt=''
+                                    />
+                                )}
+                                <h2>
+                                    {node.frontmatter.title}{' '}
+                                    <span>
+                                        —{' '}
+                                        <FormattedDate
+                                            date={node.frontmatter.date}
+                                        />{' '}
+                                    </span>
+                                </h2>
+                            </Link>
+                            <p>{node.excerpt}</p>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </MainLayout>
     );
@@ -39,8 +77,26 @@ TagItem.propTypes = {
         locale: PropTypes.string.isRequired,
         tag: PropTypes.string.isRequired,
         tagPath: PropTypes.string.isRequired,
+        translations: PropTypes.array.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
+    data: PropTypes.shape({
+        allMarkdownRemark: PropTypes.shape({
+            totalCount: PropTypes.number.isRequired,
+            edges: PropTypes.arrayOf(
+                PropTypes.shape({
+                    node: PropTypes.shape({
+                        frontmatter: PropTypes.shape({
+                            title: PropTypes.string.isRequired,
+                            path: PropTypes.string.isRequired,
+                            description: PropTypes.string.isRequired,
+                            featuredImage: PropTypes.object.isRequired,
+                        }),
+                    }),
+                }).isRequired,
+            ),
+        }),
+    }),
 };
 
 export default TagItem;
@@ -55,6 +111,7 @@ export const query = graphql`
             totalCount
             edges {
                 node {
+                    id
                     frontmatter {
                         title
                         path
@@ -62,8 +119,8 @@ export const query = graphql`
                         date
                         featuredImage {
                             childImageSharp {
-                                fluid(maxWidth: 1200) {
-                                    ...GatsbyImageSharpFluid
+                                fixed(height: 150) {
+                                    ...GatsbyImageSharpFixed_withWebp
                                 }
                             }
                         }
