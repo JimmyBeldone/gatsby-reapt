@@ -1,3 +1,10 @@
+## [1.11.7](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.11.6...v1.11.7) (2019-11-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-redux to v7.1.3 ([ed9bacc](https://github.com/JimmyBeldone/gatsby-reapt/commit/ed9bacc))
+
 ## [1.11.6](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.11.5...v1.11.6) (2019-11-06)
 
 
