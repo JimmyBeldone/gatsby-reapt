@@ -1,3 +1,10 @@
+## [1.11.9](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.11.8...v1.11.9) (2019-11-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby to v2.17.10 ([f1a7a24](https://github.com/JimmyBeldone/gatsby-reapt/commit/f1a7a24))
+
 ## [1.11.8](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.11.7...v1.11.8) (2019-11-06)
 
 
