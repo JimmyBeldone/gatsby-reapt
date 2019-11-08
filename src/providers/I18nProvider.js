@@ -4,9 +4,22 @@ import { IntlProvider } from 'react-intl';
 
 import en from '../lang/en/';
 import fr from '../lang/fr/';
-import { flattenMessages } from '../utils/lang';
 
 const messages = { en, fr };
+
+const flattenMessages = (nestedMessages, prefix = ``) =>
+    Object.keys(nestedMessages).reduce((messages, key) => {
+        const value = nestedMessages[key];
+        const prefixedKey = prefix ? `${prefix}.${key}` : key;
+
+        if (typeof value === `string`) {
+            messages[prefixedKey] = value;
+        } else {
+            Object.assign(messages, flattenMessages(value, prefixedKey));
+        }
+
+        return messages;
+    }, {});
 
 const I18nProvider = ({ locale, children }) => {
     return (

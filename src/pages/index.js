@@ -7,12 +7,15 @@ import Image from '../views/components/Images';
 import SEO from '../views/components/SEO';
 import LocalizedLink from '../views/components/LocalizedLink';
 
-const IndexPage = ({ pageContext: { locale, originalPath }, location }) => (
-    <MainLayout locale={locale} originalPath={originalPath}>
+const IndexPage = ({
+    pageContext: { locale, originalPath, translations },
+    location,
+}) => (
+    <MainLayout locale={locale} translationsPaths={translations}>
         <SEO
             title='demo.home.headerTitle'
             location={location}
-            originalPath={originalPath}
+            translationsPaths={translations}
         />
         <div className='container'>
             <h1>
@@ -38,6 +41,7 @@ IndexPage.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         originalPath: PropTypes.string.isRequired,
+        translations: PropTypes.array.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { PAGE_ML } from './src/constants/router';
-import { getSlug } from './src/utils/slugs';
+import { getSlug } from './src/utils/i18n';
 
 export const onRenderBody = (
     { setPostBodyComponents, pathname },
@@ -10,11 +10,11 @@ export const onRenderBody = (
     if (process.env.NODE_ENV === `production`) {
         setPostBodyComponents([
             <script
-                key={`tarteaucitron-init`}
+                key='tarteaucitron-init'
                 src='/tarteaucitron/tarteaucitron.js'
             />,
             <script
-                key={`tarteaucitron-init`}
+                key='tarteaucitron-init'
                 dangerouslySetInnerHTML={{
                     __html: `tarteaucitron.init({
                         privacyUrl: "" /* Privacy policy url */,
@@ -39,7 +39,7 @@ export const onRenderBody = (
                 }}
             />,
             <script
-                key={`tarteaucitron-google-analytics`}
+                key='tarteaucitron-google-analytics'
                 dangerouslySetInnerHTML={{
                     __html: `tarteaucitron.user.gtagUa = '${process.env.GATSBY_GTAG}';
                         tarteaucitron.user.gtagMore = function () {

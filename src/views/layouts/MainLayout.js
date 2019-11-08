@@ -4,27 +4,15 @@ import Headroom from 'react-headroom';
 
 import siteConfig from '../../../config/siteConfig';
 import I18nProvider from '../../providers/I18nProvider';
-import { getLangs } from '../../utils/lang';
 import { WebpProvider } from '../components/WebpDetect';
 
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 
-const MainLayout = ({
-    locale,
-    children,
-    is404,
-    originalPath,
-    blogPostTranslation,
-    isBlogPost,
-}) => {
+const MainLayout = ({ locale, children, is404, translationsPaths }) => {
     if (typeof window !== `undefined`) {
         sessionStorage.setItem(`lang`, locale);
     }
-
-    const langsMenu = isBlogPost
-        ? blogPostTranslation
-        : getLangs(locale, originalPath, is404);
 
     return (
         <I18nProvider locale={locale}>
@@ -34,7 +22,7 @@ const MainLayout = ({
                         <Headroom>
                             <Header
                                 siteTitle={siteConfig.title}
-                                langs={langsMenu}
+                                translationsPaths={translationsPaths}
                                 locale={locale}
                             />
                         </Headroom>
@@ -47,19 +35,10 @@ const MainLayout = ({
     );
 };
 
-MainLayout.defaultProps = {
-    is404: false,
-    isBlogPost: false,
-    blogPostTranslation: [],
-};
-
 MainLayout.propTypes = {
     children: PropTypes.node.isRequired,
     locale: PropTypes.string.isRequired,
-    is404: PropTypes.bool,
-    originalPath: PropTypes.string.isRequired,
-    blogPostTranslation: PropTypes.array,
-    isBlogPost: PropTypes.bool,
+    translationsPaths: PropTypes.array.isRequired,
 };
 
 export default MainLayout;

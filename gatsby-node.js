@@ -1,50 +1,81 @@
 const path = require(`path`);
 const kebabCase = require('lodash.kebabcase');
+
 const Config = require('./config/siteConfig');
+const ContentConfig = require('./config/contentConfig');
+const { getSlug } = require(`./src/utils/i18n`);
+const {
+    getPageTranslations,
+    getPostTranslations,
+    getTagTranslations,
+    getUrlLangPrefix,
+} = require('./src/utils/i18n');
 
-const locales = require(`./src/constants/locales`);
-const { getSlug } = require(`./src/utils/slugs`);
-const utils = require('./src/utils/posts');
+exports.createSchemaCustomization = ({ actions, schema }) => {
+    const { createTypes, createFieldExtension } = actions;
 
-exports.createSchemaCustomization = ({ actions }) => {
-    const { createTypes } = actions;
-    createTypes(`
-        type Frontmatter @infer {
+    createFieldExtension({
+        name: `defaultFalse`,
+        extend() {
+            return {
+                resolve(source, args, context, info) {
+                    if (source[info.fieldName] == null) {
+                        return false;
+                    }
+                    return source[info.fieldName];
+                },
+            };
+        },
+    });
+
+    createFieldExtension({
+        name: `uncategorized`,
+        extend() {
+            return {
+                resolve(source, args, context, info) {
+                    if (source[info.fieldName] == null) {
+                        return 'uncategorized';
+                    }
+                    return source[info.fieldName];
+                },
+            };
+        },
+    });
+
+    const typeDef = [
+        `type Frontmatter @infer {
             featuredImage: File @fileByAbsolutePath(path: "src")
-        }
-        type MarkdownRemark implements Node @infer {
+            featured: Boolean @defaultFalse
+            category: String @uncategorized
+        }`,
+        `type MarkdownRemark implements Node @infer {
             frontmatter: Frontmatter
-        }
-    `);
+        }`,
+    ];
+    createTypes(typeDef);
 };
 
 exports.onCreatePage = ({ page, actions }) => {
     const { createPage, deletePage } = actions;
 
-    // eslint-disable-next-line no-undef
     return new Promise(resolve => {
         deletePage(page);
 
-        if (page.path === `/404.html`) {
-            createPage({
-                ...page,
-                path: `/404.html`,
-                originalPath: `/404.html`,
-            });
-        } else {
-            Object.keys(locales).map(lang => {
-                const localizedPath = getSlug(page.path, lang);
+        Config.langs.all.map(lang => {
+            const is404 = page.path === `/404.html`;
+            const path = is404
+                ? getUrlLangPrefix(lang, page.path)
+                : getSlug(page.path, lang);
 
-                return createPage({
-                    ...page,
-                    path: localizedPath,
-                    context: {
-                        locale: lang,
-                        originalPath: page.path,
-                    },
-                });
+            return createPage({
+                ...page,
+                path,
+                context: {
+                    locale: lang,
+                    translations: getPageTranslations(page.path, is404),
+                },
             });
-        }
+        });
 
         resolve();
     });
@@ -57,8 +88,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     // const ProductItem = path.resolve('./src/templates/ProductItem.js');
     const TagItem = path.resolve('./src/templates/TagItem.js');
 
-    const defaultLang = Config.langs.default.lang;
-
     const result = await graphql(`
         {
             posts: allMarkdownRemark(
@@ -70,7 +99,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                         frontmatter {
                             lang
                             path
+                            category
                             tags
+                            featured
                         }
                         fileAbsolutePath
                     }
@@ -100,6 +131,54 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
 
     const posts = result.data.posts.edges;
+
+    // If post pagination
+    if (ContentConfig.posts.pagination) {
+        const PostListWithPagination = path.resolve(
+            './src/templates/PostListWithPagination.js',
+        );
+        const postsPerPage = ContentConfig.posts.perPage;
+        const postsWithoutFeatured = posts.filter(
+            ({ node }) => !node.frontmatter.featured,
+        );
+        const numPages = Math.ceil(postsWithoutFeatured.length / postsPerPage);
+
+        Array.from({ length: numPages }).forEach((_, i) => {
+            Config.langs.all.map(lang => {
+                const path =
+                    i === 0
+                        ? getUrlLangPrefix(lang, '/blog/')
+                        : getUrlLangPrefix(lang, `/blog/page/${i + 1}/`);
+                createPage({
+                    path,
+                    component: PostListWithPagination,
+                    context: {
+                        limit: postsPerPage,
+                        skip: i * postsPerPage,
+                        currentPage: i + 1,
+                        numPages,
+                        locale: lang,
+                        translations: getPageTranslations(path),
+                    },
+                });
+            });
+        });
+    } else {
+        // Return PostList.js
+        const PostList = path.resolve('./src/templates/PostList.js');
+        Config.langs.all.map(lang => {
+            const path = getUrlLangPrefix(lang, '/blog/');
+            createPage({
+                path,
+                component: PostList,
+                context: {
+                    locale: lang,
+                    translations: getPageTranslations(path),
+                },
+            });
+        });
+    }
+
     // Create post detail pages
     posts.forEach(({ node }) => {
         // if (node.frontmatter.path.indexOf('/blog') !== 0) {
@@ -107,15 +186,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         // }
         const lang = node.frontmatter.lang;
         createPage({
-            path:
-                lang === defaultLang
-                    ? node.frontmatter.path
-                    : `/${lang}${node.frontmatter.path}/`,
+            path: getUrlLangPrefix(lang, node.frontmatter.path),
             component: PostItem,
             context: {
                 locale: lang,
                 postPath: node.frontmatter.path,
-                translations: utils.getRelatedTranslations(node, posts),
+                translations: getPostTranslations(posts, node),
             },
         });
     });
@@ -127,10 +203,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             const lang = node.frontmatter.lang;
             const postTags = node.frontmatter.tags;
             const tagIndex = postTags.indexOf(tag.fieldValue);
-            const path =
-                lang === defaultLang
-                    ? `/tags/${kebabCase(tag.fieldValue)}/`
-                    : `/${lang}/tags/${kebabCase(tag.fieldValue)}/`;
+            const path = getUrlLangPrefix(
+                lang,
+                `/tags/${kebabCase(tag.fieldValue)}/`,
+            );
 
             createPage({
                 path,
@@ -139,11 +215,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     tag: tag.fieldValue,
                     locale: lang,
                     tagPath: path,
-                    translations: utils.getTagtranslation(
-                        node,
-                        posts,
-                        tagIndex,
-                    ),
+                    translations: getTagTranslations(posts, node, tagIndex),
                 },
             });
         });

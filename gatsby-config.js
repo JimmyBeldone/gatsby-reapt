@@ -1,6 +1,6 @@
 const styleResources = require(`./src/styles/styleConfig`);
 const config = require(`./config/siteConfig`);
-const { selectSlug } = require(`./src/utils/slugs`);
+const { selectSlug } = require(`./src/utils/i18n`);
 
 const activeEnv = process.env.MODE || process.env.NODE_ENV || `development`;
 console.log(`Using environment config: '${activeEnv}'`);
@@ -104,26 +104,21 @@ module.exports = {
                     allSitePage.edges.map(edge => {
                         const { context } = edge.node;
                         const baseUrl = site.siteMetadata.siteUrl;
+
                         const linksLangs = config.langs.all.map(lang => ({
                             lang,
-                            // url: `${baseUrl}${getSlug(
-                            //     context.originalPath,
-                            //     lang,
-                            // )}`,
                             url: selectSlug(baseUrl, context, lang),
                         }));
+
                         const defaultLink = {
                             lang: 'x-default',
-                            // url: `${baseUrl}${getSlug(
-                            //     context.originalPath,
-                            //     config.langs.default.lang,
-                            // )}`,
                             url: selectSlug(
                                 baseUrl,
                                 context,
                                 config.langs.default.lang,
                             ),
                         };
+
                         return {
                             url: `${baseUrl}${edge.node.path}`,
                             changefreq: 'daily',

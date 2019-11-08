@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
 
-import { getSlug } from '../../../utils/slugs';
+import { getSlug } from '../../../utils/i18n';
 import { PAGE_HOME } from '../../../constants/router';
 
 const LocalizedLink = ({ to, intl: { locale }, ...props }) => (
