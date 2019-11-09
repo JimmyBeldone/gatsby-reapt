@@ -11,4 +11,7 @@ module.exports = {
         pagination: true,
         perPage: 10,
     },
+    images: {
+        altPrefix: 'gatsby-reapt',
+    },
 };

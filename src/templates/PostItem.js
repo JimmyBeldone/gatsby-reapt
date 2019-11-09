@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image/withIEPolyfill';
 
 import MainLayout from '../views/layouts/MainLayout';
 import SEO from '../views/components/SEO';
+import Image from '../views/components/Image';
 
 const BlogPost = ({
     pageContext: { locale, postPath, translations },
@@ -23,13 +23,11 @@ const BlogPost = ({
             />
             <div className='container'>
                 {post.frontmatter.featuredImage !== null && (
-                    <Img
+                    <Image
                         fluid={
                             post.frontmatter.featuredImage.childImageSharp.fluid
                         }
-                        // objectFit='cover'
-                        // objectPosition='50% 50%'
-                        // alt=''
+                        alt={post.frontmatter.title}
                     />
                 )}
                 <h1>{post.frontmatter.title}</h1>

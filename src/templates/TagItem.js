@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image/withIEPolyfill';
 
 import MainLayout from '../views/layouts/MainLayout';
 import SEO from '../views/components/SEO';
+import Image from '../views/components/Image';
 
 import Config from '../../config/siteConfig';
 import FormattedDate from '../views/components/FormattedDate';
@@ -38,14 +38,14 @@ const TagItem = ({
                                 }
                             >
                                 {node.frontmatter.featuredImage !== null && (
-                                    <Img
+                                    <Image
                                         fixed={
                                             node.frontmatter.featuredImage
                                                 .childImageSharp.fixed
                                         }
                                         objectFit='cover'
                                         objectPosition='50% 50%'
-                                        alt=''
+                                        alt={node.frontmatter.title}
                                     />
                                 )}
                                 <h2>

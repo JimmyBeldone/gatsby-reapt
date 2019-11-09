@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image/withIEPolyfill';
 import { FormattedMessage } from 'react-intl';
 
 import MainLayout from '../views/layouts/MainLayout';
@@ -9,6 +8,7 @@ import SEO from '../views/components/SEO';
 
 import Config from '../../config/siteConfig';
 import FormattedDate from '../views/components/FormattedDate';
+import Image from '../views/components/Image';
 
 const PostListWithPagination = ({
     data,
@@ -47,7 +47,7 @@ const PostListWithPagination = ({
                                 >
                                     {node.frontmatter.featuredImage !==
                                         null && (
-                                        <Img
+                                        <Image
                                             fixed={
                                                 node.frontmatter.featuredImage
                                                     .childImageSharp.fixed
