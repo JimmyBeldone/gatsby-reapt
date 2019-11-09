@@ -29,7 +29,7 @@
     "start:mobile": "yarn develop -H 0.0.0.0",
     "serve": "gatsby serve -o",
     "serveMobile": "gatsby serve -o -H 0.0.0.0",
-    "optim-img": "node scripts/optimize.js",
+    "optim-img": "node scripts/imageOptimizer.js",
     "https": "http-server public -o -g --ssl --cert ~/.localhost-ssl/test.crt --key ~/.localhost-ssl/test.key",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "stylint": "stylint",
