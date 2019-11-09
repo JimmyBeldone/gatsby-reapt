@@ -849,6 +849,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.7.2":
+  version "7.7.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.2.tgz#111a78002a5c25fc8e3361bedc9529c696b85a6a"
+  integrity sha512-JONRbXbTXc9WQE2mAZd1p0Z3DZ/6vaQIkgYMSTP3KjRCyd7rCZCcfhCyX+YjwcKxcZ82UrxbRD358bpExNgrjw==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.1.0", "@babel/template@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.4.4.tgz#f4b88d1225689a08f5bc3a17483545be9e4ed237"
@@ -6952,13 +6959,13 @@ gatsby-plugin-typography@2.3.15:
   dependencies:
     "@babel/runtime" "^7.6.3"
 
-gatsby-plugin-webpack-bundle-analyser-v2@1.1.7:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-webpack-bundle-analyser-v2/-/gatsby-plugin-webpack-bundle-analyser-v2-1.1.7.tgz#19f26f92eca2054067595c1283598e40850a7a69"
-  integrity sha512-irEK2HvGqK/f9gtlxMTdecjKFn8tX5wp3SHMvOh6IBi3MmFwfnp6LvPAWnP2ChrCUx5cMtqsw1sESlgMPHOzsg==
+gatsby-plugin-webpack-bundle-analyser-v2@1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-webpack-bundle-analyser-v2/-/gatsby-plugin-webpack-bundle-analyser-v2-1.1.8.tgz#2fd3e44c71b0fa74b6cf574f447e699a8e187e0a"
+  integrity sha512-xVC6JYP1n1CaLml9VTBqdrmBEkCUgcAk5jW8hpJVH9gAn3dVQYyOgUxAavi88ZBLN7Ff6M7uZ80COMRWtdlpbA==
   dependencies:
-    "@babel/runtime" "^7.5.5"
-    webpack-bundle-analyzer "^3.5.2"
+    "@babel/runtime" "^7.7.2"
+    webpack-bundle-analyzer "^3.6.0"
 
 gatsby-react-router-scroll@^2.1.14:
   version "2.1.14"
@@ -16591,10 +16598,10 @@ webpack-assets-manifest@^3.1.1:
     tapable "^1.0.0"
     webpack-sources "^1.0.0"
 
-webpack-bundle-analyzer@^3.5.2:
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.5.2.tgz#ac02834f4b31de8e27d71e6c7a612301ebddb79f"
-  integrity sha512-g9spCNe25QYUVqHRDkwG414GTok2m7pTTP0wr6l0J50Z3YLS04+BGodTqqoVBL7QfU/U/9p/oiI5XFOyfZ7S/A==
+webpack-bundle-analyzer@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.6.0.tgz#39b3a8f829ca044682bc6f9e011c95deb554aefd"
+  integrity sha512-orUfvVYEfBMDXgEKAKVvab5iQ2wXneIEorGNsyuOyVYpjYrI7CUOhhXNDd3huMwQ3vNNWWlGP+hzflMFYNzi2g==
   dependencies:
     acorn "^6.0.7"
     acorn-walk "^6.1.1"
