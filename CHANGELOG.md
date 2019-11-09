@@ -1,3 +1,24 @@
+## [1.11.10](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.11.9...v1.11.10) (2019-11-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.7.0 ([f83bc49](https://github.com/JimmyBeldone/gatsby-reapt/commit/f83bc49))
+
+## [1.11.9](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.11.8...v1.11.9) (2019-11-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby to v2.17.10 ([f1a7a24](https://github.com/JimmyBeldone/gatsby-reapt/commit/f1a7a24))
+
+## [1.11.8](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.11.7...v1.11.8) (2019-11-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency snyk to v1.244.0 ([8fa0475](https://github.com/JimmyBeldone/gatsby-reapt/commit/8fa0475))
+
 ## [1.11.7](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.11.6...v1.11.7) (2019-11-06)
 
 

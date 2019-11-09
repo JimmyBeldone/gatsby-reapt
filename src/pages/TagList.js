@@ -12,14 +12,14 @@ const TagsPage = ({
     data: {
         allMarkdownRemark: { group },
     },
-    pageContext: { locale, originalPath },
+    pageContext: { locale, translations },
     location,
 }) => (
-    <MainLayout locale={locale} originalPath={originalPath}>
+    <MainLayout locale={locale} translationsPaths={translations}>
         <SEO
             title='demo.blog.headerTitle'
             location={location}
-            originalPath={originalPath}
+            translationsPaths={translations}
             description='demo.blog.description'
         />
         <div className='container'>
@@ -48,7 +48,7 @@ const TagsPage = ({
 TagsPage.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
-        originalPath: PropTypes.string.isRequired,
+        translations: PropTypes.array.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
     data: PropTypes.shape({

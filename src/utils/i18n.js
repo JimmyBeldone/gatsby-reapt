@@ -26,13 +26,13 @@ const getTranslationObject = (lang, path) => {
     };
 };
 
-const slugExist = (originalPath, lang) => {
-    if (originalPath === `/`) {
-        return originalPath;
+const slugExist = (path, lang) => {
+    if (path === `/`) {
+        return path;
     } else {
-        return slugs[lang][originalPath] !== undefined
-            ? `/${slugs[lang][originalPath]}/`
-            : `/${originalPath}/`;
+        return slugs[lang][path] !== undefined
+            ? `/${slugs[lang][path]}/`
+            : `/${path}/`;
     }
 };
 

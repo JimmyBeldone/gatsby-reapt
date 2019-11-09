@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-pascal-case */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
@@ -12,16 +11,16 @@ import Config from '../../config/siteConfig';
 import FormattedDate from '../views/components/FormattedDate';
 
 const BlogPage = ({
-    pageContext: { locale, originalPath },
+    pageContext: { locale, translations },
     location,
     data,
 }) => {
     return (
-        <MainLayout locale={locale} originalPath={originalPath}>
+        <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
                 title='demo.blog.headerTitle'
                 location={location}
-                originalPath={originalPath}
+                translationsPaths={translations}
                 description='demo.blog.description'
             />
             <div className='container'>
@@ -70,9 +69,6 @@ const BlogPage = ({
                         </li>
                     ))}
                 </ul>
-                {/* <LocalizedLink to='/'>
-                <FormattedMessage id='demo.blog.link' />
-            </LocalizedLink> */}
             </div>
         </MainLayout>
     );
@@ -81,7 +77,7 @@ const BlogPage = ({
 BlogPage.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
-        originalPath: PropTypes.string.isRequired,
+        translations: PropTypes.array.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
 };
@@ -89,9 +85,11 @@ BlogPage.propTypes = {
 export default BlogPage;
 
 export const query = graphql`
-    query($locale: String!) {
+    query blogPostsList($locale: String!) {
         allMarkdownRemark(
-            filter: { frontmatter: { lang: { eq: $locale } } }
+            filter: {
+                frontmatter: { featured: { eq: false }, lang: { eq: $locale } }
+            }
             sort: { fields: [frontmatter___date], order: DESC }
         ) {
             totalCount
@@ -102,6 +100,7 @@ export const query = graphql`
                         title
                         date
                         path
+                        category
                         featuredImage {
                             childImageSharp {
                                 fixed(height: 150) {

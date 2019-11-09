@@ -15,16 +15,11 @@ const TagItem = ({
     location,
 }) => {
     return (
-        <MainLayout
-            locale={locale}
-            originalPath={tagPath}
-            blogPostTranslation={translations}
-            isBlogPost
-        >
+        <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
                 title={tag}
                 location={location}
-                originalPath={tagPath}
+                translationsPaths={translations}
                 // description={post.frontmatter.description}
                 pageType='tag'
             />
