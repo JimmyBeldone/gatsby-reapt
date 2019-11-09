@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
 import MainLayout from '../views/layouts/MainLayout';
-import Image from '../views/components/Images';
 import SEO from '../views/components/SEO';
 import LocalizedLink from '../views/components/LocalizedLink';
 
@@ -24,9 +23,6 @@ const IndexPage = ({ pageContext: { locale, translations }, location }) => (
             <p>
                 <FormattedMessage id='demo.home.now' />
             </p>
-            <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-                <Image />
-            </div>
             <LocalizedLink to='/page-2/'>
                 <FormattedMessage id='demo.home.link' />
             </LocalizedLink>

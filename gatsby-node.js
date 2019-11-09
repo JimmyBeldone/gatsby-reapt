@@ -9,6 +9,7 @@ const {
     getPostTranslations,
     getTagTranslations,
     getUrlLangPrefix,
+    resolvePageUrl,
 } = require('./src/utils/i18n');
 
 exports.createSchemaCustomization = ({ actions, schema }) => {
@@ -186,7 +187,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         // }
         const lang = node.frontmatter.lang;
         createPage({
-            path: getUrlLangPrefix(lang, node.frontmatter.path),
+            path: resolvePageUrl(getUrlLangPrefix(lang, node.frontmatter.path)),
             component: PostItem,
             context: {
                 locale: lang,
@@ -197,6 +198,51 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
 
     const tags = result.data.tagsGroup.group;
+
+    // If tag pagination
+    if (ContentConfig.tags.pagination) {
+        const TagListWithPagination = path.resolve(
+            './src/templates/TagItemWithPagination.js',
+        );
+        const tagsPerPage = ContentConfig.tags.perPage;
+        const numPages = Math.ceil(tags.length / tagsPerPage);
+
+        Array.from({ length: numPages }).forEach((_, i) => {
+            Config.langs.all.map(lang => {
+                const path =
+                    i === 0
+                        ? getUrlLangPrefix(lang, '/blog/')
+                        : getUrlLangPrefix(lang, `/blog/page/${i + 1}/`);
+                createPage({
+                    path,
+                    component: TagListWithPagination,
+                    context: {
+                        limit: tagsPerPage,
+                        skip: i * tagsPerPage,
+                        currentPage: i + 1,
+                        numPages,
+                        locale: lang,
+                        translations: getPageTranslations(path),
+                    },
+                });
+            });
+        });
+    } else {
+        // Return PostList.js
+        const TagItem = path.resolve('./src/templates/TagItem.js');
+        Config.langs.all.map(lang => {
+            const path = getUrlLangPrefix(lang, '/blog/');
+            createPage({
+                path,
+                component: TagItem,
+                context: {
+                    locale: lang,
+                    translations: getPageTranslations(path),
+                },
+            });
+        });
+    }
+
     // Create tagItem page
     tags.forEach(tag => {
         tag.edges.forEach(({ node }) => {

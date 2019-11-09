@@ -5,6 +5,32 @@ const locales = require('../constants/locales');
 const slugs = require(`../lang/slugs.json`);
 
 /**
+ * Join provided url paths.
+ * @param {...string} paths Provided paths. It doesn't matter if they have trailing slash.
+ * @return {string} Resolved url without trailing slash.
+ */
+const resolveUrl = (...paths) => {
+    return paths.reduce((resolvedUrl, path) => {
+        let urlPath = path.toString().trim();
+        if (urlPath)
+            resolvedUrl +=
+                (resolvedUrl === '' ? '' : '/') +
+                urlPath.replace(/^\/|\/$/g, '');
+        return resolvedUrl;
+    }, '');
+};
+/**
+ * Resolve a page url adding a trailing slash.
+ * Needed to prevent 301 redirects cause of Gatsby.js' folder structure.
+ * @param {...string} path Provided paths. It doesn't matter if they have trailing slash.
+ * @return {string} Resolved url with trailing slash.
+ */
+const resolvePageUrl = (...path) => {
+    let resolvedUrl = resolveUrl(...path);
+    return resolvedUrl + '/';
+};
+
+/**
  * Get url lang prefix
  *
  * @param {String} lang Current lang
@@ -125,4 +151,6 @@ module.exports = {
     getTagTranslations,
     getPageTranslations,
     getPostsFromSameFolder,
+    resolveUrl,
+    resolvePageUrl,
 };
