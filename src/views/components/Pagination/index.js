@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { getUrlLangPrefix } from '../../../utils/i18n';
 
 const Pagination = ({ numPages, currentPage, contextPage, lang }) => {
-    console.log('TCL: Pagination -> contextPage', contextPage);
     if (numPages <= 1) {
         return null;
     }
