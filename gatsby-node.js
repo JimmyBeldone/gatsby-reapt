@@ -87,7 +87,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     const PostItem = path.resolve('./src/templates/PostItem.js');
     // const ProductItem = path.resolve('./src/templates/ProductItem.js');
-    const TagItem = path.resolve('./src/templates/TagItem.js');
 
     const result = await graphql(`
         {
@@ -111,6 +110,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             tagsGroup: allMarkdownRemark(limit: 2000) {
                 group(field: frontmatter___tags) {
                     fieldValue
+                    totalCount
                     edges {
                         node {
                             frontmatter {
@@ -200,72 +200,105 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const tags = result.data.tagsGroup.group;
 
     // If tag pagination
-    if (ContentConfig.tags.pagination) {
+    if (ContentConfig.posts.pagination) {
         const TagListWithPagination = path.resolve(
             './src/templates/TagItemWithPagination.js',
         );
-        const tagsPerPage = ContentConfig.tags.perPage;
-        const numPages = Math.ceil(tags.length / tagsPerPage);
+        const postsPerPage = ContentConfig.posts.perPage;
 
-        Array.from({ length: numPages }).forEach((_, i) => {
-            Config.langs.all.map(lang => {
-                const path =
-                    i === 0
-                        ? getUrlLangPrefix(lang, '/blog/')
-                        : getUrlLangPrefix(lang, `/blog/page/${i + 1}/`);
-                createPage({
-                    path,
-                    component: TagListWithPagination,
-                    context: {
-                        limit: tagsPerPage,
-                        skip: i * tagsPerPage,
-                        currentPage: i + 1,
-                        numPages,
-                        locale: lang,
-                        translations: getPageTranslations(path),
-                    },
+        tags.forEach((tag, i) => {
+            const numPages = Math.ceil(tag.totalCount / postsPerPage);
+            tag.edges.forEach(({ node }) => {
+                const { lang, tags: postTags } = node.frontmatter;
+                const tagIndex = postTags.indexOf(tag.fieldValue);
+                const link = getUrlLangPrefix(
+                    lang,
+                    `/tags/${kebabCase(tag.fieldValue)}/`,
+                );
+                Array.from({ length: numPages }).forEach((_, i) => {
+                    const path = i === 0 ? link : `${link}page/${i + 1}/`;
+                    createPage({
+                        path,
+                        component: TagListWithPagination,
+                        context: {
+                            limit: postsPerPage,
+                            skip: i * postsPerPage,
+                            currentPage: i + 1,
+                            numPages,
+                            locale: lang,
+                            translations: getTagTranslations(
+                                posts,
+                                node,
+                                tagIndex,
+                            ),
+                            tag: tag.fieldValue,
+                        },
+                    });
                 });
             });
+            // const link = `/tags/${kebabCase(tag.fieldValue)}/`;
+            // const numPages = Math.ceil(tag.totalCount / postsPerPage);
+            // Array.from({ length: numPages }).forEach((_, i) => {
+            //     Config.langs.all.map(lang => {
+            //         const path =
+            //             i === 0
+            //                 ? getUrlLangPrefix(lang, link)
+            //                 : getUrlLangPrefix(lang, `${link}page/${i + 1}/`);
+            //         createPage({
+            //             path,
+            //             component: TagListWithPagination,
+            //             context: {
+            //                 limit: postsPerPage,
+            //                 skip: i * postsPerPage,
+            //                 currentPage: i + 1,
+            //                 numPages,
+            //                 locale: lang,
+            //                 translations: getPageTranslations(path),
+            //                 tag: tag.fieldValue,
+            //             },
+            //         });
+            //     });
+            // });
         });
     } else {
         // Return PostList.js
         const TagItem = path.resolve('./src/templates/TagItem.js');
-        Config.langs.all.map(lang => {
-            const path = getUrlLangPrefix(lang, '/blog/');
-            createPage({
-                path,
-                component: TagItem,
-                context: {
-                    locale: lang,
-                    translations: getPageTranslations(path),
-                },
+
+        tags.forEach(tag => {
+            tag.edges.forEach(({ node }) => {
+                const lang = node.frontmatter.lang;
+                const postTags = node.frontmatter.tags;
+                const tagIndex = postTags.indexOf(tag.fieldValue);
+                const path = getUrlLangPrefix(
+                    lang,
+                    `/tags/${kebabCase(tag.fieldValue)}/`,
+                );
+
+                createPage({
+                    path,
+                    component: TagItem,
+                    context: {
+                        tag: tag.fieldValue,
+                        locale: lang,
+                        tagPath: path,
+                        translations: getTagTranslations(posts, node, tagIndex),
+                    },
+                });
             });
         });
+
+        // Config.langs.all.map(lang => {
+        //     const path = getUrlLangPrefix(lang, '/blog/');
+        //     createPage({
+        //         path,
+        //         component: TagItem,
+        //         context: {
+        //             locale: lang,
+        //             translations: getPageTranslations(path),
+        //         },
+        //     });
+        // });
     }
-
-    // Create tagItem page
-    tags.forEach(tag => {
-        tag.edges.forEach(({ node }) => {
-            const lang = node.frontmatter.lang;
-            const postTags = node.frontmatter.tags;
-            const tagIndex = postTags.indexOf(tag.fieldValue);
-            const path = getUrlLangPrefix(
-                lang,
-                `/tags/${kebabCase(tag.fieldValue)}/`,
-            );
-
-            createPage({
-                path,
-                component: TagItem,
-                context: {
-                    tag: tag.fieldValue,
-                    locale: lang,
-                    tagPath: path,
-                    translations: getTagTranslations(posts, node, tagIndex),
-                },
-            });
-        });
-    });
 };
 
 exports.onCreateWebpackConfig = ({ actions }) => {
