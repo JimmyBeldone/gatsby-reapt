@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { injectIntl } from 'react-intl';
 
 import siteConfig from '../../../../config/siteConfig';
-import { getLangs } from '../../../utils/lang';
 import icon from '../../../images/gatsby-icon.png';
 
 function SEO({
-    originalPath,
+    pageType,
+    translationsPaths,
     location,
     title,
     description,
@@ -17,16 +17,25 @@ function SEO({
     keywords,
     translaled,
     is404,
+    isPost,
     slug,
     intl: { formatMessage, locale },
 }) {
-    const metaDescription = formatMessage({
-        id: description || siteConfig.description,
-    });
+    let metaDescription;
+    let formattedTitle;
+    // let schemaOrgJSONLD;
 
-    const formattedTitle = formatMessage({ id: title });
+    if (pageType === 'post' || pageType === 'tag') {
+        formattedTitle = title;
+        metaDescription = description;
+    } else {
+        formattedTitle = formatMessage({ id: title });
+        metaDescription = formatMessage({
+            id: description || siteConfig.description,
+        });
+    }
 
-    if (is404) {
+    if (pageType === '404') {
         return (
             <Helmet
                 htmlAttributes={{
@@ -36,6 +45,7 @@ function SEO({
                 titleTemplate={`%s | ${formatMessage({
                     id: siteConfig.title,
                 })}`}
+                defer={false}
             />
         );
     }
@@ -44,8 +54,9 @@ function SEO({
         id: siteConfig.titleAlt,
     });
 
-    const langPathnames = getLangs(locale, originalPath, is404);
-    const defaultLang = langPathnames.filter(langPath => langPath.default)[0];
+    const defaultLang = translationsPaths.filter(
+        langPath => langPath.default,
+    )[0];
     const defaultUrl = siteConfig.siteUrl + defaultLang.link + slug;
 
     const schemaOrgJSONLD = [
@@ -62,13 +73,13 @@ function SEO({
     const ogLocaleAlternateMeta = [];
 
     if (translaled) {
-        langPathnames.forEach(langPath => {
+        translationsPaths.forEach(langPath => {
             alternateLinks.push(
                 <link
                     key={`alternate-${langPath.langKey}`}
                     rel='alternate'
                     href={siteConfig.siteUrl + langPath.link}
-                    hreflang={langPath.langKey}
+                    hrefLang={langPath.langKey}
                 />,
             );
             ogLocaleAlternateMeta.push({
@@ -80,6 +91,7 @@ function SEO({
 
     return (
         <Helmet
+            defer={false}
             htmlAttributes={{
                 lang: locale,
             }}
@@ -168,9 +180,9 @@ function SEO({
         >
             {alternateLinks.map(link => link)}
             <link
-                key={`alternate-default`}
+                key='alternate-default'
                 rel='alternate'
-                hreflang='x-default'
+                hrefLang='x-default'
                 href={defaultUrl}
             />
             {/* Set GDPR banner lang  */}
@@ -184,25 +196,35 @@ function SEO({
 }
 
 SEO.defaultProps = {
+    pageType: 'normal',
     meta: [],
     keywords: [],
     metaIcon: icon,
     translaled: true,
     is404: false,
+    isPost: false,
     slug: ``,
 };
 
 SEO.propTypes = {
+    pageType: PropTypes.PropTypes.oneOf([
+        'normal',
+        'post',
+        'product',
+        'tag',
+        '404',
+    ]),
     description: PropTypes.string,
     meta: PropTypes.array,
     metaIcon: PropTypes.string,
     keywords: PropTypes.arrayOf(PropTypes.string),
     title: PropTypes.string.isRequired,
-    originalPath: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
     translaled: PropTypes.bool,
     is404: PropTypes.bool,
+    isPost: PropTypes.bool,
     slug: PropTypes.string,
+    translationsPaths: PropTypes.array.isRequired,
 };
 
 export default injectIntl(SEO);

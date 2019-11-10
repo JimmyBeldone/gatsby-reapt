@@ -1,6 +1,3 @@
-const Config = require('../../config/siteConfig');
-const locales = require('../constants/locales');
-
 const Utils = {
     /**
      * Join provided url paths.
@@ -49,36 +46,6 @@ const Utils = {
                 return getTagScore(edgeB) - getTagScore(edgeA);
             })
             .slice(0, limit);
-    },
-    /**
-     * Pass a post and retrieve a list of related translations.
-     * @param {Object} post The post of which retrieve its translations. It accepts a `node` object from Graphql's query `allMarkdownRemark`
-     * @param {Object} postList The list of posts where search translations. It accepts a `edges` array from Graphql's query `allMarkdownRemark`
-     * @return {Object} An array of objects with languages as keys (ISO 639-1) and translated post's paths as values.
-     */
-    getRelatedTranslations: (post, postList) => {
-        return postList
-            .filter(({ node }) => {
-                // Get posts in the same folder of provided post
-                return (
-                    node.fileAbsolutePath.split('/').slice(-2, -1)[0] ===
-                    post.fileAbsolutePath.split('/').slice(-2, -1)[0]
-                );
-            })
-            .map(({ node }) => {
-                const lang = node.frontmatter.lang;
-                const defaultLang = Config.langs.default.lang;
-                return {
-                    langKey: lang,
-                    langValue: locales[lang].locale,
-                    link:
-                        lang === defaultLang
-                            ? node.frontmatter.path
-                            : `/${lang}${node.frontmatter.path}`,
-                    default: locales[lang].default !== undefined,
-                    territory: locales[lang].territory,
-                };
-            });
     },
     /**
      * Capitalize passed string

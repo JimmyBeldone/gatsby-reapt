@@ -11,7 +11,7 @@ const Nav = () => (
         {routes
             .filter(route => route.nav !== false)
             .map((route, i) => (
-                <LocalizedLink key={route.name + i} to={route.path}>
+                <LocalizedLink key={route.name + i} to={route.path} hasSlug>
                     <FormattedMessage id={route.name} />
                 </LocalizedLink>
             ))}

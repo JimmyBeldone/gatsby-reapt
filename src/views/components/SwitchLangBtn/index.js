@@ -6,11 +6,11 @@ import { FormattedMessage } from 'react-intl';
 
 import './SwitchLangBtn.styl';
 
-const SwitchLangBtn = ({ langs, locale }) => {
+const SwitchLangBtn = ({ translationsPaths, locale }) => {
     const nav = e => {
         e.preventDefault();
         const selected = e.currentTarget.value;
-        const link = langs
+        const link = translationsPaths
             .filter(lang => lang.langKey === selected)
             .map(lang => lang.link)
             .pop();
@@ -27,7 +27,7 @@ const SwitchLangBtn = ({ langs, locale }) => {
                 onChange={e => nav(e)}
                 defaultValue={locale}
             >
-                {langs.map(lang => (
+                {translationsPaths.map(lang => (
                     <option key={lang.langKey} value={lang.langKey}>
                         {lang.langValue}
                     </option>
@@ -38,7 +38,7 @@ const SwitchLangBtn = ({ langs, locale }) => {
 };
 
 SwitchLangBtn.propTypes = {
-    langs: PropTypes.array.isRequired,
+    translationsPaths: PropTypes.array.isRequired,
     locale: PropTypes.string.isRequired,
 };
 

@@ -1,6 +1,6 @@
 const styleResources = require(`./src/styles/styleConfig`);
 const config = require(`./config/siteConfig`);
-const { selectSlug } = require(`./src/utils/slugs`);
+const { selectSlug } = require(`./src/utils/i18n`);
 
 const activeEnv = process.env.MODE || process.env.NODE_ENV || `development`;
 console.log(`Using environment config: '${activeEnv}'`);
@@ -13,6 +13,7 @@ require(`dotenv`).config({
 module.exports = {
     siteMetadata: config,
     plugins: [
+        'gatsby-plugin-eslint',
         `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-plugin-react-helmet-canonical-urls`,
@@ -36,8 +37,15 @@ module.exports = {
         {
             resolve: `gatsby-source-filesystem`,
             options: {
-                path: `${__dirname}/src/blog`,
-                name: `blog`,
+                path: `${__dirname}/content/blog`,
+                name: `posts`,
+            },
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/content/products`,
+                name: `products`,
             },
         },
         {
@@ -82,7 +90,6 @@ module.exports = {
                             node {
                                 path
                                 context {
-                                    originalPath
                                     translations {
                                         link
                                         langKey
@@ -96,26 +103,21 @@ module.exports = {
                     allSitePage.edges.map(edge => {
                         const { context } = edge.node;
                         const baseUrl = site.siteMetadata.siteUrl;
+
                         const linksLangs = config.langs.all.map(lang => ({
                             lang,
-                            // url: `${baseUrl}${getSlug(
-                            //     context.originalPath,
-                            //     lang,
-                            // )}`,
                             url: selectSlug(baseUrl, context, lang),
                         }));
+
                         const defaultLink = {
                             lang: 'x-default',
-                            // url: `${baseUrl}${getSlug(
-                            //     context.originalPath,
-                            //     config.langs.default.lang,
-                            // )}`,
                             url: selectSlug(
                                 baseUrl,
                                 context,
                                 config.langs.default.lang,
                             ),
                         };
+
                         return {
                             url: `${baseUrl}${edge.node.path}`,
                             changefreq: 'daily',
@@ -220,9 +222,14 @@ module.exports = {
                 ],
                 fields: [
                     { name: 'title', store: true, attributes: { boost: 20 } },
-                    { name: 'description', store: true },
-                    { name: 'content', store: true },
+                    {
+                        name: 'description',
+                        store: true,
+                        attributes: { boost: 10 },
+                    },
+                    { name: 'content', store: true, attributes: { boost: 10 } },
                     { name: 'url', store: true },
+                    { name: 'tags', store: true, attributes: { boost: 5 } },
                 ],
                 resolvers: {
                     MarkdownRemark: {
@@ -230,6 +237,7 @@ module.exports = {
                         description: node => node.frontmatter.description,
                         content: node => node.rawMarkdownBody,
                         url: node => node.frontmatter.path,
+                        tags: node => node.frontmatter.tags,
                     },
                 },
                 filename: 'search_index.json',

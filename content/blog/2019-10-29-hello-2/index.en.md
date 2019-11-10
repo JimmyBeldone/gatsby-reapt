@@ -4,7 +4,7 @@ title: Second post
 featuredImage: images/gatsby-astronaut.png
 date: "2017-08-21"
 lang: en
-tags: [test]
+tags: [english, post]
 description: >
   Second post
 ---

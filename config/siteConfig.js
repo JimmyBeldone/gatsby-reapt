@@ -7,6 +7,7 @@ require(`dotenv`).config({
 
 module.exports = {
     // SEO
+    name: `Gatsby Reapt`,
     title: `demo.meta.title`,
     titleAlt: `demo.meta.titleAlt`,
     description: `demo.meta.description`,

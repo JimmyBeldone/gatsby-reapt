@@ -10,7 +10,7 @@ import Search from '../../components/Search';
 
 // const logo = require("../../../assets/img/logo_white.svg");
 
-const Header = ({ langs, locale, siteTitle }) => (
+const Header = ({ translationsPaths, locale, siteTitle }) => (
     <header>
         <div className='container'>
             <div className='content'>
@@ -22,7 +22,10 @@ const Header = ({ langs, locale, siteTitle }) => (
                 </LocalizedLink>
                 <Nav />
                 <Search locale={locale} />
-                <SwitchLangBtn langs={langs} locale={locale} />
+                <SwitchLangBtn
+                    translationsPaths={translationsPaths}
+                    locale={locale}
+                />
             </div>
         </div>
     </header>
@@ -34,7 +37,7 @@ Header.defaultProps = {
 
 Header.propTypes = {
     siteTitle: PropTypes.string,
-    langs: PropTypes.array.isRequired,
+    translationsPaths: PropTypes.array.isRequired,
     locale: PropTypes.string.isRequired,
 };
 
