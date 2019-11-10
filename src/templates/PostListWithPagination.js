@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 
 import MainLayout from '../views/layouts/MainLayout';
 import PostList from '../views/components/PostList';
+import Pagination from '../views/components/Pagination';
 import SEO from '../views/components/SEO';
 
 const PostListWithPagination = ({
@@ -33,23 +34,12 @@ const PostListWithPagination = ({
                 </p>
                 <PostList posts={allMarkdownRemark.edges} />
 
-                <ul>
-                    {Array.from({ length: numPages }).map((item, i) => {
-                        const index = i + 1;
-                        const link =
-                            index === 1 ? '/blog' : `/blog/page/${index}`;
-
-                        return (
-                            <li key={`post-pagination-${i}`}>
-                                {currentPage === index ? (
-                                    <span>{index}</span>
-                                ) : (
-                                    <a href={link}>{index}</a>
-                                )}
-                            </li>
-                        );
-                    })}
-                </ul>
+                <Pagination
+                    numPages={numPages}
+                    currentPage={currentPage}
+                    contextPage='/blog/'
+                    lang={locale}
+                />
             </div>
         </MainLayout>
     );
