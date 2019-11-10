@@ -1,3 +1,37 @@
+# [2.0.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.11.10...v2.0.0) (2019-11-10)
+
+
+### Bug Fixes
+
+* gatsby-plugin-sitemap query undefined key ([9d3d0dd](https://github.com/JimmyBeldone/gatsby-reapt/commit/9d3d0dd))
+* lint with new eslint config ([d994999](https://github.com/JimmyBeldone/gatsby-reapt/commit/d994999))
+* missing key "name" in siteConfig ([28f6233](https://github.com/JimmyBeldone/gatsby-reapt/commit/28f6233))
+
+
+### Code Refactoring
+
+* **i18n:** simplified i18n for pages / posts / tags, DRY ([bcad9f6](https://github.com/JimmyBeldone/gatsby-reapt/commit/bcad9f6))
+
+
+### Features
+
+* Add tags, with translation ([5b69eba](https://github.com/JimmyBeldone/gatsby-reapt/commit/5b69eba))
+* image component ([509a584](https://github.com/JimmyBeldone/gatsby-reapt/commit/509a584))
+* Pagination component ([7ca06f9](https://github.com/JimmyBeldone/gatsby-reapt/commit/7ca06f9)), closes [#303](https://github.com/JimmyBeldone/gatsby-reapt/issues/303)
+* Pagination component ([8620cf0](https://github.com/JimmyBeldone/gatsby-reapt/commit/8620cf0))
+* PostList component ([8f0c72d](https://github.com/JimmyBeldone/gatsby-reapt/commit/8f0c72d))
+* TagItem with or without pagination ([40dbcc3](https://github.com/JimmyBeldone/gatsby-reapt/commit/40dbcc3)), closes [#284](https://github.com/JimmyBeldone/gatsby-reapt/issues/284)
+* TagItem with or without pagination ([82af20d](https://github.com/JimmyBeldone/gatsby-reapt/commit/82af20d))
+* TagList component ([dd4022c](https://github.com/JimmyBeldone/gatsby-reapt/commit/dd4022c))
+* Tags list page ([c68fd55](https://github.com/JimmyBeldone/gatsby-reapt/commit/c68fd55))
+* **TagItem:** list posts ([dd0ac00](https://github.com/JimmyBeldone/gatsby-reapt/commit/dd0ac00))
+
+
+### BREAKING CHANGES
+
+* **i18n:** MainLayout & SEO components now need "translationsPaths" prop (instead of
+"originalPath"), which is accessible in the GraphQL query pageContext as "translations"
+
 ## [1.11.10](https://github.com/JimmyBeldone/gatsby-reapt/compare/v1.11.9...v1.11.10) (2019-11-07)
 
 
