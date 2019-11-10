@@ -90,7 +90,6 @@ module.exports = {
                             node {
                                 path
                                 context {
-                                    originalPath
                                     translations {
                                         link
                                         langKey
