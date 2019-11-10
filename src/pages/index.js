@@ -23,7 +23,7 @@ const IndexPage = ({ pageContext: { locale, translations }, location }) => (
             <p>
                 <FormattedMessage id='demo.home.now' />
             </p>
-            <LocalizedLink to='/page-2/'>
+            <LocalizedLink to='/page-2/' hasSlug>
                 <FormattedMessage id='demo.home.link' />
             </LocalizedLink>
         </div>

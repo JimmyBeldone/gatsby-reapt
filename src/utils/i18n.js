@@ -12,10 +12,11 @@ const slugs = require(`../lang/slugs.json`);
 const resolveUrl = (...paths) => {
     return paths.reduce((resolvedUrl, path) => {
         let urlPath = path.toString().trim();
-        if (urlPath)
+        if (urlPath) {
             resolvedUrl +=
                 (resolvedUrl === '' ? '' : '/') +
                 urlPath.replace(/^\/|\/$/g, '');
+        }
         return resolvedUrl;
     }, '');
 };
@@ -26,8 +27,11 @@ const resolveUrl = (...paths) => {
  * @return {string} Resolved url with trailing slash.
  */
 const resolvePageUrl = (...path) => {
+    if (path[0] === '/') {
+        return '/';
+    }
     let resolvedUrl = resolveUrl(...path);
-    return resolvedUrl + '/';
+    return `/${resolvedUrl}/`;
 };
 
 /**
@@ -115,7 +119,10 @@ const getTagTranslations = (postList, post, tagIndex) => {
     return postsFromSameFolder.map(({ node }) => {
         const lang = node.frontmatter.lang;
         const tags = node.frontmatter.tags;
-        const path = getUrlLangPrefix(lang, kebabCase(tags[tagIndex]));
+        const path = getUrlLangPrefix(
+            lang,
+            `/tags/${kebabCase(tags[tagIndex])}/`,
+        );
 
         return getTranslationObject(lang, path);
     });
