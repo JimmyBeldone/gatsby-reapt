@@ -7,20 +7,19 @@ import MainLayout from '../views/layouts/MainLayout';
 import PostList from '../views/components/PostList';
 import SEO from '../views/components/SEO';
 
-const TagItem = ({
-    pageContext: { locale, tag, translations, tagPath },
+const TagItemWithPagination = ({
     data,
+    pageContext: { locale, numPages, currentPage, translations, tag },
     location,
 }) => {
     const { allMarkdownRemark } = data;
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
-                title={tag}
+                title='demo.blog.headerTitle'
                 location={location}
                 translationsPaths={translations}
-                // description={post.frontmatter.description}
-                pageType='tag'
+                description='demo.blog.description'
             />
             <div className='container'>
                 <h1>
@@ -34,44 +33,52 @@ const TagItem = ({
                     />
                 </p>
                 <PostList posts={allMarkdownRemark.edges} />
+
+                <ul>
+                    {Array.from({ length: numPages }).map((item, i) => {
+                        const index = i + 1;
+                        const link =
+                            index === 1 ? '/blog' : `/blog/page/${index}`;
+
+                        return (
+                            <li key={`post-pagination-${i}`}>
+                                {currentPage === index ? (
+                                    <span>{index}</span>
+                                ) : (
+                                    <a href={link}>{index}</a>
+                                )}
+                            </li>
+                        );
+                    })}
+                </ul>
             </div>
         </MainLayout>
     );
 };
 
-TagItem.propTypes = {
+TagItemWithPagination.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
-        tag: PropTypes.string.isRequired,
-        tagPath: PropTypes.string.isRequired,
         translations: PropTypes.array.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
-    data: PropTypes.shape({
-        allMarkdownRemark: PropTypes.shape({
-            totalCount: PropTypes.number.isRequired,
-            edges: PropTypes.arrayOf(
-                PropTypes.shape({
-                    node: PropTypes.shape({
-                        frontmatter: PropTypes.shape({
-                            title: PropTypes.string.isRequired,
-                            path: PropTypes.string.isRequired,
-                        }),
-                    }),
-                }).isRequired,
-            ),
-        }),
-    }),
 };
 
-export default TagItem;
+export default TagItemWithPagination;
 
 export const query = graphql`
-    query($tag: String!) {
+    query($skip: Int!, $limit: Int!, $locale: String!, $tag: String!) {
         allMarkdownRemark(
-            limit: 2000
             sort: { fields: [frontmatter___date], order: DESC }
-            filter: { frontmatter: { tags: { in: [$tag] } } }
+            filter: {
+                frontmatter: {
+                    featured: { eq: false }
+                    lang: { eq: $locale }
+                    tags: { in: [$tag] }
+                }
+            }
+            limit: $limit
+            skip: $skip
         ) {
             totalCount
             edges {
@@ -79,10 +86,10 @@ export const query = graphql`
                     id
                     frontmatter {
                         title
+                        date
                         path
                         category
                         tags
-                        date
                         featuredImage {
                             childImageSharp {
                                 fixed(height: 150) {
