@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 
 import MainLayout from '../views/layouts/MainLayout';
+import PostList from '../views/components/PostList';
 import SEO from '../views/components/SEO';
-
-import Config from '../../config/siteConfig';
-import FormattedDate from '../views/components/FormattedDate';
-import Image from '../views/components/Image';
 
 const PostListWithPagination = ({
     data,
@@ -34,45 +31,7 @@ const PostListWithPagination = ({
                         values={{ count: allMarkdownRemark.totalCount }}
                     />
                 </p>
-                <ul>
-                    {allMarkdownRemark.edges.map(({ node }) => {
-                        return (
-                            <li key={node.id}>
-                                <Link
-                                    to={
-                                        Config.langs.default.lang === locale
-                                            ? node.frontmatter.path
-                                            : `/${locale}${node.frontmatter.path}`
-                                    }
-                                >
-                                    {node.frontmatter.featuredImage !==
-                                        null && (
-                                        <Image
-                                            fixed={
-                                                node.frontmatter.featuredImage
-                                                    .childImageSharp.fixed
-                                            }
-                                            objectFit='cover'
-                                            objectPosition='50% 50%'
-                                            alt={node.frontmatter.title}
-                                        />
-                                    )}
-                                    <h2>
-                                        {node.frontmatter.title}{' '}
-                                        <span>
-                                            —{' '}
-                                            <FormattedDate
-                                                date={node.frontmatter.date}
-                                            />{' '}
-                                        </span>
-                                    </h2>
-                                </Link>
-                                <p>In: {node.frontmatter.category}</p>
-                                <p>{node.excerpt}</p>
-                            </li>
-                        );
-                    })}
-                </ul>
+                <PostList posts={allMarkdownRemark.edges} />
 
                 <ul>
                     {Array.from({ length: numPages }).map((item, i) => {
@@ -125,6 +84,7 @@ export const query = graphql`
                         date
                         path
                         category
+                        tags
                         featuredImage {
                             childImageSharp {
                                 fixed(height: 150) {
