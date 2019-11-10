@@ -236,29 +236,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     });
                 });
             });
-            // const link = `/tags/${kebabCase(tag.fieldValue)}/`;
-            // const numPages = Math.ceil(tag.totalCount / postsPerPage);
-            // Array.from({ length: numPages }).forEach((_, i) => {
-            //     Config.langs.all.map(lang => {
-            //         const path =
-            //             i === 0
-            //                 ? getUrlLangPrefix(lang, link)
-            //                 : getUrlLangPrefix(lang, `${link}page/${i + 1}/`);
-            //         createPage({
-            //             path,
-            //             component: TagListWithPagination,
-            //             context: {
-            //                 limit: postsPerPage,
-            //                 skip: i * postsPerPage,
-            //                 currentPage: i + 1,
-            //                 numPages,
-            //                 locale: lang,
-            //                 translations: getPageTranslations(path),
-            //                 tag: tag.fieldValue,
-            //             },
-            //         });
-            //     });
-            // });
         });
     } else {
         // Return PostList.js
@@ -286,18 +263,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                 });
             });
         });
-
-        // Config.langs.all.map(lang => {
-        //     const path = getUrlLangPrefix(lang, '/blog/');
-        //     createPage({
-        //         path,
-        //         component: TagItem,
-        //         context: {
-        //             locale: lang,
-        //             translations: getPageTranslations(path),
-        //         },
-        //     });
-        // });
     }
 };
 
