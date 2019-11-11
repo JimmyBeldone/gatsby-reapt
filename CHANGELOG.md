@@ -1,3 +1,23 @@
+# [3.0.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v2.0.2...v3.0.0) (2019-11-11)
+
+
+### Bug Fixes
+
+* **ProductItem:** replace markdown query with mdx ([6dd5922](https://github.com/JimmyBeldone/gatsby-reapt/commit/6dd5922))
+
+
+### Features
+
+* **global:** replace gatsby-transormer-remark with gatsby-plugin-mdx ([8c59fba](https://github.com/JimmyBeldone/gatsby-reapt/commit/8c59fba)), closes [#290](https://github.com/JimmyBeldone/gatsby-reapt/issues/290)
+
+
+### BREAKING CHANGES
+
+* **global:** GraphQL queries "allMarkdownRemark" and "markdownRemark" must be replaced
+repectively with "allMdx" and "mdx". Also, to render markdown content, you now write "post.body"
+(previously "post.html"), and wrap this content inside <MDXRenderer> component (imported from
+"gatsby-plugin-mdx")  like this : <MDXRenderer>{post.body}</MDXRenderer>.
+
 ## [2.0.2](https://github.com/JimmyBeldone/gatsby-reapt/compare/v2.0.1...v2.0.2) (2019-11-11)
 
 
