@@ -156,7 +156,7 @@ module.exports = {
                 lang: config.langs.default.lang,
                 start_url: config.pathPrefix,
                 background_color: config.backgroundColor,
-                theme_color: config.theme_color,
+                theme_color: config.themeColor,
                 display: `minimal-ui`,
                 icon: config.icon,
                 localize: config.langs.others,

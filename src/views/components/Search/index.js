@@ -26,6 +26,9 @@ const Search = ({ locale }) => {
         <div className='search-box'>
             <input
                 type='text'
+                name='search-input'
+                aria-label='search input'
+                aria-required='true'
                 defaultValue={query}
                 onChange={event => {
                     setQuery(event.target.value);
