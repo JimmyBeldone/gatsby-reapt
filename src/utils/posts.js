@@ -26,8 +26,8 @@ const Utils = {
     },
     /**
      * Get an ordered list of suggested posts for a single post.
-     * @param {Object} post The single post of which to find the related posts. It's the returned object from Graphql's query `markdownRemark`
-     * @param {Array} postList The list where find related posts. It's the returned object from Graphql's query `allMarkdownRemark`
+     * @param {Object} post The single post of which to find the related posts. It's the returned object from Graphql's query `mdx`
+     * @param {Array} postList The list where find related posts. It's the returned object from Graphql's query `allMdx`
      * @param {number} limit The maximum number of suggested posts to get
      * @return {Array} The `postList` object sorted according to the best match with the `post` object
      */

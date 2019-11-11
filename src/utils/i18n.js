@@ -90,8 +90,8 @@ const selectSlug = (baseUrl, context, lang) => {
 /**
  * Pass a post and retrieve a list of related translations.
  *
- * @param {Object} postList The list of posts where search translations. It accepts a `edges` array from Graphql's query `allMarkdownRemark`
- * @param {Object} post The post of which retrieve its translations. It accepts a `node` object from Graphql's query `allMarkdownRemark`
+ * @param {Object} postList The list of posts where search translations. It accepts a `edges` array from Graphql's query `allMdx`
+ * @param {Object} post The post of which retrieve its translations. It accepts a `node` object from Graphql's query `allMdx`
  * @return {Object} An array of objects with languages as keys (ISO 639-1) and translated post's paths as values.
  */
 const getPostTranslations = (postList, post) => {
@@ -108,8 +108,8 @@ const getPostTranslations = (postList, post) => {
 /**
  * Pass a post and retrieve a list of related translations.
  *
- * @param {Object} postList The list of posts where search translations. It accepts a `edges` array from Graphql's query `allMarkdownRemark`
- * @param {Object} post The post of which retrieve its translations. It accepts a `node` object from Graphql's query `allMarkdownRemark`
+ * @param {Object} postList The list of posts where search translations. It accepts a `edges` array from Graphql's query `allMdx`
+ * @param {Object} post The post of which retrieve its translations. It accepts a `node` object from Graphql's query `allMdx`
  * @param {Number} tagIndex Position of the tag inside the Tags array
  * @return {Object} An array of objects with languages as keys (ISO 639-1) and translated post's paths as values.
  */

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import MainLayout from '../views/layouts/MainLayout';
 import SEO from '../views/components/SEO';
@@ -11,7 +12,7 @@ const BlogPost = ({
     data,
     location,
 }) => {
-    const post = data.markdownRemark;
+    const post = data.mdx;
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
@@ -31,7 +32,7 @@ const BlogPost = ({
                     />
                 )}
                 <h1>{post.frontmatter.title}</h1>
-                <div dangerouslySetInnerHTML={{ __html: post.html }} />
+                <MDXRenderer>{post.body}</MDXRenderer>
             </div>
         </MainLayout>
     );
@@ -49,8 +50,8 @@ export default BlogPost;
 
 export const query = graphql`
     query($postPath: String!) {
-        markdownRemark(frontmatter: { path: { eq: $postPath } }) {
-            html
+        mdx(frontmatter: { path: { eq: $postPath } }) {
+            body
             frontmatter {
                 title
                 path

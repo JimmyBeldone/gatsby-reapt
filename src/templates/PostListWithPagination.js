@@ -13,7 +13,7 @@ const PostListWithPagination = ({
     pageContext: { locale, numPages, currentPage, translations },
     location,
 }) => {
-    const { allMarkdownRemark } = data;
+    const { allMdx } = data;
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
@@ -29,10 +29,10 @@ const PostListWithPagination = ({
                 <p>
                     <FormattedMessage
                         id='demo.blog.count'
-                        values={{ count: allMarkdownRemark.totalCount }}
+                        values={{ count: allMdx.totalCount }}
                     />
                 </p>
-                <PostList posts={allMarkdownRemark.edges} />
+                <PostList posts={allMdx.edges} />
 
                 <Pagination
                     numPages={numPages}
@@ -57,7 +57,7 @@ export default PostListWithPagination;
 
 export const query = graphql`
     query blogPostsListPagination($skip: Int!, $limit: Int!, $locale: String!) {
-        allMarkdownRemark(
+        allMdx(
             sort: { fields: [frontmatter___date], order: DESC }
             filter: {
                 frontmatter: { featured: { eq: false }, lang: { eq: $locale } }

@@ -10,7 +10,7 @@ import Config from '../../config/siteConfig';
 
 const TagsPage = ({
     data: {
-        allMarkdownRemark: { group },
+        allMdx: { group },
     },
     pageContext: { locale, translations },
     location,
@@ -52,7 +52,7 @@ TagsPage.propTypes = {
     }).isRequired,
     location: PropTypes.object.isRequired,
     data: PropTypes.shape({
-        allMarkdownRemark: PropTypes.shape({
+        allMdx: PropTypes.shape({
             group: PropTypes.arrayOf(
                 PropTypes.shape({
                     fieldValue: PropTypes.string.isRequired,
@@ -67,7 +67,7 @@ export default TagsPage;
 
 export const pageQuery = graphql`
     query($locale: String!) {
-        allMarkdownRemark(
+        allMdx(
             limit: 2000
             filter: { frontmatter: { lang: { eq: $locale } } }
         ) {

@@ -49,7 +49,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
             featured: Boolean @defaultFalse
             category: String @uncategorized
         }`,
-        `type MarkdownRemark implements Node @infer {
+        `type Mdx implements Node @infer {
             frontmatter: Frontmatter
         }`,
     ];
@@ -90,7 +90,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     const result = await graphql(`
         {
-            posts: allMarkdownRemark(
+            posts: allMdx(
                 sort: { order: DESC, fields: [frontmatter___date] }
                 limit: 2000
             ) {
@@ -107,7 +107,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     }
                 }
             }
-            tagsGroup: allMarkdownRemark(limit: 2000) {
+            tagsGroup: allMdx(limit: 2000) {
                 group(field: frontmatter___tags) {
                     fieldValue
                     totalCount
