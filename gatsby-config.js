@@ -62,7 +62,27 @@ module.exports = {
             },
         },
         `gatsby-transformer-sharp`,
-        `gatsby-transformer-remark`,
+        {
+            resolve: `gatsby-plugin-mdx`,
+            options: {
+                extensions: [`.mdx`, `.md`],
+                gatsbyRemarkPlugins: [
+                    // {
+                    //     resolve: `gatsby-remark-images`,
+                    //     options: {
+                    //         maxWidth: 1035,
+                    //     },
+                    // },
+                    {
+                        resolve: 'gatsby-remark-external-links',
+                        options: {
+                            target: '_blank',
+                            rel: 'noreferrer noopener',
+                        },
+                    },
+                ],
+            },
+        },
         // {
         //     resolve: 'gatsby-schema-field-absolute-path',
         //     options: {
@@ -232,10 +252,10 @@ module.exports = {
                     { name: 'tags', store: true, attributes: { boost: 5 } },
                 ],
                 resolvers: {
-                    MarkdownRemark: {
+                    Mdx: {
                         title: node => node.frontmatter.title,
                         description: node => node.frontmatter.description,
-                        content: node => node.rawMarkdownBody,
+                        content: node => node.body,
                         url: node => node.frontmatter.path,
                         tags: node => node.frontmatter.tags,
                     },

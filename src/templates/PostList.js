@@ -27,10 +27,10 @@ const BlogPage = ({
                 <p>
                     <FormattedMessage
                         id='demo.blog.count'
-                        values={{ count: data.allMarkdownRemark.totalCount }}
+                        values={{ count: data.allMdx.totalCount }}
                     />
                 </p>
-                <PostList posts={data.allMarkdownRemark.edges} />
+                <PostList posts={data.allMdx.edges} />
             </div>
         </MainLayout>
     );
@@ -48,7 +48,7 @@ export default BlogPage;
 
 export const query = graphql`
     query blogPostsList($locale: String!) {
-        allMarkdownRemark(
+        allMdx(
             filter: {
                 frontmatter: { featured: { eq: false }, lang: { eq: $locale } }
             }

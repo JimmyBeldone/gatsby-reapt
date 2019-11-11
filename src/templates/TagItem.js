@@ -12,7 +12,7 @@ const TagItem = ({
     data,
     location,
 }) => {
-    const { allMarkdownRemark } = data;
+    const { allMdx } = data;
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
@@ -30,10 +30,10 @@ const TagItem = ({
                 <p>
                     <FormattedMessage
                         id='demo.blog.count'
-                        values={{ count: allMarkdownRemark.totalCount }}
+                        values={{ count: allMdx.totalCount }}
                     />
                 </p>
-                <PostList posts={allMarkdownRemark.edges} />
+                <PostList posts={allMdx.edges} />
             </div>
         </MainLayout>
     );
@@ -48,7 +48,7 @@ TagItem.propTypes = {
     }).isRequired,
     location: PropTypes.object.isRequired,
     data: PropTypes.shape({
-        allMarkdownRemark: PropTypes.shape({
+        allMdx: PropTypes.shape({
             totalCount: PropTypes.number.isRequired,
             edges: PropTypes.arrayOf(
                 PropTypes.shape({
@@ -68,7 +68,7 @@ export default TagItem;
 
 export const query = graphql`
     query($tag: String!) {
-        allMarkdownRemark(
+        allMdx(
             limit: 2000
             sort: { fields: [frontmatter___date], order: DESC }
             filter: { frontmatter: { tags: { in: [$tag] } } }

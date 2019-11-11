@@ -13,7 +13,7 @@ const TagItemWithPagination = ({
     pageContext: { locale, numPages, currentPage, translations, tag },
     location,
 }) => {
-    const { allMarkdownRemark } = data;
+    const { allMdx } = data;
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
@@ -30,10 +30,10 @@ const TagItemWithPagination = ({
                 <p>
                     <FormattedMessage
                         id='demo.blog.count'
-                        values={{ count: allMarkdownRemark.totalCount }}
+                        values={{ count: allMdx.totalCount }}
                     />
                 </p>
-                <PostList posts={allMarkdownRemark.edges} />
+                <PostList posts={allMdx.edges} />
                 <Pagination
                     numPages={numPages}
                     currentPage={currentPage}
@@ -57,7 +57,7 @@ export default TagItemWithPagination;
 
 export const query = graphql`
     query($skip: Int!, $limit: Int!, $locale: String!, $tag: String!) {
-        allMarkdownRemark(
+        allMdx(
             sort: { fields: [frontmatter___date], order: DESC }
             filter: {
                 frontmatter: {
