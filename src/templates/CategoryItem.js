@@ -7,8 +7,8 @@ import MainLayout from '../views/layouts/MainLayout';
 import PostList from '../views/components/PostList';
 import SEO from '../views/components/SEO';
 
-const TagItem = ({
-    pageContext: { locale, tag, translations },
+const CategoryItem = ({
+    pageContext: { locale, category, translations },
     data,
     location,
 }) => {
@@ -16,7 +16,7 @@ const TagItem = ({
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
-                title={tag}
+                title={category}
                 location={location}
                 translationsPaths={translations}
                 // description={post.frontmatter.description}
@@ -26,7 +26,7 @@ const TagItem = ({
                 <h1>
                     <FormattedMessage id='demo.blog.title' />
                 </h1>
-                <p>Tag: {tag}</p>
+                <p>Category: {category}</p>
                 <p>
                     <FormattedMessage
                         id='demo.blog.count'
@@ -39,7 +39,7 @@ const TagItem = ({
     );
 };
 
-TagItem.propTypes = {
+CategoryItem.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         tag: PropTypes.string.isRequired,
@@ -63,14 +63,14 @@ TagItem.propTypes = {
     }),
 };
 
-export default TagItem;
+export default CategoryItem;
 
 export const query = graphql`
-    query($tag: String!) {
+    query($category: String!) {
         allMdx(
             limit: 2000
             sort: { fields: [frontmatter___date], order: DESC }
-            filter: { frontmatter: { tags: { in: [$tag] } } }
+            filter: { frontmatter: { category: { eq: $category } } }
         ) {
             totalCount
             edges {
