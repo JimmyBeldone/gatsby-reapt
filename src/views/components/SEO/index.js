@@ -131,7 +131,7 @@ const SEO = ({
                     content: metaDescription,
                 },
                 {
-                    name: `ìmage`,
+                    name: `image`,
                     content: metaImageUrl,
                 },
                 // Open Graph tags
