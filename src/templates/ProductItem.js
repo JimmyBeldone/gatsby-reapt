@@ -1,40 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image/withIEPolyfill';
 
 import MainLayout from '../views/layouts/MainLayout';
 import SEO from '../views/components/SEO';
+import Image from '../views/components/Image';
 
-const BlogPost = ({
+const ProductItem = ({
     pageContext: { locale, postPath, translations },
     data,
     location,
 }) => {
-    const post = data.markdownRemark;
+    const post = data.mdx;
     return (
-        <MainLayout
-            locale={locale}
-            originalPath={postPath}
-            blogPostTranslation={translations}
-            isBlogPost
-        >
+        <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
                 title={post.frontmatter.title}
                 location={location}
-                originalPath={postPath}
+                translationsPaths={translations}
                 description={post.frontmatter.description}
-                isPost
+                pageType='product'
             />
             <div className='container'>
                 {post.frontmatter.featuredImage !== null && (
-                    <Img
+                    <Image
                         fluid={
                             post.frontmatter.featuredImage.childImageSharp.fluid
                         }
                         // objectFit='cover'
                         // objectPosition='50% 50%'
-                        // alt=''
+                        alt={post.frontmatter.title}
                     />
                 )}
                 <h1>{post.frontmatter.title}</h1>
@@ -44,7 +39,7 @@ const BlogPost = ({
     );
 };
 
-BlogPost.propTypes = {
+ProductItem.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         postPath: PropTypes.string.isRequired,
@@ -52,11 +47,11 @@ BlogPost.propTypes = {
     location: PropTypes.object.isRequired,
 };
 
-export default BlogPost;
+export default ProductItem;
 
 export const query = graphql`
     query($postPath: String!) {
-        markdownRemark(frontmatter: { path: { eq: $postPath } }) {
+        mdx(frontmatter: { path: { eq: $postPath } }) {
             html
             frontmatter {
                 title
