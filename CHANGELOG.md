@@ -1,3 +1,16 @@
+# [3.1.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.0.2...v3.1.0) (2019-11-11)
+
+
+### Bug Fixes
+
+* **SEO:** replace attribute "name" with "property" ([7458f3b](https://github.com/JimmyBeldone/gatsby-reapt/commit/7458f3b))
+
+
+### Features
+
+* **SEO:** Start managing article content type ([56b64a4](https://github.com/JimmyBeldone/gatsby-reapt/commit/56b64a4))
+* manage blog categories ([dddbc3c](https://github.com/JimmyBeldone/gatsby-reapt/commit/dddbc3c)), closes [#316](https://github.com/JimmyBeldone/gatsby-reapt/issues/316)
+
 ## [3.0.2](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.0.1...v3.0.2) (2019-11-11)
 
 
