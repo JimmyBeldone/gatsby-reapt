@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.1.0...v3.1.1) (2019-11-11)
+
+
+### Bug Fixes
+
+* **SEO:** typo ([a73031d](https://github.com/JimmyBeldone/gatsby-reapt/commit/a73031d))
+
 # [3.1.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.0.2...v3.1.0) (2019-11-11)
 
 
