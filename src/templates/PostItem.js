@@ -13,25 +13,43 @@ const BlogPost = ({
     location,
 }) => {
     const post = data.mdx;
+    const {
+        title,
+        description,
+        featuredImage,
+        tags,
+        publishedAt,
+        updatedAt,
+    } = post.frontmatter;
+    console.log('TCL: publishedAt', publishedAt);
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
-                title={post.frontmatter.title}
+                title={title}
                 location={location}
                 translationsPaths={translations}
-                description={post.frontmatter.description}
-                pageType='post'
+                description={description}
+                tags={tags}
+                pageType='article'
+                publishedAt={publishedAt}
+                updatedAt={updatedAt}
+                image={
+                    featuredImage !== null
+                        ? {
+                              url: featuredImage.childImageSharp.fluid.src,
+                              alt: title,
+                          }
+                        : null
+                }
             />
             <div className='container'>
-                {post.frontmatter.featuredImage !== null && (
+                {featuredImage !== null && (
                     <Image
-                        fluid={
-                            post.frontmatter.featuredImage.childImageSharp.fluid
-                        }
-                        alt={post.frontmatter.title}
+                        fluid={featuredImage.childImageSharp.fluid}
+                        alt={title}
                     />
                 )}
-                <h1>{post.frontmatter.title}</h1>
+                <h1>{title}</h1>
                 <MDXRenderer>{post.body}</MDXRenderer>
             </div>
         </MainLayout>
@@ -57,6 +75,8 @@ export const query = graphql`
                 path
                 description
                 date
+                publishedAt: date(formatString: "YYYY-MM-DD")
+                updatedAt: date(formatString: "YYYY-MM-DD")
                 tags
                 featuredImage {
                     childImageSharp {

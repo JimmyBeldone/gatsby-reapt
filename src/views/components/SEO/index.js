@@ -1,39 +1,64 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { injectIntl } from 'react-intl';
 
 import siteConfig from '../../../../config/siteConfig';
-import icon from '../../../images/gatsby-icon.png';
 
-function SEO({
+const SEO = ({
     pageType,
     translationsPaths,
     location,
     title,
+    image,
+    publishedAt,
+    updatedAt,
     description,
     meta,
-    metaIcon,
     keywords,
     translaled,
     is404,
     isPost,
     slug,
+    robots,
+    tags,
     intl: { formatMessage, locale },
-}) {
-    let metaDescription;
+}) => {
     let formattedTitle;
+    let metaDescription;
     // let schemaOrgJSONLD;
+    const ogType = pageType === 'article' ? pageType : 'website';
 
-    if (pageType === 'post' || pageType === 'tag') {
-        formattedTitle = title;
-        metaDescription = description;
-    } else {
+    const data = useStaticQuery(graphql`
+        query DefaultSEOQuery {
+            file(name: { eq: "gatsby-icon" }) {
+                childImageSharp {
+                    fixed(width: 500) {
+                        ...GatsbyImageSharpFixed_noBase64
+                    }
+                }
+            }
+        }
+    `);
+
+    if (pageType === 'website') {
         formattedTitle = formatMessage({ id: title });
         metaDescription = formatMessage({
             id: description || siteConfig.description,
         });
+    } else {
+        formattedTitle = title;
+        metaDescription = description;
     }
+
+    if (pageType === 'article') {
+    }
+
+    const metaImage = image ? image.url : data.file.childImageSharp.fixed.src;
+
+    const metaImageUrl = siteConfig.siteUrl + metaImage;
+    const metaImageAlt = image ? image.alt : metaDescription;
 
     if (pageType === '404') {
         return (
@@ -74,14 +99,11 @@ function SEO({
 
     if (translaled) {
         translationsPaths.forEach(langPath => {
-            alternateLinks.push(
-                <link
-                    key={`alternate-${langPath.langKey}`}
-                    rel='alternate'
-                    href={siteConfig.siteUrl + langPath.link}
-                    hrefLang={langPath.langKey}
-                />,
-            );
+            alternateLinks.push({
+                rel: 'alternate',
+                href: siteConfig.siteUrl + langPath.link,
+                hrefLang: langPath.langKey,
+            });
             ogLocaleAlternateMeta.push({
                 property: `og:locale:alternate`,
                 content: langPath.territory,
@@ -110,7 +132,7 @@ function SEO({
                 },
                 {
                     name: `ìmage`,
-                    content: siteConfig.siteUrl + metaIcon,
+                    content: metaImageUrl,
                 },
                 // Open Graph tags
                 {
@@ -123,15 +145,19 @@ function SEO({
                 },
                 {
                     property: `og:image`,
-                    content: siteConfig.siteUrl + metaIcon,
+                    content: metaImageUrl,
                 },
                 {
                     property: `og:image:secure_url`,
-                    content: siteConfig.siteUrl + metaIcon,
+                    content: metaImageUrl,
+                },
+                {
+                    property: 'og:image:alt',
+                    content: metaImageAlt,
                 },
                 {
                     property: `og:type`,
-                    content: `website`,
+                    content: ogType,
                 },
                 {
                     property: `og:url`,
@@ -168,27 +194,55 @@ function SEO({
                 },
                 {
                     name: `twitter:image`,
-                    content: siteConfig.siteUrl + metaIcon,
+                    content: metaImageUrl,
+                },
+                {
+                    name: 'twitter:image:alt',
+                    content: metaImageAlt,
                 },
             ]
+                .concat(
+                    robots ? { name: 'robots', content: 'index, follow' } : [],
+                )
                 .concat(ogLocaleAlternateMeta)
                 .concat(
-                    keywords.length > 0
+                    publishedAt
+                        ? [
+                              {
+                                  property: 'article:published_time',
+                                  content: publishedAt,
+                              },
+                          ]
+                        : [],
+                    updatedAt
+                        ? [
+                              {
+                                  name: `article:modified_time`,
+                                  content: updatedAt,
+                              },
+                          ]
+                        : [],
+                )
+                .concat(
+                    keywords.length > 0 || tags.length > 0
                         ? {
                               name: `keywords`,
-                              content: keywords.join(`, `),
+                              content: siteConfig.keywords
+                                  .concat(keywords)
+                                  .concat(tags)
+                                  .join(`, `),
                           }
                         : [],
                 )
                 .concat(meta)}
+            link={[{ rel: 'canonical', href: location.href }]
+                .concat(alternateLinks)
+                .concat({
+                    rel: 'alternate',
+                    hrefLang: 'x-default',
+                    href: defaultUrl,
+                })}
         >
-            {alternateLinks.map(link => link)}
-            <link
-                key='alternate-default'
-                rel='alternate'
-                hrefLang='x-default'
-                href={defaultUrl}
-            />
             {/* Set GDPR banner lang  */}
             <script>{`var tarteaucitronForceLanguage = '${locale}';`}</script>
             {/* Schema.org tags */}
@@ -197,30 +251,43 @@ function SEO({
             </script>
         </Helmet>
     );
-}
+};
 
 SEO.defaultProps = {
-    pageType: 'normal',
+    pageType: 'website',
+    publishedAt: null,
+    updatedAt: null,
     meta: [],
     keywords: [],
-    metaIcon: icon,
     translaled: true,
     is404: false,
     isPost: false,
     slug: ``,
+    robots: true,
+    tags: [],
 };
 
 SEO.propTypes = {
     pageType: PropTypes.PropTypes.oneOf([
-        'normal',
-        'post',
+        'website',
+        'article',
         'product',
         'tag',
         '404',
     ]),
     description: PropTypes.string,
-    meta: PropTypes.array,
-    metaIcon: PropTypes.string,
+    meta: PropTypes.arrayOf(
+        PropTypes.shape({
+            property: PropTypes.string.isRequired,
+            content: PropTypes.string.isRequired,
+        }),
+    ),
+    image: PropTypes.shape({
+        url: PropTypes.string.isRequired,
+        alt: PropTypes.string.isRequired,
+    }),
+    publishedAt: PropTypes.string,
+    updatedAt: PropTypes.string,
     keywords: PropTypes.arrayOf(PropTypes.string),
     title: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
@@ -229,6 +296,8 @@ SEO.propTypes = {
     isPost: PropTypes.bool,
     slug: PropTypes.string,
     translationsPaths: PropTypes.array.isRequired,
+    robots: PropTypes.bool,
+    tags: PropTypes.array,
 };
 
 export default injectIntl(SEO);

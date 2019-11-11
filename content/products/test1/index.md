@@ -1,6 +1,6 @@
 ---
 path: /produits/produit-1
-date: 2019-12-21
+date: 2019-10-21
 title: Mon premier produit
 featuredImage: images/gatsby-astronaut.png
 lang: fr
