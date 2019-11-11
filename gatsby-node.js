@@ -7,6 +7,7 @@ const { getSlug } = require(`./src/utils/i18n`);
 const {
     getPageTranslations,
     getPostTranslations,
+    getCategoryTranslations,
     getTagTranslations,
     getUrlLangPrefix,
     resolvePageUrl,
@@ -123,6 +124,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     }
                 }
             }
+            categoriesGroup: allMdx(limit: 2000) {
+                group(field: frontmatter___category) {
+                    fieldValue
+                    totalCount
+                    edges {
+                        node {
+                            fileAbsolutePath
+                            frontmatter {
+                                lang
+                                category
+                            }
+                        }
+                    }
+                }
+            }
         }
     `);
 
@@ -197,6 +213,66 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         });
     });
 
+    const categories = result.data.categoriesGroup.group;
+
+    // If category pagination
+    if (ContentConfig.posts.pagination) {
+        const CategoryItemWithPagination = path.resolve(
+            './src/templates/CategoryItemWithPagination.js',
+        );
+        const postsPerPage = ContentConfig.posts.perPage;
+
+        categories.forEach((cat, i) => {
+            const numPages = Math.ceil(cat.totalCount / postsPerPage);
+            cat.edges.forEach(({ node }) => {
+                const { lang } = node.frontmatter;
+                const link = getUrlLangPrefix(
+                    lang,
+                    `/category/${kebabCase(cat.fieldValue)}/`,
+                );
+                Array.from({ length: numPages }).forEach((_, i) => {
+                    const path = i === 0 ? link : `${link}page/${i + 1}/`;
+                    createPage({
+                        path,
+                        component: CategoryItemWithPagination,
+                        context: {
+                            limit: postsPerPage,
+                            skip: i * postsPerPage,
+                            currentPage: i + 1,
+                            numPages,
+                            locale: lang,
+                            translations: getCategoryTranslations(posts, node),
+                            category: cat.fieldValue,
+                        },
+                    });
+                });
+            });
+        });
+    } else {
+        // Return PostList.js
+        const CategoryItem = path.resolve('./src/templates/CategoryItem.js');
+
+        categories.forEach(cat => {
+            cat.edges.forEach(({ node }) => {
+                const lang = node.frontmatter.lang;
+                const path = getUrlLangPrefix(
+                    lang,
+                    `/category/${kebabCase(cat.fieldValue)}/`,
+                );
+
+                createPage({
+                    path,
+                    component: CategoryItem,
+                    context: {
+                        categoty: cat.fieldValue,
+                        locale: lang,
+                        translations: getCategoryTranslations(posts, node),
+                    },
+                });
+            });
+        });
+    }
+
     const tags = result.data.tagsGroup.group;
 
     // If tag pagination
@@ -257,7 +333,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     context: {
                         tag: tag.fieldValue,
                         locale: lang,
-                        tagPath: path,
                         translations: getTagTranslations(posts, node, tagIndex),
                     },
                 });
