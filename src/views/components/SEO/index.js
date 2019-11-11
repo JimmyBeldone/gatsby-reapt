@@ -83,7 +83,7 @@ function SEO({
                 />,
             );
             ogLocaleAlternateMeta.push({
-                name: `og:locale:alternate`,
+                property: `og:locale:alternate`,
                 content: langPath.territory,
             });
         });
@@ -123,6 +123,10 @@ function SEO({
                 },
                 {
                     property: `og:image`,
+                    content: siteConfig.siteUrl + metaIcon,
+                },
+                {
+                    property: `og:image:secure_url`,
                     content: siteConfig.siteUrl + metaIcon,
                 },
                 {
