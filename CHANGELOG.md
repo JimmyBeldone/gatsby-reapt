@@ -1,3 +1,11 @@
+## [3.1.2](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.1.1...v3.1.2) (2019-11-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-intl to v3.6.0 ([5ef58ea](https://github.com/JimmyBeldone/gatsby-reapt/commit/5ef58ea))
+* **deps:** update dependency snyk to v1.245.0 ([2ab0794](https://github.com/JimmyBeldone/gatsby-reapt/commit/2ab0794))
+
 ## [3.1.1](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.1.0...v3.1.1) (2019-11-11)
 
 
