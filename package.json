@@ -53,7 +53,7 @@
     "@mdx-js/react": "1.5.1",
     "clsx": "1.0.4",
     "date-fns": "2.7.0",
-    "gatsby": "2.17.12",
+    "gatsby": "2.17.13",
     "gatsby-image": "2.2.32",
     "gatsby-plugin-lunr": "1.5.2",
     "gatsby-plugin-manifest": "2.2.27",
