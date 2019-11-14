@@ -46,18 +46,4 @@ module.exports = {
 
     backgroundColor: `#e0e0e0`,
     themeColor: `#663399`,
-    // Social
-    social: {
-        github: `https://github.com/JimmyBeldone/gatsby-reapt/`,
-        twitter: ``,
-    },
-    // Author
-    authorName: `Jimmy Beldone`,
-    authorEmail: `dev.jimmy.beldone@gmail.com`,
-    authorLocation: `Lyon, France`,
-    authorAvatar: ``,
-    authorDescription: ``,
-    authorTwitter: `@jimmy_dev`,
-    authorGithub: `https://github.com/JimmyBeldone/`,
-    copyright: `Copyright © ${new Date().getFullYear()}`,
 };

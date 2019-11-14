@@ -51,7 +51,7 @@ const getTranslationObject = (lang, path) => {
         langKey: lang,
         langValue: locales[lang].locale,
         link: path,
-        default: locales[lang].default !== undefined,
+        default: !!locales[lang].default,
         territory: locales[lang].territory,
     };
 };
