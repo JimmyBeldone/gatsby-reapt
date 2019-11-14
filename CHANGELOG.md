@@ -1,3 +1,11 @@
+## [3.1.7](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.1.6...v3.1.7) (2019-11-14)
+
+
+### Bug Fixes
+
+* missing description p404 ([7ee99ea](https://github.com/JimmyBeldone/gatsby-reapt/commit/7ee99ea))
+* missing trailing slash ([162b28a](https://github.com/JimmyBeldone/gatsby-reapt/commit/162b28a))
+
 ## [3.1.6](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.1.5...v3.1.6) (2019-11-13)
 
 
