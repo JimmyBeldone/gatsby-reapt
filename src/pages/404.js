@@ -21,6 +21,7 @@ const NotFoundPage = ({ pageContext: { locale, translations }, location }) => {
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
                 title='demo.p404.headerTitle'
+                description='demo.p404.description'
                 location={location}
                 translationsPaths={translations}
                 pageType='404'
