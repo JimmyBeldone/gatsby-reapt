@@ -51,7 +51,7 @@ const getTranslationObject = (lang, path) => {
         langKey: lang,
         langValue: locales[lang].locale,
         link: path,
-        default: locales[lang].default !== undefined,
+        default: !!locales[lang].default,
         territory: locales[lang].territory,
     };
 };
@@ -99,7 +99,10 @@ const getPostTranslations = (postList, post) => {
 
     return postsFromSameFolder.map(({ node }) => {
         const lang = node.frontmatter.lang;
-        const path = getUrlLangPrefix(lang, node.frontmatter.path);
+        const path = getUrlLangPrefix(
+            lang,
+            resolvePageUrl(node.frontmatter.path),
+        );
 
         return getTranslationObject(lang, path);
     });
@@ -119,7 +122,7 @@ const getCategoryTranslations = (postList, post) => {
         const lang = node.frontmatter.lang;
         const path = getUrlLangPrefix(
             lang,
-            `/category/${kebabCase(node.frontmatter.category)}`,
+            `/category/${kebabCase(node.frontmatter.category)}/`,
         );
 
         return getTranslationObject(lang, path);

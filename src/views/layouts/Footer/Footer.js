@@ -1,6 +1,8 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import siteConfig from '../../../../config/siteConfig';
+
+import { name } from '../../../../config/siteConfig';
+import { copyright, business, author } from '../../../../config/socialConfig';
 
 import './Footer.styl';
 
@@ -9,22 +11,22 @@ const Footer = () => (
         <div className='container'>
             <span>Footer</span>
             <div>
-                {siteConfig.copyright}
+                {copyright}
                 {` `}
                 <a
-                    href={siteConfig.social.github}
+                    href={business.networks.github}
                     target='_blank'
                     rel='noopener noreferrer'
                 >
-                    {siteConfig.name}
+                    {name}
                 </a>
                 , by
                 <a
-                    href={siteConfig.authorGithub}
+                    href={author.networks.github}
                     target='_blank'
                     rel='noopener noreferrer'
                 >
-                    {siteConfig.authorName}>
+                    {author.username}>
                 </a>
             </div>
             <div>

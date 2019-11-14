@@ -13,15 +13,7 @@ const BlogPost = ({
     location,
 }) => {
     const post = data.mdx;
-    const {
-        title,
-        description,
-        featuredImage,
-        tags,
-        publishedAt,
-        updatedAt,
-    } = post.frontmatter;
-    console.log('TCL: publishedAt', publishedAt);
+    const { title, description, featuredImage } = post.frontmatter;
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
@@ -29,10 +21,7 @@ const BlogPost = ({
                 location={location}
                 translationsPaths={translations}
                 description={description}
-                tags={tags}
                 pageType='article'
-                publishedAt={publishedAt}
-                updatedAt={updatedAt}
                 image={
                     featuredImage !== null
                         ? {
@@ -41,6 +30,7 @@ const BlogPost = ({
                           }
                         : null
                 }
+                post={post.frontmatter}
             />
             <div className='container'>
                 {featuredImage !== null && (
@@ -74,6 +64,7 @@ export const query = graphql`
                 title
                 path
                 description
+                category
                 date
                 publishedAt: date(formatString: "YYYY-MM-DD")
                 updatedAt: date(formatString: "YYYY-MM-DD")

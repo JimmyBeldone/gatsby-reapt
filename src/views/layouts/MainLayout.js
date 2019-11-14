@@ -9,7 +9,7 @@ import { WebpProvider } from '../components/WebpDetect';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 
-const MainLayout = ({ locale, children, is404, translationsPaths }) => {
+const MainLayout = ({ locale, children, translationsPaths }) => {
     if (typeof window !== `undefined`) {
         sessionStorage.setItem(`lang`, locale);
     }
