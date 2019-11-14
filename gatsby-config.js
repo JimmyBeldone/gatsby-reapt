@@ -14,13 +14,13 @@ module.exports = {
     siteMetadata: config,
     plugins: [
         'gatsby-plugin-eslint',
-        `gatsby-plugin-react-helmet`,
-        {
-            resolve: `gatsby-plugin-react-helmet-canonical-urls`,
-            options: {
-                siteUrl: config.siteUrl,
-            },
-        },
+        `gatsby-plugin-react-helmet-async`,
+        // {
+        //     resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+        //     options: {
+        //         siteUrl: config.siteUrl,
+        //     },
+        // },
         {
             resolve: `gatsby-plugin-typography`,
             options: {
@@ -37,7 +37,7 @@ module.exports = {
         {
             resolve: `gatsby-source-filesystem`,
             options: {
-                path: `${__dirname}/content/blog`,
+                path: `${__dirname}/content${config.articlePrefix}`,
                 name: `posts`,
             },
         },

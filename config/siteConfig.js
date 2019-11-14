@@ -12,6 +12,7 @@ module.exports = {
     titleAlt: `demo.meta.titleAlt`,
     description: `demo.meta.description`,
     pathPrefix: `/`,
+    articlePrefix: '/blog/',
     siteUrl: process.env.GATSBY_SITE_URL || `http://localhost:8000`,
     icon: `src/images/gatsby-icon.png`,
     keywords: [

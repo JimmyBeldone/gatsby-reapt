@@ -13,13 +13,13 @@ module.exports = {
         },
     },
     business: {
-        title: '',
+        title: 'Gatsby Reapt',
         street_address: '',
-        locality: '',
+        locality: 'Lyon',
         region: '',
         postal_code: '',
-        country: '',
-        url: '',
+        country: 'France',
+        url: 'https://github.com/JimmyBeldone/gatsby-reapt/',
         networks: {
             twitter: 'https://twitter.com/@jimmy_dev',
             facebook: '',

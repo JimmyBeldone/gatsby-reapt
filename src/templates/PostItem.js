@@ -30,7 +30,7 @@ const BlogPost = ({
                           }
                         : null
                 }
-                post={post.frontmatter}
+                post={{ ...post.frontmatter, body: post.excerpt }}
             />
             <div className='container'>
                 {featuredImage !== null && (
@@ -60,6 +60,7 @@ export const query = graphql`
     query($postPath: String!) {
         mdx(frontmatter: { path: { eq: $postPath } }) {
             body
+            excerpt
             frontmatter {
                 title
                 path
