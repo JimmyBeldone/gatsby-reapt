@@ -26,12 +26,8 @@ const NotFoundPage = ({ pageContext: { locale, translations }, location }) => {
                 translationsPaths={translations}
                 pageType='404'
             />
-            <h1>
-                <FormattedMessage id='demo.p404.title' />
-            </h1>
-            <p>
-                <FormattedMessage id='demo.p404.description' />
-            </p>
+            <FormattedMessage id='demo.p404.title' tagName='h1' />
+            <FormattedMessage id='demo.p404.description' tagName='p' />
             <LocalizedLink to='/'>
                 <FormattedMessage id='demo.page2.link' />
             </LocalizedLink>

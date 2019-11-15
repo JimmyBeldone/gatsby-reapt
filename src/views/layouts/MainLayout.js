@@ -19,14 +19,18 @@ const MainLayout = ({ locale, children, translationsPaths }) => {
             <div id='app'>
                 <WebpProvider>
                     <>
-                        <Headroom>
-                            <Header
-                                siteTitle={siteConfig.title}
-                                translationsPaths={translationsPaths}
-                                locale={locale}
-                            />
-                        </Headroom>
-                        <main>{children}</main>
+                        <div id='content-wrap'>
+                            <Headroom>
+                                <Header
+                                    siteTitle={siteConfig.title}
+                                    translationsPaths={translationsPaths}
+                                    locale={locale}
+                                />
+                            </Headroom>
+                            <main>
+                                <div id='content'>{children}</div>
+                            </main>
+                        </div>
                         <Footer />
                     </>
                 </WebpProvider>

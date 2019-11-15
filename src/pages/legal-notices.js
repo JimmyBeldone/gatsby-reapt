@@ -25,9 +25,7 @@ const MLPage = ({ pageContext: { locale, translations }, location }) => {
                 description='demo.ml.description'
             />
             <div className='container'>
-                <h1>
-                    <FormattedMessage id='demo.ml.title' />
-                </h1>
+                <FormattedMessage id='demo.ml.title' tagName='h1' />
             </div>
         </MainLayout>
     );

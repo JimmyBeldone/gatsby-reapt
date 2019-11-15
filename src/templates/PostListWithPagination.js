@@ -8,6 +8,8 @@ import PostList from '../views/components/PostList';
 import Pagination from '../views/components/Pagination';
 import SEO from '../views/components/SEO';
 
+import { articlePrefix } from '../../config/siteConfig';
+
 const PostListWithPagination = ({
     data,
     pageContext: { locale, numPages, currentPage, translations },
@@ -37,7 +39,7 @@ const PostListWithPagination = ({
                 <Pagination
                     numPages={numPages}
                     currentPage={currentPage}
-                    contextPage='/blog/'
+                    contextPage={articlePrefix}
                     lang={locale}
                 />
             </div>

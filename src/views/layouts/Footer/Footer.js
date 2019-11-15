@@ -9,7 +9,6 @@ import './Footer.styl';
 const Footer = () => (
     <footer>
         <div className='container'>
-            <span>Footer</span>
             <div>
                 {copyright}
                 {` `}
@@ -20,13 +19,14 @@ const Footer = () => (
                 >
                     {name}
                 </a>
-                , by
+                <br />
+                <span>by </span>
                 <a
                     href={author.networks.github}
                     target='_blank'
                     rel='noopener noreferrer'
                 >
-                    {author.username}>
+                    {author.username}
                 </a>
             </div>
             <div>

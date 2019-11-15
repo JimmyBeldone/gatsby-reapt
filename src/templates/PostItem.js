@@ -6,6 +6,8 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import MainLayout from '../views/layouts/MainLayout';
 import SEO from '../views/components/SEO';
 import Image from '../views/components/Image';
+import SimilarPosts from '../views/components/SimilarPost';
+import ShareButtons from '../views/components/ShareButtons';
 
 const BlogPost = ({
     pageContext: { locale, postPath, translations },
@@ -13,7 +15,14 @@ const BlogPost = ({
     location,
 }) => {
     const post = data.mdx;
-    const { title, description, featuredImage } = post.frontmatter;
+    const allPosts = data.allMdx;
+    const {
+        title,
+        description,
+        featuredImage,
+        category,
+        tags,
+    } = post.frontmatter;
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
@@ -30,17 +39,34 @@ const BlogPost = ({
                           }
                         : null
                 }
-                post={post.frontmatter}
+                post={{ ...post.frontmatter, body: post.excerpt }}
             />
             <div className='container'>
-                {featuredImage !== null && (
-                    <Image
-                        fluid={featuredImage.childImageSharp.fluid}
-                        alt={title}
+                <div className='post-item'>
+                    {featuredImage !== null && (
+                        <Image
+                            fluid={featuredImage.childImageSharp.fluid}
+                            alt={title}
+                        />
+                    )}
+                    <h1>{title}</h1>
+                    <MDXRenderer>{post.body}</MDXRenderer>
+                    <ShareButtons
+                        url={location.pathname}
+                        description={description}
+                        media={
+                            featuredImage !== null
+                                ? featuredImage.childImageSharp.original.src
+                                : data.file.childImageSharp.fixed.src
+                        }
                     />
-                )}
-                <h1>{title}</h1>
-                <MDXRenderer>{post.body}</MDXRenderer>
+                </div>
+                <SimilarPosts
+                    category={category}
+                    tags={tags}
+                    postId={post.id}
+                    allPosts={allPosts}
+                />
             </div>
         </MainLayout>
     );
@@ -57,9 +83,11 @@ BlogPost.propTypes = {
 export default BlogPost;
 
 export const query = graphql`
-    query($postPath: String!) {
+    query($postPath: String!, $locale: String!) {
         mdx(frontmatter: { path: { eq: $postPath } }) {
+            id
             body
+            excerpt
             frontmatter {
                 title
                 path
@@ -74,7 +102,50 @@ export const query = graphql`
                         fluid(maxWidth: 1200) {
                             ...GatsbyImageSharpFluid
                         }
+                        original {
+                            src
+                        }
                     }
+                }
+            }
+        }
+        allMdx(
+            filter: {
+                frontmatter: { lang: { eq: $locale }, path: { ne: $postPath } }
+            }
+        ) {
+            edges {
+                node {
+                    id
+                    body
+                    excerpt
+                    frontmatter {
+                        title
+                        path
+                        description
+                        category
+                        date
+                        publishedAt: date(formatString: "YYYY-MM-DD")
+                        updatedAt: date(formatString: "YYYY-MM-DD")
+                        tags
+                        featuredImage {
+                            childImageSharp {
+                                fluid(maxWidth: 800) {
+                                    ...GatsbyImageSharpFluid
+                                }
+                                original {
+                                    src
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        file(name: { eq: "gatsby-icon" }) {
+            childImageSharp {
+                fixed(width: 500) {
+                    ...GatsbyImageSharpFixed_noBase64
                 }
             }
         }

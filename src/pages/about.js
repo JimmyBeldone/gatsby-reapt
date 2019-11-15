@@ -17,12 +17,8 @@ const About = ({ pageContext: { locale, translations }, location }) => {
                 description='demo.about.description'
             />
             <div className='container'>
-                <h1>
-                    <FormattedMessage id='demo.about.title' />
-                </h1>
-                <p>
-                    <FormattedMessage id='demo.about.welcome' />
-                </p>
+                <FormattedMessage id='demo.about.title' tagName='h1' />
+                <FormattedMessage id='demo.about.welcome' tagName='p' />
                 <LocalizedLink to='/'>
                     <FormattedMessage id='demo.about.link' />
                 </LocalizedLink>

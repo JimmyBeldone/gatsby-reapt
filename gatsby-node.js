@@ -164,8 +164,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             Config.langs.all.map(lang => {
                 const path =
                     i === 0
-                        ? getUrlLangPrefix(lang, '/blog/')
-                        : getUrlLangPrefix(lang, `/blog/page/${i + 1}/`);
+                        ? getUrlLangPrefix(lang, Config.articlePrefix)
+                        : getUrlLangPrefix(
+                              lang,
+                              `${Config.articlePrefix}page/${i + 1}/`,
+                          );
                 createPage({
                     path,
                     component: PostListWithPagination,
@@ -184,7 +187,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         // Return PostList.js
         const PostList = path.resolve('./src/templates/PostList.js');
         Config.langs.all.map(lang => {
-            const path = getUrlLangPrefix(lang, '/blog/');
+            const path = getUrlLangPrefix(lang, Config.articlePrefix);
             createPage({
                 path,
                 component: PostList,

@@ -16,12 +16,8 @@ const SecondPage = ({ pageContext: { locale, translations }, location }) => (
             description='demo.page2.description'
         />
         <div className='container'>
-            <h1>
-                <FormattedMessage id='demo.page2.hello' />
-            </h1>
-            <p>
-                <FormattedMessage id='demo.page2.welcome' />
-            </p>
+            <FormattedMessage id='demo.page2.hello' tagName='h1' />
+            <FormattedMessage id='demo.page2.welcome' tagName='p' />
             <LocalizedLink to='/'>
                 <FormattedMessage id='demo.page2.link' />
             </LocalizedLink>

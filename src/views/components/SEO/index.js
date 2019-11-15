@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { injectIntl } from 'react-intl';
 
 import siteConfig from '../../../../config/siteConfig';
 import getTwitterMeta from './getTwitterMeta';
 import getOpenGraphMeta from './getOpenGraphMeta';
+import getJsonLd from './getJsonLd';
 
 const SEO = ({
     pageType,
@@ -79,17 +80,6 @@ const SEO = ({
     )[0];
     const defaultUrl = siteConfig.siteUrl + defaultLang.link;
 
-    // let schemaOrgJSONLD;
-    const schemaOrgJSONLD = [
-        {
-            '@context': `http://schema.org`,
-            '@type': `WebSite`,
-            url: siteConfig.siteUrl,
-            name: formattedTitle,
-            alternateName: formattedTitleAlt,
-        },
-    ];
-
     // Manage i18n
     const alternateLinks = [];
     const ogLocaleAlternateMeta = [];
@@ -111,11 +101,14 @@ const SEO = ({
     // Manage Twitter CArds & Open Graph Meta
     const base = [formattedTitle, metaDescription, metaImageUrl, metaImageAlt];
     const ogBase = [...base, pageType, location.href, defaultLang.territory]
-        .concat(pageType === 'article' ? post : [])
-        .concat(pageType === 'product' ? product : []);
+        .concat(pageType === 'article' ? post : null)
+        .concat(pageType === 'product' ? product : null)
+        .concat(data.file.childImageSharp.fixed.src)
+        .concat(formattedTitleAlt);
 
     const twitterCard = getTwitterMeta(...base);
     const ogMeta = getOpenGraphMeta(...ogBase);
+    const jsonLd = getJsonLd(...ogBase);
 
     return (
         <Helmet
@@ -160,9 +153,7 @@ const SEO = ({
             {/* Set GDPR banner lang  */}
             <script>{`var tarteaucitronForceLanguage = '${locale}';`}</script>
             {/* Schema.org tags */}
-            <script type='application/ld+json'>
-                {JSON.stringify(schemaOrgJSONLD)}
-            </script>
+            <script type='application/ld+json'>{JSON.stringify(jsonLd)}</script>
         </Helmet>
     );
 };
