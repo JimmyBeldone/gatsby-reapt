@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.2.4...v3.3.0) (2019-11-15)
+
+
+### Features
+
+* add grommet and styled-components ([8e43eeb](https://github.com/JimmyBeldone/gatsby-reapt/commit/8e43eeb))
+
 ## [3.2.4](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.2.3...v3.2.4) (2019-11-15)
 
 
