@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import MainLayout from '../views/layouts/MainLayout';
-import SEO from '../views/components/SEO';
-import Image from '../views/components/Image';
-import SimilarPosts from '../views/components/SimilarPost';
-import ShareButtons from '../views/components/ShareButtons';
+import MainLayout from '../layouts/MainLayout';
+import SEO from '../components/SEO';
+import Image from '../components/Image';
+import SimilarPosts from '../components/SimilarPost';
+import ShareButtons from '../components/ShareButtons';
+import TagList from '../components/TagList';
 
 const BlogPost = ({
     pageContext: { locale, postPath, translations },
@@ -50,6 +51,7 @@ const BlogPost = ({
                         />
                     )}
                     <h1>{title}</h1>
+                    <TagList tags={tags} />
                     <MDXRenderer>{post.body}</MDXRenderer>
                     <ShareButtons
                         url={location.pathname}
@@ -99,7 +101,7 @@ export const query = graphql`
                 tags
                 featuredImage {
                     childImageSharp {
-                        fluid(maxWidth: 1200) {
+                        fluid(maxWidth: 800) {
                             ...GatsbyImageSharpFluid
                         }
                         original {

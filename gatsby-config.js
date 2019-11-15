@@ -14,6 +14,7 @@ module.exports = {
     siteMetadata: config,
     plugins: [
         'gatsby-plugin-eslint',
+        `gatsby-plugin-styled-components`,
         `gatsby-plugin-react-helmet-async`,
         // {
         //     resolve: `gatsby-plugin-react-helmet-canonical-urls`,

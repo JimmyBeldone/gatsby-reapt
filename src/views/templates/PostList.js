@@ -3,17 +3,15 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 
-import MainLayout from '../views/layouts/MainLayout';
-import PostList from '../views/components/PostList';
-import Pagination from '../views/components/Pagination';
-import SEO from '../views/components/SEO';
+import MainLayout from '../layouts/MainLayout';
+import PostList from '../components/PostList';
+import SEO from '../components/SEO';
 
-const CategoryItemWithPagination = ({
-    data,
-    pageContext: { locale, numPages, currentPage, translations, category },
+const BlogPage = ({
+    pageContext: { locale, translations },
     location,
+    data,
 }) => {
-    const { allMdx } = data;
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
@@ -26,26 +24,19 @@ const CategoryItemWithPagination = ({
                 <h1>
                     <FormattedMessage id='demo.blog.title' />
                 </h1>
-                <p>Category: {category}</p>
                 <p>
                     <FormattedMessage
                         id='demo.blog.count'
-                        values={{ count: allMdx.totalCount }}
+                        values={{ count: data.allMdx.totalCount }}
                     />
                 </p>
-                <PostList posts={allMdx.edges} />
-                <Pagination
-                    numPages={numPages}
-                    currentPage={currentPage}
-                    contextPage={`/category/${category}/`}
-                    lang={locale}
-                />
+                <PostList posts={data.allMdx.edges} />
             </div>
         </MainLayout>
     );
 };
 
-CategoryItemWithPagination.propTypes = {
+BlogPage.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         translations: PropTypes.array.isRequired,
@@ -53,21 +44,15 @@ CategoryItemWithPagination.propTypes = {
     location: PropTypes.object.isRequired,
 };
 
-export default CategoryItemWithPagination;
+export default BlogPage;
 
 export const query = graphql`
-    query($skip: Int!, $limit: Int!, $locale: String!, $category: String!) {
+    query blogPostsList($locale: String!) {
         allMdx(
-            sort: { fields: [frontmatter___date], order: DESC }
             filter: {
-                frontmatter: {
-                    featured: { eq: false }
-                    lang: { eq: $locale }
-                    category: { eq: $category }
-                }
+                frontmatter: { featured: { eq: false }, lang: { eq: $locale } }
             }
-            limit: $limit
-            skip: $skip
+            sort: { fields: [frontmatter___date], order: DESC }
         ) {
             totalCount
             edges {

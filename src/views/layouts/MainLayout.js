@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Headroom from 'react-headroom';
+import { Grommet } from 'grommet';
 
 import siteConfig from '../../../config/siteConfig';
 import I18nProvider from '../../providers/I18nProvider';
@@ -18,7 +19,7 @@ const MainLayout = ({ locale, children, translationsPaths }) => {
         <I18nProvider locale={locale}>
             <div id='app'>
                 <WebpProvider>
-                    <>
+                    <Grommet plain>
                         <div id='content-wrap'>
                             <Headroom>
                                 <Header
@@ -32,7 +33,7 @@ const MainLayout = ({ locale, children, translationsPaths }) => {
                             </main>
                         </div>
                         <Footer />
-                    </>
+                    </Grommet>
                 </WebpProvider>
             </div>
         </I18nProvider>
