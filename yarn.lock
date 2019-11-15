@@ -7249,7 +7249,7 @@ gatsby-plugin-page-creator@^2.1.30:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
-gatsby-plugin-react-helmet-async@^1.0.9:
+gatsby-plugin-react-helmet-async@1.0.9:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet-async/-/gatsby-plugin-react-helmet-async-1.0.9.tgz#e5f375ec8a8215b6001bd28e92184013a4dc727f"
   integrity sha512-SRdnDhKGrEqgVp2TWi/yo/44ayXepttrw55/dPYtpoQW9owAFyCyd0IL/hbecvyoH1W1jQmnUdcBITuOEEoqhw==
@@ -10328,7 +10328,7 @@ lodash.merge@^4.4.0:
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
 
-lodash.orderby@^4.6.0:
+lodash.orderby@4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.orderby/-/lodash.orderby-4.6.0.tgz#e697f04ce5d78522f54d9338b32b81a3393e4eb3"
   integrity sha1-5pfwTOXXhSL1TZM4syuBozk+TrM=
@@ -13643,7 +13643,7 @@ react-headroom@3.0.0:
     raf "^3.3.0"
     shallowequal "^1.1.0"
 
-react-helmet-async@^1.0.4:
+react-helmet-async@1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/react-helmet-async/-/react-helmet-async-1.0.4.tgz#079ef10b7fefcaee6240fefd150711e62463cc97"
   integrity sha512-KTGHE9sz8N7+fCkZ2a3vzXH9eIkiTNhL2NhKR7XzzQl3WsGlCHh76arauJUIiGdfhjeMp7DY7PkASAmYFXeJYg==
@@ -13720,7 +13720,7 @@ react-redux@7.1.3:
     prop-types "^15.7.2"
     react-is "^16.9.0"
 
-react-share@^3.0.1:
+react-share@3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/react-share/-/react-share-3.0.1.tgz#be9dc3f80059c4fed33542472f4e7425bb3a76cb"
   integrity sha512-xo4zjYP78h6zrBN5rlC06bb877js7216KFeZELAZP6sYxVoqmU27ChrfnpKUCL9H8F5PwYXh6DLNdAp+0E17GA==
