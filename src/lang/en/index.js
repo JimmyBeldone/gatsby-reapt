@@ -47,7 +47,7 @@ module.exports = {
             description: `You just hit a route that doesn't exist... the sadness.`,
         },
         footer: {
-            built: `Built with`,
+            built: `Built with `,
         },
     },
     posts: {

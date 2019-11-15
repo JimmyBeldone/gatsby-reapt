@@ -47,7 +47,7 @@ module.exports = {
             description: `Cette page n'existe pas... Désolé`,
         },
         footer: {
-            built: `Développé avec`,
+            built: `Développé avec `,
         },
     },
     posts: {
