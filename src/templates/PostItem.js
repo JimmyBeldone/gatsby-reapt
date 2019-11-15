@@ -7,6 +7,7 @@ import MainLayout from '../views/layouts/MainLayout';
 import SEO from '../views/components/SEO';
 import Image from '../views/components/Image';
 import SimilarPosts from '../views/components/SimilarPost';
+import ShareButtons from '../views/components/ShareButtons';
 
 const BlogPost = ({
     pageContext: { locale, postPath, translations },
@@ -41,14 +42,25 @@ const BlogPost = ({
                 post={{ ...post.frontmatter, body: post.excerpt }}
             />
             <div className='container'>
-                {featuredImage !== null && (
-                    <Image
-                        fluid={featuredImage.childImageSharp.fluid}
-                        alt={title}
+                <div className='post-item'>
+                    {featuredImage !== null && (
+                        <Image
+                            fluid={featuredImage.childImageSharp.fluid}
+                            alt={title}
+                        />
+                    )}
+                    <h1>{title}</h1>
+                    <MDXRenderer>{post.body}</MDXRenderer>
+                    <ShareButtons
+                        url={location.pathname}
+                        description={description}
+                        media={
+                            featuredImage !== null
+                                ? featuredImage.childImageSharp.original.src
+                                : data.file.childImageSharp.fixed.src
+                        }
                     />
-                )}
-                <h1>{title}</h1>
-                <MDXRenderer>{post.body}</MDXRenderer>
+                </div>
                 <SimilarPosts
                     category={category}
                     tags={tags}
@@ -90,6 +102,9 @@ export const query = graphql`
                         fluid(maxWidth: 1200) {
                             ...GatsbyImageSharpFluid
                         }
+                        original {
+                            src
+                        }
                     }
                 }
             }
@@ -115,12 +130,22 @@ export const query = graphql`
                         tags
                         featuredImage {
                             childImageSharp {
-                                fluid(maxWidth: 1200) {
+                                fluid(maxWidth: 800) {
                                     ...GatsbyImageSharpFluid
+                                }
+                                original {
+                                    src
                                 }
                             }
                         }
                     }
+                }
+            }
+        }
+        file(name: { eq: "gatsby-icon" }) {
+            childImageSharp {
+                fixed(width: 500) {
+                    ...GatsbyImageSharpFixed_noBase64
                 }
             }
         }

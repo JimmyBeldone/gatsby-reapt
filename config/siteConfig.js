@@ -15,6 +15,7 @@ module.exports = {
     articlePrefix: '/blog/',
     siteUrl: process.env.GATSBY_SITE_URL || `http://localhost:8000`,
     icon: `src/images/gatsby-icon.png`,
+    iconName: 'gatsby-icon',
     keywords: [
         `gatby reapt`,
         `gatsby starter`,
