@@ -1,3 +1,17 @@
+# [3.2.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.1.8...v3.2.0) (2019-11-15)
+
+
+### Bug Fixes
+
+* replace react-helmet with react-helmet-async + Json-ld managment ([dffde2f](https://github.com/JimmyBeldone/gatsby-reapt/commit/dffde2f))
+
+
+### Features
+
+* add ShareButtons components ([4fcff89](https://github.com/JimmyBeldone/gatsby-reapt/commit/4fcff89))
+* add SimilarPosts component ([e20690e](https://github.com/JimmyBeldone/gatsby-reapt/commit/e20690e))
+* some style ([35fe8d3](https://github.com/JimmyBeldone/gatsby-reapt/commit/35fe8d3))
+
 ## [3.1.8](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.1.7...v3.1.8) (2019-11-15)
 
 
