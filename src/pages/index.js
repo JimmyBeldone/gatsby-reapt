@@ -14,15 +14,9 @@ const IndexPage = ({ pageContext: { locale, translations }, location }) => (
             translationsPaths={translations}
         />
         <div className='container'>
-            <h1>
-                <FormattedMessage id='demo.home.hello' />
-            </h1>
-            <p>
-                <FormattedMessage id='demo.home.welcome' />
-            </p>
-            <p>
-                <FormattedMessage id='demo.home.now' />
-            </p>
+            <FormattedMessage id='demo.home.hello' tagName='h1' />
+            <FormattedMessage id='demo.home.welcome' tagName='p' />
+            <FormattedMessage id='demo.home.now' tagName='p' />
             <LocalizedLink to='/page-2/' hasSlug>
                 <FormattedMessage id='demo.home.link' />
             </LocalizedLink>
