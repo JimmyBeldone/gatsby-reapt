@@ -3,30 +3,31 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 
-import MainLayout from '../views/layouts/MainLayout';
-import PostList from '../views/components/PostList';
-import SEO from '../views/components/SEO';
+import MainLayout from '../layouts/MainLayout';
+import PostList from '../components/PostList';
+import Pagination from '../components/Pagination';
+import SEO from '../components/SEO';
 
-const TagItem = ({
-    pageContext: { locale, tag, translations },
+import { articlePrefix } from '../../../config/siteConfig';
+
+const PostListWithPagination = ({
     data,
+    pageContext: { locale, numPages, currentPage, translations },
     location,
 }) => {
     const { allMdx } = data;
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
-                title={tag}
+                title='demo.blog.headerTitle'
                 location={location}
                 translationsPaths={translations}
-                // description={post.frontmatter.description}
-                pageType='tag'
+                description='demo.blog.description'
             />
             <div className='container'>
                 <h1>
                     <FormattedMessage id='demo.blog.title' />
                 </h1>
-                <p>Tag: {tag}</p>
                 <p>
                     <FormattedMessage
                         id='demo.blog.count'
@@ -34,43 +35,37 @@ const TagItem = ({
                     />
                 </p>
                 <PostList posts={allMdx.edges} />
+
+                <Pagination
+                    numPages={numPages}
+                    currentPage={currentPage}
+                    contextPage={articlePrefix}
+                    lang={locale}
+                />
             </div>
         </MainLayout>
     );
 };
 
-TagItem.propTypes = {
+PostListWithPagination.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
-        tag: PropTypes.string.isRequired,
         translations: PropTypes.array.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
-    data: PropTypes.shape({
-        allMdx: PropTypes.shape({
-            totalCount: PropTypes.number.isRequired,
-            edges: PropTypes.arrayOf(
-                PropTypes.shape({
-                    node: PropTypes.shape({
-                        frontmatter: PropTypes.shape({
-                            title: PropTypes.string.isRequired,
-                            path: PropTypes.string.isRequired,
-                        }),
-                    }),
-                }).isRequired,
-            ),
-        }),
-    }),
 };
 
-export default TagItem;
+export default PostListWithPagination;
 
 export const query = graphql`
-    query($tag: String!) {
+    query blogPostsListPagination($skip: Int!, $limit: Int!, $locale: String!) {
         allMdx(
-            limit: 2000
             sort: { fields: [frontmatter___date], order: DESC }
-            filter: { frontmatter: { tags: { in: [$tag] } } }
+            filter: {
+                frontmatter: { featured: { eq: false }, lang: { eq: $locale } }
+            }
+            limit: $limit
+            skip: $skip
         ) {
             totalCount
             edges {
@@ -78,10 +73,10 @@ export const query = graphql`
                     id
                     frontmatter {
                         title
+                        date
                         path
                         category
                         tags
-                        date
                         featuredImage {
                             childImageSharp {
                                 fixed(height: 150) {

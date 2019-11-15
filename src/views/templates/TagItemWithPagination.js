@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 
-import MainLayout from '../views/layouts/MainLayout';
-import PostList from '../views/components/PostList';
-import Pagination from '../views/components/Pagination';
-import SEO from '../views/components/SEO';
+import MainLayout from '../layouts/MainLayout';
+import PostList from '../components/PostList';
+import Pagination from '../components/Pagination';
+import SEO from '../components/SEO';
 
 const TagItemWithPagination = ({
     data,

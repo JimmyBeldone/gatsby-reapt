@@ -86,8 +86,8 @@ exports.onCreatePage = ({ page, actions }) => {
 exports.createPages = async ({ graphql, actions, reporter }) => {
     const { createPage } = actions;
 
-    const PostItem = path.resolve('./src/templates/PostItem.js');
-    // const ProductItem = path.resolve('./src/templates/ProductItem.js');
+    const PostItem = path.resolve('./src/views/templates/PostItem.js');
+    // const ProductItem = path.resolve('./src/views/templates/ProductItem.js');
 
     const result = await graphql(`
         {
@@ -152,7 +152,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     // If post pagination
     if (ContentConfig.posts.pagination) {
         const PostListWithPagination = path.resolve(
-            './src/templates/PostListWithPagination.js',
+            './src/views/templates/PostListWithPagination.js',
         );
         const postsPerPage = ContentConfig.posts.perPage;
         const postsWithoutFeatured = posts.filter(
@@ -185,7 +185,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         });
     } else {
         // Return PostList.js
-        const PostList = path.resolve('./src/templates/PostList.js');
+        const PostList = path.resolve('./src/views/templates/PostList.js');
         Config.langs.all.map(lang => {
             const path = getUrlLangPrefix(lang, Config.articlePrefix);
             createPage({
@@ -221,7 +221,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     // If category pagination
     if (ContentConfig.posts.pagination) {
         const CategoryItemWithPagination = path.resolve(
-            './src/templates/CategoryItemWithPagination.js',
+            './src/views/templates/CategoryItemWithPagination.js',
         );
         const postsPerPage = ContentConfig.posts.perPage;
 
@@ -253,7 +253,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         });
     } else {
         // Return PostList.js
-        const CategoryItem = path.resolve('./src/templates/CategoryItem.js');
+        const CategoryItem = path.resolve(
+            './src/views/templates/CategoryItem.js',
+        );
 
         categories.forEach(cat => {
             cat.edges.forEach(({ node }) => {
@@ -281,7 +283,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     // If tag pagination
     if (ContentConfig.posts.pagination) {
         const TagListWithPagination = path.resolve(
-            './src/templates/TagItemWithPagination.js',
+            './src/views/templates/TagItemWithPagination.js',
         );
         const postsPerPage = ContentConfig.posts.perPage;
 
@@ -318,7 +320,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         });
     } else {
         // Return PostList.js
-        const TagItem = path.resolve('./src/templates/TagItem.js');
+        const TagItem = path.resolve('./src/views/templates/TagItem.js');
 
         tags.forEach(tag => {
             tag.edges.forEach(({ node }) => {
