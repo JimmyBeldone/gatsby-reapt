@@ -50,6 +50,11 @@ module.exports = {
             built: `Développé avec`,
         },
     },
+    posts: {
+        related: {
+            title: 'Articles similaires :',
+        },
+    },
     nav: {
         home: `Accueil`,
         page2: `Page 2`,
