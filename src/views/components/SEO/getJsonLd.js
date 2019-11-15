@@ -25,6 +25,7 @@ const getJsonLd = (
     if (contentType !== 'article') {
         return schemaOrgJSONLD;
     } else {
+        const keywords = post.tags.length > 0 ? post.tags.join(', ') : '';
         const article =
             // {
             //     '@context': 'https://khalilstemmler.com',
@@ -45,14 +46,19 @@ const getJsonLd = (
                 '@context': 'https://schema.org',
                 '@type': 'Article',
                 headline: title,
-                url,
                 alternateName: titleAlt,
+                description,
+                url,
+                keywords,
+                datePublished: post.publishedAt,
+                dateModified: post.updatedAt,
+                articleBody: post.body,
+                articleSection: post.category,
                 image: {
                     '@type': 'ImageObject',
                     url: image,
                     name: imageAlt,
                 },
-                description,
                 author: {
                     '@type': 'Person',
                     name: author.username,
@@ -67,10 +73,6 @@ const getJsonLd = (
                     '@type': 'WebPage',
                     '@id': siteConfig.siteUrl + siteConfig.articlePrefix,
                 },
-                datePublished: post.publishedAt,
-                dateModified: post.updatedAt,
-                articleBody: post.body,
-                articleSection: post.category,
             };
         return article;
     }
