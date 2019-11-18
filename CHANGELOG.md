@@ -1,3 +1,10 @@
+## [3.3.3](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.2...v3.3.3) (2019-11-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-plugin-sharp to v2.3.1 ([2daccff](https://github.com/JimmyBeldone/gatsby-reapt/commit/2daccff))
+
 ## [3.3.2](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.1...v3.3.2) (2019-11-17)
 
 
