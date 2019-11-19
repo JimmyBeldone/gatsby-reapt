@@ -1,3 +1,10 @@
+## [3.3.10](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.9...v3.3.10) (2019-11-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-plugin-react-helmet-async to v1.0.11 ([c7301b5](https://github.com/JimmyBeldone/gatsby-reapt/commit/c7301b5))
+
 ## [3.3.9](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.8...v3.3.9) (2019-11-19)
 
 
