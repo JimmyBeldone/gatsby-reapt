@@ -115,7 +115,7 @@
     "rimraf": "3.0.0",
     "semantic-release": "15.13.31",
     "stylint": "2.0.0",
-    "typescript": "3.7.2"
+    "typescript": "3.7.3"
   },
   "husky": {
     "hooks": {
