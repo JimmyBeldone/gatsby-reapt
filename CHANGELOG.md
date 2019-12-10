@@ -1,3 +1,10 @@
+## [3.3.34](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.33...v3.3.34) (2019-12-10)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([4ca2576](https://github.com/JimmyBeldone/gatsby-reapt/commit/4ca2576))
+
 ## [3.3.33](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.32...v3.3.33) (2019-12-09)
 
 
