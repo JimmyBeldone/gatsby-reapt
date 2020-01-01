@@ -111,7 +111,7 @@
     "mk-react-comp": "1.1.7",
     "prettier": "1.19.1",
     "prompt": "1.0.0",
-    "replace": "1.1.1",
+    "replace": "1.1.3",
     "rimraf": "3.0.0",
     "semantic-release": "15.13.31",
     "stylint": "2.0.0",
