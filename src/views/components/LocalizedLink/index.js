@@ -1,28 +1,32 @@
-import React from "react";
-import { Link } from "gatsby";
-import PropTypes from "prop-types";
-import { injectIntl, intlShape } from "react-intl";
+import React from 'react';
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import { injectIntl } from 'react-intl';
 
-import locales from "../../../constants/locales";
-import { PAGE_HOME } from "../../../constants/router";
+import { getSlug, resolvePageUrl, getUrlLangPrefix } from '../../../utils/i18n';
+import { PAGE_HOME } from '../../../constants/router';
 
-const LocalizedLink = ({ to, intl: { locale }, ...props }) => {
-    // eslint-disable-next-line security/detect-object-injection
-    const path = locales[locale].default ? to : `/${locale}${to}`;
-
+const LocalizedLink = ({ to, intl: { locale }, hasSlug, ...props }) => {
+    const path = hasSlug
+        ? getSlug(to, locale)
+        : resolvePageUrl(getUrlLangPrefix(locale, to));
     return (
         <Link
             {...props}
             to={path}
-            activeClassName={"active-link"}
+            activeClassName='active-link'
             partiallyActive={to !== PAGE_HOME}
         />
     );
 };
 
+LocalizedLink.defaultProps = {
+    hasSlug: false,
+};
+
 LocalizedLink.propTypes = {
     to: PropTypes.string.isRequired,
-    intl: intlShape.isRequired
+    hasSlug: PropTypes.bool,
 };
 
 export default injectIntl(LocalizedLink);

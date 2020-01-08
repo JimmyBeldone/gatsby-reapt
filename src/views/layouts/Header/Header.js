@@ -1,39 +1,44 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
-import "./Header.styl";
-import Nav from "../Nav";
-import SwitchLangBtn from "../../components/SwitchLangBtn";
-import LocalizedLink from "../../components/LocalizedLink";
+import './Header.styl';
+import Nav from '../Nav';
+import SwitchLangBtn from '../../components/SwitchLangBtn';
+import LocalizedLink from '../../components/LocalizedLink';
+import Search from '../../components/Search';
 
 // const logo = require("../../../assets/img/logo_white.svg");
 
-const Header = ({ langs, locale, siteTitle }) => (
+const Header = ({ translationsPaths, locale, siteTitle }) => (
     <header>
-        <div className="container">
-            <div className="content">
-                <LocalizedLink to="/">
-                    <div className="logo">
+        <div className='container'>
+            <div className='content'>
+                <LocalizedLink to='/'>
+                    <div className='logo'>
                         {/* <img src={logo} alt="" /> */}
                         <FormattedMessage id={siteTitle} />
                     </div>
                 </LocalizedLink>
                 <Nav />
-                <SwitchLangBtn langs={langs} locale={locale} />
+                <Search locale={locale} />
+                <SwitchLangBtn
+                    translationsPaths={translationsPaths}
+                    locale={locale}
+                />
             </div>
         </div>
     </header>
 );
 
 Header.defaultProps = {
-    siteTitle: ``
+    siteTitle: ``,
 };
 
 Header.propTypes = {
     siteTitle: PropTypes.string,
-    langs: PropTypes.array.isRequired,
-    locale: PropTypes.string.isRequired
+    translationsPaths: PropTypes.array.isRequired,
+    locale: PropTypes.string.isRequired,
 };
 
 export default Header;

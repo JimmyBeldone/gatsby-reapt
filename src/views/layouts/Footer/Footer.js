@@ -1,14 +1,46 @@
-import React from "react";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
-import "./Footer.styl";
+import { name } from '../../../../config/siteConfig';
+import { copyright, business, author } from '../../../../config/socialConfig';
+
+import './Footer.styl';
 
 const Footer = () => (
     <footer>
-        <h1>Footer</h1>© {new Date().getFullYear()},{" "}
-        <FormattedMessage id="demo.footer.built" />
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <div className='container'>
+            <div>
+                {copyright}
+                {` `}
+                <a
+                    href={business.networks.github}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                >
+                    {name}
+                </a>
+                <br />
+                <span>by </span>
+                <a
+                    href={author.networks.github}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                >
+                    {author.username}
+                </a>
+            </div>
+            <div>
+                <FormattedMessage id='demo.footer.built' />
+
+                <a
+                    href='https://www.gatsbyjs.org'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                >
+                    Gatsby
+                </a>
+            </div>
+        </div>
     </footer>
 );
 

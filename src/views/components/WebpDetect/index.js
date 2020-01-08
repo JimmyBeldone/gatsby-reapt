@@ -1,20 +1,20 @@
-import React, { Component, createContext, useContext } from "react";
-import PropTypes from "prop-types";
+import React, { Component, createContext, useContext } from 'react';
+import PropTypes from 'prop-types';
 
-import { checkWebp } from "./utils";
+import { checkWebp } from './utils';
 
 const WebpContext = createContext();
 
 export class WebpProvider extends Component {
     static propTypes = {
-        children: PropTypes.node.isRequired
+        children: PropTypes.node.isRequired,
     };
 
     constructor(props) {
         super(props);
         this.state = {
             initiated: false,
-            hasWebp: null
+            hasWebp: null,
         };
     }
 
@@ -22,7 +22,7 @@ export class WebpProvider extends Component {
         checkWebp(result => {
             this.setState({
                 initiated: true,
-                hasWebp: result
+                hasWebp: result,
             });
         });
     }

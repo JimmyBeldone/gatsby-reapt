@@ -1,105 +1,198 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Helmet from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
-import { injectIntl, intlShape } from "react-intl";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
+import { Helmet } from 'react-helmet-async';
+import { injectIntl } from 'react-intl';
 
-function SEO({
+import siteConfig from '../../../../config/siteConfig';
+import getTwitterMeta from './getTwitterMeta';
+import getOpenGraphMeta from './getOpenGraphMeta';
+import getJsonLd from './getJsonLd';
+
+const SEO = ({
+    pageType,
+    translationsPaths,
+    location,
+    title,
+    image,
     description,
     meta,
-    keywords,
-    title,
-    intl: { formatMessage, locale }
-}) {
-    const { site } = useStaticQuery(
-        graphql`
-            query DefaultSEOQuery {
-                site {
-                    siteMetadata {
-                        title
-                        description
-                        author
+    translated,
+    robots,
+    post,
+    product,
+    article,
+    intl: { formatMessage, locale },
+}) => {
+    const data = useStaticQuery(graphql`
+        query DefaultSEOQuery {
+            file(name: { eq: "gatsby-icon" }) {
+                childImageSharp {
+                    fixed(width: 500) {
+                        ...GatsbyImageSharpFixed_noBase64
                     }
                 }
             }
-        `
-    );
+        }
+    `);
 
-    const metaDescription = formatMessage({
-        id: description || site.siteMetadata.description
+    // Fomat title & escription
+    let formattedTitle;
+    let metaDescription;
+
+    const formattedTitleAlt = formatMessage({
+        id: siteConfig.titleAlt,
     });
 
-    const formattedTitle = formatMessage({ id: title });
+    if (pageType === 'website') {
+        formattedTitle = formatMessage({ id: title });
+        metaDescription = formatMessage({
+            id: description || siteConfig.description,
+        });
+    } else {
+        formattedTitle = title.trim();
+        metaDescription = description.trim();
+    }
+
+    // Image
+    const metaImage = image ? image.url : data.file.childImageSharp.fixed.src;
+    const metaImageUrl = siteConfig.siteUrl + metaImage;
+    const metaImageAlt = image ? image.alt : metaDescription;
+
+    // Manage 404
+    if (pageType === '404') {
+        return (
+            <Helmet
+                htmlAttributes={{
+                    lang: locale,
+                }}
+                title={formattedTitle}
+                titleTemplate={`%s | ${formatMessage({
+                    id: siteConfig.title,
+                })}`}
+                defer={false}
+            />
+        );
+    }
+
+    const defaultLang = translationsPaths.filter(
+        langPath => langPath.default,
+    )[0];
+    const defaultUrl = siteConfig.siteUrl + defaultLang.link;
+
+    // Manage i18n
+    const alternateLinks = [];
+    const ogLocaleAlternateMeta = [];
+
+    if (translated) {
+        translationsPaths.forEach(langPath => {
+            alternateLinks.push({
+                rel: 'alternate',
+                href: siteConfig.siteUrl + langPath.link,
+                hrefLang: langPath.langKey,
+            });
+            ogLocaleAlternateMeta.push({
+                property: `og:locale:alternate`,
+                content: langPath.territory,
+            });
+        });
+    }
+
+    // Manage Twitter CArds & Open Graph Meta
+    const base = [formattedTitle, metaDescription, metaImageUrl, metaImageAlt];
+    const ogBase = [...base, pageType, location.href, defaultLang.territory]
+        .concat(pageType === 'article' ? post : null)
+        .concat(pageType === 'product' ? product : null)
+        .concat(data.file.childImageSharp.fixed.src)
+        .concat(formattedTitleAlt);
+
+    const twitterCard = getTwitterMeta(...base);
+    const ogMeta = getOpenGraphMeta(...ogBase);
+    const jsonLd = getJsonLd(...ogBase);
 
     return (
         <Helmet
+            defer={false}
             htmlAttributes={{
-                lang: locale
+                lang: locale,
             }}
             title={formattedTitle}
             titleTemplate={`%s | ${formatMessage({
-                id: site.siteMetadata.title
+                id: siteConfig.title,
             })}`}
+            link={[{ rel: 'canonical', href: location.href }]
+                .concat(alternateLinks)
+                .concat({
+                    rel: 'alternate',
+                    hrefLang: 'x-default',
+                    href: defaultUrl,
+                })}
             meta={[
                 {
+                    name: `google-site-verification`,
+                    content: siteConfig.googleSiteVerification,
+                },
+                {
                     name: `description`,
-                    content: metaDescription
+                    content: metaDescription,
                 },
                 {
-                    property: `og:title`,
-                    content: formattedTitle
+                    name: `image`,
+                    content: metaImageUrl,
                 },
-                {
-                    property: `og:description`,
-                    content: metaDescription
-                },
-                {
-                    property: `og:type`,
-                    content: `website`
-                },
-                {
-                    name: `twitter:card`,
-                    content: `summary`
-                },
-                {
-                    name: `twitter:creator`,
-                    content: formatMessage({
-                        id: site.siteMetadata.author
-                    })
-                },
-                {
-                    name: `twitter:title`,
-                    content: formattedTitle
-                },
-                {
-                    name: `twitter:description`,
-                    content: metaDescription
-                }
             ]
+                .concat(twitterCard)
+                .concat(ogMeta)
+                .concat(ogLocaleAlternateMeta)
                 .concat(
-                    keywords.length > 0
-                        ? {
-                              name: `keywords`,
-                              content: keywords.join(`, `)
-                          }
-                        : []
+                    robots ? { name: 'robots', content: 'index, follow' } : [],
                 )
+                // Rest of optional meta props
                 .concat(meta)}
-        />
+        >
+            {/* Set GDPR banner lang  */}
+            <script>{`var tarteaucitronForceLanguage = '${locale}';`}</script>
+            {/* Schema.org tags */}
+            <script type='application/ld+json'>{JSON.stringify(jsonLd)}</script>
+        </Helmet>
     );
-}
+};
 
 SEO.defaultProps = {
+    pageType: 'website',
     meta: [],
-    keywords: []
+    translated: true,
+    robots: true,
+    post: null,
+    product: null,
 };
 
 SEO.propTypes = {
+    pageType: PropTypes.PropTypes.oneOf([
+        'website',
+        'article',
+        'product',
+        'tag',
+        '404',
+    ]),
     description: PropTypes.string,
-    meta: PropTypes.array,
-    keywords: PropTypes.arrayOf(PropTypes.string),
+    meta: PropTypes.arrayOf(
+        PropTypes.shape({
+            property: PropTypes.string.isRequired,
+            content: PropTypes.string.isRequired,
+        }),
+    ),
+    image: PropTypes.shape({
+        url: PropTypes.string.isRequired,
+        alt: PropTypes.string.isRequired,
+    }),
     title: PropTypes.string.isRequired,
-    intl: intlShape.isRequired
+    location: PropTypes.object.isRequired,
+    translated: PropTypes.bool,
+    translationsPaths: PropTypes.array.isRequired,
+    robots: PropTypes.bool,
+    post: PropTypes.object,
+    article: PropTypes.object,
 };
 
 export default injectIntl(SEO);

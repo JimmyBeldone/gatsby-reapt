@@ -1,23 +1,30 @@
-import React, { Fragment } from "react";
-import PropTypes from "prop-types";
-import { IntlProvider, addLocaleData } from "react-intl";
-// Locale data
-import frData from "react-intl/locale-data/fr";
-import enData from "react-intl/locale-data/en";
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { IntlProvider } from 'react-intl';
 
-import en from "../lang/en/";
-import fr from "../lang/fr/";
-import { flattenMessages } from "../utils/lang";
+import en from '../lang/en/';
+import fr from '../lang/fr/';
 
 const messages = { en, fr };
 
-addLocaleData([...enData, ...frData]);
+const flattenMessages = (nestedMessages, prefix = ``) =>
+    Object.keys(nestedMessages).reduce((messages, key) => {
+        const value = nestedMessages[key];
+        const prefixedKey = prefix ? `${prefix}.${key}` : key;
+
+        if (typeof value === `string`) {
+            messages[prefixedKey] = value;
+        } else {
+            Object.assign(messages, flattenMessages(value, prefixedKey));
+        }
+
+        return messages;
+    }, {});
 
 const I18nProvider = ({ locale, children }) => {
     return (
         <IntlProvider
             locale={locale}
-            // eslint-disable-next-line security/detect-object-injection
             messages={flattenMessages(messages[locale])}
             textComponent={Fragment}
         >
@@ -28,7 +35,7 @@ const I18nProvider = ({ locale, children }) => {
 
 I18nProvider.propTypes = {
     children: PropTypes.node.isRequired,
-    locale: PropTypes.string.isRequired
+    locale: PropTypes.string.isRequired,
 };
 
 export default I18nProvider;
