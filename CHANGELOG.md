@@ -1,3 +1,10 @@
+## [3.3.49](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.48...v3.3.49) (2020-01-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.9.0 ([5a41542](https://github.com/JimmyBeldone/gatsby-reapt/commit/5a41542))
+
 ## [3.3.48](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.47...v3.3.48) (2020-01-08)
 
 
