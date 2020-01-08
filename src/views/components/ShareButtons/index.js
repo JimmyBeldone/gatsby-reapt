@@ -35,7 +35,7 @@ const ShareButtons = ({
                 <FacebookIcon
                     size={36}
                     round
-                    iconBgStyle={{ fill: siteConfig.themeColor }}
+                    bgStyle={{ fill: siteConfig.themeColor }}
                 />
             </FacebookShareButton>
 
@@ -46,7 +46,7 @@ const ShareButtons = ({
                 <TwitterIcon
                     size={36}
                     round
-                    iconBgStyle={{ fill: siteConfig.themeColor }}
+                    bgStyle={{ fill: siteConfig.themeColor }}
                 />
             </TwitterShareButton>
 
@@ -58,7 +58,7 @@ const ShareButtons = ({
                 <PinterestIcon
                     size={36}
                     round
-                    iconBgStyle={{ fill: siteConfig.themeColor }}
+                    bgStyle={{ fill: siteConfig.themeColor }}
                 />
             </PinterestShareButton>
 
@@ -66,7 +66,7 @@ const ShareButtons = ({
                 <LinkedinIcon
                     size={36}
                     round
-                    iconBgStyle={{ fill: siteConfig.themeColor }}
+                    bgStyle={{ fill: siteConfig.themeColor }}
                 />
             </LinkedinShareButton>
         </div>
