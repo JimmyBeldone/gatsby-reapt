@@ -1,3 +1,10 @@
+## [3.3.45](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.44...v3.3.45) (2020-01-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-share to v4 ([5c4c8a8](https://github.com/JimmyBeldone/gatsby-reapt/commit/5c4c8a8))
+
 ## [3.3.44](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.43...v3.3.44) (2020-01-04)
 
 
