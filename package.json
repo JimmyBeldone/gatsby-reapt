@@ -2,7 +2,7 @@
   "name": "gatsby-starter-reapt",
   "private": true,
   "description": "A Gatsby version of Reapt with Redux, i18n, Stylus and more",
-  "version": "3.3.51",
+  "version": "3.3.52",
   "author": "Jimmy Beldone <dev.jimmy.beldone@gmail.com>",
   "keywords": [
     "gatsby",
