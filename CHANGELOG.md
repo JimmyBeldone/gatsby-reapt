@@ -1,3 +1,10 @@
+## [3.3.51](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.50...v3.3.51) (2020-01-10)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([e450520](https://github.com/JimmyBeldone/gatsby-reapt/commit/e450520))
+
 ## [3.3.50](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.49...v3.3.50) (2020-01-10)
 
 
