@@ -1,3 +1,10 @@
+## [3.3.50](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.49...v3.3.50) (2020-01-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-intl to v3.11.0 ([2373a6f](https://github.com/JimmyBeldone/gatsby-reapt/commit/2373a6f))
+
 ## [3.3.49](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.48...v3.3.49) (2020-01-08)
 
 
