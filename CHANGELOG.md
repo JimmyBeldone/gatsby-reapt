@@ -1,3 +1,10 @@
+## [3.3.54](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.53...v3.3.54) (2020-01-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency styled-components to v5 ([75b5b9a](https://github.com/JimmyBeldone/gatsby-reapt/commit/75b5b9a))
+
 ## [3.3.53](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.52...v3.3.53) (2020-01-15)
 
 
