@@ -1,3 +1,10 @@
+## [3.3.56](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.55...v3.3.56) (2020-01-15)
+
+
+### Bug Fixes
+
+* **deps:** update mdx monorepo to v1.5.4 ([8cdf7ea](https://github.com/JimmyBeldone/gatsby-reapt/commit/8cdf7ea))
+
 ## [3.3.55](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.54...v3.3.55) (2020-01-15)
 
 
