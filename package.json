@@ -51,7 +51,7 @@
   "dependencies": {
     "@mdx-js/mdx": "1.5.5",
     "@mdx-js/react": "1.5.5",
-    "babel-plugin-styled-components": "1.10.6",
+    "babel-plugin-styled-components": "1.10.7",
     "clsx": "1.0.4",
     "date-fns": "2.9.0",
     "gatsby": "2.19.1",
