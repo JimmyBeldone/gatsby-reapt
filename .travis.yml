@@ -19,7 +19,7 @@ cache:
 
 install: yarn
 
-script: yarn test
+script: yarn build
 
 jobs:
   include:
