@@ -1,3 +1,10 @@
+## [3.3.60](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.59...v3.3.60) (2020-01-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency grommet to v2.10.0 ([d923c6d](https://github.com/JimmyBeldone/gatsby-reapt/commit/d923c6d))
+
 ## [3.3.59](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.58...v3.3.59) (2020-01-21)
 
 
