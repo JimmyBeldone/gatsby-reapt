@@ -73,7 +73,7 @@
     "gatsby-schema-field-absolute-path": "1.1.1",
     "gatsby-source-filesystem": "2.1.46",
     "gatsby-transformer-sharp": "2.3.13",
-    "grommet": "2.9.0",
+    "grommet": "2.10.0",
     "lodash.kebabcase": "4.1.1",
     "lodash.orderby": "4.6.0",
     "prop-types": "15.7.2",
