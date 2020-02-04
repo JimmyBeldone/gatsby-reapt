@@ -1,3 +1,10 @@
+## [3.3.63](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.62...v3.3.63) (2020-02-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency clsx to v1.1.0 ([a122e09](https://github.com/JimmyBeldone/gatsby-reapt/commit/a122e09))
+
 ## [3.3.62](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.61...v3.3.62) (2020-02-03)
 
 
