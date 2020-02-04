@@ -108,7 +108,7 @@
     "gatsby-plugin-webpack-bundle-analyser-v2": "1.1.8",
     "husky": "4.2.1",
     "lint-staged": "10.0.7",
-    "mk-react-comp": "1.1.7",
+    "mk-react-comp": "1.1.8",
     "prettier": "1.19.1",
     "prompt": "1.0.0",
     "replace": "1.1.5",
