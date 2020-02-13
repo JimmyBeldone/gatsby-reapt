@@ -1,3 +1,143 @@
+## [3.3.64](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.63...v3.3.64) (2020-02-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-intl to v3.12.0 ([94ebd8e](https://github.com/JimmyBeldone/gatsby-reapt/commit/94ebd8e))
+
+## [3.3.63](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.62...v3.3.63) (2020-02-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency clsx to v1.1.0 ([a122e09](https://github.com/JimmyBeldone/gatsby-reapt/commit/a122e09))
+
+## [3.3.62](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.61...v3.3.62) (2020-02-03)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([bc78331](https://github.com/JimmyBeldone/gatsby-reapt/commit/bc78331))
+
+## [3.3.61](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.60...v3.3.61) (2020-01-31)
+
+
+### Bug Fixes
+
+* update dependencies ([f34532d](https://github.com/JimmyBeldone/gatsby-reapt/commit/f34532d))
+
+## [3.3.60](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.59...v3.3.60) (2020-01-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency grommet to v2.10.0 ([d923c6d](https://github.com/JimmyBeldone/gatsby-reapt/commit/d923c6d))
+
+## [3.3.59](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.58...v3.3.59) (2020-01-21)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([d46a70d](https://github.com/JimmyBeldone/gatsby-reapt/commit/d46a70d))
+
+## [3.3.58](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.57...v3.3.58) (2020-01-17)
+
+
+### Bug Fixes
+
+* **deps:** update mdx monorepo to v1.5.5 ([64c67a6](https://github.com/JimmyBeldone/gatsby-reapt/commit/64c67a6))
+
+## [3.3.57](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.56...v3.3.57) (2020-01-17)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([462c4a9](https://github.com/JimmyBeldone/gatsby-reapt/commit/462c4a9))
+
+## [3.3.56](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.55...v3.3.56) (2020-01-15)
+
+
+### Bug Fixes
+
+* **deps:** update mdx monorepo to v1.5.4 ([8cdf7ea](https://github.com/JimmyBeldone/gatsby-reapt/commit/8cdf7ea))
+
+## [3.3.55](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.54...v3.3.55) (2020-01-15)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([2df633e](https://github.com/JimmyBeldone/gatsby-reapt/commit/2df633e))
+
+## [3.3.54](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.53...v3.3.54) (2020-01-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency styled-components to v5 ([75b5b9a](https://github.com/JimmyBeldone/gatsby-reapt/commit/75b5b9a))
+
+## [3.3.53](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.52...v3.3.53) (2020-01-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency snyk to v1.278.1 ([c1e3086](https://github.com/JimmyBeldone/gatsby-reapt/commit/c1e3086))
+
+## [3.3.52](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.51...v3.3.52) (2020-01-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency snyk to v1.277.3 ([54e7831](https://github.com/JimmyBeldone/gatsby-reapt/commit/54e7831))
+
+## [3.3.51](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.50...v3.3.51) (2020-01-10)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([e450520](https://github.com/JimmyBeldone/gatsby-reapt/commit/e450520))
+
+## [3.3.50](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.49...v3.3.50) (2020-01-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-intl to v3.11.0 ([2373a6f](https://github.com/JimmyBeldone/gatsby-reapt/commit/2373a6f))
+
+## [3.3.49](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.48...v3.3.49) (2020-01-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.9.0 ([5a41542](https://github.com/JimmyBeldone/gatsby-reapt/commit/5a41542))
+
+## [3.3.48](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.47...v3.3.48) (2020-01-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby to v2.18.18 ([f3cb0e3](https://github.com/JimmyBeldone/gatsby-reapt/commit/f3cb0e3))
+
+## [3.3.47](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.46...v3.3.47) (2020-01-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-plugin-react-helmet-async to v1.0.14 ([f928deb](https://github.com/JimmyBeldone/gatsby-reapt/commit/f928deb))
+
+## [3.3.46](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.45...v3.3.46) (2020-01-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency snyk to v1.277.2 ([82a10df](https://github.com/JimmyBeldone/gatsby-reapt/commit/82a10df))
+
+## [3.3.45](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.44...v3.3.45) (2020-01-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-share to v4 ([5c4c8a8](https://github.com/JimmyBeldone/gatsby-reapt/commit/5c4c8a8))
+
 ## [3.3.44](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.43...v3.3.44) (2020-01-04)
 
 
