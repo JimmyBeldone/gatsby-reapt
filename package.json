@@ -99,7 +99,7 @@
     "eslint-config-universe": "2.3.0",
     "eslint-loader": "3.0.3",
     "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-react-hooks": "2.3.0",
+    "eslint-plugin-react-hooks": "2.4.0",
     "gatsby-plugin-eslint": "2.0.8",
     "gatsby-plugin-stylus-resources": "1.0.25",
     "gatsby-plugin-webpack-bundle-analyser-v2": "1.1.8",
