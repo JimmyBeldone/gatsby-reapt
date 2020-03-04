@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { injectIntl } from 'react-intl';
 
 import siteConfig from '../../../../config/siteConfig';
-import getTwitterMeta from './getTwitterMeta';
-import getOpenGraphMeta from './getOpenGraphMeta';
 import getJsonLd from './getJsonLd';
+import getOpenGraphMeta from './getOpenGraphMeta';
+import getTwitterMeta from './getTwitterMeta';
 
 const SEO = ({
     pageType,

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
+import React, { useState, useEffect } from 'react';
 
 import './index.styl';
 

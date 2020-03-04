@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import MainLayout from '../layouts/MainLayout';
-import PostList from '../components/PostList';
 import Pagination from '../components/Pagination';
+import PostList from '../components/PostList';
 import SEO from '../components/SEO';
+import MainLayout from '../layouts/MainLayout';
 
 const CategoryItemWithPagination = ({
     data,

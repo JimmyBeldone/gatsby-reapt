@@ -1,5 +1,5 @@
-import socialConfig from '../../../../config/socialConfig';
 import siteConfig from '../../../../config/siteConfig';
+import socialConfig from '../../../../config/socialConfig';
 
 const getOpenGraphMeta = (
     title,

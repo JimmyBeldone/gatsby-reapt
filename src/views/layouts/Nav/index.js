@@ -3,8 +3,8 @@ import { FormattedMessage } from 'react-intl';
 
 import './Nav.styl';
 
-import LocalizedLink from '../../components/LocalizedLink';
 import { routes } from '../../../constants/router';
+import LocalizedLink from '../../components/LocalizedLink';
 
 const Nav = () => (
     <div id='main-nav'>

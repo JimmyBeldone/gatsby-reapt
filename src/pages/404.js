@@ -1,10 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import MainLayout from '../views/layouts/MainLayout';
 import LocalizedLink from '../views/components/LocalizedLink';
 import SEO from '../views/components/SEO';
+import MainLayout from '../views/layouts/MainLayout';
 
 const NotFoundPage = ({ pageContext: { locale, translations }, location }) => {
     if (locale === undefined) {

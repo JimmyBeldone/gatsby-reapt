@@ -1,5 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import {
     format,
     formatDistanceToNow,
@@ -7,6 +5,8 @@ import {
     parseISO,
 } from 'date-fns';
 import { fr, enUS } from 'date-fns/locale';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { injectIntl } from 'react-intl';
 
 const locales = { fr, en: enUS };

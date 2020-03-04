@@ -1,5 +1,5 @@
-import React, { Component, createContext, useContext } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component, createContext, useContext } from 'react';
 
 import { checkWebp } from './utils';
 
