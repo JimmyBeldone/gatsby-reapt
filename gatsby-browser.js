@@ -8,6 +8,10 @@ import './src/styles/global.styl';
 
 export const onServiceWorkerUpdateReady = () => window.location.reload(true);
 
-export const onClientEntry = () => {
-    // Without this function body the import will not be picked up.
+export const onClientEntry = async () => {
+    // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
+    if (typeof window.IntersectionObserver === `undefined`) {
+        await import(`intersection-observer`);
+        console.log(`# IntersectionObserver is polyfilled!`);
+    }
 };
