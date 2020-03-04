@@ -78,8 +78,14 @@ BlogPost.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         postPath: PropTypes.string.isRequired,
+        translations: PropTypes.object.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
+    data: PropTypes.shape({
+        mdx: PropTypes.object.isRequired,
+        allMdx: PropTypes.object.isRequired,
+        file: PropTypes.object.isRequired,
+    }),
 };
 
 export default BlogPost;

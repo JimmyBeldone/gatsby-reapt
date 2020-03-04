@@ -49,6 +49,7 @@ FormattedDate.propTypes = {
     isRelative: PropTypes.bool,
     isDistant: PropTypes.bool,
     style: PropTypes.object,
+    intl: PropTypes.object.isRequired,
 };
 
 export default injectIntl(FormattedDate);

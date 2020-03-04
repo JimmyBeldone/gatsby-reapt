@@ -193,6 +193,8 @@ SEO.propTypes = {
     robots: PropTypes.bool,
     post: PropTypes.object,
     article: PropTypes.object,
+    product: PropTypes.object,
+    intl: PropTypes.object.isRequired,
 };
 
 export default injectIntl(SEO);

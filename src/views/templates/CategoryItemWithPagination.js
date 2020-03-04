@@ -49,8 +49,14 @@ CategoryItemWithPagination.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         translations: PropTypes.array.isRequired,
+        category: PropTypes.string.isRequired,
+        numPages: PropTypes.number.isRequired,
+        currentPage: PropTypes.number.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
+    data: PropTypes.shape({
+        allMdx: PropTypes.object.isRequired,
+    }),
 };
 
 export default CategoryItemWithPagination;

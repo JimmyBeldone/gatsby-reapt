@@ -27,6 +27,7 @@ LocalizedLink.defaultProps = {
 LocalizedLink.propTypes = {
     to: PropTypes.string.isRequired,
     hasSlug: PropTypes.bool,
+    intl: PropTypes.object.isRequired,
 };
 
 export default injectIntl(LocalizedLink);
