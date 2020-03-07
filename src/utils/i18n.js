@@ -46,6 +46,12 @@ const getUrlLangPrefix = (lang, path) => {
     return lang === defaultLang ? path : `/${lang + path}`;
 };
 
+const prefixes = ['/'];
+SiteConfig.langs.others.forEach(langData => {
+    prefixes.push(`/${langData.lang}/`);
+});
+const isHomePage = path => prefixes.some(prefix => prefix === path);
+
 const getTranslationObject = (lang, path) => {
     return {
         langKey: lang,
@@ -74,9 +80,15 @@ const getSlug = (path, lang) => {
         return acc;
     }, []);
 
-    const originalPath = explosedSlug.pop();
+    const test = [];
+    explosedSlug.forEach(slug => {
+        test.push(slugExist(slug, lang));
+    });
 
-    const localizedPath = getUrlLangPrefix(lang, slugExist(originalPath, lang));
+    const originalPath = test.join('');
+
+    let localizedPath = getUrlLangPrefix(lang, originalPath);
+    localizedPath += localizedPath.endsWith('/') ? '' : '/';
 
     return localizedPath;
 };
@@ -175,6 +187,7 @@ const getPostsFromSameFolder = (postList, post) => {
 };
 
 module.exports = {
+    isHomePage,
     selectSlug,
     getSlug,
     getUrlLangPrefix,
@@ -185,4 +198,5 @@ module.exports = {
     getPostsFromSameFolder,
     resolveUrl,
     resolvePageUrl,
+    getTranslationObject,
 };
