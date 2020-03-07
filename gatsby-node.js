@@ -1,25 +1,25 @@
-const fs = require('fs');
-const path = require(`path`);
-const kebabCase = require('lodash.kebabcase');
+// const fs = require('fs');
+// const path = require(`path`);
+// const kebabCase = require('lodash.kebabcase');
 
 const ContentConfig = require('./config/contentConfig');
 const createPostsCategoriesPages = require('./config/posts/categoriesConfig');
 const createPostsPages = require('./config/posts/postsConfig.js');
 const createPostsTagsPages = require('./config/posts/tagsConfig');
-const createGalleryPages = require('./config/products/galleryConfig');
-const createProductsPages = require('./config/products/productsConfig');
+// const createGalleryPages = require('./config/products/galleryConfig');
+// const createProductsPages = require('./config/products/productsConfig');
 const Config = require('./config/siteConfig');
-const { DEFAULT_IMAGE } = require('./src/constants/global');
+// const { DEFAULT_IMAGE } = require('./src/constants/global');
 const { generateCrumbs } = require('./src/utils/breadcrumb');
-const {
-    getRecentProducts,
-    getFeaturedProducts,
-} = require('./src/utils/products');
 const {
     getSlug,
     getPageTranslations,
     getUrlLangPrefix,
 } = require('./src/utils/i18n');
+// const {
+//     getRecentProducts,
+//     getFeaturedProducts,
+// } = require('./src/utils/products');
 
 exports.createSchemaCustomization = ({ actions, schema }) => {
     const { createTypes, createFieldExtension } = actions;
