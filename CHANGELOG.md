@@ -1,3 +1,10 @@
+## [3.4.1](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.4.0...v3.4.1) (2020-03-07)
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([85c2726](https://github.com/JimmyBeldone/gatsby-reapt/commit/85c272645ba255190f153fcff4c86a605238c493))
+
 # [3.4.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.68...v3.4.0) (2020-03-07)
 
 
