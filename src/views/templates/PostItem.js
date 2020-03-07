@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import MainLayout from '../layouts/MainLayout';
-import SEO from '../components/SEO';
 import Image from '../components/Image';
-import SimilarPosts from '../components/SimilarPost';
+import SEO from '../components/SEO';
 import ShareButtons from '../components/ShareButtons';
+import SimilarPosts from '../components/SimilarPost';
 import TagList from '../components/TagList';
+import MainLayout from '../layouts/MainLayout';
 
 const BlogPost = ({
     pageContext: { locale, postPath, translations },
@@ -78,8 +78,14 @@ BlogPost.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         postPath: PropTypes.string.isRequired,
+        translations: PropTypes.object.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
+    data: PropTypes.shape({
+        mdx: PropTypes.object.isRequired,
+        allMdx: PropTypes.object.isRequired,
+        file: PropTypes.object.isRequired,
+    }),
 };
 
 export default BlogPost;

@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import MainLayout from '../views/layouts/MainLayout';
 import SEO from '../views/components/SEO';
+import MainLayout from '../views/layouts/MainLayout';
 
 const MLPage = ({ pageContext: { locale, translations }, location }) => {
     // const cnilLink = (

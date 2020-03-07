@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { injectIntl } from 'react-intl';
 import {
     FacebookShareButton,
@@ -78,6 +78,7 @@ ShareButtons.propTypes = {
     description: PropTypes.string.isRequired,
     media: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string),
+    intl: PropTypes.object.isRequired,
 };
 ShareButtons.defaultProps = {
     tags: [],

@@ -1,12 +1,12 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import './Header.styl';
-import Nav from '../Nav';
-import SwitchLangBtn from '../../components/SwitchLangBtn';
 import LocalizedLink from '../../components/LocalizedLink';
 import Search from '../../components/Search';
+import SwitchLangBtn from '../../components/SwitchLangBtn';
+import Nav from '../Nav';
 
 // const logo = require("../../../assets/img/logo_white.svg");
 

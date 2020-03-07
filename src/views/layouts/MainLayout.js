@@ -1,14 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Headroom from 'react-headroom';
 import { Grommet } from 'grommet';
+import PropTypes from 'prop-types';
+import React from 'react';
+import Headroom from 'react-headroom';
 
 import siteConfig from '../../../config/siteConfig';
 import I18nProvider from '../../providers/I18nProvider';
 import { WebpProvider } from '../components/WebpDetect';
-
-import Header from './Header/Header';
 import Footer from './Footer/Footer';
+import Header from './Header/Header';
 
 const MainLayout = ({ locale, children, translationsPaths }) => {
     if (typeof window !== `undefined`) {

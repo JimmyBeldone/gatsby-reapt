@@ -1,17 +1,25 @@
-const path = require(`path`);
-const kebabCase = require('lodash.kebabcase');
+// const fs = require('fs');
+// const path = require(`path`);
+// const kebabCase = require('lodash.kebabcase');
 
-const Config = require('./config/siteConfig');
 const ContentConfig = require('./config/contentConfig');
-const { getSlug } = require(`./src/utils/i18n`);
+const createPostsCategoriesPages = require('./config/posts/categoriesConfig');
+const createPostsPages = require('./config/posts/postsConfig.js');
+const createPostsTagsPages = require('./config/posts/tagsConfig');
+// const createGalleryPages = require('./config/products/galleryConfig');
+// const createProductsPages = require('./config/products/productsConfig');
+const Config = require('./config/siteConfig');
+// const { DEFAULT_IMAGE } = require('./src/constants/global');
+const { generateCrumbs } = require('./src/utils/breadcrumb');
 const {
+    getSlug,
     getPageTranslations,
-    getPostTranslations,
-    getCategoryTranslations,
-    getTagTranslations,
     getUrlLangPrefix,
-    resolvePageUrl,
 } = require('./src/utils/i18n');
+// const {
+//     getRecentProducts,
+//     getFeaturedProducts,
+// } = require('./src/utils/products');
 
 exports.createSchemaCustomization = ({ actions, schema }) => {
     const { createTypes, createFieldExtension } = actions;
@@ -69,14 +77,22 @@ exports.onCreatePage = ({ page, actions }) => {
                 ? getUrlLangPrefix(lang, page.path)
                 : getSlug(page.path, lang);
 
-            return createPage({
+            const createdPage = {
                 ...page,
                 path,
                 context: {
                     locale: lang,
+                    breadcrumb: generateCrumbs(path, lang),
                     translations: getPageTranslations(page.path, is404),
                 },
-            });
+            };
+
+            // if (ContentConfig.products.active) {
+            //     createdPage.context.featured = getFeaturedProducts();
+            //     createdPage.context.recentProducts = getRecentProducts();
+            // }
+
+            return createPage(createdPage);
         });
 
         resolve();
@@ -86,264 +102,23 @@ exports.onCreatePage = ({ page, actions }) => {
 exports.createPages = async ({ graphql, actions, reporter }) => {
     const { createPage } = actions;
 
-    const PostItem = path.resolve('./src/views/templates/PostItem.js');
-    // const ProductItem = path.resolve('./src/views/templates/ProductItem.js');
-
-    const result = await graphql(`
-        {
-            posts: allMdx(
-                sort: { order: DESC, fields: [frontmatter___date] }
-                limit: 2000
-            ) {
-                edges {
-                    node {
-                        frontmatter {
-                            lang
-                            path
-                            category
-                            tags
-                            featured
-                        }
-                        fileAbsolutePath
-                    }
-                }
-            }
-            tagsGroup: allMdx(limit: 2000) {
-                group(field: frontmatter___tags) {
-                    fieldValue
-                    totalCount
-                    edges {
-                        node {
-                            frontmatter {
-                                title
-                                lang
-                                tags
-                            }
-                            fileAbsolutePath
-                        }
-                    }
-                }
-            }
-            categoriesGroup: allMdx(limit: 2000) {
-                group(field: frontmatter___category) {
-                    fieldValue
-                    totalCount
-                    edges {
-                        node {
-                            fileAbsolutePath
-                            frontmatter {
-                                lang
-                                category
-                            }
-                        }
-                    }
-                }
-            }
+    // Posts
+    if (ContentConfig.posts.active) {
+        await createPostsPages(createPage, graphql, reporter);
+        await createPostsCategoriesPages(createPage, graphql, reporter);
+        if (ContentConfig.tags.active) {
+            await createPostsTagsPages(createPage, graphql, reporter);
         }
-    `);
-
-    if (result.errors) {
-        reporter.panicOnBuild(`Error while running GraphQL query.`);
-        return;
     }
 
-    const posts = result.data.posts.edges;
-
-    // If post pagination
-    if (ContentConfig.posts.pagination) {
-        const PostListWithPagination = path.resolve(
-            './src/views/templates/PostListWithPagination.js',
-        );
-        const postsPerPage = ContentConfig.posts.perPage;
-        const postsWithoutFeatured = posts.filter(
-            ({ node }) => !node.frontmatter.featured,
-        );
-        const numPages = Math.ceil(postsWithoutFeatured.length / postsPerPage);
-
-        Array.from({ length: numPages }).forEach((_, i) => {
-            Config.langs.all.map(lang => {
-                const path =
-                    i === 0
-                        ? getUrlLangPrefix(lang, Config.articlePrefix)
-                        : getUrlLangPrefix(
-                              lang,
-                              `${Config.articlePrefix}page/${i + 1}/`,
-                          );
-                createPage({
-                    path,
-                    component: PostListWithPagination,
-                    context: {
-                        limit: postsPerPage,
-                        skip: i * postsPerPage,
-                        currentPage: i + 1,
-                        numPages,
-                        locale: lang,
-                        translations: getPageTranslations(path),
-                    },
-                });
-            });
-        });
-    } else {
-        // Return PostList.js
-        const PostList = path.resolve('./src/views/templates/PostList.js');
-        Config.langs.all.map(lang => {
-            const path = getUrlLangPrefix(lang, Config.articlePrefix);
-            createPage({
-                path,
-                component: PostList,
-                context: {
-                    locale: lang,
-                    translations: getPageTranslations(path),
-                },
-            });
-        });
-    }
-
-    // Create post detail pages
-    posts.forEach(({ node }) => {
-        // if (node.frontmatter.path.indexOf('/blog') !== 0) {
-        //     throw new Error(`Invalid path prefix: ${node.frontmatter.path}`);
-        // }
-        const lang = node.frontmatter.lang;
-        createPage({
-            path: resolvePageUrl(getUrlLangPrefix(lang, node.frontmatter.path)),
-            component: PostItem,
-            context: {
-                locale: lang,
-                postPath: node.frontmatter.path,
-                translations: getPostTranslations(posts, node),
-            },
-        });
-    });
-
-    const categories = result.data.categoriesGroup.group;
-
-    // If category pagination
-    if (ContentConfig.posts.pagination) {
-        const CategoryItemWithPagination = path.resolve(
-            './src/views/templates/CategoryItemWithPagination.js',
-        );
-        const postsPerPage = ContentConfig.posts.perPage;
-
-        categories.forEach((cat, i) => {
-            const numPages = Math.ceil(cat.totalCount / postsPerPage);
-            cat.edges.forEach(({ node }) => {
-                const { lang } = node.frontmatter;
-                const link = getUrlLangPrefix(
-                    lang,
-                    `/category/${kebabCase(cat.fieldValue)}/`,
-                );
-                Array.from({ length: numPages }).forEach((_, i) => {
-                    const path = i === 0 ? link : `${link}page/${i + 1}/`;
-                    createPage({
-                        path,
-                        component: CategoryItemWithPagination,
-                        context: {
-                            limit: postsPerPage,
-                            skip: i * postsPerPage,
-                            currentPage: i + 1,
-                            numPages,
-                            locale: lang,
-                            translations: getCategoryTranslations(posts, node),
-                            category: cat.fieldValue,
-                        },
-                    });
-                });
-            });
-        });
-    } else {
-        // Return PostList.js
-        const CategoryItem = path.resolve(
-            './src/views/templates/CategoryItem.js',
-        );
-
-        categories.forEach(cat => {
-            cat.edges.forEach(({ node }) => {
-                const lang = node.frontmatter.lang;
-                const path = getUrlLangPrefix(
-                    lang,
-                    `/category/${kebabCase(cat.fieldValue)}/`,
-                );
-
-                createPage({
-                    path,
-                    component: CategoryItem,
-                    context: {
-                        categoty: cat.fieldValue,
-                        locale: lang,
-                        translations: getCategoryTranslations(posts, node),
-                    },
-                });
-            });
-        });
-    }
-
-    const tags = result.data.tagsGroup.group;
-
-    // If tag pagination
-    if (ContentConfig.posts.pagination) {
-        const TagListWithPagination = path.resolve(
-            './src/views/templates/TagItemWithPagination.js',
-        );
-        const postsPerPage = ContentConfig.posts.perPage;
-
-        tags.forEach((tag, i) => {
-            const numPages = Math.ceil(tag.totalCount / postsPerPage);
-            tag.edges.forEach(({ node }) => {
-                const { lang, tags: postTags } = node.frontmatter;
-                const tagIndex = postTags.indexOf(tag.fieldValue);
-                const link = getUrlLangPrefix(
-                    lang,
-                    `/tags/${kebabCase(tag.fieldValue)}/`,
-                );
-                Array.from({ length: numPages }).forEach((_, i) => {
-                    const path = i === 0 ? link : `${link}page/${i + 1}/`;
-                    createPage({
-                        path,
-                        component: TagListWithPagination,
-                        context: {
-                            limit: postsPerPage,
-                            skip: i * postsPerPage,
-                            currentPage: i + 1,
-                            numPages,
-                            locale: lang,
-                            translations: getTagTranslations(
-                                posts,
-                                node,
-                                tagIndex,
-                            ),
-                            tag: tag.fieldValue,
-                        },
-                    });
-                });
-            });
-        });
-    } else {
-        // Return PostList.js
-        const TagItem = path.resolve('./src/views/templates/TagItem.js');
-
-        tags.forEach(tag => {
-            tag.edges.forEach(({ node }) => {
-                const lang = node.frontmatter.lang;
-                const postTags = node.frontmatter.tags;
-                const tagIndex = postTags.indexOf(tag.fieldValue);
-                const path = getUrlLangPrefix(
-                    lang,
-                    `/tags/${kebabCase(tag.fieldValue)}/`,
-                );
-
-                createPage({
-                    path,
-                    component: TagItem,
-                    context: {
-                        tag: tag.fieldValue,
-                        locale: lang,
-                        translations: getTagTranslations(posts, node, tagIndex),
-                    },
-                });
-            });
-        });
-    }
+    // Products
+    // if (ContentConfig.products.active) {
+    //     await createProductsPages(createPage, graphql, reporter);
+    //     await createGalleryPages(createPage, graphql, reporter);
+    //     // ContentConfig.products.sections.forEach(section => {
+    //     //     // createProductsCategoriesPages(section, createPage, graphql, reporter);
+    //     // });
+    // }
 };
 
 exports.onCreateWebpackConfig = ({ actions }) => {

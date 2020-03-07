@@ -1,12 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import kebabCase from 'lodash.kebabcase';
-
-import MainLayout from '../views/layouts/MainLayout';
-import SEO from '../views/components/SEO';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Config from '../../config/siteConfig';
+import SEO from '../views/components/SEO';
+import MainLayout from '../views/layouts/MainLayout';
 
 const CategoriesPage = ({
     data: {

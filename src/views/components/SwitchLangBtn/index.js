@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-onchange */
-import React from 'react';
-import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import './SwitchLangBtn.styl';

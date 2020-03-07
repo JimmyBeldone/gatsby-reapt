@@ -1,9 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
-import LocalizedLink from '../LocalizedLink';
-import Image from '../Image';
 import FormattedDate from '../FormattedDate';
+import Image from '../Image';
+import LocalizedLink from '../LocalizedLink';
 import TagList from '../TagList';
 
 const PostList = ({ posts }) => (

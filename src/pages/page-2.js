@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import LocalizedLink from '../views/components/LocalizedLink';
-import MainLayout from '../views/layouts/MainLayout';
 import SEO from '../views/components/SEO';
+import MainLayout from '../views/layouts/MainLayout';
 
 const SecondPage = ({ pageContext: { locale, translations }, location }) => (
     <MainLayout locale={locale} translationsPaths={translations}>

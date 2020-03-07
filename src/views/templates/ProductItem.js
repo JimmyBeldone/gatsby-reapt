@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import MainLayout from '../layouts/MainLayout';
-import SEO from '../components/SEO';
 import Image from '../components/Image';
+import SEO from '../components/SEO';
+import MainLayout from '../layouts/MainLayout';
 
 const ProductItem = ({
     pageContext: { locale, postPath, translations },
