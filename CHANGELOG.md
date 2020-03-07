@@ -1,3 +1,19 @@
+# [3.4.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.68...v3.4.0) (2020-03-07)
+
+
+### Bug Fixes
+
+* update dependencies ([f4670c8](https://github.com/JimmyBeldone/gatsby-reapt/commit/f4670c8fc789c1e9462165cb1d066330799a6e4e))
+* update dependencies ([61d2ee7](https://github.com/JimmyBeldone/gatsby-reapt/commit/61d2ee7f7f77bcb6ff1653aa8b466db70c3ca4da))
+* update dependencies ([1e2a513](https://github.com/JimmyBeldone/gatsby-reapt/commit/1e2a5131c67638a044f24f592bf1385df8b8a84d))
+* update dependencies ([1ba33a7](https://github.com/JimmyBeldone/gatsby-reapt/commit/1ba33a72a0f64834ac9633e8dcac3a19e9aa9850))
+* update react-intl to [@4](https://github.com/4).x.x ([b1fb662](https://github.com/JimmyBeldone/gatsby-reapt/commit/b1fb6622e152316b3ae043e720c0d9a26d374a3d))
+
+
+### Features
+
+* breadcrumb utils ([8332953](https://github.com/JimmyBeldone/gatsby-reapt/commit/8332953aa4bbcc1472cd93bc3f4085f5ef657d4c))
+
 ## [3.3.68](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.3.67...v3.3.68) (2020-02-23)
 
 
