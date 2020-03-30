@@ -90,7 +90,7 @@
     "typography": "0.16.19"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "5.0.0",
+    "@semantic-release/changelog": "5.0.1",
     "@semantic-release/git": "9.0.0",
     "babel-eslint": "10.1.0",
     "chalk": "3.0.0",
@@ -101,12 +101,12 @@
     "eslint-config-universe": "2.3.0",
     "eslint-loader": "3.0.3",
     "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-react-hooks": "2.5.0",
+    "eslint-plugin-react-hooks": "3.0.0",
     "gatsby-plugin-eslint": "2.0.8",
     "gatsby-plugin-stylus-resources": "1.0.25",
     "gatsby-plugin-webpack-bundle-analyser-v2": "1.1.8",
     "husky": "4.2.3",
-    "lint-staged": "10.0.8",
+    "lint-staged": "10.0.10",
     "mk-react-comp": "1.1.9",
     "prettier": "1.19.1",
     "prompt": "1.0.0",
