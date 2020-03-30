@@ -5,7 +5,6 @@ import Headroom from 'react-headroom';
 
 import siteConfig from '../../../config/siteConfig';
 import I18nProvider from '../../providers/I18nProvider';
-import { WebpProvider } from '../components/WebpDetect';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 
@@ -17,23 +16,21 @@ const MainLayout = ({ locale, children, translationsPaths }) => {
     return (
         <I18nProvider locale={locale}>
             <div id='app'>
-                <WebpProvider>
-                    <Grommet plain>
-                        <div id='content-wrap'>
-                            <Headroom>
-                                <Header
-                                    siteTitle={siteConfig.title}
-                                    translationsPaths={translationsPaths}
-                                    locale={locale}
-                                />
-                            </Headroom>
-                            <main>
-                                <div id='content'>{children}</div>
-                            </main>
-                        </div>
-                        <Footer />
-                    </Grommet>
-                </WebpProvider>
+                <Grommet plain>
+                    <div id='content-wrap'>
+                        <Headroom>
+                            <Header
+                                siteTitle={siteConfig.title}
+                                translationsPaths={translationsPaths}
+                                locale={locale}
+                            />
+                        </Headroom>
+                        <main>
+                            <div id='content'>{children}</div>
+                        </main>
+                    </div>
+                    <Footer />
+                </Grommet>
             </div>
         </I18nProvider>
     );
