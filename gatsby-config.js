@@ -10,6 +10,13 @@ require(`dotenv`).config({
     path: `.env.${activeEnv}`,
 });
 
+const defaultQueries = {
+    xs: '(max-width: 320px)',
+    sm: '(max-width: 720px)',
+    md: '(max-width: 1024px)',
+    l: '(max-width: 1536px)',
+};
+
 module.exports = {
     siteMetadata: config,
     plugins: [
@@ -22,6 +29,12 @@ module.exports = {
         //         siteUrl: config.siteUrl,
         //     },
         // },
+        {
+            resolve: 'gatsby-plugin-breakpoints',
+            options: {
+                queries: defaultQueries,
+            },
+        },
         {
             resolve: `gatsby-plugin-typography`,
             options: {
