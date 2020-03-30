@@ -1,3 +1,12 @@
+## [3.4.2](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.4.1...v3.4.2) (2020-03-30)
+
+
+### Bug Fixes
+
+* update dependencies ([ac0a1c6](https://github.com/JimmyBeldone/gatsby-reapt/commit/ac0a1c6be1c63e4f67209f070d3247c98c24f041))
+* update dependencies ([a1b2744](https://github.com/JimmyBeldone/gatsby-reapt/commit/a1b2744d1f52daf1c53ba71e383c84a7a606f4d2))
+* update gatsby monorepo ([973482c](https://github.com/JimmyBeldone/gatsby-reapt/commit/973482c66b5eca07417f02e89c9d65b4fdd27917))
+
 ## [3.4.1](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.4.0...v3.4.1) (2020-03-07)
 
 
