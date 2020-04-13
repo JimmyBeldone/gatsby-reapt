@@ -80,7 +80,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-headroom": "3.0.0",
-    "react-helmet-async": "1.0.4",
+    "react-helmet-async": "1.0.5",
     "react-intl": "4.3.1",
     "react-share": "4.1.0",
     "react-typography": "0.16.19",
