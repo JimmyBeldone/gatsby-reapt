@@ -112,7 +112,7 @@
     "prompt": "1.0.0",
     "replace": "1.1.5",
     "rimraf": "3.0.2",
-    "semantic-release": "17.0.4",
+    "semantic-release": "17.0.6",
     "stylint": "2.0.0",
     "typescript": "3.8.3"
   },
