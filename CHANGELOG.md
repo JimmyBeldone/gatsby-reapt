@@ -1,3 +1,17 @@
+# [3.5.0](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.4.2...v3.5.0) (2020-04-20)
+
+
+### Bug Fixes
+
+* **PostItem:** bad proptype ([881dd09](https://github.com/JimmyBeldone/gatsby-reapt/commit/881dd09dcd554f681596f252c24e77ab389da9d8))
+* update dependencies ([8b88071](https://github.com/JimmyBeldone/gatsby-reapt/commit/8b880715cc12a0e8491a9240d1a8f19ad8ed7c0a))
+
+
+### Features
+
+* add gatsby-plugin-breakpoint ([1c60dd0](https://github.com/JimmyBeldone/gatsby-reapt/commit/1c60dd07ffcaf5ccfef08e0e4ffbd8e07f2a6171))
+* prepare Auth Provider ([f8fce2f](https://github.com/JimmyBeldone/gatsby-reapt/commit/f8fce2f3a3f50869584c017ab9b9518abc288a4f))
+
 ## [3.4.2](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.4.1...v3.4.2) (2020-03-30)
 
 
