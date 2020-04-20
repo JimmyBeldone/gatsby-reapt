@@ -10,7 +10,7 @@ import SimilarPosts from '../components/SimilarPost';
 import TagList from '../components/TagList';
 import MainLayout from '../layouts/MainLayout';
 
-const BlogPost = ({
+const PostItem = ({
     pageContext: { locale, postPath, translations },
     data,
     location,
@@ -74,11 +74,11 @@ const BlogPost = ({
     );
 };
 
-BlogPost.propTypes = {
+PostItem.propTypes = {
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         postPath: PropTypes.string.isRequired,
-        translations: PropTypes.object.isRequired,
+        translations: PropTypes.array.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
     data: PropTypes.shape({
@@ -88,7 +88,7 @@ BlogPost.propTypes = {
     }),
 };
 
-export default BlogPost;
+export default PostItem;
 
 export const query = graphql`
     query($postPath: String!, $locale: String!) {
