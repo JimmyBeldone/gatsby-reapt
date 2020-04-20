@@ -1,12 +1,12 @@
-const path = require('path');
 const kebabCase = require('lodash.kebabcase');
+const path = require('path');
 
-const ContentConfig = require('../contentConfig');
+const { generateCrumbs } = require('../../src/utils/breadcrumb');
 const {
     getCategoryTranslations,
     getUrlLangPrefix,
 } = require('../../src/utils/i18n');
-const { generateCrumbs } = require('../../src/utils/breadcrumb');
+const ContentConfig = require('../contentConfig');
 
 const createPostsCategoriesPages = async (createPage, graphql, reporter) => {
     const result = await graphql(`
@@ -100,7 +100,7 @@ const createPostsCategoriesPages = async (createPage, graphql, reporter) => {
             '../../src/views/templates/CategoryItem.js',
         );
 
-        categories.forEach(cat => {
+        categories.forEach((cat) => {
             cat.edges.forEach(({ node }) => {
                 const lang = node.frontmatter.lang;
                 const path = getUrlLangPrefix(

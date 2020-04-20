@@ -10,6 +10,13 @@ require(`dotenv`).config({
     path: `.env.${activeEnv}`,
 });
 
+const defaultQueries = {
+    xs: '(max-width: 320px)',
+    sm: '(max-width: 720px)',
+    md: '(max-width: 1024px)',
+    l: '(max-width: 1536px)',
+};
+
 module.exports = {
     siteMetadata: config,
     plugins: [
@@ -22,6 +29,12 @@ module.exports = {
         //         siteUrl: config.siteUrl,
         //     },
         // },
+        {
+            resolve: 'gatsby-plugin-breakpoints',
+            options: {
+                queries: defaultQueries,
+            },
+        },
         {
             resolve: `gatsby-plugin-typography`,
             options: {
@@ -122,11 +135,11 @@ module.exports = {
                     }
                 }`,
                 serialize: ({ site, allSitePage }) =>
-                    allSitePage.edges.map(edge => {
+                    allSitePage.edges.map((edge) => {
                         const { context } = edge.node;
                         const baseUrl = site.siteMetadata.siteUrl;
 
-                        const linksLangs = config.langs.all.map(lang => ({
+                        const linksLangs = config.langs.all.map((lang) => ({
                             lang,
                             url: selectSlug(baseUrl, context, lang),
                         }));
@@ -229,14 +242,14 @@ module.exports = {
                 languages: [
                     {
                         name: 'fr',
-                        filterNodes: node =>
+                        filterNodes: (node) =>
                             node.frontmatter !== null &&
                             node.frontmatter !== undefined &&
                             node.frontmatter.lang === 'fr',
                     },
                     {
                         name: 'en',
-                        filterNodes: node =>
+                        filterNodes: (node) =>
                             node.frontmatter !== null &&
                             node.frontmatter !== undefined &&
                             node.frontmatter.lang === 'en',
@@ -255,11 +268,11 @@ module.exports = {
                 ],
                 resolvers: {
                     Mdx: {
-                        title: node => node.frontmatter.title,
-                        description: node => node.frontmatter.description,
-                        content: node => node.body,
-                        url: node => node.frontmatter.path,
-                        tags: node => node.frontmatter.tags,
+                        title: (node) => node.frontmatter.title,
+                        description: (node) => node.frontmatter.description,
+                        content: (node) => node.body,
+                        url: (node) => node.frontmatter.path,
+                        tags: (node) => node.frontmatter.tags,
                     },
                 },
                 filename: 'search_index.json',

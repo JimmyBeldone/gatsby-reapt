@@ -4,7 +4,7 @@ export class SimilarArticlesFactory {
     // (1.) Create by passing in articles, currentSlug
     constructor(articles, postId) {
         // (2.) Don't include the current article in articles list
-        this.articles = articles.filter(aArticle => aArticle.id !== postId);
+        this.articles = articles.filter((aArticle) => aArticle.id !== postId);
 
         this.currentArticleSlug = postId;
         // (3.) Set default values
@@ -77,7 +77,7 @@ export class SimilarArticlesFactory {
             const tagPoint = 1;
             const slug = getSlug(article);
 
-            article.tags.forEach(aTag => {
+            article.tags.forEach((aTag) => {
                 if (tags.includes(aTag)) {
                     identityMap[slug].points += tagPoint;
                 }
@@ -85,11 +85,11 @@ export class SimilarArticlesFactory {
         }
 
         function getIdentityMapAsArray() {
-            return Object.keys(identityMap).map(slug => identityMap[slug]);
+            return Object.keys(identityMap).map((slug) => identityMap[slug]);
         }
 
         // (6.) Map over all articles, add to map and add points
-        for (let article of articles) {
+        for (const article of articles) {
             addToMap(article);
             addCategoryPoints(article, category);
             addTagsPoints(article, tags);

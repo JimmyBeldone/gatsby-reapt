@@ -44,6 +44,7 @@ CategoryItem.propTypes = {
         locale: PropTypes.string.isRequired,
         tag: PropTypes.string.isRequired,
         translations: PropTypes.array.isRequired,
+        category: PropTypes.string.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
     data: PropTypes.shape({

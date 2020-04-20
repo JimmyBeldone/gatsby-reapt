@@ -68,10 +68,10 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
 exports.onCreatePage = ({ page, actions }) => {
     const { createPage, deletePage } = actions;
 
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
         deletePage(page);
 
-        Config.langs.all.map(lang => {
+        Config.langs.all.map((lang) => {
             const is404 = page.path === `/404.html`;
             const path = is404
                 ? getUrlLangPrefix(lang, page.path)

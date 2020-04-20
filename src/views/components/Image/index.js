@@ -7,7 +7,7 @@ import { ALT_TEXT_PREFIX } from '../../../constants/global';
 
 const Image = ({ alt, ...props }) => {
     // Format string to match <img /> alt best practices
-    const altify = string => ALT_TEXT_PREFIX + kebabCase(string);
+    const altify = (string) => ALT_TEXT_PREFIX + kebabCase(string);
 
     return <Img alt={altify(alt)} {...props} />;
 };

@@ -1,7 +1,7 @@
-const rimraf = require('rimraf');
 const chalk = require('chalk');
-const replace = require('replace');
 const prompt = require('prompt');
+const replace = require('replace');
+const rimraf = require('rimraf');
 
 const prompts = require('./setupPrompts');
 
@@ -63,7 +63,7 @@ prompt.get(
                 ];
 
                 // update package.json with the user's values
-                responses.forEach(res => {
+                responses.forEach((res) => {
                     replace({
                         regex: `("${res.key}"): "(.*?)"`,
                         replacement: `$1: "${res.value}"`,
@@ -97,7 +97,7 @@ prompt.get(
 
                 // remove all setup scripts from the 'tools' folder
                 console.log(chalkSuccess('\nSetup complete! Cleaning up...\n'));
-                rimraf('./setup', error => {
+                rimraf('./setup', (error) => {
                     if (error) throw new Error(error);
                 });
             });
@@ -107,7 +107,7 @@ prompt.get(
             updatePackage();
         } else {
             // remove the original git repository
-            rimraf('.git', error => {
+            rimraf('.git', (error) => {
                 if (error) throw new Error(error);
                 console.log(chalkSuccess('Original Git repository removed.\n'));
                 updatePackage();
