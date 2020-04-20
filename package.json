@@ -81,7 +81,7 @@
     "react-dom": "16.13.1",
     "react-headroom": "3.0.0",
     "react-helmet-async": "1.0.4",
-    "react-intl": "4.3.1",
+    "react-intl": "4.5.0",
     "react-share": "4.1.0",
     "react-typography": "0.16.19",
     "styled-components": "5.0.1",
