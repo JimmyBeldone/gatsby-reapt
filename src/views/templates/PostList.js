@@ -42,6 +42,9 @@ BlogPage.propTypes = {
         translations: PropTypes.array.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
+    data: PropTypes.shape({
+        allMdx: PropTypes.object.isRequired,
+    }),
 };
 
 export default BlogPage;

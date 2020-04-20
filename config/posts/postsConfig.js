@@ -1,14 +1,14 @@
 const path = require('path');
 
-const ContentConfig = require('../contentConfig');
-const { articlePrefix, langs } = require('../siteConfig');
+const { generateCrumbs } = require('../../src/utils/breadcrumb');
 const {
     getPageTranslations,
     getPostTranslations,
     getUrlLangPrefix,
     resolvePageUrl,
 } = require('../../src/utils/i18n');
-const { generateCrumbs } = require('../../src/utils/breadcrumb');
+const ContentConfig = require('../contentConfig');
+const { articlePrefix, langs } = require('../siteConfig');
 
 const createPostsPages = async (createPage, graphql, reporter) => {
     const result = await graphql(`
@@ -55,7 +55,7 @@ const createPostsPages = async (createPage, graphql, reporter) => {
         Array.from({
             length: numPages,
         }).forEach((_, i) => {
-            langs.all.map(lang => {
+            langs.all.map((lang) => {
                 const path =
                     i === 0
                         ? getUrlLangPrefix(lang, articlePrefix)
@@ -84,7 +84,7 @@ const createPostsPages = async (createPage, graphql, reporter) => {
             __dirname,
             '../../src/views/templates/PostList.js',
         );
-        langs.all.map(lang => {
+        langs.all.map((lang) => {
             const path = getUrlLangPrefix(lang, articlePrefix);
             createPage({
                 path,

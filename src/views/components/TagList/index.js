@@ -10,7 +10,7 @@ const TagList = ({ tags }) => (
         {tags
             .filter((tag, index) => index === tags.indexOf(tag)) // Remove duplicate values
             .sort()
-            .map(tag => (
+            .map((tag) => (
                 <LocalizedLink to={`/tags/${kebabCase(tag)}/`} key={tag}>
                     {tag}
                 </LocalizedLink>

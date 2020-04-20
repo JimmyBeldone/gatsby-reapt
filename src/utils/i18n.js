@@ -11,7 +11,7 @@ const slugs = require(`../lang/slugs.json`);
  */
 const resolveUrl = (...paths) => {
     return paths.reduce((resolvedUrl, path) => {
-        let urlPath = path.toString().trim();
+        const urlPath = path.toString().trim();
         if (urlPath) {
             resolvedUrl +=
                 (resolvedUrl === '' ? '' : '/') +
@@ -30,7 +30,7 @@ const resolvePageUrl = (...path) => {
     if (path[0] === '/') {
         return '/';
     }
-    let resolvedUrl = resolveUrl(...path);
+    const resolvedUrl = resolveUrl(...path);
     return `/${resolvedUrl}/`;
 };
 
@@ -47,10 +47,10 @@ const getUrlLangPrefix = (lang, path) => {
 };
 
 const prefixes = ['/'];
-SiteConfig.langs.others.forEach(langData => {
+SiteConfig.langs.others.forEach((langData) => {
     prefixes.push(`/${langData.lang}/`);
 });
-const isHomePage = path => prefixes.some(prefix => prefix === path);
+const isHomePage = (path) => prefixes.some((prefix) => prefix === path);
 
 const getTranslationObject = (lang, path) => {
     return {
@@ -81,7 +81,7 @@ const getSlug = (path, lang) => {
     }, []);
 
     const test = [];
-    explosedSlug.forEach(slug => {
+    explosedSlug.forEach((slug) => {
         test.push(slugExist(slug, lang));
     });
 
@@ -94,7 +94,7 @@ const getSlug = (path, lang) => {
 };
 
 const selectSlug = (baseUrl, context, lang) => {
-    let slug = context.translations.filter(item => item.langKey === lang)[0]
+    const slug = context.translations.filter((item) => item.langKey === lang)[0]
         .link;
     return baseUrl + slug;
 };
@@ -165,7 +165,7 @@ const getTagTranslations = (postList, post, tagIndex) => {
 };
 
 const getPageTranslations = (path, is404 = false) => {
-    return SiteConfig.langs.all.map(lang => {
+    return SiteConfig.langs.all.map((lang) => {
         const url = is404 ? getUrlLangPrefix(lang, path) : getSlug(path, lang);
         return getTranslationObject(lang, url);
     });

@@ -24,7 +24,7 @@ const TagsPage = ({
         <div className='container'>
             <h1>Tags</h1>
             <ul>
-                {group.map(tag => (
+                {group.map((tag) => (
                     <li key={tag.fieldValue}>
                         <Link
                             to={

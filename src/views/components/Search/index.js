@@ -31,7 +31,7 @@ const Search = ({ locale }) => {
                 aria-label='search input'
                 aria-required='true'
                 defaultValue={query}
-                onChange={event => {
+                onChange={(event) => {
                     setQuery(event.target.value);
                 }}
             />

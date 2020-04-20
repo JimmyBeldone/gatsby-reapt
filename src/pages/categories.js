@@ -24,7 +24,7 @@ const CategoriesPage = ({
         <div className='container'>
             <h1>Categories</h1>
             <ul>
-                {group.map(cat => (
+                {group.map((cat) => (
                     <li key={cat.fieldValue}>
                         <Link
                             to={

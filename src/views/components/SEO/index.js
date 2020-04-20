@@ -76,7 +76,7 @@ const SEO = ({
     }
 
     const defaultLang = translationsPaths.filter(
-        langPath => langPath.default,
+        (langPath) => langPath.default,
     )[0];
     const defaultUrl = siteConfig.siteUrl + defaultLang.link;
 
@@ -85,7 +85,7 @@ const SEO = ({
     const ogLocaleAlternateMeta = [];
 
     if (translated) {
-        translationsPaths.forEach(langPath => {
+        translationsPaths.forEach((langPath) => {
             alternateLinks.push({
                 rel: 'alternate',
                 href: siteConfig.siteUrl + langPath.link,
