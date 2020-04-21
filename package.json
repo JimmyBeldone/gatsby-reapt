@@ -107,7 +107,7 @@
     "gatsby-plugin-stylus-resources": "1.0.25",
     "gatsby-plugin-webpack-bundle-analyser-v2": "1.1.8",
     "husky": "4.2.5",
-    "lint-staged": "10.1.6",
+    "lint-staged": "10.1.7",
     "mk-react-comp": "1.1.9",
     "prettier": "2.0.4",
     "prompt": "1.0.0",
