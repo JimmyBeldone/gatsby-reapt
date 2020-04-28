@@ -850,7 +850,7 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.3", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.1", "@babel/runtime@^7.6.2", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.3", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.1", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
   version "7.9.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.2.tgz#d90df0583a3a252f09aaa619665367bae518db06"
   integrity sha512-NE2DtOdufG7R5vnfQUTehdTfNycfUANEtCa9PssN9O/xmTzP4E08UI797ixaei6hBEVL9BI/PsdJS5x7mWoB9Q==
@@ -7204,12 +7204,12 @@ gatsby-plugin-styled-components@3.3.0:
   dependencies:
     "@babel/runtime" "^7.9.2"
 
-gatsby-plugin-stylus-resources@1.0.25:
-  version "1.0.25"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.25.tgz#cd99dc764d01c1deac1b314c9608946ac35f3a32"
-  integrity sha512-uOCMscmBbiFRPuevkzAS9XL6wnFdja/bJVU/nhQ/QvFS/3bboc5wxnYestZ3LQK7hrHJk1rfXLuqqohyXfKv7Q==
+gatsby-plugin-stylus-resources@1.0.26:
+  version "1.0.26"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.26.tgz#c8368fee6f7f81775495d780df9e24b8e67c99c2"
+  integrity sha512-9crgRWt8NidcHKDTBgRUg5TQ0nRoCjhjPGJ4OFZg7XDFGTRuQ9EolQGO0GhOFyQFkJgP/4nhxLadZ7elDTA3qQ==
   dependencies:
-    "@babel/runtime" "^7.6.2"
+    "@babel/runtime" "^7.8.4"
     sass-resources-loader "^2.0.1"
     stylus "^0.54.7"
     stylus-loader "^3.0.1"
