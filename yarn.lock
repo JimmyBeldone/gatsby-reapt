@@ -2701,13 +2701,6 @@
   dependencies:
     tslib "^1.11.2"
 
-"@samverschueren/stream-to-observable@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
-  integrity sha512-MI4Xx6LHs4Webyvi6EbspgyAb4D2Q2VtnCQ1blOJcoLS6mVa8lNN2rkIy1CVxfTUpoyIbCTkXES1rLXztFD1lg==
-  dependencies:
-    any-observable "^0.3.0"
-
 "@semantic-release/changelog@5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@semantic-release/changelog/-/changelog-5.0.1.tgz#50a84b63e5d391b7debfe021421589fa2bcdafe4"
@@ -3756,11 +3749,6 @@ any-base@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/any-base/-/any-base-1.1.0.tgz#ae101a62bc08a597b4c9ab5b7089d456630549fe"
   integrity sha512-uMgjozySS8adZZYePpaWs8cxB9/kdzmpX6SgJZ+wbz1K5eYk5QMYDVJaZKhxyIHUdnnJkfR7SVgStgH7LkGUyg==
-
-any-observable@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/any-observable/-/any-observable-0.3.0.tgz#af933475e5806a67d0d7df090dd5e8bef65d119b"
-  integrity sha512-/FQM1EDkTsf63Ub2C6O7GuYFDsSXUwsaZDurV0np41ocwq0jthUAYCmhBX9f+KwlaCgIuWyr/4WlUQUBfKfZog==
 
 any-promise@^1.3.0:
   version "1.3.0"
@@ -7179,11 +7167,6 @@ electron-to-chromium@^1.3.413:
   version "1.3.420"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.420.tgz#e95b731f475433d29d2835a200dab413e45ba819"
   integrity sha512-iVmQhf25F+5bdAyDrfOmCMjyLlIwsr9UT/LyYPQ3J1Vrypr9IgHf2PxqlsnzicnRAYDev6S9cl1tYlDHZUHY/g==
-
-elegant-spinner@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/elegant-spinner/-/elegant-spinner-2.0.0.tgz#f236378985ecd16da75488d166be4b688fd5af94"
-  integrity sha512-5YRYHhvhYzV/FC4AiMdeSIg3jAYGq9xFvbhZMpPlJoBsfYgrw2DSCYeXfat6tYBu45PWiyRr3+flaCPPmviPaA==
 
 elliptic@^6.0.0:
   version "6.5.2"
@@ -12080,10 +12063,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-lint-staged@10.2.7:
-  version "10.2.7"
-  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-10.2.7.tgz#6e47860af3d86a6a01849cbf8ba80f7754aae6eb"
-  integrity sha512-srod2bTpF8riaLz+Bgr6v0mI/nSntE8M9jbh4WwAhoosx0G7RKEUIG7mI5Nu5SMbTF9o8GROPgK0Lhf5cDnUUw==
+lint-staged@10.2.9:
+  version "10.2.9"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-10.2.9.tgz#6013ecfa80829cd422446b545fd30a96bca3098c"
+  integrity sha512-ziRAuXEqvJLSXg43ezBpHxRW8FOJCXISaXU//BWrxRrp5cBdRkIx7g5IsB3OI45xYGE0S6cOacfekSjDyDKF2g==
   dependencies:
     chalk "^4.0.0"
     cli-truncate "2.1.0"
@@ -12091,8 +12074,9 @@ lint-staged@10.2.7:
     cosmiconfig "^6.0.0"
     debug "^4.1.1"
     dedent "^0.7.0"
+    enquirer "^2.3.5"
     execa "^4.0.1"
-    listr2 "^2.0.2"
+    listr2 "^2.1.0"
     log-symbols "^4.0.0"
     micromatch "^4.0.2"
     normalize-path "^3.0.0"
@@ -12100,25 +12084,19 @@ lint-staged@10.2.7:
     string-argv "0.3.1"
     stringify-object "^3.3.0"
 
-listr2@^2.0.2:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/listr2/-/listr2-2.0.4.tgz#b39100b0a227ec5659dcf76ddc516211fc168d61"
-  integrity sha512-oJaAcplPsa72rKW0eg4P4LbEJjhH+UO2I8uqR/I2wzHrVg16ohSfUy0SlcHS21zfYXxtsUpL8YXGHjyfWMR0cg==
+listr2@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/listr2/-/listr2-2.1.0.tgz#8e91b5ea673feb60068d32647a5f9f62c74d80e4"
+  integrity sha512-pWrbMLO+6jxGbgAasTLUzfRYdBaQvv6sNTWDfIX8ENBNmTwt/eafZ/LlJ66/dNaDnEhzCpWricLH4U9cjSAHYg==
   dependencies:
-    "@samverschueren/stream-to-observable" "^0.3.0"
     chalk "^4.0.0"
-    cli-cursor "^3.1.0"
     cli-truncate "^2.1.0"
-    elegant-spinner "^2.0.0"
-    enquirer "^2.3.5"
     figures "^3.2.0"
     indent-string "^4.0.0"
     log-update "^4.0.0"
     p-map "^4.0.0"
-    pad "^3.2.0"
     rxjs "^6.5.5"
     through "^2.3.8"
-    uuid "^7.0.2"
 
 load-bmfont@^1.3.1, load-bmfont@^1.4.0:
   version "1.4.0"
@@ -14500,13 +14478,6 @@ pacote@^9.1.0, pacote@^9.5.12, pacote@^9.5.3:
     tar "^4.4.10"
     unique-filename "^1.1.1"
     which "^1.3.1"
-
-pad@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/pad/-/pad-3.2.0.tgz#be7a1d1cb6757049b4ad5b70e71977158fea95d1"
-  integrity sha512-2u0TrjcGbOjBTJpyewEl4hBO3OeX5wWue7eIFPzQTg6wFSvoaHcBTTUY5m+n0hd04gmTCPuY0kCpVIVuw5etwg==
-  dependencies:
-    wcwidth "^1.0.1"
 
 pako@^1.0.5, pako@~1.0.5:
   version "1.0.11"
@@ -19548,7 +19519,7 @@ uuid@3.4.0, uuid@^3.0.0, uuid@^3.0.1, uuid@^3.3.2, uuid@^3.3.3, uuid@^3.4.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
-uuid@^7.0.2, uuid@^7.0.3:
+uuid@^7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
   integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
@@ -19696,7 +19667,7 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-wcwidth@^1.0.0, wcwidth@^1.0.1:
+wcwidth@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/wcwidth/-/wcwidth-1.0.1.tgz#f0b0dcf915bc5ff1528afadb2c0e17b532da2fe8"
   integrity sha1-8LDc+RW8X/FSivrbLA4XtTLaL+g=
