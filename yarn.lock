@@ -5264,14 +5264,6 @@ chalk@2.4.2, chalk@^2.0, chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0, chalk@^2.3.2,
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@4.0.0, chalk@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.0.0.tgz#6e98081ed2d17faab615eb52ac66ec1fe6209e72"
-  integrity sha512-N9oWFcegS0sFr9oh1oz2d7Npos6vNoWW9HvtCg5N1KRFpUhaAhvTv5Y58g880fZaEYSNm3qDz8SU1UrGvp+n7A==
-  dependencies:
-    ansi-styles "^4.1.0"
-    supports-color "^7.1.0"
-
 chalk@4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.0.tgz#4e14870a618d9e2edd97dd8345fd9d9dc315646a"
@@ -5284,6 +5276,14 @@ chalk@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-3.0.0.tgz#3f73c2bf526591f574cc492c51e2456349f844e4"
   integrity sha512-4D3B6Wf41KOYRFdszmDqMCGq5VV/uMAB273JILmO+3jAlh8X4qDtdtgCR3fxtbLEMzSx22QdhnDcJvu2u1fVwg==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
+chalk@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.0.0.tgz#6e98081ed2d17faab615eb52ac66ec1fe6209e72"
+  integrity sha512-N9oWFcegS0sFr9oh1oz2d7Npos6vNoWW9HvtCg5N1KRFpUhaAhvTv5Y58g880fZaEYSNm3qDz8SU1UrGvp+n7A==
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
@@ -13343,12 +13343,12 @@ mixin-deep@^1.2.0:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
 
-mk-react-comp@1.1.10:
-  version "1.1.10"
-  resolved "https://registry.yarnpkg.com/mk-react-comp/-/mk-react-comp-1.1.10.tgz#20b2d1ac88caa82fb8da5ade7f08516fd99ac3e0"
-  integrity sha512-oJw554kzIAiAl8CMcBgD5mkPTJvSS2pGRfqY/o0aiCmgoAzoD+87hZmwzGlarblI83DUe/6HiA/k6HbU4b4diw==
+mk-react-comp@1.1.11:
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/mk-react-comp/-/mk-react-comp-1.1.11.tgz#6500f85481696afb0a2a83bf09becbfeea73cb44"
+  integrity sha512-nOA6MMgqHq8OSJLaFKCTMYrw0bc/TzIjFVzc7rYlwPtNyvPiWN31NdXn9t5kfu8Bm5wI71i8tjhNge8PAQFWNg==
   dependencies:
-    chalk "4.0.0"
+    chalk "4.1.0"
     commander "5.1.0"
 
 mkdirp-classic@^0.5.2:
