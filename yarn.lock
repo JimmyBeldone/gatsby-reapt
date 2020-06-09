@@ -9161,12 +9161,12 @@ gatsby-plugin-styled-components@3.3.3:
   dependencies:
     "@babel/runtime" "^7.10.2"
 
-gatsby-plugin-stylus-resources@1.0.26:
-  version "1.0.26"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.26.tgz#c8368fee6f7f81775495d780df9e24b8e67c99c2"
-  integrity sha512-9crgRWt8NidcHKDTBgRUg5TQ0nRoCjhjPGJ4OFZg7XDFGTRuQ9EolQGO0GhOFyQFkJgP/4nhxLadZ7elDTA3qQ==
+gatsby-plugin-stylus-resources@1.0.27:
+  version "1.0.27"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.27.tgz#df0b904851c8bf4ec5a48dbfd712082a2bc84b8f"
+  integrity sha512-4/6S+YTFd1V+wUxX0wW4mefX7gEIFuRZ6QpULQ/9prX/TNHFqItbhfTJhqAIAuM2z2xOfIOu/KClGbnBeyOVuw==
   dependencies:
-    "@babel/runtime" "^7.8.4"
+    "@babel/runtime" "^7.9.6"
     sass-resources-loader "^2.0.1"
     stylus "^0.54.7"
     stylus-loader "^3.0.1"
