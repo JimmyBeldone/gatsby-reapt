@@ -99,7 +99,7 @@
     "cross-env": "7.0.2",
     "cz-conventional-changelog": "3.2.0",
     "eslint": "7.2.0",
-    "eslint-config-universe": "3.0.1",
+    "eslint-config-universe": "3.0.2",
     "eslint-loader": "4.0.2",
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-react-hooks": "4.0.4",
