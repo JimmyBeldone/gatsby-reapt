@@ -1,3 +1,10 @@
+## [3.5.14](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.13...v3.5.14) (2020-06-30)
+
+
+### Bug Fixes
+
+* update Gatsbt & React-Intl ([571f275](https://github.com/JimmyBeldone/gatsby-reapt/commit/571f27512d6eddd7aca2ceea0eb18937ad58c450))
+
 ## [3.5.13](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.12...v3.5.13) (2020-06-26)
 
 
