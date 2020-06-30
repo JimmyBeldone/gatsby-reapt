@@ -16,10 +16,12 @@ branches:
   only:
     - master
 
-cache:
-  yarn: true
-  directories:
-    - "node_modules"
+cache: yarn
+
+# cache:
+#   yarn: true
+#   directories:
+#     - "node_modules"
 
 install: yarn
 
