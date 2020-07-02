@@ -1,3 +1,10 @@
+## [3.5.16](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.15...v3.5.16) (2020-07-02)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([c7ea332](https://github.com/JimmyBeldone/gatsby-reapt/commit/c7ea3323d412506b2da56c9144ca5e240c940ca6))
+
 ## [3.5.15](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.14...v3.5.15) (2020-07-02)
 
 
