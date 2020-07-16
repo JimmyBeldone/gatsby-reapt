@@ -70,7 +70,7 @@
     "gatsby-plugin-typography": "2.5.9",
     "gatsby-remark-external-links": "0.0.4",
     "gatsby-remark-images": "3.3.17",
-    "gatsby-schema-field-absolute-path": "1.1.1",
+    "gatsby-schema-field-absolute-path": "1.2.2",
     "gatsby-source-filesystem": "2.3.18",
     "gatsby-transformer-sharp": "2.5.10",
     "grommet": "2.14.0",

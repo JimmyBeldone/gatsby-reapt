@@ -7501,10 +7501,10 @@ gatsby-remark-images@3.3.17:
     unist-util-select "^1.5.0"
     unist-util-visit-parents "^2.1.2"
 
-gatsby-schema-field-absolute-path@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/gatsby-schema-field-absolute-path/-/gatsby-schema-field-absolute-path-1.1.1.tgz#27182835a58d700e3fd20b2e60148283062c8ea7"
-  integrity sha512-Q8E+S4yap+2cZJuY0jkMb9rJ2tUcNB5Bt2I38mFD2cRakU7SITyxCVadlfgh3ZhVr5CLBnRtUqgHeFV8XheLKA==
+gatsby-schema-field-absolute-path@1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/gatsby-schema-field-absolute-path/-/gatsby-schema-field-absolute-path-1.2.2.tgz#459de9297ce7a82af0e75266a57643f9a3c75227"
+  integrity sha512-cx2MjB12qmKdBEkND3GLCeBEGSPUzS3riiQa9cdFu9c5qvNpQJXka9FuhesUw6iWO+QH+ndzkDSQeHCrI2vNBQ==
 
 gatsby-source-filesystem@2.3.18:
   version "2.3.18"
