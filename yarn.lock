@@ -4255,10 +4255,10 @@ command-exists@^1.2.4:
   resolved "https://registry.yarnpkg.com/command-exists/-/command-exists-1.2.9.tgz#c50725af3808c8ab0260fd60b01fbfa25b954f69"
   integrity sha512-LTQ/SGc+s0Xc0Fu5WaKnR0YiygZkm9eKFvyS+fRsU7/ZWFF8ykFM6Pc9aCVf1+xasOOZpO3BAVgVrKvsqKHV7w==
 
-commander@5.1.0, commander@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
-  integrity sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==
+commander@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-6.0.0.tgz#2b270da94f8fb9014455312f829a1129dbf8887e"
+  integrity sha512-s7EA+hDtTYNhuXkTlhqew4txMZVdszBmKWSPEMxGr8ru8JXR7bLUFIAtPhcSuFdJQ0ILMxnJi8GkQL0yvDy/YA==
 
 commander@^2.18.0, commander@^2.20.0, commander@^2.20.3:
   version "2.20.3"
@@ -4269,6 +4269,11 @@ commander@^4.0.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068"
   integrity sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==
+
+commander@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
+  integrity sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==
 
 commander@~2.8.1:
   version "2.8.1"
@@ -11381,13 +11386,13 @@ mixin-deep@^1.2.0:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
 
-mk-react-comp@1.1.11:
-  version "1.1.11"
-  resolved "https://registry.yarnpkg.com/mk-react-comp/-/mk-react-comp-1.1.11.tgz#6500f85481696afb0a2a83bf09becbfeea73cb44"
-  integrity sha512-nOA6MMgqHq8OSJLaFKCTMYrw0bc/TzIjFVzc7rYlwPtNyvPiWN31NdXn9t5kfu8Bm5wI71i8tjhNge8PAQFWNg==
+mk-react-comp@1.1.12:
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/mk-react-comp/-/mk-react-comp-1.1.12.tgz#d09fa9cc0e7442d5ef6bee2fcf9f0aa6317e2b23"
+  integrity sha512-D8iUoB18/vkHTZ8/CZpUktB1hIpB0LrILJqJ65VGJmYK9u9JIFQrEf3L80aUbKi0hBrJoaCKh8IAg1QbelrmQQ==
   dependencies:
     chalk "4.1.0"
-    commander "5.1.0"
+    commander "6.0.0"
 
 mkdirp-classic@^0.5.2:
   version "0.5.3"
