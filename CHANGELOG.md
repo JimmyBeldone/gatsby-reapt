@@ -1,3 +1,11 @@
+## [3.5.21](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.20...v3.5.21) (2020-07-30)
+
+
+### Bug Fixes
+
+* cache on netlify ([f7eff2d](https://github.com/JimmyBeldone/gatsby-reapt/commit/f7eff2d1cb39740c77a894f1cd0c0c199489f12c))
+* update dependencies ([005721f](https://github.com/JimmyBeldone/gatsby-reapt/commit/005721f0e7ba14ba17ccd4814f509e21a33e01ca))
+
 ## [3.5.20](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.19...v3.5.20) (2020-07-29)
 
 
