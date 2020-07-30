@@ -1,3 +1,10 @@
+## [3.5.22](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.21...v3.5.22) (2020-07-30)
+
+
+### Bug Fixes
+
+* offline icon cache ([90da3ad](https://github.com/JimmyBeldone/gatsby-reapt/commit/90da3ad67eb8fd96509ce145158edc255676a299))
+
 ## [3.5.21](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.20...v3.5.21) (2020-07-30)
 
 
