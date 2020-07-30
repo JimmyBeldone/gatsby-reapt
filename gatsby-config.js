@@ -110,7 +110,12 @@ module.exports = {
         'gatsby-schema-field-absolute-path',
         `gatsby-plugin-sharp`,
         `gatsby-plugin-netlify`,
-        `gatsby-plugin-netlify-cache`,
+        {
+            resolve: 'gatsby-plugin-netlify-cache',
+            options: {
+                cachePublic: true,
+            },
+        },
         {
             resolve: `gatsby-plugin-sitemap`,
             options: {
