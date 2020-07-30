@@ -47,8 +47,8 @@
     "url": "https://github.com/JimmyBeldone/gatsby-reapt/issues"
   },
   "dependencies": {
-    "@mdx-js/mdx": "1.6.15",
-    "@mdx-js/react": "1.6.15",
+    "@mdx-js/mdx": "1.6.16",
+    "@mdx-js/react": "1.6.16",
     "babel-plugin-styled-components": "1.11.0",
     "clsx": "1.1.1",
     "date-fns": "2.15.0",
@@ -82,7 +82,7 @@
     "react-dom": "16.13.1",
     "react-headroom": "3.0.0",
     "react-helmet-async": "1.0.6",
-    "react-intl": "5.4.3",
+    "react-intl": "5.4.4",
     "react-share": "4.2.1",
     "react-typography": "0.16.19",
     "styled-components": "5.1.1",
