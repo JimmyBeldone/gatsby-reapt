@@ -179,6 +179,7 @@ module.exports = {
                 theme_color: config.themeColor,
                 display: `minimal-ui`,
                 icon: config.icon,
+                cache_busting_mode: 'none',
                 localize: config.langs.others,
                 icons: [
                     {
@@ -283,7 +284,14 @@ module.exports = {
                 filename: 'search_index.json',
             },
         },
-        `gatsby-plugin-offline`,
+        {
+            resolve: 'gatsby-plugin-offline',
+            options: {
+                workboxConfig: {
+                    globPatterns: ['**/*'],
+                },
+            },
+        },
         `gatsby-plugin-webpack-bundle-analyser-v2`,
     ],
 };
