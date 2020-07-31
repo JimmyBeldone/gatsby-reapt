@@ -998,6 +998,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.11.0":
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.11.0.tgz#f10245877042a815e07f7e693faff0ae9d3a2aac"
+  integrity sha512-qArkXsjJq7H+T86WrIFV0Fnu/tNOkZ4cgXmjkzAu3b/58D5mFIO8JH/y77t7C9q0OdDRdh9s7Ue5GasYssxtXw==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/standalone@^7.10.3":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.10.4.tgz#63b9e211bee42e8ba8dfc1c0b68a856150e37bf2"
@@ -7365,12 +7372,12 @@ gatsby-page-utils@^0.2.19:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
-gatsby-plugin-breakpoints@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-breakpoints/-/gatsby-plugin-breakpoints-1.2.0.tgz#933c764d8e9ec85ac8514a94385f2715725bf125"
-  integrity sha512-E9snE3F2PaFRLJEeQXzWX/BXVO+ov2ZVQquPNPTDtSqLCG7F33nE+lnU6uWtTQJNjIfDebQpxXDOsYK7BPdmlA==
+gatsby-plugin-breakpoints@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-breakpoints/-/gatsby-plugin-breakpoints-1.2.1.tgz#704e4c2ca1bce616c11332955afe113ed48f859d"
+  integrity sha512-shN6YylWwpjrEde1TRMcdZxVsyeG/UXHi4vbRnWqvU0cmStrRYlJTQM0Zi1CjNSk1cPzzXYLl0YWUijeAK8MiA==
   dependencies:
-    "@babel/runtime" "^7.10.3"
+    "@babel/runtime" "^7.11.0"
 
 gatsby-plugin-eslint@2.0.8:
   version "2.0.8"
