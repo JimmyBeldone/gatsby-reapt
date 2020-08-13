@@ -7840,10 +7840,10 @@ gatsby-plugin-styled-components@3.3.10:
   dependencies:
     "@babel/runtime" "^7.10.3"
 
-gatsby-plugin-stylus-resources@1.0.28:
-  version "1.0.28"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.28.tgz#2ee66c60f45a518172659ea3f861e9fbf74f1574"
-  integrity sha512-UjHBO+9LCduk8+zqAWL0zdH+UMD9e5uVLus5r6txiYveh1QFwEueRsigTB9mcTH4bfXl0Qjn12ndlZN0FRRoNQ==
+gatsby-plugin-stylus-resources@1.0.29:
+  version "1.0.29"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.29.tgz#c6551618ca76955f5e621b566413fc5603ab0db6"
+  integrity sha512-vGwtydq/kUcPOuWciizBXu/+QIZbK3/Z7Z5cCY37Du4ty7hbayIdZUxpWPKRCZ4almYuPuwL/niZmGsUc/zZPg==
   dependencies:
     "@babel/runtime" "^7.11.2"
     sass-resources-loader "^2.0.3"

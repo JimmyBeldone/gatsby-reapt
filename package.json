@@ -104,7 +104,7 @@
     "eslint-plugin-jsx-a11y": "6.3.1",
     "eslint-plugin-react-hooks": "4.0.8",
     "gatsby-plugin-eslint": "2.0.8",
-    "gatsby-plugin-stylus-resources": "1.0.28",
+    "gatsby-plugin-stylus-resources": "1.0.29",
     "gatsby-plugin-webpack-bundle-analyser-v2": "1.1.12",
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
