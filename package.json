@@ -109,7 +109,7 @@
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
     "mk-react-comp": "1.1.14",
-    "prettier": "2.0.5",
+    "prettier": "2.1.2",
     "prompt": "1.0.0",
     "replace": "1.2.0",
     "rimraf": "3.0.2",
