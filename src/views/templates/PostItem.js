@@ -11,18 +11,18 @@ import TagList from '../components/TagList';
 import MainLayout from '../layouts/MainLayout';
 
 const PostItem = ({
-    pageContext: { locale, postPath, translations },
     data,
     location,
+    pageContext: { locale, postPath, translations },
 }) => {
     const post = data.mdx;
     const allPosts = data.allMdx;
     const {
-        title,
+        category,
         description,
         featuredImage,
-        category,
         tags,
+        title,
     } = post.frontmatter;
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
@@ -35,8 +35,8 @@ const PostItem = ({
                 image={
                     featuredImage !== null
                         ? {
-                              url: featuredImage.childImageSharp.fluid.src,
                               alt: title,
+                              url: featuredImage.childImageSharp.fluid.src,
                           }
                         : null
                 }
@@ -75,17 +75,17 @@ const PostItem = ({
 };
 
 PostItem.propTypes = {
+    data: PropTypes.shape({
+        allMdx: PropTypes.object.isRequired,
+        file: PropTypes.object.isRequired,
+        mdx: PropTypes.object.isRequired,
+    }),
+    location: PropTypes.object.isRequired,
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         postPath: PropTypes.string.isRequired,
         translations: PropTypes.array.isRequired,
     }).isRequired,
-    location: PropTypes.object.isRequired,
-    data: PropTypes.shape({
-        mdx: PropTypes.object.isRequired,
-        allMdx: PropTypes.object.isRequired,
-        file: PropTypes.object.isRequired,
-    }),
 };
 
 export default PostItem;

@@ -6,16 +6,18 @@ require(`dotenv`).config({
 });
 
 module.exports = {
-    // SEO
-    name: `Gatsby Reapt`,
-    title: `demo.meta.title`,
-    titleAlt: `demo.meta.titleAlt`,
-    description: `demo.meta.description`,
-    pathPrefix: `/`,
     articlePrefix: '/blog/',
-    siteUrl: process.env.GATSBY_SITE_URL || `http://localhost:8000`,
+
+    backgroundColor: `#e0e0e0`,
+
+    description: `demo.meta.description`,
+
+    googleSiteVerification: process.env.GATSBY_GOOGLE_SITE_VERIFICATION || ``,
+
     icon: `src/images/gatsby-icon.png`,
+
     iconName: 'gatsby-icon',
+
     keywords: [
         `gatby reapt`,
         `gatsby starter`,
@@ -25,27 +27,36 @@ module.exports = {
         `gatsby rgpd`,
         `mk-react-comp`,
     ],
-    googleSiteVerification: process.env.GATSBY_GOOGLE_SITE_VERIFICATION || ``,
+
     // manifest config
     langs: {
         all: ['fr', 'en'],
         default: {
+            description: `Un kit de démarrage Gatsby avec i18n`,
             lang: `fr`,
             name: `Gatsby Reapt`,
             short_name: `Gatsby Reapt`,
-            description: `Un kit de démarrage Gatsby avec i18n`,
         },
         others: [
             {
+                description: `A Gatsby Starter with i18n`,
                 lang: `en`,
                 name: `Gatsby Reapt`,
                 short_name: `Gatsby Reapt`,
-                description: `A Gatsby Starter with i18n`,
                 start_url: `/en/`,
             },
         ],
     },
 
-    backgroundColor: `#e0e0e0`,
+    // SEO
+    name: `Gatsby Reapt`,
+
+    pathPrefix: `/`,
+
+    siteUrl: process.env.GATSBY_SITE_URL || `http://localhost:8000`,
+
     themeColor: `#663399`,
+
+    title: `demo.meta.title`,
+    titleAlt: `demo.meta.titleAlt`,
 };

@@ -21,7 +21,7 @@ const flattenMessages = (nestedMessages, prefix = ``) =>
         return messages;
     }, {});
 
-const I18nProvider = ({ locale, children }) => {
+const I18nProvider = ({ children, locale }) => {
     return (
         <IntlProvider
             locale={locale}

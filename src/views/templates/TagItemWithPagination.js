@@ -10,8 +10,8 @@ import MainLayout from '../layouts/MainLayout';
 
 const TagItemWithPagination = ({
     data,
-    pageContext: { locale, numPages, currentPage, translations, tag },
     location,
+    pageContext: { currentPage, locale, numPages, tag, translations },
 }) => {
     const { allMdx } = data;
     return (
@@ -46,17 +46,17 @@ const TagItemWithPagination = ({
 };
 
 TagItemWithPagination.propTypes = {
-    pageContext: PropTypes.shape({
-        locale: PropTypes.string.isRequired,
-        translations: PropTypes.array.isRequired,
-        numPages: PropTypes.number.isRequired,
-        currentPage: PropTypes.number.isRequired,
-        tag: PropTypes.string.isRequired,
-    }).isRequired,
-    location: PropTypes.object.isRequired,
     data: PropTypes.shape({
         allMdx: PropTypes.object.isRequired,
     }),
+    location: PropTypes.object.isRequired,
+    pageContext: PropTypes.shape({
+        currentPage: PropTypes.number.isRequired,
+        locale: PropTypes.string.isRequired,
+        numPages: PropTypes.number.isRequired,
+        tag: PropTypes.string.isRequired,
+        translations: PropTypes.array.isRequired,
+    }).isRequired,
 };
 
 export default TagItemWithPagination;

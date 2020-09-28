@@ -10,8 +10,8 @@ import MainLayout from '../layouts/MainLayout';
 
 const CategoryItemWithPagination = ({
     data,
-    pageContext: { locale, numPages, currentPage, translations, category },
     location,
+    pageContext: { category, currentPage, locale, numPages, translations },
 }) => {
     const { allMdx } = data;
     return (
@@ -46,17 +46,17 @@ const CategoryItemWithPagination = ({
 };
 
 CategoryItemWithPagination.propTypes = {
-    pageContext: PropTypes.shape({
-        locale: PropTypes.string.isRequired,
-        translations: PropTypes.array.isRequired,
-        category: PropTypes.string.isRequired,
-        numPages: PropTypes.number.isRequired,
-        currentPage: PropTypes.number.isRequired,
-    }).isRequired,
-    location: PropTypes.object.isRequired,
     data: PropTypes.shape({
         allMdx: PropTypes.object.isRequired,
     }),
+    location: PropTypes.object.isRequired,
+    pageContext: PropTypes.shape({
+        category: PropTypes.string.isRequired,
+        currentPage: PropTypes.number.isRequired,
+        locale: PropTypes.string.isRequired,
+        numPages: PropTypes.number.isRequired,
+        translations: PropTypes.array.isRequired,
+    }).isRequired,
 };
 
 export default CategoryItemWithPagination;

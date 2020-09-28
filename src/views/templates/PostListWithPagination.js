@@ -11,8 +11,8 @@ import MainLayout from '../layouts/MainLayout';
 
 const PostListWithPagination = ({
     data,
-    pageContext: { locale, numPages, currentPage, translations },
     location,
+    pageContext: { currentPage, locale, numPages, translations },
 }) => {
     const { allMdx } = data;
     return (
@@ -47,16 +47,16 @@ const PostListWithPagination = ({
 };
 
 PostListWithPagination.propTypes = {
-    pageContext: PropTypes.shape({
-        locale: PropTypes.string.isRequired,
-        translations: PropTypes.array.isRequired,
-        numPages: PropTypes.number.isRequired,
-        currentPage: PropTypes.number.isRequired,
-    }).isRequired,
-    location: PropTypes.object.isRequired,
     data: PropTypes.shape({
         allMdx: PropTypes.object.isRequired,
     }),
+    location: PropTypes.object.isRequired,
+    pageContext: PropTypes.shape({
+        currentPage: PropTypes.number.isRequired,
+        locale: PropTypes.string.isRequired,
+        numPages: PropTypes.number.isRequired,
+        translations: PropTypes.array.isRequired,
+    }).isRequired,
 };
 
 export default PostListWithPagination;

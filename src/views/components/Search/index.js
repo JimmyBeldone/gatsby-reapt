@@ -36,7 +36,7 @@ const Search = ({ locale }) => {
                 }}
             />
             <ul className='search-result'>
-                {results.map(({ url, title, description }, index) => {
+                {results.map(({ description, title, url }, index) => {
                     return (
                         <li key={index}>
                             <Link to={url}>

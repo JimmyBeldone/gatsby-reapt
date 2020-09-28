@@ -64,17 +64,17 @@ const createPostsPages = async (createPage, graphql, reporter) => {
                               `${articlePrefix}page/${i + 1}/`,
                           );
                 createPage({
-                    path,
                     component: PostListWithPagination,
                     context: {
-                        limit: postsPerPage,
-                        skip: i * postsPerPage,
-                        currentPage: i + 1,
-                        numPages,
-                        locale: lang,
-                        translations: getPageTranslations(path),
                         breadcrumb: generateCrumbs(path, lang),
+                        currentPage: i + 1,
+                        limit: postsPerPage,
+                        locale: lang,
+                        numPages,
+                        skip: i * postsPerPage,
+                        translations: getPageTranslations(path),
                     },
+                    path,
                 });
             });
         });
@@ -87,13 +87,13 @@ const createPostsPages = async (createPage, graphql, reporter) => {
         langs.all.map((lang) => {
             const path = getUrlLangPrefix(lang, articlePrefix);
             createPage({
-                path,
                 component: PostList,
                 context: {
+                    breadcrumb: generateCrumbs(path, lang),
                     locale: lang,
                     translations: getPageTranslations(path),
-                    breadcrumb: generateCrumbs(path, lang),
                 },
+                path,
             });
         });
     }
@@ -112,14 +112,14 @@ const createPostsPages = async (createPage, graphql, reporter) => {
             getUrlLangPrefix(lang, node.frontmatter.path),
         );
         createPage({
-            path,
             component: PostItem,
             context: {
+                breadcrumb: generateCrumbs(path, lang),
                 locale: lang,
                 postPath: node.frontmatter.path,
                 translations: getPostTranslations(posts, node),
-                breadcrumb: generateCrumbs(path, lang),
             },
+            path,
         });
     });
 };

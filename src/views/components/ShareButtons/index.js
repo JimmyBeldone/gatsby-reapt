@@ -16,11 +16,11 @@ import './Share.styl';
 import siteConfig from '../../../../config/siteConfig';
 
 const ShareButtons = ({
-    url,
     description,
-    tags,
-    media,
     intl: { formatMessage, locale },
+    media,
+    tags,
+    url,
 }) => {
     // const formattedDescription = formatMessage({ id: description });
     const path = siteConfig.siteUrl + url;
@@ -74,11 +74,11 @@ const ShareButtons = ({
 };
 
 ShareButtons.propTypes = {
-    url: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    intl: PropTypes.object.isRequired,
     media: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string),
-    intl: PropTypes.object.isRequired,
+    url: PropTypes.string.isRequired,
 };
 ShareButtons.defaultProps = {
     tags: [],

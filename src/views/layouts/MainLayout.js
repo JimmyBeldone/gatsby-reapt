@@ -8,7 +8,7 @@ import I18nProvider from '../../providers/I18nProvider';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 
-const MainLayout = ({ locale, children, translationsPaths }) => {
+const MainLayout = ({ children, locale, translationsPaths }) => {
     if (typeof window !== `undefined`) {
         sessionStorage.setItem(`lang`, locale);
     }

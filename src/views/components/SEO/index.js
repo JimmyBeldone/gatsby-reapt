@@ -10,19 +10,19 @@ import getOpenGraphMeta from './getOpenGraphMeta';
 import getTwitterMeta from './getTwitterMeta';
 
 const SEO = ({
-    pageType,
-    translationsPaths,
-    location,
-    title,
-    image,
+    article,
     description,
+    image,
+    intl: { formatMessage, locale },
+    location,
     meta,
-    translated,
-    robots,
+    pageType,
     post,
     product,
-    article,
-    intl: { formatMessage, locale },
+    robots,
+    title,
+    translated,
+    translationsPaths,
 }) => {
     const data = useStaticQuery(graphql`
         query DefaultSEOQuery {
@@ -87,13 +87,13 @@ const SEO = ({
     if (translated) {
         translationsPaths.forEach((langPath) => {
             alternateLinks.push({
-                rel: 'alternate',
                 href: siteConfig.siteUrl + langPath.link,
                 hrefLang: langPath.langKey,
+                rel: 'alternate',
             });
             ogLocaleAlternateMeta.push({
-                property: `og:locale:alternate`,
                 content: langPath.territory,
+                property: `og:locale:alternate`,
             });
         });
     }
@@ -120,32 +120,32 @@ const SEO = ({
             titleTemplate={`%s | ${formatMessage({
                 id: siteConfig.title,
             })}`}
-            link={[{ rel: 'canonical', href: location.href }]
+            link={[{ href: location.href, rel: 'canonical' }]
                 .concat(alternateLinks)
                 .concat({
-                    rel: 'alternate',
-                    hrefLang: 'x-default',
                     href: defaultUrl,
+                    hrefLang: 'x-default',
+                    rel: 'alternate',
                 })}
             meta={[
                 {
-                    name: `google-site-verification`,
                     content: siteConfig.googleSiteVerification,
+                    name: `google-site-verification`,
                 },
                 {
-                    name: `description`,
                     content: metaDescription,
+                    name: `description`,
                 },
                 {
-                    name: `image`,
                     content: metaImageUrl,
+                    name: `image`,
                 },
             ]
                 .concat(twitterCard)
                 .concat(ogMeta)
                 .concat(ogLocaleAlternateMeta)
                 .concat(
-                    robots ? { name: 'robots', content: 'index, follow' } : [],
+                    robots ? { content: 'index, follow', name: 'robots' } : [],
                 )
                 // Rest of optional meta props
                 .concat(meta)}
@@ -159,15 +159,29 @@ const SEO = ({
 };
 
 SEO.defaultProps = {
-    pageType: 'website',
     meta: [],
-    translated: true,
-    robots: true,
+    pageType: 'website',
     post: null,
     product: null,
+    robots: true,
+    translated: true,
 };
 
 SEO.propTypes = {
+    article: PropTypes.object,
+    description: PropTypes.string,
+    image: PropTypes.shape({
+        alt: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+    }),
+    intl: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    meta: PropTypes.arrayOf(
+        PropTypes.shape({
+            content: PropTypes.string.isRequired,
+            property: PropTypes.string.isRequired,
+        }),
+    ),
     pageType: PropTypes.PropTypes.oneOf([
         'website',
         'article',
@@ -175,26 +189,12 @@ SEO.propTypes = {
         'tag',
         '404',
     ]),
-    description: PropTypes.string,
-    meta: PropTypes.arrayOf(
-        PropTypes.shape({
-            property: PropTypes.string.isRequired,
-            content: PropTypes.string.isRequired,
-        }),
-    ),
-    image: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-        alt: PropTypes.string.isRequired,
-    }),
+    post: PropTypes.object,
+    product: PropTypes.object,
+    robots: PropTypes.bool,
     title: PropTypes.string.isRequired,
-    location: PropTypes.object.isRequired,
     translated: PropTypes.bool,
     translationsPaths: PropTypes.array.isRequired,
-    robots: PropTypes.bool,
-    post: PropTypes.object,
-    article: PropTypes.object,
-    product: PropTypes.object,
-    intl: PropTypes.object.isRequired,
 };
 
 export default injectIntl(SEO);

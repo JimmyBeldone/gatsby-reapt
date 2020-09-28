@@ -8,9 +8,9 @@ import SEO from '../components/SEO';
 import MainLayout from '../layouts/MainLayout';
 
 const TagItem = ({
-    pageContext: { locale, tag, translations },
     data,
     location,
+    pageContext: { locale, tag, translations },
 }) => {
     const { allMdx } = data;
     return (
@@ -40,27 +40,27 @@ const TagItem = ({
 };
 
 TagItem.propTypes = {
+    data: PropTypes.shape({
+        allMdx: PropTypes.shape({
+            edges: PropTypes.arrayOf(
+                PropTypes.shape({
+                    node: PropTypes.shape({
+                        frontmatter: PropTypes.shape({
+                            path: PropTypes.string.isRequired,
+                            title: PropTypes.string.isRequired,
+                        }),
+                    }),
+                }).isRequired,
+            ),
+            totalCount: PropTypes.number.isRequired,
+        }),
+    }),
+    location: PropTypes.object.isRequired,
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         tag: PropTypes.string.isRequired,
         translations: PropTypes.array.isRequired,
     }).isRequired,
-    location: PropTypes.object.isRequired,
-    data: PropTypes.shape({
-        allMdx: PropTypes.shape({
-            totalCount: PropTypes.number.isRequired,
-            edges: PropTypes.arrayOf(
-                PropTypes.shape({
-                    node: PropTypes.shape({
-                        frontmatter: PropTypes.shape({
-                            title: PropTypes.string.isRequired,
-                            path: PropTypes.string.isRequired,
-                        }),
-                    }),
-                }).isRequired,
-            ),
-        }),
-    }),
 };
 
 export default TagItem;

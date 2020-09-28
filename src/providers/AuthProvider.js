@@ -1,7 +1,7 @@
 import React, { useState, useContext, useMemo, createContext } from 'react';
 
 const noop = () => {};
-const defaultValue = { user: null, login: noop, logout: noop };
+const defaultValue = { login: noop, logout: noop, user: null };
 
 const AuthContext = createContext(defaultValue);
 
@@ -10,9 +10,9 @@ const AuthProvider = (props) => {
 
     const auth = useMemo(
         {
-            user,
             login: (user) => setUser(user),
             logout: () => setUser(null),
+            user,
         },
         [user],
     );

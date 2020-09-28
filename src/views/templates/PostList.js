@@ -8,9 +8,9 @@ import SEO from '../components/SEO';
 import MainLayout from '../layouts/MainLayout';
 
 const BlogPage = ({
-    pageContext: { locale, translations },
-    location,
     data,
+    location,
+    pageContext: { locale, translations },
 }) => {
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
@@ -37,14 +37,14 @@ const BlogPage = ({
 };
 
 BlogPage.propTypes = {
+    data: PropTypes.shape({
+        allMdx: PropTypes.object.isRequired,
+    }),
+    location: PropTypes.object.isRequired,
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         translations: PropTypes.array.isRequired,
     }).isRequired,
-    location: PropTypes.object.isRequired,
-    data: PropTypes.shape({
-        allMdx: PropTypes.object.isRequired,
-    }),
 };
 
 export default BlogPage;

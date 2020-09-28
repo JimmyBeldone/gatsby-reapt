@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import { getPostsFromQuery } from '../../../utils/posts';
 import { SimilarArticlesFactory } from './SimilarArticlesFactory';
 
-const SimilarPosts = ({ category, tags, postId, nbPosts, allPosts }) => {
+const SimilarPosts = ({ allPosts, category, nbPosts, postId, tags }) => {
     // (2.) Marshall the response into articles
     const articles = getPostsFromQuery(allPosts);
 
@@ -35,11 +35,11 @@ SimilarPosts.defaultProps = {
 };
 
 SimilarPosts.propTypes = {
-    category: PropTypes.string.isRequired,
-    tags: PropTypes.array.isRequired,
-    postId: PropTypes.string.isRequired,
-    nbPosts: PropTypes.number,
     allPosts: PropTypes.object.isRequired,
+    category: PropTypes.string.isRequired,
+    nbPosts: PropTypes.number,
+    postId: PropTypes.string.isRequired,
+    tags: PropTypes.array.isRequired,
 };
 
 export default SimilarPosts;

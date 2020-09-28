@@ -11,8 +11,8 @@ const CategoriesPage = ({
     data: {
         allMdx: { group },
     },
-    pageContext: { locale, translations },
     location,
+    pageContext: { locale, translations },
 }) => (
     <MainLayout locale={locale} translationsPaths={translations}>
         <SEO
@@ -45,11 +45,6 @@ const CategoriesPage = ({
 );
 
 CategoriesPage.propTypes = {
-    pageContext: PropTypes.shape({
-        locale: PropTypes.string.isRequired,
-        translations: PropTypes.array.isRequired,
-    }).isRequired,
-    location: PropTypes.object.isRequired,
     data: PropTypes.shape({
         allMdx: PropTypes.shape({
             group: PropTypes.arrayOf(
@@ -60,6 +55,11 @@ CategoriesPage.propTypes = {
             ),
         }),
     }),
+    location: PropTypes.object.isRequired,
+    pageContext: PropTypes.shape({
+        locale: PropTypes.string.isRequired,
+        translations: PropTypes.array.isRequired,
+    }).isRequired,
 };
 
 export default CategoriesPage;

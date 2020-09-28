@@ -24,8 +24,8 @@ const generateCrumbs = (path, lang) => {
                 crumbs = [
                     ...crumbs,
                     {
-                        pathname: pathPrefix !== null ? pathPrefix : '/',
                         crumbLabel: 'Home',
+                        pathname: pathPrefix !== null ? pathPrefix : '/',
                     },
                 ];
             } else if (index !== 0 && split !== '') {
@@ -38,8 +38,8 @@ const generateCrumbs = (path, lang) => {
                 crumbs = [
                     ...crumbs,
                     {
-                        pathname: acc,
                         crumbLabel: acc.slice(n + 1).replace(/-/g, ' '),
+                        pathname: acc,
                     },
                 ];
             } else {
@@ -48,8 +48,8 @@ const generateCrumbs = (path, lang) => {
             }
         });
         const breadcrumb = {
-            location: path,
             crumbs,
+            location: path,
         };
         return breadcrumb;
     }

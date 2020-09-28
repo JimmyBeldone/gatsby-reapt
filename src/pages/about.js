@@ -7,7 +7,7 @@ import LocalizedLink from '../views/components/LocalizedLink';
 import SEO from '../views/components/SEO';
 import MainLayout from '../views/layouts/MainLayout';
 
-const About = ({ pageContext: { locale, translations }, location }) => {
+const About = ({ location, pageContext: { locale, translations } }) => {
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
@@ -28,11 +28,11 @@ const About = ({ pageContext: { locale, translations }, location }) => {
 };
 
 About.propTypes = {
+    location: PropTypes.object.isRequired,
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         translations: PropTypes.array.isRequired,
     }).isRequired,
-    location: PropTypes.object.isRequired,
 };
 
 export default About;

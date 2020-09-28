@@ -1,53 +1,133 @@
 module.exports = {
-    general: {
-        lang: `langue`,
-    },
     demo: {
-        meta: {
-            title: `Reapt Gatsby Starter`,
-            titleAlt: `Reapt GatsbyJS Starter`,
-            description: `Description du site en fr`,
-            author: `@JimmyBeldone`,
+        about: {
+            description: `Description de la page à propos en fr`,
+            headerTitle: `A propos`,
+            link: `Retourner à l'acceuil`,
+            title: `A propos`,
+            welcome: `Bienvenue dans la page à propos`,
+        },
+        blog: {
+            count: '{count} Articles',
+            description: `Description page blog`,
+            headerTitle: `Blog`,
+            title: `Liste des articles`,
+        },
+        footer: {
+            built: `Développé avec `,
         },
         home: {
             headerTitle: `Acceuil`,
             hello: `Bonjour`,
-            welcome: `Bienvenue sur ton nouveaux site Gatsby`,
-            now: `Maintenant construis quelque chose de grand`,
             link: `Aller à la page 2`,
+            now: `Maintenant construis quelque chose de grand`,
+            welcome: `Bienvenue sur ton nouveaux site Gatsby`,
         },
-        page2: {
-            headerTitle: `Page 2`,
-            description: `Description de la page 2 en fr`,
-            hello: `Salut depuis la seconde page`,
-            welcome: `Bienvenue sur la page 2`,
-            link: `Retourner à l'acceuil`,
-        },
-        blog: {
-            headerTitle: `Blog`,
-            description: `Description page blog`,
-            title: `Liste des articles`,
-            count: '{count} Articles',
-        },
-        about: {
-            headerTitle: `A propos`,
-            description: `Description de la page à propos en fr`,
-            title: `A propos`,
-            welcome: `Bienvenue dans la page à propos`,
-            link: `Retourner à l'acceuil`,
+        meta: {
+            author: `@JimmyBeldone`,
+            description: `Description du site en fr`,
+            title: `Reapt Gatsby Starter`,
+            titleAlt: `Reapt GatsbyJS Starter`,
         },
         ml: {
-            headerTitle: `Mentions Légales`,
             description: `Description de la page mentions légales en fr`,
+            headerTitle: `Mentions Légales`,
             title: `Mentions Légales`,
         },
         p404: {
+            description: `Cette page n'existe pas... Désolé`,
             headerTitle: `404: Not found`,
             title: `404: Not found`,
-            description: `Cette page n'existe pas... Désolé`,
         },
-        footer: {
-            built: `Développé avec `,
+        page2: {
+            description: `Description de la page 2 en fr`,
+            headerTitle: `Page 2`,
+            hello: `Salut depuis la seconde page`,
+            link: `Retourner à l'acceuil`,
+            welcome: `Bienvenue sur la page 2`,
+        },
+    },
+    errors: {
+        emptyField: `Veillez remplir le champ {field}`,
+        identical: `L'ancien mot de passe est identique au nouveau`,
+        invalidEmail: `Le format d'email est invalide`,
+        notIdentical: `Les mots de passe ne sont pas identiques`,
+        passwordNotFound: `Mot de passe non renseigné`,
+        tokenNotFound: `Clef d'inscription introuvable`,
+        userNotFoundWithToken: `Utilisateur introuvable avec cette clef d'inscription`,
+        wrongCredentials: `Vos identifiants sont incorrects`,
+        wrongPassword: `L'ancien mot de passe est incorrect`,
+    },
+    filter: {
+        all: `Tous`,
+        carterie: {
+            enfant: `Enfant`,
+            fashion: `Fashion`,
+            finAnnee: `Fin d'année`,
+            general: `Généraliste`,
+            humour: `Humour`,
+            mural: `Mural`,
+            tendresse: `Tendresse`,
+            unicef: `Unicef`,
+        },
+    },
+    general: {
+        lang: `langue`,
+    },
+    home: {
+        content: {
+            test: `contenu`,
+        },
+        hello: `bonjour`,
+    },
+    modals: {
+        default: {
+            title: `Titre modal d'exemple`,
+        },
+    },
+    nav: {
+        about: `À Propos`,
+        blog: 'blog',
+        home: `Accueil`,
+        login: `Connexion`,
+        logout: `Deconnexion`,
+        ml: `Mentions Légales`,
+        page2: `Page 2`,
+        register: `Inscription`,
+    },
+    pages: {
+        forgottenPassword: {
+            button: `Envoyer un email de réinitialisation de mot de passe`,
+            infos: `Nous vous enverrons les informations dont vous avez besoin.`,
+            success: `Un email vient de vous être envoyé`,
+            title: `Réinitialiser votre mot de passe`,
+        },
+        login: {
+            btn: `connexion`,
+            fields: {
+                login: `Email`,
+                pw: `Mot de passe`,
+            },
+            link: `Mot de passe oublié ?`,
+            title: `Connexion`,
+        },
+        register: {
+            btn: `s'inscrire`,
+            fields: {
+                confirmPass: `Confirmer le mot de passe`,
+                email: `Email`,
+                password: `Mot de passe`,
+                username: `Nom`,
+            },
+            link: {
+                btn: `Se connecter`,
+                text: `Déjà inscrit ?`,
+            },
+            title: `Inscription`,
+        },
+        resetPassword: {
+            button: `Réinitialiser votre mot de passe`,
+            userNotFound: `Utilisateur introuvable avec cette adresse email`,
         },
     },
     posts: {
@@ -55,87 +135,7 @@ module.exports = {
             title: 'Articles similaires :',
         },
     },
-    nav: {
-        home: `Accueil`,
-        page2: `Page 2`,
-        blog: 'blog',
-        login: `Connexion`,
-        register: `Inscription`,
-        about: `À Propos`,
-        logout: `Deconnexion`,
-        ml: `Mentions Légales`,
-    },
-    home: {
-        hello: `bonjour`,
-        content: {
-            test: `contenu`,
-        },
-    },
     products: {
         all: `tous`,
-    },
-    filter: {
-        all: `Tous`,
-        carterie: {
-            enfant: `Enfant`,
-            general: `Généraliste`,
-            tendresse: `Tendresse`,
-            fashion: `Fashion`,
-            humour: `Humour`,
-            mural: `Mural`,
-            unicef: `Unicef`,
-            finAnnee: `Fin d'année`,
-        },
-    },
-    pages: {
-        register: {
-            title: `Inscription`,
-            fields: {
-                username: `Nom`,
-                email: `Email`,
-                password: `Mot de passe`,
-                confirmPass: `Confirmer le mot de passe`,
-            },
-            link: {
-                text: `Déjà inscrit ?`,
-                btn: `Se connecter`,
-            },
-            btn: `s'inscrire`,
-        },
-        login: {
-            title: `Connexion`,
-            fields: {
-                login: `Email`,
-                pw: `Mot de passe`,
-            },
-            link: `Mot de passe oublié ?`,
-            btn: `connexion`,
-        },
-        forgottenPassword: {
-            title: `Réinitialiser votre mot de passe`,
-            infos: `Nous vous enverrons les informations dont vous avez besoin.`,
-            button: `Envoyer un email de réinitialisation de mot de passe`,
-            success: `Un email vient de vous être envoyé`,
-        },
-        resetPassword: {
-            button: `Réinitialiser votre mot de passe`,
-            userNotFound: `Utilisateur introuvable avec cette adresse email`,
-        },
-    },
-    modals: {
-        default: {
-            title: `Titre modal d'exemple`,
-        },
-    },
-    errors: {
-        emptyField: `Veillez remplir le champ {field}`,
-        invalidEmail: `Le format d'email est invalide`,
-        identical: `L'ancien mot de passe est identique au nouveau`,
-        notIdentical: `Les mots de passe ne sont pas identiques`,
-        wrongPassword: `L'ancien mot de passe est incorrect`,
-        wrongCredentials: `Vos identifiants sont incorrects`,
-        tokenNotFound: `Clef d'inscription introuvable`,
-        passwordNotFound: `Mot de passe non renseigné`,
-        userNotFoundWithToken: `Utilisateur introuvable avec cette clef d'inscription`,
     },
 };

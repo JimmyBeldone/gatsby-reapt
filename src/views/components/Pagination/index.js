@@ -3,7 +3,7 @@ import React from 'react';
 
 import { getUrlLangPrefix } from '../../../utils/i18n';
 
-const Pagination = ({ numPages, currentPage, contextPage, lang }) => {
+const Pagination = ({ contextPage, currentPage, lang, numPages }) => {
     if (numPages <= 1) {
         return null;
     }
@@ -28,10 +28,10 @@ const Pagination = ({ numPages, currentPage, contextPage, lang }) => {
 };
 
 Pagination.propTypes = {
-    numPages: PropTypes.number.isRequired,
-    currentPage: PropTypes.number.isRequired,
     contextPage: PropTypes.string.isRequired,
+    currentPage: PropTypes.number.isRequired,
     lang: PropTypes.string.isRequired,
+    numPages: PropTypes.number.isRequired,
 };
 
 export default Pagination;

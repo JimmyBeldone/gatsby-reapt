@@ -11,14 +11,13 @@ require(`dotenv`).config({
 });
 
 const defaultQueries = {
-    xs: '(max-width: 320px)',
-    sm: '(max-width: 720px)',
-    md: '(max-width: 1024px)',
     l: '(max-width: 1536px)',
+    md: '(max-width: 1024px)',
+    sm: '(max-width: 720px)',
+    xs: '(max-width: 320px)',
 };
 
 module.exports = {
-    siteMetadata: config,
     plugins: [
         'gatsby-plugin-eslint',
         `gatsby-plugin-styled-components`,
@@ -30,54 +29,53 @@ module.exports = {
         //     },
         // },
         {
-            resolve: 'gatsby-plugin-breakpoints',
             options: {
                 queries: defaultQueries,
             },
+            resolve: 'gatsby-plugin-breakpoints',
         },
         {
-            resolve: `gatsby-plugin-typography`,
             options: {
                 pathToConfigModule: `config/typography.js`,
             },
+            resolve: `gatsby-plugin-typography`,
         },
         {
-            resolve: `gatsby-source-filesystem`,
             options: {
-                path: `${__dirname}/src/images`,
                 name: `images`,
+                path: `${__dirname}/src/images`,
             },
+            resolve: `gatsby-source-filesystem`,
         },
         {
-            resolve: `gatsby-source-filesystem`,
             options: {
-                path: `${__dirname}/content${config.articlePrefix}`,
                 name: `posts`,
+                path: `${__dirname}/content${config.articlePrefix}`,
             },
-        },
-        {
             resolve: `gatsby-source-filesystem`,
-            options: {
-                path: `${__dirname}/content/products`,
-                name: `products`,
-            },
         },
         {
-            resolve: `gatsby-plugin-stylus-resources`,
+            options: {
+                name: `products`,
+                path: `${__dirname}/content/products`,
+            },
+            resolve: `gatsby-source-filesystem`,
+        },
+        {
             options: {
                 resources: styleResources,
             },
+            resolve: `gatsby-plugin-stylus-resources`,
         },
         {
-            resolve: `gatsby-plugin-nprogress`,
             options: {
                 color: `tomato`,
                 showSpinner: false,
             },
+            resolve: `gatsby-plugin-nprogress`,
         },
         `gatsby-transformer-sharp`,
         {
-            resolve: `gatsby-plugin-mdx`,
             options: {
                 extensions: [`.mdx`, `.md`],
                 gatsbyRemarkPlugins: [
@@ -88,14 +86,15 @@ module.exports = {
                     //     },
                     // },
                     {
-                        resolve: 'gatsby-remark-external-links',
                         options: {
-                            target: '_blank',
                             rel: 'noreferrer noopener',
+                            target: '_blank',
                         },
+                        resolve: 'gatsby-remark-external-links',
                     },
                 ],
             },
+            resolve: `gatsby-plugin-mdx`,
         },
         // {
         //     resolve: 'gatsby-schema-field-absolute-path',
@@ -111,7 +110,6 @@ module.exports = {
         `gatsby-plugin-sharp`,
         `gatsby-plugin-netlify`,
         {
-            resolve: `gatsby-plugin-sitemap`,
             options: {
                 query: `{
                     site {
@@ -133,7 +131,7 @@ module.exports = {
                         }
                     }
                 }`,
-                serialize: ({ site, allSitePage }) =>
+                serialize: ({ allSitePage, site }) =>
                     allSitePage.edges.map((edge) => {
                         const { context } = edge.node;
                         const baseUrl = site.siteMetadata.siteUrl;
@@ -153,130 +151,131 @@ module.exports = {
                         };
 
                         return {
-                            url: `${baseUrl}${edge.node.path}`,
                             changefreq: 'daily',
-                            priority: 0.7,
                             links: [...linksLangs, defaultLink],
+                            priority: 0.7,
+                            url: `${baseUrl}${edge.node.path}`,
                         };
                     }),
             },
+            resolve: `gatsby-plugin-sitemap`,
         },
         {
-            resolve: `gatsby-plugin-manifest`,
             options: {
-                name: config.langs.default.name,
-                short_name: config.langs.default.short_name,
-                description: config.langs.default.description,
-                lang: config.langs.default.lang,
-                start_url: config.pathPrefix,
                 background_color: config.backgroundColor,
-                theme_color: config.themeColor,
+                cache_busting_mode: 'none',
+                description: config.langs.default.description,
                 display: `minimal-ui`,
                 icon: config.icon,
-                cache_busting_mode: 'none',
-                localize: config.langs.others,
                 icons: [
                     {
-                        src: `/favicons/icon-48x48.png`,
                         sizes: `48x48`,
+                        src: `/favicons/icon-48x48.png`,
                         type: `image/png`,
                     },
                     {
-                        src: `/favicons/icon-72x72.png`,
                         sizes: `72x72`,
+                        src: `/favicons/icon-72x72.png`,
                         type: `image/png`,
                     },
                     {
-                        src: `/favicons/icon-96x96.png`,
                         sizes: `96x96`,
+                        src: `/favicons/icon-96x96.png`,
                         type: `image/png`,
                     },
                     {
-                        src: `/favicons/icon-144x144.png`,
                         sizes: `144x144`,
+                        src: `/favicons/icon-144x144.png`,
                         type: `image/png`,
                     },
                     {
-                        src: `/favicons/icon-192x192.png`,
                         sizes: `192x192`,
+                        src: `/favicons/icon-192x192.png`,
                         type: `image/png`,
                     },
                     {
-                        src: `/favicons/icon-256x256.png`,
                         sizes: `256x256`,
+                        src: `/favicons/icon-256x256.png`,
                         type: `image/png`,
                     },
                     {
-                        src: `/favicons/icon-384x384.png`,
                         sizes: `384x384`,
+                        src: `/favicons/icon-384x384.png`,
                         type: `image/png`,
                     },
                     {
-                        src: `/favicons/icon-512x512.png`,
                         sizes: `512x512`,
+                        src: `/favicons/icon-512x512.png`,
                         type: `image/png`,
                     },
                 ],
+                lang: config.langs.default.lang,
+                localize: config.langs.others,
+                name: config.langs.default.name,
+                short_name: config.langs.default.short_name,
+                start_url: config.pathPrefix,
+                theme_color: config.themeColor,
             },
+            resolve: `gatsby-plugin-manifest`,
         },
         {
-            resolve: `gatsby-plugin-robots-txt`,
             options: {
-                resolveEnv: () => activeEnv,
                 env: {
                     development: {
-                        policy: [{ userAgent: `*`, disallow: [`/`] }],
-                    },
-                    staging: {
-                        policy: [{ userAgent: `*`, allow: `/` }],
+                        policy: [{ disallow: [`/`], userAgent: `*` }],
                     },
                     production: {
-                        policy: [{ userAgent: `*`, allow: `/` }],
+                        policy: [{ allow: `/`, userAgent: `*` }],
+                    },
+                    staging: {
+                        policy: [{ allow: `/`, userAgent: `*` }],
                     },
                 },
+                resolveEnv: () => activeEnv,
             },
+            resolve: `gatsby-plugin-robots-txt`,
         },
         {
-            resolve: 'gatsby-plugin-lunr',
             options: {
+                fields: [
+                    { attributes: { boost: 20 }, name: 'title', store: true },
+                    {
+                        attributes: { boost: 10 },
+                        name: 'description',
+                        store: true,
+                    },
+                    { attributes: { boost: 10 }, name: 'content', store: true },
+                    { name: 'url', store: true },
+                    { attributes: { boost: 5 }, name: 'tags', store: true },
+                ],
+                filename: 'search_index.json',
                 languages: [
                     {
-                        name: 'fr',
                         filterNodes: (node) =>
                             node.frontmatter !== null &&
                             node.frontmatter !== undefined &&
                             node.frontmatter.lang === 'fr',
+                        name: 'fr',
                     },
                     {
-                        name: 'en',
                         filterNodes: (node) =>
                             node.frontmatter !== null &&
                             node.frontmatter !== undefined &&
                             node.frontmatter.lang === 'en',
+                        name: 'en',
                     },
-                ],
-                fields: [
-                    { name: 'title', store: true, attributes: { boost: 20 } },
-                    {
-                        name: 'description',
-                        store: true,
-                        attributes: { boost: 10 },
-                    },
-                    { name: 'content', store: true, attributes: { boost: 10 } },
-                    { name: 'url', store: true },
-                    { name: 'tags', store: true, attributes: { boost: 5 } },
                 ],
                 resolvers: {
                     Mdx: {
-                        title: (node) => node.frontmatter.title,
-                        description: (node) => node.frontmatter.description,
                         content: (node) => node.body,
-                        url: (node) => node.frontmatter.path,
+                        description: (node) => node.frontmatter.description,
                         tags: (node) => node.frontmatter.tags,
+                        title: (node) => node.frontmatter.title,
+                        url: (node) => node.frontmatter.path,
                     },
                 },
-                filename: 'search_index.json',
             },
+            resolve: 'gatsby-plugin-lunr',
         },
         {
             options: {
@@ -299,4 +298,5 @@ module.exports = {
         },
         `gatsby-plugin-webpack-bundle-analyser-v2`,
     ],
+    siteMetadata: config,
 };

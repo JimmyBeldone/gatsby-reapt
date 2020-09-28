@@ -10,11 +10,11 @@ const PostList = ({ posts }) => (
     <div>
         {posts.map((post, index) => {
             const {
-                title,
                 date,
+                featuredImage,
                 path,
                 tags,
-                featuredImage,
+                title,
             } = post.node.frontmatter;
             const { excerpt } = post.node;
 
@@ -51,15 +51,15 @@ PostList.propTypes = {
         PropTypes.shape({
             node: PropTypes.shape({
                 frontmatter: PropTypes.shape({
-                    title: PropTypes.string.isRequired,
-                    date: PropTypes.string.isRequired,
-                    path: PropTypes.string.isRequired,
                     category: PropTypes.string.isRequired,
-                    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+                    date: PropTypes.string.isRequired,
                     featuredImage: PropTypes.oneOfType([
                         PropTypes.bool,
                         PropTypes.object,
                     ]),
+                    path: PropTypes.string.isRequired,
+                    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+                    title: PropTypes.string.isRequired,
                 }),
             }),
         }),

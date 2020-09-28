@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 
 import './SwitchLangBtn.styl';
 
-const SwitchLangBtn = ({ translationsPaths, locale }) => {
+const SwitchLangBtn = ({ locale, translationsPaths }) => {
     const nav = (e) => {
         e.preventDefault();
         const selected = e.currentTarget.value;
@@ -38,8 +38,8 @@ const SwitchLangBtn = ({ translationsPaths, locale }) => {
 };
 
 SwitchLangBtn.propTypes = {
-    translationsPaths: PropTypes.array.isRequired,
     locale: PropTypes.string.isRequired,
+    translationsPaths: PropTypes.array.isRequired,
 };
 
 export default SwitchLangBtn;
