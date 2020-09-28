@@ -1,3 +1,11 @@
+## [3.5.27](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.26...v3.5.27) (2020-09-28)
+
+
+### Bug Fixes
+
+* lint fix with new conf ([5e523c5](https://github.com/JimmyBeldone/gatsby-reapt/commit/5e523c51ba0bc7d6345d6cbabd04ae5f1589d621))
+* workbox config ([9465284](https://github.com/JimmyBeldone/gatsby-reapt/commit/9465284bbe122afec1b02cfe1e798d1362a118f3))
+
 ## [3.5.26](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.25...v3.5.26) (2020-09-28)
 
 
