@@ -1,8 +1,14 @@
 <h1 align="center" style="border-bottom: none;">Gatsby Reapt</h1>
 <h3 align="center">A Gatsby starter with i18n, SEO ready, GDPR consent</h3>
 <p align="center">
-    <a href="https://travis-ci.com/JimmyBeldone/gatsby-reapt">
-        <img alt="travis build" src="https://travis-ci.com/JimmyBeldone/gatsby-reapt.svg?branch=master">
+    <a href="https://github.com/JimmyBeldone/gatsby-reapt">
+        <img alt="travis build" src="https://github.com/JimmyBeldone/gatsby-reapt/workflows/TESTING/badge.svg">
+    </a>
+    <a href="https://github.com/JimmyBeldone/gatsby-reapt">
+        <img alt="travis build" src="https://github.com/JimmyBeldone/gatsby-reapt/workflows/PUBLISH/badge.svg">
+    </a>
+    <a href="https://github.com/JimmyBeldone/gatsby-reapt">
+        <img alt="travis build" src="https://github.com/JimmyBeldone/gatsby-reapt/workflows/DEPLOY/badge.svg">
     </a>
     <a href="#badge">
         <img alt="release number" src="https://badgen.net/github/release/JimmyBeldone/gatsby-reapt/stable">
