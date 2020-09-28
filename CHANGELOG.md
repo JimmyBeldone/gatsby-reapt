@@ -1,3 +1,10 @@
+## [3.5.28](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.27...v3.5.28) (2020-09-28)
+
+
+### Bug Fixes
+
+* update dependencies ([94ffcca](https://github.com/JimmyBeldone/gatsby-reapt/commit/94ffcca48c7ffa02d907b96c61dd39258753897d))
+
 ## [3.5.27](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.26...v3.5.27) (2020-09-28)
 
 
