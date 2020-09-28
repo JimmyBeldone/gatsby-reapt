@@ -4884,10 +4884,10 @@ command-exists@^1.2.4:
   resolved "https://registry.yarnpkg.com/command-exists/-/command-exists-1.2.9.tgz#c50725af3808c8ab0260fd60b01fbfa25b954f69"
   integrity sha512-LTQ/SGc+s0Xc0Fu5WaKnR0YiygZkm9eKFvyS+fRsU7/ZWFF8ykFM6Pc9aCVf1+xasOOZpO3BAVgVrKvsqKHV7w==
 
-commander@6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-6.0.0.tgz#2b270da94f8fb9014455312f829a1129dbf8887e"
-  integrity sha512-s7EA+hDtTYNhuXkTlhqew4txMZVdszBmKWSPEMxGr8ru8JXR7bLUFIAtPhcSuFdJQ0ILMxnJi8GkQL0yvDy/YA==
+commander@6.1.0, commander@^6.0.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-6.1.0.tgz#f8d722b78103141006b66f4c7ba1e97315ba75bc"
+  integrity sha512-wl7PNrYWd2y5mp1OK/LhTlv8Ff4kQJQRXXAvF+uU/TPNiVJUxZLRYGj/B0y/lPGAVcSbJqH2Za/cvHmrPMC8mA==
 
 commander@^2.18.0, commander@^2.20.0, commander@^2.20.3, commander@^2.8.1:
   version "2.20.3"
@@ -4898,11 +4898,6 @@ commander@^4.0.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068"
   integrity sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==
-
-commander@^6.0.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-6.1.0.tgz#f8d722b78103141006b66f4c7ba1e97315ba75bc"
-  integrity sha512-wl7PNrYWd2y5mp1OK/LhTlv8Ff4kQJQRXXAvF+uU/TPNiVJUxZLRYGj/B0y/lPGAVcSbJqH2Za/cvHmrPMC8mA==
 
 commitizen@4.2.1:
   version "4.2.1"
@@ -12264,13 +12259,13 @@ mixin-deep@^1.2.0:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
 
-mk-react-comp@1.1.14:
-  version "1.1.14"
-  resolved "https://registry.yarnpkg.com/mk-react-comp/-/mk-react-comp-1.1.14.tgz#95533b482432501d647790c588a879ea756fe21a"
-  integrity sha512-EOsuJYsi7p7tSJJuy/2MK1z4s8aLitDw358Cydy8qerJQ72Mw9uKOAw4xEqESATcuVYDeq7ZhD3pNPDs3sFnGA==
+mk-react-comp@1.1.16:
+  version "1.1.16"
+  resolved "https://registry.yarnpkg.com/mk-react-comp/-/mk-react-comp-1.1.16.tgz#890f7dd672fe950c4b9c8db39344328ad8e50082"
+  integrity sha512-WYQPKOWNQz4zKD71BadfAQX5EZ/lhOm2IUGSENvrbSlzAaVXYyfAivk5Oaw7oz+bguYIwn1ajErcII1uYDgi8Q==
   dependencies:
     chalk "4.1.0"
-    commander "6.0.0"
+    commander "6.1.0"
 
 mkdirp-classic@^0.5.2:
   version "0.5.3"
