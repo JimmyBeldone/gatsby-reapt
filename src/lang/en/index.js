@@ -1,125 +1,125 @@
 module.exports = {
-    general: {
-        lang: `lang`,
-    },
     demo: {
-        meta: {
-            title: `Reapt Gatsby Starter`,
-            titleAlt: `Reapt GatsbyJS Starter`,
-            description: `Website Description in english`,
-            author: `@JimmyBeldone`,
-        },
-        home: {
-            headerTitle: `Home`,
-            hello: `Hello`,
-            welcome: `Welcome to your new Gatsby site.`,
-            now: `Now go build something great.`,
-            link: `Go to page 2`,
-        },
-        page2: {
-            headerTitle: `Page 2`,
-            description: `Page 2 Description in english`,
-            hello: `Hi from the second page`,
-            welcome: `Welcome to page 2`,
-            link: `Go back to the homepage`,
-        },
-        blog: {
-            headerTitle: `Blog`,
-            description: `Blog description`,
-            title: `Posts List`,
-            count: '{count} Posts',
-        },
         about: {
-            headerTitle: `About`,
             description: `About Page Description in english`,
+            headerTitle: `About`,
+            link: `Go back to the homepage`,
             title: `About`,
             welcome: `Welcome to page About`,
-            link: `Go back to the homepage`,
         },
-        ml: {
-            headerTitle: `Legal notices`,
-            description: `Legal Notices Page Descrition in english`,
-            title: `Legal notices`,
-        },
-        p404: {
-            headerTitle: `404: Not found`,
-            title: `NOT FOUND`,
-            description: `You just hit a route that doesn't exist... the sadness.`,
+        blog: {
+            count: '{count} Posts',
+            description: `Blog description`,
+            headerTitle: `Blog`,
+            title: `Posts List`,
         },
         footer: {
             built: `Built with `,
         },
-    },
-    posts: {
-        related: {
-            title: 'Related posts:',
+        home: {
+            headerTitle: `Home`,
+            hello: `Hello`,
+            link: `Go to page 2`,
+            now: `Now go build something great.`,
+            welcome: `Welcome to your new Gatsby site.`,
+        },
+        meta: {
+            author: `@JimmyBeldone`,
+            description: `Website Description in english`,
+            title: `Reapt Gatsby Starter`,
+            titleAlt: `Reapt GatsbyJS Starter`,
+        },
+        ml: {
+            description: `Legal Notices Page Descrition in english`,
+            headerTitle: `Legal notices`,
+            title: `Legal notices`,
+        },
+        p404: {
+            description: `You just hit a route that doesn't exist... the sadness.`,
+            headerTitle: `404: Not found`,
+            title: `NOT FOUND`,
+        },
+        page2: {
+            description: `Page 2 Description in english`,
+            headerTitle: `Page 2`,
+            hello: `Hi from the second page`,
+            link: `Go back to the homepage`,
+            welcome: `Welcome to page 2`,
         },
     },
-    nav: {
-        home: `Home`,
-        page2: `Page 2`,
-        blog: 'blog',
-        login: `Log In`,
-        register: `Sign Up`,
-        about: `About`,
-        logout: `Log out`,
-        ml: `Legal Notices`,
+    errors: {
+        emptyField: `Field {field} is empty`,
+        identical: `Old password equals new password`,
+        invalidEmail: `Invalid mail format`,
+        notIdentical: `Password are not equals`,
+        passwordNotFound: `Unregistered password`,
+        tokenNotFound: `Cannot find token`,
+        userNotFoundWithToken: `Cannot find any user with this token`,
+        wrongCredentials: `Wrong credentials`,
+        wrongPassword: `Incorrect old password`,
+    },
+    general: {
+        lang: `lang`,
     },
     home: {
-        hello: `hello`,
         content: {
             test: `content`,
         },
-    },
-    pages: {
-        register: {
-            title: `Sign Up`,
-            fields: {
-                username: `Username`,
-                email: `Email`,
-                password: `Password`,
-                confirmPass: `Confirm password`,
-            },
-            link: {
-                text: `Already have an account?`,
-                btn: `Log in`,
-            },
-            btn: `sign up`,
-        },
-        login: {
-            title: `Log in`,
-            fields: {
-                login: `Email`,
-                pw: `Password`,
-            },
-            link: `Forgot password ?`,
-            btn: `Log In`,
-        },
-        forgottenPassword: {
-            title: `Reset your password`,
-            infos: `You will receive en email with a link to set your new password`,
-            button: `Send me an email`,
-            success: `You just received an email`,
-        },
-        resetPassword: {
-            button: `Reset your password`,
-            userNotFound: `Utilisateur introuvable avec cette adresse email`,
-        },
+        hello: `hello`,
     },
     modals: {
         default: {
             title: `Example modal title`,
         },
     },
-    errors: {
-        emptyField: `Field {field} is empty`,
-        invalidEmail: `Invalid mail format`,
-        identical: `Old password equals new password`,
-        notIdentical: `Password are not equals`,
-        wrongPassword: `Incorrect old password`,
-        wrongCredentials: `Wrong credentials`,
-        tokenNotFound: `Cannot find token`,
-        passwordNotFound: `Unregistered password`,
-        userNotFoundWithToken: `Cannot find any user with this token`,
+    nav: {
+        about: `About`,
+        blog: 'blog',
+        home: `Home`,
+        login: `Log In`,
+        logout: `Log out`,
+        ml: `Legal Notices`,
+        page2: `Page 2`,
+        register: `Sign Up`,
+    },
+    pages: {
+        forgottenPassword: {
+            button: `Send me an email`,
+            infos: `You will receive en email with a link to set your new password`,
+            success: `You just received an email`,
+            title: `Reset your password`,
+        },
+        login: {
+            btn: `Log In`,
+            fields: {
+                login: `Email`,
+                pw: `Password`,
+            },
+            link: `Forgot password ?`,
+            title: `Log in`,
+        },
+        register: {
+            btn: `sign up`,
+            fields: {
+                confirmPass: `Confirm password`,
+                email: `Email`,
+                password: `Password`,
+                username: `Username`,
+            },
+            link: {
+                btn: `Log in`,
+                text: `Already have an account?`,
+            },
+            title: `Sign Up`,
+        },
+        resetPassword: {
+            button: `Reset your password`,
+            userNotFound: `Utilisateur introuvable avec cette adresse email`,
+        },
+    },
+    posts: {
+        related: {
+            title: 'Related posts:',
+        },
     },
 };

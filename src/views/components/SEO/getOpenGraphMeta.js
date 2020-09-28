@@ -14,36 +14,36 @@ const getOpenGraphMeta = (
 ) => {
     const meta = [
         {
-            property: `og:title`,
             content: title,
+            property: `og:title`,
         },
         {
-            property: `og:description`,
             content: description,
+            property: `og:description`,
         },
         {
+            content: image,
             property: `og:image`,
-            content: image,
         },
         {
+            content: image,
             property: `og:image:secure_url`,
-            content: image,
         },
         {
-            property: 'og:image:alt',
             content: imageAlt,
+            property: 'og:image:alt',
         },
         {
-            property: `og:url`,
             content: url,
+            property: `og:url`,
         },
         {
-            property: `og:site_name`,
             content: siteConfig.name,
+            property: `og:site_name`,
         },
         {
-            property: `og:locale`,
             content: locale,
+            property: `og:locale`,
         },
     ];
 
@@ -80,36 +80,36 @@ const getOpenGraphMeta = (
 
 const setWebsite = () => [
     {
-        property: `og:type`,
         content: 'website',
+        property: `og:type`,
     },
 ];
 
-const setArticle = ({ category, publishedAt, updatedAt, tags, author }) => {
+const setArticle = ({ author, category, publishedAt, tags, updatedAt }) => {
     return [
         {
-            property: `og:type`,
             content: 'article',
+            property: `og:type`,
         },
         {
-            name: 'article:section',
             content: category,
+            name: 'article:section',
         },
         {
-            name: 'article:published_time',
             content: publishedAt,
+            name: 'article:published_time',
         },
         {
-            name: 'article:modified_time',
             content: updatedAt,
+            name: 'article:modified_time',
         },
         {
-            name: 'article:tag',
             content: tags.join(', '),
+            name: 'article:tag',
         },
         {
-            name: 'article:author',
-            content: author || socialConfig.author.networks.github, // url with existing og:profile on page
+            content: author || socialConfig.author.networks.github,
+            name: 'article:author', // url with existing og:profile on page
         },
     ];
 };
@@ -118,28 +118,28 @@ const setBusiness = () => {
     const { business } = socialConfig.business;
     return [
         {
-            property: `og:type`,
             content: 'business.business',
+            property: `og:type`,
         },
         {
-            property: 'business:contact_data:street_address',
             content: business.street_address,
+            property: 'business:contact_data:street_address',
         },
         {
-            property: 'business:contact_data:locality',
             content: business.locality,
+            property: 'business:contact_data:locality',
         },
         {
-            property: 'business:contact_data:region',
             content: business.region,
+            property: 'business:contact_data:region',
         },
         {
-            property: 'business:contact_data:postal_code',
             content: business.postal_code,
+            property: 'business:contact_data:postal_code',
         },
         {
-            property: 'business:contact_data:country_name',
             content: business.country,
+            property: 'business:contact_data:country_name',
         },
     ];
 };
@@ -147,47 +147,47 @@ const setBusiness = () => {
 const setProductGroup = () => {
     return [
         {
-            property: `og:type`,
             content: 'product.group',
+            property: `og:type`,
         },
     ];
 };
 
 const setProductItem = ({
+    availability = null,
     brand,
     condition = null,
-    availability = null,
-    price = null,
     currency = null,
+    price = null,
 }) => {
     const meta = [
         {
-            property: `og:type`,
             content: 'product',
+            property: `og:type`,
         },
         {
-            property: 'product:condition',
             content: condition || 'new',
+            property: 'product:condition',
         },
         {
-            property: 'product:availability',
             content: availability || 'instock',
+            property: 'product:availability',
         },
 
         {
-            property: 'product:brand',
             content: brand,
+            property: 'product:brand',
         },
     ];
     if (price) {
         const priceArray = [
             {
-                property: 'product:price:amount',
                 content: price,
+                property: 'product:price:amount',
             },
             {
-                property: 'product:price:currency',
                 content: currency,
+                property: 'product:price:currency',
             },
         ];
         meta.concat(priceArray);

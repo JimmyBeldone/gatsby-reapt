@@ -4,7 +4,7 @@ import { PAGE_ML } from './src/constants/router';
 import { getSlug } from './src/utils/i18n';
 
 export const onRenderBody = (
-    { setPostBodyComponents, pathname },
+    { pathname, setPostBodyComponents },
     pluginOptions,
 ) => {
     if (process.env.NODE_ENV === `production`) {

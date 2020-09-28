@@ -1,10 +1,8 @@
 module.exports = {
-    posts: {
-        active: true,
-        pagination: true,
-        perPage: 10,
+    images: {
+        altPrefix: 'gatsby-reapt',
     },
-    tags: {
+    posts: {
         active: true,
         pagination: true,
         perPage: 10,
@@ -15,7 +13,9 @@ module.exports = {
         perPage: 10,
         sections: [],
     },
-    images: {
-        altPrefix: 'gatsby-reapt',
+    tags: {
+        active: true,
+        pagination: true,
+        perPage: 10,
     },
 };

@@ -30,7 +30,7 @@ export class SimilarArticlesFactory {
     }
 
     getArticles() {
-        const { category, tags, articles, maxArticles } = this;
+        const { articles, category, maxArticles, tags } = this;
         // (5.) We use an Identity Map to keep track of score
         const identityMap = {};
 

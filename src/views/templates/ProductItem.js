@@ -7,9 +7,9 @@ import SEO from '../components/SEO';
 import MainLayout from '../layouts/MainLayout';
 
 const ProductItem = ({
-    pageContext: { locale, postPath, translations },
     data,
     location,
+    pageContext: { locale, postPath, translations },
 }) => {
     const post = data.mdx;
     return (
@@ -40,11 +40,11 @@ const ProductItem = ({
 };
 
 ProductItem.propTypes = {
+    location: PropTypes.object.isRequired,
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         postPath: PropTypes.string.isRequired,
     }).isRequired,
-    location: PropTypes.object.isRequired,
 };
 
 export default ProductItem;

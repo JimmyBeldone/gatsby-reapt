@@ -36,9 +36,9 @@ const getPostsFromQuery = (posts) => {
             .map((edge) => edge.node)
             .map((node) =>
                 Object.assign({}, node.frontmatter, {
+                    body: node.body,
                     excerpt: node.excerpt,
                     id: node.id,
-                    body: node.body,
                 }),
             );
     }
@@ -46,4 +46,4 @@ const getPostsFromQuery = (posts) => {
     return [];
 };
 
-module.exports = { getSuggestedPosts, capitalize, getPostsFromQuery };
+module.exports = { capitalize, getPostsFromQuery, getSuggestedPosts };

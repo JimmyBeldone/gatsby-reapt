@@ -9,13 +9,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { injectIntl } from 'react-intl';
 
-const locales = { fr, en: enUS };
+const locales = { en: enUS, fr };
 
 const FormattedDate = ({
-    intl: { locale },
     date,
-    isRelative,
+    intl: { locale },
     isDistant,
+    isRelative,
     style,
 }) => {
     const getFormattedDate = () => {
@@ -35,8 +35,8 @@ const FormattedDate = ({
 };
 
 FormattedDate.defaultProps = {
-    isRelative: false,
     isDistant: false,
+    isRelative: false,
     style: {},
 };
 
@@ -46,10 +46,10 @@ FormattedDate.propTypes = {
         PropTypes.instanceOf(Date),
         PropTypes.string,
     ]).isRequired,
-    isRelative: PropTypes.bool,
-    isDistant: PropTypes.bool,
-    style: PropTypes.object,
     intl: PropTypes.object.isRequired,
+    isDistant: PropTypes.bool,
+    isRelative: PropTypes.bool,
+    style: PropTypes.object,
 };
 
 export default injectIntl(FormattedDate);

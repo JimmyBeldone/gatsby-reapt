@@ -12,8 +12,8 @@ const Config = require('./config/siteConfig');
 // const { DEFAULT_IMAGE } = require('./src/constants/global');
 const { generateCrumbs } = require('./src/utils/breadcrumb');
 const {
-    getSlug,
     getPageTranslations,
+    getSlug,
     getUrlLangPrefix,
 } = require('./src/utils/i18n');
 // const {
@@ -22,10 +22,9 @@ const {
 // } = require('./src/utils/products');
 
 exports.createSchemaCustomization = ({ actions, schema }) => {
-    const { createTypes, createFieldExtension } = actions;
+    const { createFieldExtension, createTypes } = actions;
 
     createFieldExtension({
-        name: `defaultFalse`,
         extend() {
             return {
                 resolve(source, args, context, info) {
@@ -36,10 +35,10 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
                 },
             };
         },
+        name: `defaultFalse`,
     });
 
     createFieldExtension({
-        name: `uncategorized`,
         extend() {
             return {
                 resolve(source, args, context, info) {
@@ -50,6 +49,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
                 },
             };
         },
+        name: `uncategorized`,
     });
 
     const typeDef = [
@@ -65,7 +65,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     createTypes(typeDef);
 };
 
-exports.onCreatePage = ({ page, actions }) => {
+exports.onCreatePage = ({ actions, page }) => {
     const { createPage, deletePage } = actions;
 
     return new Promise((resolve) => {
@@ -79,12 +79,12 @@ exports.onCreatePage = ({ page, actions }) => {
 
             const createdPage = {
                 ...page,
-                path,
                 context: {
-                    locale: lang,
                     breadcrumb: generateCrumbs(path, lang),
+                    locale: lang,
                     translations: getPageTranslations(page.path, is404),
                 },
+                path,
             };
 
             // if (ContentConfig.products.active) {
@@ -99,7 +99,7 @@ exports.onCreatePage = ({ page, actions }) => {
     });
 };
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
     const { createPage } = actions;
 
     // Posts

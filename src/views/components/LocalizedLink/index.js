@@ -6,7 +6,7 @@ import { injectIntl } from 'react-intl';
 import { PAGE_HOME } from '../../../constants/router';
 import { getSlug, resolvePageUrl, getUrlLangPrefix } from '../../../utils/i18n';
 
-const LocalizedLink = ({ to, intl: { locale }, hasSlug, ...props }) => {
+const LocalizedLink = ({ hasSlug, intl: { locale }, to, ...props }) => {
     const path = hasSlug
         ? getSlug(to, locale)
         : resolvePageUrl(getUrlLangPrefix(locale, to));
@@ -25,9 +25,9 @@ LocalizedLink.defaultProps = {
 };
 
 LocalizedLink.propTypes = {
-    to: PropTypes.string.isRequired,
     hasSlug: PropTypes.bool,
     intl: PropTypes.object.isRequired,
+    to: PropTypes.string.isRequired,
 };
 
 export default injectIntl(LocalizedLink);

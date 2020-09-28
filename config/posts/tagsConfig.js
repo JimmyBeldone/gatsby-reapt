@@ -74,22 +74,22 @@ const createPostsTagsPages = async (createPage, graphql, reporter) => {
                 Array.from({ length: numPages }).forEach((_, i) => {
                     const path = i === 0 ? link : `${link}page/${i + 1}/`;
                     createPage({
-                        path,
                         component: TagListWithPagination,
                         context: {
-                            limit: postsPerPage,
-                            skip: i * postsPerPage,
+                            breadcrumb: generateCrumbs(path, lang),
                             currentPage: i + 1,
-                            numPages,
+                            limit: postsPerPage,
                             locale: lang,
+                            numPages,
+                            skip: i * postsPerPage,
+                            tag: tag.fieldValue,
                             translations: getTagTranslations(
                                 posts,
                                 node,
                                 tagIndex,
                             ),
-                            tag: tag.fieldValue,
-                            breadcrumb: generateCrumbs(path, lang),
                         },
+                        path,
                     });
                 });
             });
@@ -112,14 +112,14 @@ const createPostsTagsPages = async (createPage, graphql, reporter) => {
                 );
 
                 createPage({
-                    path,
                     component: TagItem,
                     context: {
-                        tag: tag.fieldValue,
-                        locale: lang,
-                        translations: getTagTranslations(posts, node, tagIndex),
                         breadcrumb: generateCrumbs(path, lang),
+                        locale: lang,
+                        tag: tag.fieldValue,
+                        translations: getTagTranslations(posts, node, tagIndex),
                     },
+                    path,
                 });
             });
         });

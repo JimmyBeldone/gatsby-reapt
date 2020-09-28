@@ -10,24 +10,24 @@ export const PAGE_ML = `/legal-notices/`;
 
 export const routes = [
     {
-        path: PAGE_HOME,
         name: `nav.home`,
+        path: PAGE_HOME,
     },
     {
-        path: PAGE_2,
         name: `nav.page2`,
+        path: PAGE_2,
     },
     {
-        path: BLOG,
         name: `nav.blog`,
+        path: BLOG,
     },
     {
-        path: PAGE_ABOUT,
         name: `nav.about`,
+        path: PAGE_ABOUT,
     },
     {
-        path: PAGE_ML,
         name: `nav.ml`,
         nav: false,
+        path: PAGE_ML,
     },
 ];

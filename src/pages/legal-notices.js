@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import SEO from '../views/components/SEO';
 import MainLayout from '../views/layouts/MainLayout';
 
-const MLPage = ({ pageContext: { locale, translations }, location }) => {
+const MLPage = ({ location, pageContext: { locale, translations } }) => {
     // const cnilLink = (
     //     <a
     //         href='http://www.cnil.fr/vos-droits/vos-traces/les-cookies/'
@@ -32,11 +32,11 @@ const MLPage = ({ pageContext: { locale, translations }, location }) => {
 };
 
 MLPage.propTypes = {
+    location: PropTypes.object.isRequired,
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         translations: PropTypes.array.isRequired,
     }).isRequired,
-    location: PropTypes.object.isRequired,
 };
 
 export default MLPage;

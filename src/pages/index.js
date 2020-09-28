@@ -7,7 +7,7 @@ import LocalizedLink from '../views/components/LocalizedLink';
 import SEO from '../views/components/SEO';
 import MainLayout from '../views/layouts/MainLayout';
 
-const IndexPage = ({ pageContext: { locale, translations }, location }) => {
+const IndexPage = ({ location, pageContext: { locale, translations } }) => {
     const breakpoints = useBreakpoint();
     console.log(breakpoints);
     return (
@@ -30,11 +30,11 @@ const IndexPage = ({ pageContext: { locale, translations }, location }) => {
 };
 
 IndexPage.propTypes = {
+    location: PropTypes.object.isRequired,
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         translations: PropTypes.array.isRequired,
     }).isRequired,
-    location: PropTypes.object.isRequired,
 };
 
 export default IndexPage;

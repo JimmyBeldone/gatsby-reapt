@@ -54,10 +54,10 @@ const isHomePage = (path) => prefixes.some((prefix) => prefix === path);
 
 const getTranslationObject = (lang, path) => {
     return {
+        default: !!locales[lang].default,
         langKey: lang,
         langValue: locales[lang].locale,
         link: path,
-        default: !!locales[lang].default,
         territory: locales[lang].territory,
     };
 };
@@ -187,16 +187,16 @@ const getPostsFromSameFolder = (postList, post) => {
 };
 
 module.exports = {
-    isHomePage,
-    selectSlug,
-    getSlug,
-    getUrlLangPrefix,
-    getPostTranslations,
     getCategoryTranslations,
-    getTagTranslations,
     getPageTranslations,
+    getPostTranslations,
     getPostsFromSameFolder,
-    resolveUrl,
-    resolvePageUrl,
+    getSlug,
+    getTagTranslations,
     getTranslationObject,
+    getUrlLangPrefix,
+    isHomePage,
+    resolvePageUrl,
+    resolveUrl,
+    selectSlug,
 };

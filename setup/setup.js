@@ -18,7 +18,7 @@ prompt.start();
 
 console.log(chalkWarn('WARNING:  Preparing to delete local git repository...'));
 prompt.get(
-    [{ name: 'deleteGit', description: 'Delete the git repository?  [Y/n]' }],
+    [{ description: 'Delete the git repository?  [Y/n]', name: 'deleteGit' }],
     (err, result) => {
         const deleteGit = result.deleteGit.toUpperCase();
 
@@ -65,29 +65,29 @@ prompt.get(
                 // update package.json with the user's values
                 responses.forEach((res) => {
                     replace({
-                        regex: `("${res.key}"): "(.*?)"`,
-                        replacement: `$1: "${res.value}"`,
                         paths: ['package.json'],
                         recursive: false,
+                        regex: `("${res.key}"): "(.*?)"`,
+                        replacement: `$1: "${res.value}"`,
                         silent: true,
                     });
                 });
 
                 // reset package.json 'keywords' field to empty state
                 replace({
-                    regex: /"keywords": \[[\s\S]+?\]/,
-                    replacement: `"keywords": []`,
                     paths: ['package.json'],
                     recursive: false,
+                    regex: /"keywords": \[[\s\S]+?\]/,
+                    replacement: `"keywords": []`,
                     silent: true,
                 });
 
                 // remove setup script from package.json
                 replace({
-                    regex: /\s*"setup":.*,/,
-                    replacement: '',
                     paths: ['package.json'],
                     recursive: false,
+                    regex: /\s*"setup":.*,/,
+                    replacement: '',
                     silent: true,
                 });
 

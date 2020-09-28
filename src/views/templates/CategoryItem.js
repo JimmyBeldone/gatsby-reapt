@@ -8,9 +8,9 @@ import SEO from '../components/SEO';
 import MainLayout from '../layouts/MainLayout';
 
 const CategoryItem = ({
-    pageContext: { locale, category, translations },
     data,
     location,
+    pageContext: { category, locale, translations },
 }) => {
     const { allMdx } = data;
     return (
@@ -40,28 +40,28 @@ const CategoryItem = ({
 };
 
 CategoryItem.propTypes = {
-    pageContext: PropTypes.shape({
-        locale: PropTypes.string.isRequired,
-        tag: PropTypes.string.isRequired,
-        translations: PropTypes.array.isRequired,
-        category: PropTypes.string.isRequired,
-    }).isRequired,
-    location: PropTypes.object.isRequired,
     data: PropTypes.shape({
         allMdx: PropTypes.shape({
-            totalCount: PropTypes.number.isRequired,
             edges: PropTypes.arrayOf(
                 PropTypes.shape({
                     node: PropTypes.shape({
                         frontmatter: PropTypes.shape({
-                            title: PropTypes.string.isRequired,
                             path: PropTypes.string.isRequired,
+                            title: PropTypes.string.isRequired,
                         }),
                     }),
                 }).isRequired,
             ),
+            totalCount: PropTypes.number.isRequired,
         }),
     }),
+    location: PropTypes.object.isRequired,
+    pageContext: PropTypes.shape({
+        category: PropTypes.string.isRequired,
+        locale: PropTypes.string.isRequired,
+        tag: PropTypes.string.isRequired,
+        translations: PropTypes.array.isRequired,
+    }).isRequired,
 };
 
 export default CategoryItem;

@@ -17,9 +17,9 @@ const getJsonLd = (
     const schemaOrgJSONLD = {
         '@context': 'http://schema.org',
         '@type': 'WebSite',
-        url,
-        name: title,
         alternateName: titleAlt,
+        name: title,
+        url,
     };
 
     if (contentType !== 'article') {
@@ -45,34 +45,34 @@ const getJsonLd = (
             {
                 '@context': 'https://schema.org',
                 '@type': 'Article',
-                headline: title,
                 alternateName: titleAlt,
-                description,
-                url,
-                keywords,
-                datePublished: post.publishedAt,
-                dateModified: post.updatedAt,
                 articleBody: post.body,
                 articleSection: post.category,
-                image: {
-                    '@type': 'ImageObject',
-                    url: image,
-                    name: imageAlt,
-                },
                 author: {
                     '@type': 'Person',
                     name: author.username,
                 },
+                dateModified: post.updatedAt,
+                datePublished: post.publishedAt,
+                description,
+                headline: title,
+                image: {
+                    '@type': 'ImageObject',
+                    name: imageAlt,
+                    url: image,
+                },
+                keywords,
+                mainEntityOfPage: {
+                    '@id': siteConfig.siteUrl + siteConfig.articlePrefix,
+                    '@type': 'WebPage',
+                },
                 publisher: {
                     '@type': 'Organization',
-                    url: business.url,
                     logo: siteConfig.siteUrl + logo,
                     name: business.title,
+                    url: business.url,
                 },
-                mainEntityOfPage: {
-                    '@type': 'WebPage',
-                    '@id': siteConfig.siteUrl + siteConfig.articlePrefix,
-                },
+                url,
             };
         return article;
     }

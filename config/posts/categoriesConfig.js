@@ -77,18 +77,18 @@ const createPostsCategoriesPages = async (createPage, graphql, reporter) => {
                 }).forEach((_, i) => {
                     const path = i === 0 ? link : `${link}page/${i + 1}/`;
                     createPage({
-                        path,
                         component: CategoryItemWithPagination,
                         context: {
-                            limit: postsPerPage,
-                            skip: i * postsPerPage,
-                            currentPage: i + 1,
-                            numPages,
-                            locale: lang,
-                            translations: getCategoryTranslations(posts, node),
-                            category: cat.fieldValue,
                             breadcrumb: generateCrumbs(path, lang),
+                            category: cat.fieldValue,
+                            currentPage: i + 1,
+                            limit: postsPerPage,
+                            locale: lang,
+                            numPages,
+                            skip: i * postsPerPage,
+                            translations: getCategoryTranslations(posts, node),
                         },
+                        path,
                     });
                 });
             });
@@ -109,14 +109,14 @@ const createPostsCategoriesPages = async (createPage, graphql, reporter) => {
                 );
 
                 createPage({
-                    path,
                     component: CategoryItem,
                     context: {
+                        breadcrumb: generateCrumbs(path, lang),
                         categoty: cat.fieldValue,
                         locale: lang,
                         translations: getCategoryTranslations(posts, node),
-                        breadcrumb: generateCrumbs(path, lang),
                     },
+                    path,
                 });
             });
         });

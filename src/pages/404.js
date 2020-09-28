@@ -6,7 +6,7 @@ import LocalizedLink from '../views/components/LocalizedLink';
 import SEO from '../views/components/SEO';
 import MainLayout from '../views/layouts/MainLayout';
 
-const NotFoundPage = ({ pageContext: { locale, translations }, location }) => {
+const NotFoundPage = ({ location, pageContext: { locale, translations } }) => {
     if (locale === undefined) {
         if (typeof window !== `undefined`) {
             locale =
@@ -36,11 +36,11 @@ const NotFoundPage = ({ pageContext: { locale, translations }, location }) => {
 };
 
 NotFoundPage.propTypes = {
+    location: PropTypes.object.isRequired,
     pageContext: PropTypes.shape({
         locale: PropTypes.string,
         translations: PropTypes.array.isRequired,
     }).isRequired,
-    location: PropTypes.object.isRequired,
 };
 
 export default NotFoundPage;

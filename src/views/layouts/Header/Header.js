@@ -10,7 +10,7 @@ import Nav from '../Nav';
 
 // const logo = require("../../../assets/img/logo_white.svg");
 
-const Header = ({ translationsPaths, locale, siteTitle }) => (
+const Header = ({ locale, siteTitle, translationsPaths }) => (
     <header>
         <div className='container'>
             <div className='content'>
@@ -36,9 +36,9 @@ Header.defaultProps = {
 };
 
 Header.propTypes = {
+    locale: PropTypes.string.isRequired,
     siteTitle: PropTypes.string,
     translationsPaths: PropTypes.array.isRequired,
-    locale: PropTypes.string.isRequired,
 };
 
 export default Header;
