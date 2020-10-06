@@ -85,8 +85,8 @@
     "react-share": "4.3.0",
     "react-typography": "0.16.19",
     "styled-components": "5.2.0",
-    "typeface-lato": "0.0.75",
-    "typeface-montserrat": "0.0.75",
+    "typeface-lato": "1.1.13",
+    "typeface-montserrat": "1.1.13",
     "typography": "0.16.19"
   },
   "devDependencies": {
