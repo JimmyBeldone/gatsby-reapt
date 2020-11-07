@@ -1,3 +1,12 @@
+## [3.5.29](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.28...v3.5.29) (2020-11-07)
+
+
+### Bug Fixes
+
+* add additional lint packages ([1431c49](https://github.com/JimmyBeldone/gatsby-reapt/commit/1431c493e9a5565ad1602b2c939919d861874310))
+* remove options from gatsby-plugin-offline ([05b6596](https://github.com/JimmyBeldone/gatsby-reapt/commit/05b659681cfe9ef6f05b9cb17dd10367ee01a7cb))
+* update dependencies ([dce61ad](https://github.com/JimmyBeldone/gatsby-reapt/commit/dce61ad1b4c78f9c6c4c173a0d9d406617988435))
+
 ## [3.5.28](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.27...v3.5.28) (2020-09-28)
 
 
