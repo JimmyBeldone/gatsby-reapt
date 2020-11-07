@@ -4,7 +4,7 @@ module.exports = {
     // },
     extends: [
         'universe/node',
-        'universe/shared/react',
+        // 'universe/shared/react',
         'universe/web',
         'plugin:jsx-a11y/recommended',
     ],
