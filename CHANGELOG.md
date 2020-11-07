@@ -1,3 +1,10 @@
+## [3.5.30](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.29...v3.5.30) (2020-11-07)
+
+
+### Bug Fixes
+
+* node version ([a995054](https://github.com/JimmyBeldone/gatsby-reapt/commit/a995054bbec5dfbaaa8798c483c0394c59a335a3))
+
 ## [3.5.29](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.28...v3.5.29) (2020-11-07)
 
 
