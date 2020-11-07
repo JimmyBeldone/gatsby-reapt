@@ -277,25 +277,26 @@ module.exports = {
             },
             resolve: 'gatsby-plugin-lunr',
         },
-        {
-            options: {
-                cacheId: `gatsby-plugin-offline`,
-                clientsClaim: true,
-                directoryIndex: 'index.html',
-                globDirectory: 'public',
-                importWorkboxFrom: `local`,
-                navigateFallbackWhitelist: [/\/$/],
-                precachePages: [`/`],
-                skipWaiting: true,
-                workboxConfig: {
-                    globPatterns: [
-                        // '**/*',
-                        '**/*.{js,jpg,jpeg,png,svg,webp,html,css,json,map,xml,ttf,woff,woff2}',
-                    ],
-                },
-            },
-            resolve: `gatsby-plugin-offline`,
-        },
+        `gatsby-plugin-offline`,
+        // {
+        //     options: {
+        //         cacheId: `gatsby-plugin-offline`,
+        //         clientsClaim: true,
+        //         directoryIndex: 'index.html',
+        //         globDirectory: 'public',
+        //         importWorkboxFrom: `local`,
+        //         navigateFallbackWhitelist: [/\/$/],
+        //         precachePages: [`/`],
+        //         skipWaiting: true,
+        //         workboxConfig: {
+        //             globPatterns: [
+        //                 // '**/*',
+        //                 '**/*.{js,jpg,jpeg,png,svg,webp,html,css,json,map,xml,ttf,woff,woff2}',
+        //             ],
+        //         },
+        //     },
+        //     resolve: `gatsby-plugin-offline`,
+        // },
         `gatsby-plugin-webpack-bundle-analyser-v2`,
     ],
     siteMetadata: config,
