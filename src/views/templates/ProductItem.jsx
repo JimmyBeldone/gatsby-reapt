@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -9,7 +10,7 @@ import MainLayout from '../layouts/MainLayout';
 const ProductItem = ({
     data,
     location,
-    pageContext: { locale, postPath, translations },
+    pageContext: { locale, translations },
 }) => {
     const post = data.mdx;
     return (
@@ -40,10 +41,12 @@ const ProductItem = ({
 };
 
 ProductItem.propTypes = {
+    data: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,
         postPath: PropTypes.string.isRequired,
+        translations: PropTypes.array.isRequired,
     }).isRequired,
 };
 

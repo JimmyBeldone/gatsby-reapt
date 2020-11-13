@@ -10,8 +10,8 @@ const Nav = () => (
     <div id='main-nav'>
         {routes
             .filter((route) => route.nav !== false)
-            .map((route, i) => (
-                <LocalizedLink key={route.name + i} to={route.path} hasSlug>
+            .map((route) => (
+                <LocalizedLink key={route.name} to={route.path} hasSlug>
                     <FormattedMessage id={route.name} />
                 </LocalizedLink>
             ))}

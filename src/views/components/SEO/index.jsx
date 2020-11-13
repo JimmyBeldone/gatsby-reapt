@@ -10,7 +10,7 @@ import getOpenGraphMeta from './getOpenGraphMeta';
 import getTwitterMeta from './getTwitterMeta';
 
 const SEO = ({
-    article,
+    // article,
     description,
     image,
     intl: { formatMessage, locale },
@@ -159,6 +159,9 @@ const SEO = ({
 };
 
 SEO.defaultProps = {
+    // article: null,
+    description: null,
+    image: null,
     meta: [],
     pageType: 'website',
     post: null,
@@ -168,7 +171,7 @@ SEO.defaultProps = {
 };
 
 SEO.propTypes = {
-    article: PropTypes.object,
+    // article: PropTypes.object,
     description: PropTypes.string,
     image: PropTypes.shape({
         alt: PropTypes.string.isRequired,

@@ -32,7 +32,7 @@ const generateCrumbs = (path, lang) => {
                 // remaining sections of path
                 acc +=
                     pathPrefix !== null
-                        ? pathPrefix + `/${split}`
+                        ? `${pathPrefix}/${split}`
                         : `/${split}`;
                 const n = acc.lastIndexOf('/');
                 crumbs = [
@@ -53,6 +53,7 @@ const generateCrumbs = (path, lang) => {
         };
         return breadcrumb;
     }
+    return null;
 };
 
 module.exports = { generateCrumbs };

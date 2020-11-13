@@ -1,14 +1,14 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 
 import { PAGE_ML } from './src/constants/router';
 import { getSlug } from './src/utils/i18n';
 
-export const onRenderBody = (
-    { pathname, setPostBodyComponents },
-    pluginOptions,
-) => {
+// eslint-disable-next-line import/prefer-default-export
+export const onRenderBody = ({ setPostBodyComponents }) => {
     if (process.env.NODE_ENV === `production`) {
         setPostBodyComponents([
+            // eslint-disable-next-line react/jsx-filename-extension
             <script
                 key='tarteaucitron-init'
                 src='/tarteaucitron/tarteaucitron.js'

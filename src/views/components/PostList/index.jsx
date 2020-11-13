@@ -8,7 +8,7 @@ import TagList from '../TagList';
 
 const PostList = ({ posts }) => (
     <div>
-        {posts.map((post, index) => {
+        {posts.map((post) => {
             const {
                 date,
                 featuredImage,
@@ -63,7 +63,7 @@ PostList.propTypes = {
                 }),
             }),
         }),
-    ),
+    ).isRequired,
 };
 
 export default PostList;

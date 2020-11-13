@@ -58,11 +58,11 @@ const createPostsTagsPages = async (createPage, graphql, reporter) => {
     if (ContentConfig.posts.pagination) {
         const TagListWithPagination = path.join(
             __dirname,
-            '../../src/views/templates/TagItemWithPagination.js',
+            '../../src/views/templates/TagItemWithPagination.jsx',
         );
         const postsPerPage = ContentConfig.posts.perPage;
 
-        tags.forEach((tag, i) => {
+        tags.forEach((tag) => {
             const numPages = Math.ceil(tag.totalCount / postsPerPage);
             tag.edges.forEach(({ node }) => {
                 const { lang, tags: postTags } = node.frontmatter;
@@ -72,11 +72,11 @@ const createPostsTagsPages = async (createPage, graphql, reporter) => {
                     `/tags/${kebabCase(tag.fieldValue)}/`,
                 );
                 Array.from({ length: numPages }).forEach((_, i) => {
-                    const path = i === 0 ? link : `${link}page/${i + 1}/`;
+                    const slug = i === 0 ? link : `${link}page/${i + 1}/`;
                     createPage({
                         component: TagListWithPagination,
                         context: {
-                            breadcrumb: generateCrumbs(path, lang),
+                            breadcrumb: generateCrumbs(slug, lang),
                             currentPage: i + 1,
                             limit: postsPerPage,
                             locale: lang,
@@ -89,24 +89,24 @@ const createPostsTagsPages = async (createPage, graphql, reporter) => {
                                 tagIndex,
                             ),
                         },
-                        path,
+                        path: slug,
                     });
                 });
             });
         });
     } else {
-        // Return PostList.js
+        // Return PostList.jsx
         const TagItem = path.join(
             __dirname,
-            '../../src/views/templates/TagItem.js',
+            '../../src/views/templates/TagItem.jsx',
         );
 
         tags.forEach((tag) => {
             tag.edges.forEach(({ node }) => {
-                const lang = node.frontmatter.lang;
+                const { lang } = node.frontmatter;
                 const postTags = node.frontmatter.tags;
                 const tagIndex = postTags.indexOf(tag.fieldValue);
-                const path = getUrlLangPrefix(
+                const slug = getUrlLangPrefix(
                     lang,
                     `/tags/${kebabCase(tag.fieldValue)}/`,
                 );
@@ -114,12 +114,12 @@ const createPostsTagsPages = async (createPage, graphql, reporter) => {
                 createPage({
                     component: TagItem,
                     context: {
-                        breadcrumb: generateCrumbs(path, lang),
+                        breadcrumb: generateCrumbs(slug, lang),
                         locale: lang,
                         tag: tag.fieldValue,
                         translations: getTagTranslations(posts, node, tagIndex),
                     },
-                    path,
+                    path: slug,
                 });
             });
         });

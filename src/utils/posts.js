@@ -34,13 +34,12 @@ const getPostsFromQuery = (posts) => {
     if (posts) {
         return posts.edges
             .map((edge) => edge.node)
-            .map((node) =>
-                Object.assign({}, node.frontmatter, {
-                    body: node.body,
-                    excerpt: node.excerpt,
-                    id: node.id,
-                }),
-            );
+            .map((node) => ({
+                ...node.frontmatter,
+                body: node.body,
+                excerpt: node.excerpt,
+                id: node.id,
+            }));
     }
 
     return [];

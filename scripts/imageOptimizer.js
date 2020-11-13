@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+/* eslint-disable import/no-extraneous-dependencies */
 const fs = require('fs-extra');
 const glob = require('glob');
 const sharp = require('sharp');
@@ -29,6 +31,9 @@ Promise.all(
             .jpeg({ quality: QUALITY })
             .toFile(optimizedName);
 
-        return fs.rename(optimizedName, match);
+        const renamedFile = fs.rename(optimizedName, match);
+
+        // eslint-disable-next-line consistent-return
+        return renamedFile;
     }),
 );

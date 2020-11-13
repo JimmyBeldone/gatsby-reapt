@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+/* eslint-disable import/no-extraneous-dependencies */
 const chalk = require('chalk');
 const prompt = require('prompt');
 const replace = require('replace');
