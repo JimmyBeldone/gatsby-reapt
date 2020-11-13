@@ -1,3 +1,11 @@
+## [3.5.31](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.30...v3.5.31) (2020-11-13)
+
+
+### Bug Fixes
+
+* .js components to .jsx ([f75e0a7](https://github.com/JimmyBeldone/gatsby-reapt/commit/f75e0a787e6644d837b81311768094a44fa19889))
+* update dependencies ([2430e2b](https://github.com/JimmyBeldone/gatsby-reapt/commit/2430e2bff6652f1a88dfb8f890655eaa7ec6f748))
+
 ## [3.5.30](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.29...v3.5.30) (2020-11-07)
 
 
