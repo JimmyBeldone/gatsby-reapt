@@ -21,7 +21,7 @@ const {
 //     getFeaturedProducts,
 // } = require('./src/utils/products');
 
-exports.createSchemaCustomization = ({ actions, schema }) => {
+exports.createSchemaCustomization = ({ actions }) => {
     const { createFieldExtension, createTypes } = actions;
 
     createFieldExtension({

@@ -21,18 +21,18 @@ const SwitchLangBtn = ({ locale, translationsPaths }) => {
         <div className='swith-lang-bloc'>
             <label htmlFor='lang-select'>
                 <FormattedMessage id='general.lang' />
+                <select
+                    id='lang-select'
+                    onChange={(e) => nav(e)}
+                    defaultValue={locale}
+                >
+                    {translationsPaths.map((lang) => (
+                        <option key={lang.langKey} value={lang.langKey}>
+                            {lang.langValue}
+                        </option>
+                    ))}
+                </select>
             </label>
-            <select
-                id='lang-select'
-                onChange={(e) => nav(e)}
-                defaultValue={locale}
-            >
-                {translationsPaths.map((lang) => (
-                    <option key={lang.langKey} value={lang.langKey}>
-                        {lang.langValue}
-                    </option>
-                ))}
-            </select>
         </div>
     );
 };

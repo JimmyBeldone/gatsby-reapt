@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import { articlePrefix } from '../../../config/siteConfig';
 import Pagination from '../components/Pagination';
 import PostList from '../components/PostList';
 import SEO from '../components/SEO';
 import MainLayout from '../layouts/MainLayout';
 
-const TagItemWithPagination = ({
+const PostListWithPagination = ({
     data,
     location,
-    pageContext: { currentPage, locale, numPages, tag, translations },
+    pageContext: { currentPage, locale, numPages, translations },
 }) => {
     const { allMdx } = data;
     return (
@@ -26,7 +27,6 @@ const TagItemWithPagination = ({
                 <h1>
                     <FormattedMessage id='demo.blog.title' />
                 </h1>
-                <p>Tag: {tag}</p>
                 <p>
                     <FormattedMessage
                         id='demo.blog.count'
@@ -34,10 +34,11 @@ const TagItemWithPagination = ({
                     />
                 </p>
                 <PostList posts={allMdx.edges} />
+
                 <Pagination
                     numPages={numPages}
                     currentPage={currentPage}
-                    contextPage={`/tags/${tag}/`}
+                    contextPage={articlePrefix}
                     lang={locale}
                 />
             </div>
@@ -45,32 +46,27 @@ const TagItemWithPagination = ({
     );
 };
 
-TagItemWithPagination.propTypes = {
+PostListWithPagination.propTypes = {
     data: PropTypes.shape({
         allMdx: PropTypes.object.isRequired,
-    }),
+    }).isRequired,
     location: PropTypes.object.isRequired,
     pageContext: PropTypes.shape({
         currentPage: PropTypes.number.isRequired,
         locale: PropTypes.string.isRequired,
         numPages: PropTypes.number.isRequired,
-        tag: PropTypes.string.isRequired,
         translations: PropTypes.array.isRequired,
     }).isRequired,
 };
 
-export default TagItemWithPagination;
+export default PostListWithPagination;
 
 export const query = graphql`
-    query($skip: Int!, $limit: Int!, $locale: String!, $tag: String!) {
+    query blogPostsListPagination($skip: Int!, $limit: Int!, $locale: String!) {
         allMdx(
             sort: { fields: [frontmatter___date], order: DESC }
             filter: {
-                frontmatter: {
-                    featured: { eq: false }
-                    lang: { eq: $locale }
-                    tags: { in: [$tag] }
-                }
+                frontmatter: { featured: { eq: false }, lang: { eq: $locale } }
             }
             limit: $limit
             skip: $skip

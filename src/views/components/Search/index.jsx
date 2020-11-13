@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
@@ -14,7 +15,7 @@ const Search = ({ locale }) => {
             return;
         }
         const lunrIndex = window.__LUNR__[locale];
-        const searchResults = lunrIndex.index.search(query + '*');
+        const searchResults = lunrIndex.index.search(`${query}*`);
 
         setResults(
             searchResults.map(({ ref }) => {
@@ -36,9 +37,9 @@ const Search = ({ locale }) => {
                 }}
             />
             <ul className='search-result'>
-                {results.map(({ description, title, url }, index) => {
+                {results.map(({ description, title, url }) => {
                     return (
-                        <li key={index}>
+                        <li key={url}>
                             <Link to={url}>
                                 <div className='title'>{title}</div>
                                 <div className='description'>{description}</div>

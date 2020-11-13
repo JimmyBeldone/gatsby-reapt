@@ -60,11 +60,11 @@ const createPostsCategoriesPages = async (createPage, graphql, reporter) => {
     if (ContentConfig.posts.pagination) {
         const CategoryItemWithPagination = path.join(
             __dirname,
-            '../../src/views/templates/CategoryItemWithPagination.js',
+            '../../src/views/templates/CategoryItemWithPagination.jsx',
         );
         const postsPerPage = ContentConfig.posts.perPage;
 
-        categories.forEach((cat, i) => {
+        categories.forEach((cat) => {
             const numPages = Math.ceil(cat.totalCount / postsPerPage);
             cat.edges.forEach(({ node }) => {
                 const { lang } = node.frontmatter;
@@ -75,11 +75,11 @@ const createPostsCategoriesPages = async (createPage, graphql, reporter) => {
                 Array.from({
                     length: numPages,
                 }).forEach((_, i) => {
-                    const path = i === 0 ? link : `${link}page/${i + 1}/`;
+                    const slug = i === 0 ? link : `${link}page/${i + 1}/`;
                     createPage({
                         component: CategoryItemWithPagination,
                         context: {
-                            breadcrumb: generateCrumbs(path, lang),
+                            breadcrumb: generateCrumbs(slug, lang),
                             category: cat.fieldValue,
                             currentPage: i + 1,
                             limit: postsPerPage,
@@ -88,22 +88,22 @@ const createPostsCategoriesPages = async (createPage, graphql, reporter) => {
                             skip: i * postsPerPage,
                             translations: getCategoryTranslations(posts, node),
                         },
-                        path,
+                        path: slug,
                     });
                 });
             });
         });
     } else {
-        // Return PostList.js
+        // Return PostList.jsx
         const CategoryItem = path.join(
             __dirname,
-            '../../src/views/templates/CategoryItem.js',
+            '../../src/views/templates/CategoryItem.jsx',
         );
 
         categories.forEach((cat) => {
             cat.edges.forEach(({ node }) => {
-                const lang = node.frontmatter.lang;
-                const path = getUrlLangPrefix(
+                const { lang } = node.frontmatter;
+                const slug = getUrlLangPrefix(
                     lang,
                     `/category/${kebabCase(cat.fieldValue)}/`,
                 );
@@ -111,12 +111,12 @@ const createPostsCategoriesPages = async (createPage, graphql, reporter) => {
                 createPage({
                     component: CategoryItem,
                     context: {
-                        breadcrumb: generateCrumbs(path, lang),
+                        breadcrumb: generateCrumbs(slug, lang),
                         categoty: cat.fieldValue,
                         locale: lang,
                         translations: getCategoryTranslations(posts, node),
                     },
-                    path,
+                    path: slug,
                 });
             });
         });

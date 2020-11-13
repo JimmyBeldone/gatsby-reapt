@@ -3,7 +3,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import { getPostsFromQuery } from '../../../utils/posts';
-import { SimilarArticlesFactory } from './SimilarArticlesFactory';
+import SimilarArticlesFactory from './SimilarArticlesFactory';
 
 const SimilarPosts = ({ allPosts, category, nbPosts, postId, tags }) => {
     // (2.) Marshall the response into articles
@@ -20,7 +20,7 @@ const SimilarPosts = ({ allPosts, category, nbPosts, postId, tags }) => {
     return (
         <section className='similar-articles'>
             <FormattedMessage id='posts.related.title' tagName='h2' />
-            {similarArticles.map(({ article }, i) => (
+            {similarArticles.map(({ article }) => (
                 <div className='post-item' key={`similar-post-${article.id}`}>
                     <div className='post-title'>{article.title}</div>
                     <div className='post-excerpt'>{article.excerpt}</div>

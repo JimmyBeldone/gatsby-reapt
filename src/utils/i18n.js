@@ -2,7 +2,23 @@ const kebabCase = require('lodash.kebabcase');
 
 const SiteConfig = require('../../config/siteConfig');
 const locales = require('../constants/locales');
+
 const slugs = require(`../lang/slugs.json`);
+
+/**
+ * Get posts from same folder
+ *
+ * @param {Array} postList List of all posts
+ * @param {Object} post Current Post
+ * @returns {Array} posts from same folder
+ */
+const getPostsFromSameFolder = (postList, post) => {
+    return postList.filter(
+        ({ node }) =>
+            node.fileAbsolutePath.split('/').slice(-2, -1)[0] ===
+            post.fileAbsolutePath.split('/').slice(-2, -1)[0],
+    );
+};
 
 /**
  * Join provided url paths.
@@ -13,6 +29,7 @@ const resolveUrl = (...paths) => {
     return paths.reduce((resolvedUrl, path) => {
         const urlPath = path.toString().trim();
         if (urlPath) {
+            // eslint-disable-next-line no-param-reassign
             resolvedUrl +=
                 (resolvedUrl === '' ? '' : '/') +
                 urlPath.replace(/^\/|\/$/g, '');
@@ -65,11 +82,10 @@ const getTranslationObject = (lang, path) => {
 const slugExist = (path, lang) => {
     if (path === `/`) {
         return path;
-    } else {
-        return slugs[lang][path] !== undefined
-            ? `/${slugs[lang][path]}/`
-            : `/${path}/`;
     }
+    return slugs[lang][path] !== undefined
+        ? `/${slugs[lang][path]}/`
+        : `/${path}/`;
 };
 
 const getSlug = (path, lang) => {
@@ -110,7 +126,7 @@ const getPostTranslations = (postList, post) => {
     const postsFromSameFolder = getPostsFromSameFolder(postList, post);
 
     return postsFromSameFolder.map(({ node }) => {
-        const lang = node.frontmatter.lang;
+        const { lang } = node.frontmatter;
         const path = getUrlLangPrefix(
             lang,
             resolvePageUrl(node.frontmatter.path),
@@ -131,7 +147,7 @@ const getCategoryTranslations = (postList, post) => {
     const postsFromSameFolder = getPostsFromSameFolder(postList, post);
 
     return postsFromSameFolder.map(({ node }) => {
-        const lang = node.frontmatter.lang;
+        const { lang } = node.frontmatter;
         const path = getUrlLangPrefix(
             lang,
             `/category/${kebabCase(node.frontmatter.category)}/`,
@@ -153,8 +169,8 @@ const getTagTranslations = (postList, post, tagIndex) => {
     const postsFromSameFolder = getPostsFromSameFolder(postList, post);
 
     return postsFromSameFolder.map(({ node }) => {
-        const lang = node.frontmatter.lang;
-        const tags = node.frontmatter.tags;
+        const { lang } = node.frontmatter;
+        const { tags } = node.frontmatter;
         const path = getUrlLangPrefix(
             lang,
             `/tags/${kebabCase(tags[tagIndex])}/`,
@@ -169,21 +185,6 @@ const getPageTranslations = (path, is404 = false) => {
         const url = is404 ? getUrlLangPrefix(lang, path) : getSlug(path, lang);
         return getTranslationObject(lang, url);
     });
-};
-
-/**
- * Get posts from same folder
- *
- * @param {Array} postList List of all posts
- * @param {Object} post Current Post
- * @returns {Array} posts from same folder
- */
-const getPostsFromSameFolder = (postList, post) => {
-    return postList.filter(
-        ({ node }) =>
-            node.fileAbsolutePath.split('/').slice(-2, -1)[0] ===
-            post.fileAbsolutePath.split('/').slice(-2, -1)[0],
-    );
 };
 
 module.exports = {

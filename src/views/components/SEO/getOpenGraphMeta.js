@@ -1,83 +1,6 @@
 import siteConfig from '../../../../config/siteConfig';
 import socialConfig from '../../../../config/socialConfig';
 
-const getOpenGraphMeta = (
-    title,
-    description,
-    image,
-    imageAlt,
-    contentType,
-    url,
-    locale,
-    article = null,
-    product = null,
-) => {
-    const meta = [
-        {
-            content: title,
-            property: `og:title`,
-        },
-        {
-            content: description,
-            property: `og:description`,
-        },
-        {
-            content: image,
-            property: `og:image`,
-        },
-        {
-            content: image,
-            property: `og:image:secure_url`,
-        },
-        {
-            content: imageAlt,
-            property: 'og:image:alt',
-        },
-        {
-            content: url,
-            property: `og:url`,
-        },
-        {
-            content: siteConfig.name,
-            property: `og:site_name`,
-        },
-        {
-            content: locale,
-            property: `og:locale`,
-        },
-    ];
-
-    let otherMeta = [];
-
-    switch (contentType) {
-        case 'website':
-            otherMeta = setWebsite();
-            break;
-        case 'article':
-            if (article === null) {
-                console.error('SEO Component: the prop "post" is missing');
-            }
-            otherMeta = setArticle(article);
-            break;
-        case 'product':
-            if (product === null) {
-                console.error('SEO Component: the prop "product" is missing');
-            }
-            otherMeta = setProductItem(product);
-            break;
-        case 'product:group':
-            otherMeta = setProductGroup();
-            break;
-        case 'business':
-            otherMeta = setBusiness();
-            break;
-        default:
-            break;
-    }
-
-    return meta.concat(otherMeta);
-};
-
 const setWebsite = () => [
     {
         content: 'website',
@@ -193,6 +116,83 @@ const setProductItem = ({
         meta.concat(priceArray);
     }
     return meta;
+};
+
+const getOpenGraphMeta = (
+    title,
+    description,
+    image,
+    imageAlt,
+    contentType,
+    url,
+    locale,
+    article = null,
+    product = null,
+) => {
+    const meta = [
+        {
+            content: title,
+            property: `og:title`,
+        },
+        {
+            content: description,
+            property: `og:description`,
+        },
+        {
+            content: image,
+            property: `og:image`,
+        },
+        {
+            content: image,
+            property: `og:image:secure_url`,
+        },
+        {
+            content: imageAlt,
+            property: 'og:image:alt',
+        },
+        {
+            content: url,
+            property: `og:url`,
+        },
+        {
+            content: siteConfig.name,
+            property: `og:site_name`,
+        },
+        {
+            content: locale,
+            property: `og:locale`,
+        },
+    ];
+
+    let otherMeta = [];
+
+    switch (contentType) {
+        case 'website':
+            otherMeta = setWebsite();
+            break;
+        case 'article':
+            if (article === null) {
+                console.error('SEO Component: the prop "post" is missing');
+            }
+            otherMeta = setArticle(article);
+            break;
+        case 'product':
+            if (product === null) {
+                console.error('SEO Component: the prop "product" is missing');
+            }
+            otherMeta = setProductItem(product);
+            break;
+        case 'product:group':
+            otherMeta = setProductGroup();
+            break;
+        case 'business':
+            otherMeta = setBusiness();
+            break;
+        default:
+            break;
+    }
+
+    return meta.concat(otherMeta);
 };
 
 export default getOpenGraphMeta;

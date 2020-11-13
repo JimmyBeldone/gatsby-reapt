@@ -1,6 +1,6 @@
 import orderBy from 'lodash.orderby';
 
-export class SimilarArticlesFactory {
+class SimilarArticlesFactory {
     // (1.) Create by passing in articles, currentSlug
     constructor(articles, postId) {
         // (2.) Don't include the current article in articles list
@@ -54,7 +54,7 @@ export class SimilarArticlesFactory {
 
         function addToMap(article) {
             const slug = getSlug(article);
-            if (!identityMap.hasOwnProperty(slug)) {
+            if (!Object.prototype.hasOwnProperty.call(identityMap, slug)) {
                 identityMap[slug] = {
                     article,
                     points: 0,
@@ -63,22 +63,22 @@ export class SimilarArticlesFactory {
         }
 
         // (7.) For category matches, we add 2 points
-        function addCategoryPoints(article, category) {
+        function addCategoryPoints(article, cat) {
             const categoryPoints = 2;
             const slug = getSlug(article);
 
-            if (article.category === category) {
+            if (article.category === cat) {
                 identityMap[slug].points += categoryPoints;
             }
         }
 
         // (8.) For tags matches, we add 1 point
-        function addTagsPoints(article, tags) {
+        function addTagsPoints(article, tagsList) {
             const tagPoint = 1;
             const slug = getSlug(article);
 
             article.tags.forEach((aTag) => {
-                if (tags.includes(aTag)) {
+                if (tagsList.includes(aTag)) {
                     identityMap[slug].points += tagPoint;
                 }
             });
@@ -89,11 +89,11 @@ export class SimilarArticlesFactory {
         }
 
         // (6.) Map over all articles, add to map and add points
-        for (const article of articles) {
+        articles.forEach((article) => {
             addToMap(article);
             addCategoryPoints(article, category);
             addTagsPoints(article, tags);
-        }
+        });
 
         // (9.) Convert the identity map to an array
         const arrayIdentityMap = getIdentityMapAsArray();
@@ -106,3 +106,5 @@ export class SimilarArticlesFactory {
         return similarArticles.splice(0, maxArticles);
     }
 }
+
+export default SimilarArticlesFactory;

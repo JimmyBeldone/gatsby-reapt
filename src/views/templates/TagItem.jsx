@@ -3,30 +3,30 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import Pagination from '../components/Pagination';
 import PostList from '../components/PostList';
 import SEO from '../components/SEO';
 import MainLayout from '../layouts/MainLayout';
 
-const CategoryItemWithPagination = ({
+const TagItem = ({
     data,
     location,
-    pageContext: { category, currentPage, locale, numPages, translations },
+    pageContext: { locale, tag, translations },
 }) => {
     const { allMdx } = data;
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
-                title='demo.blog.headerTitle'
+                title={tag}
                 location={location}
                 translationsPaths={translations}
-                description='demo.blog.description'
+                // description={post.frontmatter.description}
+                pageType='tag'
             />
             <div className='container'>
                 <h1>
                     <FormattedMessage id='demo.blog.title' />
                 </h1>
-                <p>Category: {category}</p>
+                <p>Tag: {tag}</p>
                 <p>
                     <FormattedMessage
                         id='demo.blog.count'
@@ -34,46 +34,43 @@ const CategoryItemWithPagination = ({
                     />
                 </p>
                 <PostList posts={allMdx.edges} />
-                <Pagination
-                    numPages={numPages}
-                    currentPage={currentPage}
-                    contextPage={`/category/${category}/`}
-                    lang={locale}
-                />
             </div>
         </MainLayout>
     );
 };
 
-CategoryItemWithPagination.propTypes = {
+TagItem.propTypes = {
     data: PropTypes.shape({
-        allMdx: PropTypes.object.isRequired,
-    }),
+        allMdx: PropTypes.shape({
+            edges: PropTypes.arrayOf(
+                PropTypes.shape({
+                    node: PropTypes.shape({
+                        frontmatter: PropTypes.shape({
+                            path: PropTypes.string.isRequired,
+                            title: PropTypes.string.isRequired,
+                        }),
+                    }),
+                }).isRequired,
+            ),
+            totalCount: PropTypes.number.isRequired,
+        }),
+    }).isRequired,
     location: PropTypes.object.isRequired,
     pageContext: PropTypes.shape({
-        category: PropTypes.string.isRequired,
-        currentPage: PropTypes.number.isRequired,
         locale: PropTypes.string.isRequired,
-        numPages: PropTypes.number.isRequired,
+        tag: PropTypes.string.isRequired,
         translations: PropTypes.array.isRequired,
     }).isRequired,
 };
 
-export default CategoryItemWithPagination;
+export default TagItem;
 
 export const query = graphql`
-    query($skip: Int!, $limit: Int!, $locale: String!, $category: String!) {
+    query($tag: String!) {
         allMdx(
+            limit: 2000
             sort: { fields: [frontmatter___date], order: DESC }
-            filter: {
-                frontmatter: {
-                    featured: { eq: false }
-                    lang: { eq: $locale }
-                    category: { eq: $category }
-                }
-            }
-            limit: $limit
-            skip: $skip
+            filter: { frontmatter: { tags: { in: [$tag] } } }
         ) {
             totalCount
             edges {
@@ -81,10 +78,10 @@ export const query = graphql`
                     id
                     frontmatter {
                         title
-                        date
                         path
                         category
                         tags
+                        date
                         featuredImage {
                             childImageSharp {
                                 fixed(height: 150) {

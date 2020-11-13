@@ -3,24 +3,24 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import Pagination from '../components/Pagination';
 import PostList from '../components/PostList';
 import SEO from '../components/SEO';
 import MainLayout from '../layouts/MainLayout';
 
-const CategoryItem = ({
+const CategoryItemWithPagination = ({
     data,
     location,
-    pageContext: { category, locale, translations },
+    pageContext: { category, currentPage, locale, numPages, translations },
 }) => {
     const { allMdx } = data;
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
-                title={category}
+                title='demo.blog.headerTitle'
                 location={location}
                 translationsPaths={translations}
-                // description={post.frontmatter.description}
-                pageType='tag'
+                description='demo.blog.description'
             />
             <div className='container'>
                 <h1>
@@ -34,44 +34,46 @@ const CategoryItem = ({
                     />
                 </p>
                 <PostList posts={allMdx.edges} />
+                <Pagination
+                    numPages={numPages}
+                    currentPage={currentPage}
+                    contextPage={`/category/${category}/`}
+                    lang={locale}
+                />
             </div>
         </MainLayout>
     );
 };
 
-CategoryItem.propTypes = {
+CategoryItemWithPagination.propTypes = {
     data: PropTypes.shape({
-        allMdx: PropTypes.shape({
-            edges: PropTypes.arrayOf(
-                PropTypes.shape({
-                    node: PropTypes.shape({
-                        frontmatter: PropTypes.shape({
-                            path: PropTypes.string.isRequired,
-                            title: PropTypes.string.isRequired,
-                        }),
-                    }),
-                }).isRequired,
-            ),
-            totalCount: PropTypes.number.isRequired,
-        }),
-    }),
+        allMdx: PropTypes.object.isRequired,
+    }).isRequired,
     location: PropTypes.object.isRequired,
     pageContext: PropTypes.shape({
         category: PropTypes.string.isRequired,
+        currentPage: PropTypes.number.isRequired,
         locale: PropTypes.string.isRequired,
-        tag: PropTypes.string.isRequired,
+        numPages: PropTypes.number.isRequired,
         translations: PropTypes.array.isRequired,
     }).isRequired,
 };
 
-export default CategoryItem;
+export default CategoryItemWithPagination;
 
 export const query = graphql`
-    query($category: String!) {
+    query($skip: Int!, $limit: Int!, $locale: String!, $category: String!) {
         allMdx(
-            limit: 2000
             sort: { fields: [frontmatter___date], order: DESC }
-            filter: { frontmatter: { category: { eq: $category } } }
+            filter: {
+                frontmatter: {
+                    featured: { eq: false }
+                    lang: { eq: $locale }
+                    category: { eq: $category }
+                }
+            }
+            limit: $limit
+            skip: $skip
         ) {
             totalCount
             edges {
@@ -79,10 +81,10 @@ export const query = graphql`
                     id
                     frontmatter {
                         title
+                        date
                         path
                         category
                         tags
-                        date
                         featuredImage {
                             childImageSharp {
                                 fixed(height: 150) {

@@ -7,16 +7,16 @@ import PostList from '../components/PostList';
 import SEO from '../components/SEO';
 import MainLayout from '../layouts/MainLayout';
 
-const TagItem = ({
+const CategoryItem = ({
     data,
     location,
-    pageContext: { locale, tag, translations },
+    pageContext: { category, locale, translations },
 }) => {
     const { allMdx } = data;
     return (
         <MainLayout locale={locale} translationsPaths={translations}>
             <SEO
-                title={tag}
+                title={category}
                 location={location}
                 translationsPaths={translations}
                 // description={post.frontmatter.description}
@@ -26,7 +26,7 @@ const TagItem = ({
                 <h1>
                     <FormattedMessage id='demo.blog.title' />
                 </h1>
-                <p>Tag: {tag}</p>
+                <p>Category: {category}</p>
                 <p>
                     <FormattedMessage
                         id='demo.blog.count'
@@ -39,7 +39,7 @@ const TagItem = ({
     );
 };
 
-TagItem.propTypes = {
+CategoryItem.propTypes = {
     data: PropTypes.shape({
         allMdx: PropTypes.shape({
             edges: PropTypes.arrayOf(
@@ -54,23 +54,24 @@ TagItem.propTypes = {
             ),
             totalCount: PropTypes.number.isRequired,
         }),
-    }),
+    }).isRequired,
     location: PropTypes.object.isRequired,
     pageContext: PropTypes.shape({
+        category: PropTypes.string.isRequired,
         locale: PropTypes.string.isRequired,
         tag: PropTypes.string.isRequired,
         translations: PropTypes.array.isRequired,
     }).isRequired,
 };
 
-export default TagItem;
+export default CategoryItem;
 
 export const query = graphql`
-    query($tag: String!) {
+    query($category: String!) {
         allMdx(
             limit: 2000
             sort: { fields: [frontmatter___date], order: DESC }
-            filter: { frontmatter: { tags: { in: [$tag] } } }
+            filter: { frontmatter: { category: { eq: $category } } }
         ) {
             totalCount
             edges {

@@ -15,13 +15,7 @@ import {
 import './Share.styl';
 import siteConfig from '../../../../config/siteConfig';
 
-const ShareButtons = ({
-    description,
-    intl: { formatMessage, locale },
-    media,
-    tags,
-    url,
-}) => {
+const ShareButtons = ({ description, media, url }) => {
     // const formattedDescription = formatMessage({ id: description });
     const path = siteConfig.siteUrl + url;
     const pathMedia = siteConfig.siteUrl + media;
@@ -75,13 +69,13 @@ const ShareButtons = ({
 
 ShareButtons.propTypes = {
     description: PropTypes.string.isRequired,
-    intl: PropTypes.object.isRequired,
+    // intl: PropTypes.object.isRequired,
     media: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string),
+    // tags: PropTypes.arrayOf(PropTypes.string),
     url: PropTypes.string.isRequired,
 };
 ShareButtons.defaultProps = {
-    tags: [],
+    // tags: [],
 };
 
 export default injectIntl(ShareButtons);

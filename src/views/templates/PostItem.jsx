@@ -13,7 +13,7 @@ import MainLayout from '../layouts/MainLayout';
 const PostItem = ({
     data,
     location,
-    pageContext: { locale, postPath, translations },
+    pageContext: { locale, translations },
 }) => {
     const post = data.mdx;
     const allPosts = data.allMdx;
@@ -79,7 +79,7 @@ PostItem.propTypes = {
         allMdx: PropTypes.object.isRequired,
         file: PropTypes.object.isRequired,
         mdx: PropTypes.object.isRequired,
-    }),
+    }).isRequired,
     location: PropTypes.object.isRequired,
     pageContext: PropTypes.shape({
         locale: PropTypes.string.isRequired,

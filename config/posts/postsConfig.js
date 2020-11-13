@@ -44,7 +44,7 @@ const createPostsPages = async (createPage, graphql, reporter) => {
     if (ContentConfig.posts.pagination) {
         const PostListWithPagination = path.join(
             __dirname,
-            '../../src/views/templates/PostListWithPagination.js',
+            '../../src/views/templates/PostListWithPagination.jsx',
         );
         const postsPerPage = ContentConfig.posts.perPage;
         const postsWithoutFeatured = posts.filter(
@@ -55,8 +55,8 @@ const createPostsPages = async (createPage, graphql, reporter) => {
         Array.from({
             length: numPages,
         }).forEach((_, i) => {
-            langs.all.map((lang) => {
-                const path =
+            langs.all.forEach((lang) => {
+                const slug =
                     i === 0
                         ? getUrlLangPrefix(lang, articlePrefix)
                         : getUrlLangPrefix(
@@ -66,60 +66,60 @@ const createPostsPages = async (createPage, graphql, reporter) => {
                 createPage({
                     component: PostListWithPagination,
                     context: {
-                        breadcrumb: generateCrumbs(path, lang),
+                        breadcrumb: generateCrumbs(slug, lang),
                         currentPage: i + 1,
                         limit: postsPerPage,
                         locale: lang,
                         numPages,
                         skip: i * postsPerPage,
-                        translations: getPageTranslations(path),
+                        translations: getPageTranslations(slug),
                     },
-                    path,
+                    path: slug,
                 });
             });
         });
     } else {
-        // Return PostList.js
+        // Return PostList.jsx
         const PostList = path.join(
             __dirname,
-            '../../src/views/templates/PostList.js',
+            '../../src/views/templates/PostList.jsx',
         );
-        langs.all.map((lang) => {
-            const path = getUrlLangPrefix(lang, articlePrefix);
+        langs.all.forEach((lang) => {
+            const slug = getUrlLangPrefix(lang, articlePrefix);
             createPage({
                 component: PostList,
                 context: {
-                    breadcrumb: generateCrumbs(path, lang),
+                    breadcrumb: generateCrumbs(slug, lang),
                     locale: lang,
-                    translations: getPageTranslations(path),
+                    translations: getPageTranslations(slug),
                 },
-                path,
+                path: slug,
             });
         });
     }
 
     const PostItem = path.join(
         __dirname,
-        '../../src/views/templates/PostItem.js',
+        '../../src/views/templates/PostItem.jsx',
     );
     // Create post detail pages
     posts.forEach(({ node }) => {
         // if (node.frontmatter.path.indexOf('/blog') !== 0) {
         //     throw new Error(`Invalid path prefix: ${node.frontmatter.path}`);
         // }
-        const lang = node.frontmatter.lang;
-        const path = resolvePageUrl(
+        const { lang } = node.frontmatter;
+        const slug = resolvePageUrl(
             getUrlLangPrefix(lang, node.frontmatter.path),
         );
         createPage({
             component: PostItem,
             context: {
-                breadcrumb: generateCrumbs(path, lang),
+                breadcrumb: generateCrumbs(slug, lang),
                 locale: lang,
                 postPath: node.frontmatter.path,
                 translations: getPostTranslations(posts, node),
             },
-            path,
+            path: slug,
         });
     });
 };
