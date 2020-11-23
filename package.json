@@ -54,7 +54,7 @@
     "date-fns": "2.16.1",
     "gatsby": "2.26.0",
     "gatsby-image": "2.5.0",
-    "gatsby-plugin-breakpoints": "1.2.5",
+    "gatsby-plugin-breakpoints": "1.2.6",
     "gatsby-plugin-lunr": "1.5.2",
     "gatsby-plugin-manifest": "2.6.0",
     "gatsby-plugin-mdx": "1.4.0",
