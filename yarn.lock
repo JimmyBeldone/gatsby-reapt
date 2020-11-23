@@ -11713,10 +11713,10 @@ mixin-deep@^1.2.0:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
 
-mk-react-comp@1.1.17:
-  version "1.1.17"
-  resolved "https://registry.yarnpkg.com/mk-react-comp/-/mk-react-comp-1.1.17.tgz#900b417179e2da398b02b20e85bdda50e3c7ecb9"
-  integrity sha512-Vb8olwbWGOjB5oEWXDe9JoEl/oEMhCCBexc8ne2/tWDGJLwU5HSD7IJmSLHGO54phXDhEkihauHEA9D6U3+dKw==
+mk-react-comp@1.1.18:
+  version "1.1.18"
+  resolved "https://registry.yarnpkg.com/mk-react-comp/-/mk-react-comp-1.1.18.tgz#83bbce733c834d2cc647088887df589b20a4aea2"
+  integrity sha512-3JlLjARj/KefMGWjV23efoK/ZqY8HDxmTa/BW59rofHtexPE2Wo502qyEo1SjTwi76Ip+MniHqA6+KT2dfog1A==
   dependencies:
     chalk "4.1.0"
     commander "6.2.0"
