@@ -110,7 +110,7 @@
     "eslint-plugin-sort-keys-fix": "1.1.1",
     "gatsby-plugin-eslint": "2.0.8",
     "gatsby-plugin-force-trailing-slashes": "1.0.4",
-    "gatsby-plugin-stylus-resources": "1.0.32",
+    "gatsby-plugin-stylus-resources": "1.0.33",
     "gatsby-plugin-webpack-bundle-analyser-v2": "1.1.15",
     "husky": "4.3.0",
     "lint-staged": "10.5.1",
