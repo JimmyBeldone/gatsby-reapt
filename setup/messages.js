@@ -26,9 +26,20 @@ ${unicode(icons.check)}  Your package.json is set !
 ${chalkBg('                                         ')}
 
 
-${unicode(icons.rocket)}  Gatsby Reapt Initialized ${unicode(icons.lemon)}
+${unicode(icons.rocket)}  Gatsby Stater Lemonade Initialized ${unicode(
+    icons.lemon,
+)}
 
 ${unicode(icons.biceps)}  Go build something great !
+
+Start your app with :
+
+
+$ yarn start
+
+or
+
+$ npm run start
 
 
 ${chalkBg('                                         ')}
