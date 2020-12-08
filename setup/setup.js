@@ -101,7 +101,6 @@ const updatePackage = async () => {
                 writeMessage(gitDeleteMessage);
                 updatePackage();
             });
-            updatePackage();
         } else {
             writeMessage(gitNoDeleteMessage);
             updatePackage();
