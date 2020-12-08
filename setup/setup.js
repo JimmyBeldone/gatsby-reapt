@@ -1,119 +1,123 @@
-/* eslint-disable no-shadow */
 /* eslint-disable import/no-extraneous-dependencies */
-const chalk = require('chalk');
-const prompt = require('prompt');
+const prompts = require('prompts');
 const replace = require('replace');
 const rimraf = require('rimraf');
 
-const prompts = require('./setupPrompts');
+const questions = require('./setupPrompts');
+const {
+    cancelMessage,
+    finalMessage,
+    gitDeleteMessage,
+    gitNoDeleteMessage,
+    intalledMessage,
+    pkgIntroMesage,
+} = require('./messages');
 
-const chalkSuccess = chalk.green;
-const chalkProcessing = chalk.blue;
-const chalkWarn = chalk.red;
+intalledMessage();
 
-/* eslint-disable no-console */
+const onCancel = () => {
+    cancelMessage();
+    return false;
+};
 
-console.log(chalkSuccess('Dependencies installed.'));
+// Update package.json
+const updatePackage = async () => {
+    pkgIntroMesage();
 
-prompt.colors = false;
-prompt.start();
+    const responses = await prompts(questions);
 
-console.log(chalkWarn('WARNING:  Preparing to delete local git repository...'));
-prompt.get(
-    [{ description: 'Delete the git repository?  [Y/n]', name: 'deleteGit' }],
-    (err, result) => {
-        const deleteGit = result.deleteGit.toUpperCase();
+    const values = [
+        {
+            key: 'name',
+            value: responses.projectName,
+        },
+        {
+            key: 'version',
+            value: responses.version,
+        },
+        {
+            key: 'author',
+            value: responses.author,
+        },
+        {
+            key: 'license',
+            value: responses.license,
+        },
+        {
+            key: 'description',
+            value: responses.description,
+        },
+        // simply use an empty URL here to clear the existing repo URL
+        {
+            key: 'url',
+            value: 'https://github.com/username/repo',
+        },
+    ];
 
-        if (err) {
-            process.exit(1);
-        }
+    // update package.json with the user's values
+    values.forEach((res) => {
+        replace({
+            paths: ['setup/package.json'],
+            recursive: false,
+            regex: `("${res.key}"): "(.*?)"`,
+            replacement: `$1: "${res.value}"`,
+            silent: true,
+        });
+    });
 
-        const updatePackage = () => {
-            console.log(chalkProcessing('Updating package.json settings:'));
+    // reset package.json 'keywords' field to empty state
+    replace({
+        paths: ['setup/package.json'],
+        recursive: false,
+        regex: /"keywords": \[[\s\S]+?\]/,
+        replacement: `"keywords": []`,
+        silent: true,
+    });
 
-            prompt.get(prompts, (err, result) => {
-                // parse user responses
-                // default values provided for fields that will cause npm to complain if left empty
-                const responses = [
-                    {
-                        key: 'name',
-                        value: result.projectName || 'new-project',
-                    },
-                    {
-                        key: 'version',
-                        value: result.version || '0.1.0',
-                    },
-                    {
-                        key: 'author',
-                        value:
-                            result.author ||
-                            'Jimmy Beldone <dev.jimmy.beldone@gmail.com>',
-                    },
-                    {
-                        key: 'license',
-                        value: result.license || 'MIT',
-                    },
-                    {
-                        key: 'description',
-                        value: result.description || '',
-                    },
-                    // simply use an empty URL here to clear the existing repo URL
-                    {
-                        key: 'url',
-                        value: '',
-                    },
-                ];
+    // remove setup script from package.json
+    replace({
+        paths: ['setup/package.json'],
+        recursive: false,
+        regex: /\s*"setup":.*,/,
+        replacement: '',
+        silent: true,
+    });
 
-                // update package.json with the user's values
-                responses.forEach((res) => {
-                    replace({
-                        paths: ['package.json'],
-                        recursive: false,
-                        regex: `("${res.key}"): "(.*?)"`,
-                        replacement: `$1: "${res.value}"`,
-                        silent: true,
-                    });
-                });
+    finalMessage();
 
-                // reset package.json 'keywords' field to empty state
-                replace({
-                    paths: ['package.json'],
-                    recursive: false,
-                    regex: /"keywords": \[[\s\S]+?\]/,
-                    replacement: `"keywords": []`,
-                    silent: true,
-                });
+    // remove all setup scripts from the 'tools' folder
+    rimraf('./setup', (error) => {
+        if (error) throw new Error(error);
+    });
+};
 
-                // remove setup script from package.json
-                replace({
-                    paths: ['package.json'],
-                    recursive: false,
-                    regex: /\s*"setup":.*,/,
-                    replacement: '',
-                    silent: true,
-                });
+// Initialize prompt
+// eslint-disable-next-line consistent-return
+(async () => {
+    const deleteGit = await prompts(
+        {
+            initial: true,
+            message: 'Delete the git repository?  [Y/n]',
+            name: 'value',
+            type: 'confirm',
+        },
+        { onCancel },
+    );
 
-                if (err) {
-                    console.log(chalkWarn(err));
-                }
-
-                // remove all setup scripts from the 'tools' folder
-                console.log(chalkSuccess('\nSetup complete! Cleaning up...\n'));
-                rimraf('./setup', (error) => {
-                    if (error) throw new Error(error);
-                });
-            });
-        };
-
-        if (deleteGit.match(/^N.*/)) {
-            updatePackage();
-        } else {
-            // remove the original git repository
+    if (deleteGit.value !== undefined) {
+        if (deleteGit.value) {
             rimraf('.git', (error) => {
                 if (error) throw new Error(error);
-                console.log(chalkSuccess('Original Git repository removed.\n'));
+
+                gitDeleteMessage();
                 updatePackage();
             });
+            updatePackage();
+        } else {
+            gitNoDeleteMessage();
+            updatePackage();
         }
-    },
-);
+    } else {
+        return null;
+    }
+})();

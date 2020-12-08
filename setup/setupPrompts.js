@@ -1,28 +1,40 @@
 // Define prompts for use with npm 'prompt' module in setup script
 module.exports = [
     {
-        description: 'Project name (default: new-project)',
-        message:
-            'Limited to: lowercase letters, numbers, period, hyphen, ' +
-            'underscore, and tilde; cannot begin with period or underscore.',
+        initial: 'my-new-project',
+        message: 'Project name',
         name: 'projectName',
-        pattern: /^[^._][a-z0-9-_~]+$/,
+        type: 'text',
+        validate: (projectName) => {
+            const regex = /^[^._][a-z0-9-_~]+$/;
+            if (projectName.match(regex)) {
+                return true;
+            }
+            return `Limited to: lowercase letters, numbers, period, hyphen, underscore, and tilde; cannot begin with period or underscore.`;
+        },
     },
     {
-        description: 'Version (default: 0.1.0)',
-        name: 'version',
-    },
-    {
-        description:
-            'Author (default: Jimmy Beldone <dev.jimmy.beldone@gmail.com>)',
-        name: 'author',
-    },
-    {
-        description: 'License (default: MIT)',
-        name: 'license',
-    },
-    {
-        description: 'Project description',
+        initial: '',
+        message: 'Project description',
         name: 'description',
+        type: 'text',
+    },
+    {
+        initial: '0.1.0',
+        message: 'Version',
+        name: 'version',
+        type: 'text',
+    },
+    {
+        initial: 'Jimmy Beldone <dev.jimmy.beldone@gmail.com>',
+        message: 'Author',
+        name: 'author',
+        type: 'text',
+    },
+    {
+        initial: 'MIT',
+        message: 'License',
+        name: 'license',
+        type: 'text',
     },
 ];
