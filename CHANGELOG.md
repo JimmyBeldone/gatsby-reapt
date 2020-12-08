@@ -1,3 +1,13 @@
+## [3.5.34](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.33...v3.5.34) (2020-12-08)
+
+
+### Bug Fixes
+
+* add new setup message ([fbe89c8](https://github.com/JimmyBeldone/gatsby-reapt/commit/fbe89c8b9b967195a7b7465bb235a7626ff0035b))
+* **setup:** remove double call to function ([f699bad](https://github.com/JimmyBeldone/gatsby-reapt/commit/f699badd136a37cfa5756b5726a5764ddd8f4eff))
+* add new setup config ([7dda76e](https://github.com/JimmyBeldone/gatsby-reapt/commit/7dda76eeb8f7a48d883b90c99640734b2b7f4ff1))
+* setup message ([49dddf6](https://github.com/JimmyBeldone/gatsby-reapt/commit/49dddf66c13299411f0b9505a0ba47fc2e5d4fe9))
+
 ## [3.5.33](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.32...v3.5.33) (2020-12-08)
 
 
