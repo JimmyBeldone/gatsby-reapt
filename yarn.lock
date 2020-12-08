@@ -7800,15 +7800,15 @@ gatsby-plugin-styled-components@3.5.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-gatsby-plugin-stylus-resources@1.0.33:
-  version "1.0.33"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.33.tgz#e3b3fbed33699ab654c95f7ad605d80abe5a0878"
-  integrity sha512-dHbjd7ELUAMRFK5Z4/OxeNs7z2aIOC/5Kwyw9EvxX6bqxYplp89humx9BvV1j9azYQIirRM8V9+FjddqdDXjUw==
+gatsby-plugin-stylus-resources@1.0.34:
+  version "1.0.34"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-stylus-resources/-/gatsby-plugin-stylus-resources-1.0.34.tgz#d0a3e0bce5f1136f8de4bcecc9729eff112aa20b"
+  integrity sha512-d8Kc/3wgEADeBGOLlso8pCvoUhUCbmXwEldFYw65c3uNRelmXmPPGhG51Hf8WZVEZxkEffMt5GVlNT0LkxGuqw==
   dependencies:
     "@babel/runtime" "^7.11.2"
     sass-resources-loader "^2.0.3"
     stylus "^0.54.8"
-    stylus-loader "^4.3.0"
+    stylus-loader "^4.3.1"
 
 gatsby-plugin-typescript@^2.7.0:
   version "2.7.0"
@@ -16588,10 +16588,10 @@ stylint@2.0.0:
     user-home "2.0.0"
     yargs "4.7.1"
 
-stylus-loader@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/stylus-loader/-/stylus-loader-4.3.0.tgz#d4bab5a4d957f4b1f567be108185ff23be216ad4"
-  integrity sha512-S6j5Onp4AJJIXZomHYknFEnV6/4zhPoEKxMPu0iExPgJLlGO7CeBGu+xpYCup1hiZmDBnC3BKRswADKN9goLfw==
+stylus-loader@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/stylus-loader/-/stylus-loader-4.3.1.tgz#8b4e749294d9fe0729c2e5e1f04cbf87e1c941aa"
+  integrity sha512-apDYJEM5ZpOAWbWInWcsbtI8gHNr/XYVcSY/tWqOUPt7M5tqhtwXVsAkgyiVjhuvw2Yrjq474a9H+g4d047Ebw==
   dependencies:
     fast-glob "^3.2.4"
     klona "^2.0.4"
