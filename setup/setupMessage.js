@@ -4,9 +4,7 @@ log(`
 
 ==========================================
 
-${unicode(icons.rocket)}  Initializing Gatsby Stater Lemonade  ${unicode(
-    icons.lemon,
-)}
+${unicode(icons.rocket)}  Initializing Gatsby Reapt  ${unicode(icons.lemon)}
 
 ==========================================
 

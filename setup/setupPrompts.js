@@ -3,7 +3,7 @@ module.exports = [
     {
         initial: 'my-new-project',
         message: 'Project name',
-        name: 'projectName',
+        name: 'name',
         type: 'text',
         validate: (projectName) => {
             const regex = /^[^._][a-z0-9-_~]+$/;
