@@ -4,7 +4,9 @@ log(`
 
 ==========================================
 
-${unicode(icons.rocket)}  Initializing Gatsby Reapt  ${unicode(icons.lemon)}
+${unicode(icons.rocket)}  Initializing Gatsby Reapt  ${unicode(
+    icons.lemon,
+)}
 
 ==========================================
 
