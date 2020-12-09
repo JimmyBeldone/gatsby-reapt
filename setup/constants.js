@@ -1,5 +1,6 @@
 const icons = {
     biceps: 0x1f4aa,
+    broom: 0x1f9f9,
     check: 0x2705,
     coffee: 0x2615,
     cross: 0x274c,
