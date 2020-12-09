@@ -1,3 +1,10 @@
+## [3.5.35](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.34...v3.5.35) (2020-12-09)
+
+
+### Bug Fixes
+
+* update setup config ([85b5c6e](https://github.com/JimmyBeldone/gatsby-reapt/commit/85b5c6eb756a4d893a2685d48e3a294f6226e75d))
+
 ## [3.5.34](https://github.com/JimmyBeldone/gatsby-reapt/compare/v3.5.33...v3.5.34) (2020-12-08)
 
 
