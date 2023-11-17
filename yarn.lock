@@ -1024,12 +1024,19 @@
     core-js "^2.5.7"
     regenerator-runtime "^0.11.1"
 
-"@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.0", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
   integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
   dependencies:
     regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.23.2":
+  version "7.23.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.23.2.tgz#062b0ac103261d68a966c4c7baf2ae3e62ec3885"
+  integrity sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==
+  dependencies:
+    regenerator-runtime "^0.14.0"
 
 "@babel/standalone@^7.12.6":
   version "7.12.7"
@@ -7642,12 +7649,12 @@ gatsby-page-utils@^0.5.0:
     lodash "^4.17.20"
     micromatch "^4.0.2"
 
-gatsby-plugin-breakpoints@1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-breakpoints/-/gatsby-plugin-breakpoints-1.3.1.tgz#225789fd6055ca172f68914c19dae2b18220c893"
-  integrity sha512-u9EhT2SDRd+V1mWlLv9PhR5VrqT5X83jrTxt4CO6KMtueEXYJ9XoMtUvq7KRC4amCa2SzNqkvZVbGr+wb5U10g==
+gatsby-plugin-breakpoints@1.3.11:
+  version "1.3.11"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-breakpoints/-/gatsby-plugin-breakpoints-1.3.11.tgz#3491fa12b12603215e65100772f9cdf1bb1112e8"
+  integrity sha512-zoQX3J74HpTgvquGVL87l+Hh7GQkL7Fth6WS0TdR5C1pTCOt7Pb3F3sWl4mNg2vn8CADC0dD1IgmYgnOu4XUww==
   dependencies:
-    "@babel/runtime" "^7.11.0"
+    "@babel/runtime" "^7.23.2"
 
 gatsby-plugin-eslint@2.0.8:
   version "2.0.8"
@@ -14724,6 +14731,11 @@ regenerator-runtime@^0.13.3, regenerator-runtime@^0.13.4:
   version "0.13.7"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.7.tgz#cac2dacc8a1ea675feaabaeb8ae833898ae46f55"
   integrity sha512-a54FxoJDIr27pgf7IgeQGxmqUNYrcV338lf/6gH456HZ/PhX+5BcwHXG9ajESmwe6WRO0tAzRUrRmNONWgkrew==
+
+regenerator-runtime@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.14.0.tgz#5e19d68eb12d486f797e15a3c6a918f7cec5eb45"
+  integrity sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==
 
 regenerator-transform@^0.14.2:
   version "0.14.5"
